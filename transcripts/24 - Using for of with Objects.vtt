@@ -1,0 +1,262 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.420 --> 00:00:03.700
+Now there is one thing that we 
+
+3
+00:00:03.700 --> 00:00:05.830
+have not been able to iterate 
+
+4
+00:00:05.905 --> 00:00:07.550
+over, and that is the regular, 
+
+5
+00:00:07.560 --> 00:00:10.080
+old, plain object. Plain object 
+
+6
+00:00:10.090 --> 00:00:12.190
+is not an iterable, so I've 
+
+7
+00:00:12.200 --> 00:00:13.910
+tried to use for const prop of 
+
+8
+00:00:13.920 --> 00:00:15.450
+Apple, and I tried to console 
+
+9
+00:00:15.460 --> 00:00:18.270
+log property. When we try that, 
+
+10
+00:00:18.280 --> 00:00:20.080
+it tells me that there is no 
+
+11
+00:00:20.090 --> 00:00:21.460
+symbol.iterator. We'll talk a 
+
+12
+00:00:21.460 --> 00:00:23.980
+lot more about what symbols are 
+
+13
+00:00:23.990 --> 00:00:25.970
+in those videos. For now, what 
+
+14
+00:00:25.470 --> 00:00:26.320
+we need to know is that you 
+
+15
+00:00:26.420 --> 00:00:28.710
+cannot iterate over an object. 
+
+16
+00:00:28.880 --> 00:00:30.030
+What are some of our options? 
+
+17
+00:00:31.210 --> 00:00:32.610
+There is going to be an object 
+
+18
+00:00:32.620 --> 00:00:34.870
+method called entries. Just like 
+
+19
+00:00:34.880 --> 00:00:36.690
+we used .entries against our 
+
+20
+00:00:36.700 --> 00:00:38.270
+array, we're going to be able to 
+
+21
+00:00:38.280 --> 00:00:40.450
+do .entries against an object. 
+
+22
+00:00:41.120 --> 00:00:44.230
+We don't have that yet, but if 
+
+23
+00:00:44.250 --> 00:00:46.000
+you take a look at the TC39 
+
+24
+00:00:47.540 --> 00:00:49.020
+proposal here, we'll see that 
+
+25
+00:00:49.050 --> 00:00:51.180
+object.values and object.entries, 
+
+26
+00:00:51.400 --> 00:00:52.780
+they are in stage four and they 
+
+27
+00:00:52.790 --> 00:00:55.290
+will be included in ES2017. 
+
+28
+00:00:55.580 --> 00:00:57.240
+Those are coming, and you can 
+
+29
+00:00:57.930 --> 00:00:58.990
+already polyfill it. We'll talk 
+
+30
+00:00:59.000 --> 00:01:00.580
+a lot more about polyfilling, 
+
+31
+00:01:00.330 --> 00:01:02.470
+but if you would like to use 
+
+32
+00:01:02.480 --> 00:01:03.940
+that simple solution, you can go 
+
+33
+00:01:03.950 --> 00:01:06.220
+ahead and you can use .entries. 
+
+34
+00:01:06.860 --> 00:01:09.860
+If you cannot use a polyfill, 
+
+35
+00:01:09.935 --> 00:01:10.340
+let's take a look at some of our 
+
+36
+00:01:10.380 --> 00:01:12.300
+other options here. We could do 
+
+37
+00:01:12.310 --> 00:01:15.210
+this, object.keys. Now, what 
+
+38
+00:01:15.220 --> 00:01:20.990
+does that do? Object.keys will 
+
+39
+00:01:21.000 --> 00:01:22.970
+take in an object, like an apple, 
+
+40
+00:01:23.380 --> 00:01:25.010
+and it will return to us an 
+
+41
+00:01:25.020 --> 00:01:29.300
+array of all of the keys. We 
+
+42
+00:01:29.310 --> 00:01:31.540
+don't have values yet, and we 
+
+43
+00:01:31.615 --> 00:01:31.670
+don't have entries yet, but we 
+
+44
+00:01:31.680 --> 00:01:33.960
+can get the keys. What that will 
+
+45
+00:01:34.020 --> 00:01:37.000
+do, let's see, color, size, 
+
+46
+00:01:37.240 --> 00:01:38.820
+weight, and sugar. If you want 
+
+47
+00:01:38.830 --> 00:01:40.200
+to be able to get the value, 
+
+48
+00:01:40.340 --> 00:01:46.640
+we'll say const value=apple, 
+
+49
+00:01:49.000 --> 00:01:52.270
+with the prop in it. Then we 
+
+50
+00:01:52.270 --> 00:01:53.320
+should be able to console log 
+
+51
+00:01:53.330 --> 00:01:54.530
+the value prop. Not the 
+
+52
+00:01:54.540 --> 00:01:55.480
+cleanest solution, because you 
+
+53
+00:01:55.490 --> 00:01:57.440
+sort of have to reach outside to 
+
+54
+00:01:57.450 --> 00:01:58.870
+get this object here, but that 
+
+55
+00:01:58.880 --> 00:02:01.020
+will work for you if that's 
+
+56
+00:02:01.060 --> 00:02:02.630
+exactly what you need to use. 
+
+57
+00:02:03.100 --> 00:02:04.600
+Pick your own, of course you can 
+
+58
+00:02:04.610 --> 00:02:06.520
+always use your regular, old for-
+
+59
+00:02:08.850 --> 00:02:10.080
+in. That is going to give you a 
+
+60
+00:02:10.090 --> 00:02:11.840
+very similar one, you don't need 
+
+61
+00:02:11.850 --> 00:02:14.230
+to mess with any of those. My 
+
+62
+00:02:14.240 --> 00:02:15.750
+recommendation is until we have 
+
+63
+00:02:15.760 --> 00:02:17.400
+objects and entries, let's stick 
+
+64
+00:02:17.790 --> 00:02:19.470
+with just using a for-in for 
+
+65
+00:02:19.480 --> 00:02:20.030
+objects.
+

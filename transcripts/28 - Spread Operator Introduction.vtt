@@ -1,0 +1,558 @@
+WEBVTT
+
+1
+00:00:02.680 --> 00:00:03.590
+ Man: Let's talk about 
+
+2
+00:00:03.600 --> 00:00:05.360
+the spread operator. Those are 
+
+3
+00:00:05.370 --> 00:00:07.270
+those three apathetic dots that 
+
+4
+00:00:07.280 --> 00:00:09.090
+you'll often see in front of an 
+
+5
+00:00:09.100 --> 00:00:11.870
+array or any iterable. What is 
+
+6
+00:00:11.880 --> 00:00:13.410
+the spread operator? The spread 
+
+7
+00:00:13.420 --> 00:00:15.960
+operator takes every single item 
+
+8
+00:00:16.270 --> 00:00:18.620
+from an iterable. Now hold on. 
+
+9
+00:00:18.630 --> 00:00:19.740
+What's an iterable? An 
+
+10
+00:00:19.815 --> 00:00:21.020
+iterable is anything that you 
+
+11
+00:00:21.030 --> 00:00:23.180
+can loop over with our for of 
+
+12
+00:00:23.190 --> 00:00:26.020
+loop and that includes arrays, 
+
+13
+00:00:26.060 --> 00:00:28.450
+includes strings, includes DOM 
+
+14
+00:00:28.530 --> 00:00:30.520
+nodes, includes arguments object, 
+
+15
+00:00:31.530 --> 00:00:32.950
+and includes our maps and sets 
+
+16
+00:00:32.960 --> 00:00:34.240
+which we are going to learn. 
+
+17
+00:00:34.780 --> 00:00:36.240
+What is that? We'll use strings 
+
+18
+00:00:36.250 --> 00:00:37.350
+and arrays, because that's the 
+
+19
+00:00:37.425 --> 00:00:39.180
+simplest. That's probably most 
+
+20
+00:00:39.190 --> 00:00:40.280
+of the uses cases where you'll 
+
+21
+00:00:40.280 --> 00:00:42.060
+actually use this. It's going 
+
+22
+00:00:42.070 --> 00:00:43.950
+to take every single item from 
+
+23
+00:00:44.025 --> 00:00:47.060
+an iterable, from array and 
+
+24
+00:00:47.070 --> 00:00:49.420
+apply it to the containing 
+
+25
+00:00:49.480 --> 00:00:51.440
+element or the containing array. 
+
+26
+00:00:52.110 --> 00:00:53.980
+Where is that useful? Let's say 
+
+27
+00:00:53.990 --> 00:00:56.340
+we've got this featured and the 
+
+28
+00:00:56.510 --> 00:00:57.690
+specialty. I want to make a 
+
+29
+00:00:57.700 --> 00:01:00.010
+third array called pizzas, just 
+
+30
+00:01:00.085 --> 00:01:02.240
+combine them together. You might 
+
+31
+00:01:02.250 --> 00:01:05.290
+think, OK, we're going to const 
+
+32
+00:01:05.365 --> 00:01:05.800
+pizzas =, and how do you combine 
+
+33
+00:01:05.800 --> 00:01:07.180
+them? You just take one, and 
+
+34
+00:01:07.180 --> 00:01:09.090
+then you call .concat against it, 
+
+35
+00:01:09.100 --> 00:01:10.850
+and you pass it the second one. 
+
+36
+00:01:11.480 --> 00:01:13.210
+That will work. Let's see here. 
+
+37
+00:01:13.220 --> 00:01:17.680
+Console log pizzas, and that 
+
+38
+00:01:17.680 --> 00:01:20.780
+works. What if you wanted to put 
+
+39
+00:01:20.430 --> 00:01:22.920
+vegetable pizza right in the 
+
+40
+00:01:22.930 --> 00:01:25.380
+middle of that? How would do 
+
+41
+00:01:25.480 --> 00:01:30.570
+that? Well, you'd have to say 
+
+42
+00:01:30.645 --> 00:01:32.970
+let pizzas =, you would have to 
+
+43
+00:01:30.180 --> 00:01:32.580
+make a new blank array. Then 
+
+44
+00:01:32.655 --> 00:01:34.180
+say pizzas.concat = pizzas.
+
+45
+00:01:34.255 --> 00:01:35.620
+concat featured. You got pizzas.
+
+46
+00:01:35.695 --> 00:01:43.300
+push veg and then pizzas.concat 
+
+47
+00:01:43.375 --> 00:01:45.850
+again specialty. You have to say 
+
+48
+00:01:48.010 --> 00:01:49.980
+pizzas = you have to overwrite 
+
+49
+00:01:50.055 --> 00:01:51.100
+the entire thing or we're using 
+
+50
+00:01:51.110 --> 00:01:52.370
+let there. That just becomes a 
+
+51
+00:01:52.380 --> 00:01:53.750
+big headache for having to 
+
+52
+00:01:53.760 --> 00:01:55.850
+manage that. What you can do is, 
+
+53
+00:01:55.860 --> 00:01:57.810
+you can take every single item 
+
+54
+00:01:57.880 --> 00:02:00.170
+in the array and spread into a 
+
+55
+00:02:00.180 --> 00:02:02.600
+new array. Let's take a quick 
+
+56
+00:02:02.630 --> 00:02:05.660
+example with a string first. If 
+
+57
+00:02:05.670 --> 00:02:08.390
+I have the string of Wes, what 
+
+58
+00:02:08.400 --> 00:02:10.170
+is every item in a string? Every 
+
+59
+00:02:10.180 --> 00:02:11.420
+item in a string is just each 
+
+60
+00:02:11.430 --> 00:02:13.700
+character. What you can do is 
+
+61
+00:02:15.030 --> 00:02:17.070
+you pop an array around it, and 
+
+62
+00:02:17.080 --> 00:02:18.400
+that just gives you an array of 
+
+63
+00:02:18.410 --> 00:02:19.720
+one thing. What if I wanted 
+
+64
+00:02:19.730 --> 00:02:21.510
+every single item of that 
+
+65
+00:02:21.585 --> 00:02:24.670
+iterable to be its own item of 
+
+66
+00:02:24.680 --> 00:02:26.660
+the array? Inside of that dot, 
+
+67
+00:02:26.670 --> 00:02:29.270
+dot, dot, that's going to spread 
+
+68
+00:02:29.580 --> 00:02:33.660
+each item into the actual array. 
+
+69
+00:02:33.660 --> 00:02:36.840
+I have W-E-S as the entire array 
+
+70
+00:02:36.850 --> 00:02:38.800
+here. Similarly, what we can do 
+
+71
+00:02:38.810 --> 00:02:40.280
+is, we can take these existing 
+
+72
+00:02:40.290 --> 00:02:42.610
+arrays and spread the items, 
+
+73
+00:02:43.070 --> 00:02:45.350
+like featured, and spread the 
+
+74
+00:02:45.390 --> 00:02:48.650
+items of specialty into the new 
+
+75
+00:02:48.660 --> 00:02:50.360
+pizzas array. We'll make that 
+
+76
+00:02:50.390 --> 00:02:51.530
+back to const, because we're not 
+
+77
+00:02:51.605 --> 00:02:53.160
+going to be overwriting it here. 
+
+78
+00:02:53.950 --> 00:02:55.320
+Now, I should be able to have 
+
+79
+00:02:55.460 --> 00:02:57.400
+these pizzas array, which has 
+
+80
+00:02:57.530 --> 00:02:59.730
+absolutely every single element 
+
+81
+00:02:59.830 --> 00:03:01.710
+in here. Similarly, I can just 
+
+82
+00:03:01.785 --> 00:03:03.490
+also add veg in the middle of it. 
+
+83
+00:03:03.810 --> 00:03:05.970
+It's not a problem because I'm 
+
+84
+00:03:05.980 --> 00:03:07.620
+essentially just saying, add 
+
+85
+00:03:07.630 --> 00:03:09.500
+every single item from here, add 
+
+86
+00:03:09.510 --> 00:03:11.000
+vegetable, add every single item 
+
+87
+00:03:11.010 --> 00:03:12.900
+from specialty and we should be 
+
+88
+00:03:12.970 --> 00:03:14.330
+good. Let's take a look at what 
+
+89
+00:03:14.340 --> 00:03:16.660
+pizzas is now. Then we see 
+
+90
+00:03:16.670 --> 00:03:18.590
+vegetable being added right in 
+
+91
+00:03:18.600 --> 00:03:20.900
+the middle. What's also nice 
+
+92
+00:03:20.910 --> 00:03:23.090
+about that is that, if you even 
+
+93
+00:03:22.720 --> 00:03:24.710
+want to copy an array, how did 
+
+94
+00:03:24.720 --> 00:03:26.660
+you do that before? Let's say we 
+
+95
+00:03:26.450 --> 00:03:28.300
+wanted to take a copy of these 
+
+96
+00:03:28.400 --> 00:03:30.600
+pizzas. We'll say const Friday 
+
+97
+00:03:30.675 --> 00:03:35.890
+pizzas =. If you just do pizzas, 
+
+98
+00:03:36.110 --> 00:03:37.500
+what happens here? Let's take a 
+
+99
+00:03:37.870 --> 00:03:41.200
+look. Pizzas, and the write a 
+
+100
+00:03:41.340 --> 00:03:44.080
+pizzas is the same thing. 
+
+101
+00:03:44.320 --> 00:03:46.480
+What if I wanted to change from 
+
+102
+00:03:46.555 --> 00:03:48.590
+the first Friday pizza from deep-
+
+103
+00:03:48.600 --> 00:03:51.040
+dish to something like this, 
+
+104
+00:03:51.115 --> 00:03:57.600
+Canada pie? Now Friday pizzas, 
+
+105
+00:03:57.990 --> 00:04:00.900
+what does that look like? The 
+
+106
+00:04:00.910 --> 00:04:02.330
+first one is Canada pie, we've 
+
+107
+00:04:02.610 --> 00:04:03.990
+replaced deep-dish. Now,what is 
+
+108
+00:04:04.000 --> 00:04:07.630
+pizzas? Shit, now we overwrote 
+
+109
+00:04:07.640 --> 00:04:10.650
+the initial pizzas one. That's a 
+
+110
+00:04:10.660 --> 00:04:12.680
+pain, because what we did there 
+
+111
+00:04:12.690 --> 00:04:14.800
+is we didn't actually copy this 
+
+112
+00:04:14.810 --> 00:04:16.420
+array. We just referenced the 
+
+113
+00:04:16.430 --> 00:04:18.070
+pizzas array. Pizzas and Friday 
+
+114
+00:04:18.080 --> 00:04:19.970
+pizzas, they are the exact same 
+
+115
+00:04:19.980 --> 00:04:21.370
+thing. What you used to have to 
+
+116
+00:04:21.370 --> 00:04:22.380
+be able to do is you just create 
+
+117
+00:04:22.390 --> 00:04:23.510
+a blank array and then you would 
+
+118
+00:04:23.585 --> 00:04:26.570
+concat the pizzas one right into 
+
+119
+00:04:26.580 --> 00:04:27.730
+it. That would just take a 
+
+120
+00:04:27.740 --> 00:04:29.260
+actual copy of the array rather 
+
+121
+00:04:29.270 --> 00:04:30.710
+then reference it. That's weird 
+
+122
+00:04:30.720 --> 00:04:32.970
+as well. What you can do is, 
+
+123
+00:04:32.980 --> 00:04:34.710
+you just take a brand new array 
+
+124
+00:04:36.560 --> 00:04:38.410
+and then you spread every single 
+
+125
+00:04:38.450 --> 00:04:41.500
+item from pizzas into this fresh 
+
+126
+00:04:41.720 --> 00:04:43.630
+new array. I should be able to 
+
+127
+00:04:43.640 --> 00:04:47.320
+go here and look at my, let's 
+
+128
+00:04:47.330 --> 00:04:48.880
+change it. Let's change Friday 
+
+129
+00:04:48.890 --> 00:04:50.980
+pizzas and see where we are at. 
+
+130
+00:04:52.270 --> 00:04:54.430
+Good, but if I say just pizzas, 
+
+131
+00:04:55.040 --> 00:04:56.430
+deep-dish is still there. I 
+
+132
+00:04:56.440 --> 00:04:57.940
+wasn't destructive to that 
+
+133
+00:04:57.950 --> 00:05:00.410
+initial array. Again, a 
+
+134
+00:05:00.420 --> 00:05:01.650
+spread will take every single 
+
+135
+00:05:01.700 --> 00:05:04.510
+item from an iterable and apply 
+
+136
+00:05:04.520 --> 00:05:06.970
+it into the new array. Let's 
+
+137
+00:05:07.045 --> 00:05:07.840
+take a look at some more 
+
+138
+00:05:07.915 --> 00:05:08.910
+examples as to when you would 
+
+139
+00:05:08.920 --> 00:05:10.640
+actually want to use this.
+

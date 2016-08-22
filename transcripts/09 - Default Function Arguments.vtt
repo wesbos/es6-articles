@@ -1,0 +1,442 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.870 --> 00:00:04.140
+Default function arguments in 
+
+3
+00:00:04.140 --> 00:00:06.150
+JavaScript are here. This is one 
+
+4
+00:00:06.160 --> 00:00:07.450
+of those features that's going 
+
+5
+00:00:07.525 --> 00:00:08.910
+to make both your life much 
+
+6
+00:00:08.920 --> 00:00:10.810
+easier, as well as make your 
+
+7
+00:00:10.820 --> 00:00:12.440
+code much more readable and 
+
+8
+00:00:12.515 --> 00:00:13.860
+maintainable. Let's say we have 
+
+9
+00:00:13.870 --> 00:00:15.360
+a function called calculateBill 
+
+10
+00:00:18.650 --> 00:00:20.590
+and that function is going to 
+
+11
+00:00:20.600 --> 00:00:21.960
+take in three things -- the 
+
+12
+00:00:21.970 --> 00:00:23.810
+total for our meal, how much we 
+
+13
+00:00:23.820 --> 00:00:25.690
+spent on it, how much we need to 
+
+14
+00:00:25.700 --> 00:00:27.440
+pay in taxes, the percentage, 
+
+15
+00:00:27.450 --> 00:00:28.590
+and then how much you would like 
+
+16
+00:00:28.600 --> 00:00:30.910
+to tip your waiter. From that, 
+
+17
+00:00:30.920 --> 00:00:35.150
+we can return the total, the tax, 
+
+18
+00:00:35.870 --> 00:00:37.700
+and the tip rate. If you think 
+
+19
+00:00:37.030 --> 00:00:37.440
+I'm going to  
+
+20
+00:00:37.440 --> 00:00:39.160
+you for not tipping on the tax 
+
+21
+00:00:39.170 --> 00:00:41.550
+amount, get out of here. I don't 
+
+22
+00:00:41.625 --> 00:00:42.030
+want to talk to you. Then we'll 
+
+23
+00:00:42.040 --> 00:00:45.430
+make a new variable called 
+
+24
+00:00:45.505 --> 00:00:47.680
+totalBill, and we'll use our new 
+
+25
+00:00:47.740 --> 00:00:51.650
+function, maybe of a $100 meal, 
+
+26
+00:00:52.360 --> 00:00:54.610
+the tax rate in Ontario here is 
+
+27
+00:00:54.685 --> 00:00:56.850
+13 percent, and tip rate is 
+
+28
+00:00:56.860 --> 00:00:58.330
+maybe 15 percent. We need to 
+
+29
+00:00:58.340 --> 00:01:00.020
+figure out how much all of that 
+
+30
+00:01:00.030 --> 00:01:02.670
+costs. That tells us 128 bucks. 
+
+31
+00:01:04.890 --> 00:01:07.680
+What happens if we want to 
+
+32
+00:01:08.530 --> 00:01:10.950
+assume 13 percent tax rate, and 
+
+33
+00:01:11.025 --> 00:01:12.530
+we want to assume a 15 percent 
+
+34
+00:01:12.690 --> 00:01:14.260
+tip rate? Previously, what we 
+
+35
+00:01:14.335 --> 00:01:15.830
+would do, and maybe let's just 
+
+36
+00:01:15.530 --> 00:01:16.800
+go ahead and take those things 
+
+37
+00:01:16.810 --> 00:01:20.000
+off, we get an error here, NaN. 
+
+38
+00:01:20.150 --> 00:01:21.750
+That's because we're trying to 
+
+39
+00:01:21.760 --> 00:01:23.230
+do math against things that 
+
+40
+00:01:23.240 --> 00:01:24.820
+aren't passed in. What is the 
+
+41
+00:01:24.830 --> 00:01:26.430
+value of tax and tip when they 
+
+42
+00:01:26.440 --> 00:01:27.700
+get passed in? They're going to 
+
+43
+00:01:27.700 --> 00:01:29.570
+be undefined. Watch, cancel log, 
+
+44
+00:01:29.580 --> 00:01:30.980
+tax, and it's going to tell us 
+
+45
+00:01:31.340 --> 00:01:33.530
+that is undefined. What we 
+
+46
+00:01:33.540 --> 00:01:35.700
+would normally do is we would go 
+
+47
+00:01:35.775 --> 00:01:39.210
+into here, and we say, if tax is 
+
+48
+00:01:39.290 --> 00:01:45.560
+undefined, then tax equals 013. 
+
+49
+00:01:45.050 --> 00:01:47.720
+Then we would also do, if tip is 
+
+50
+00:01:48.180 --> 00:01:51.400
+undefined, we would say tip is 
+
+51
+00:01:51.410 --> 00:01:53.550
+equal to 015. Then it would 
+
+52
+00:01:53.560 --> 00:01:54.990
+actually go ahead and work for 
+
+53
+00:01:55.000 --> 00:01:57.700
+us. See, it works fine there, 
+
+54
+00:01:57.710 --> 00:01:59.730
+but there's a whole lot of code 
+
+55
+00:01:59.740 --> 00:02:01.510
+that we added. You might be 
+
+56
+00:02:01.585 --> 00:02:02.650
+saying, "Yeah, you can do this, 
+
+57
+00:02:03.080 --> 00:02:05.120
+tax equals tax," or you can do 
+
+58
+00:02:05.195 --> 00:02:07.260
+this little trick here where you 
+
+59
+00:02:07.270 --> 00:02:09.760
+can say it equals itself. If "
+
+60
+00:02:10.170 --> 00:02:12.760
+itself" is undefined, then the 
+
+61
+00:02:12.835 --> 00:02:13.610
+13 percent will go in, but 
+
+62
+00:02:13.620 --> 00:02:15.870
+that's OK. I don't mind that, 
+
+63
+00:02:16.060 --> 00:02:17.530
+but it can be a little bit hard 
+
+64
+00:02:17.530 --> 00:02:19.800
+on your team to have to read it, 
+
+65
+00:02:19.420 --> 00:02:20.700
+and also if you've got four or 
+
+66
+00:02:20.710 --> 00:02:22.000
+five different arguments coming 
+
+67
+00:02:22.010 --> 00:02:25.630
+in, then you've got to do all 
+
+68
+00:02:25.640 --> 00:02:27.040
+this crazy code at the top, so 
+
+69
+00:02:27.050 --> 00:02:28.420
+let's just do without that 
+
+70
+00:02:28.430 --> 00:02:30.330
+entirely. What we can do now in 
+
+71
+00:02:30.405 --> 00:02:32.370
+ES6 is just simply set it when 
+
+72
+00:02:32.380 --> 00:02:33.990
+we define our function. Let's 
+
+73
+00:02:33.810 --> 00:02:37.200
+say tax equals 013 and tip 
+
+74
+00:02:37.640 --> 00:02:41.780
+equals 015. Those things will be 
+
+75
+00:02:41.790 --> 00:02:43.780
+assumed. If nothing is passed 
+
+76
+00:02:43.855 --> 00:02:46.260
+in for that one, then the 
+
+77
+00:02:46.300 --> 00:02:48.250
+defaults are going to go ahead. 
+
+78
+00:02:48.260 --> 00:02:50.770
+There we go. Good. What else we 
+
+79
+00:02:50.780 --> 00:02:52.810
+can do? What if I wanted to pass 
+
+80
+00:02:54.190 --> 00:02:56.940
+only the total amount, as well 
+
+81
+00:02:56.950 --> 00:02:58.340
+as the tip amount, because I'm a 
+
+82
+00:02:58.350 --> 00:03:00.170
+big tipper. Let's say I'm 
+
+83
+00:03:00.245 --> 00:03:02.570
+tipping 25 percent here. For tax 
+
+84
+00:03:02.645 --> 00:03:04.970
+rate, that's not going to change, 
+
+85
+00:03:05.045 --> 00:03:06.970
+because I'm still here in 
+
+86
+00:03:04.210 --> 00:03:05.430
+Ontario. Can I just leave it 
+
+87
+00:03:05.440 --> 00:03:08.640
+empty, like we've done here? No, 
+
+88
+00:03:08.680 --> 00:03:10.270
+syntax error. It doesn't. How 
+
+89
+00:03:10.280 --> 00:03:11.920
+do you leave a hole in here? 
+
+90
+00:03:11.960 --> 00:03:14.340
+Well, what does this essentially 
+
+91
+00:03:14.350 --> 00:03:16.220
+check for? It checks for someone 
+
+92
+00:03:16.230 --> 00:03:18.480
+passing "undefined," so you can 
+
+93
+00:03:18.480 --> 00:03:20.670
+just explicitly pass undefined. 
+
+94
+00:03:21.460 --> 00:03:23.840
+What that does is it's going to 
+
+95
+00:03:23.850 --> 00:03:25.600
+pass undefined as tax. The 
+
+96
+00:03:25.610 --> 00:03:26.660
+function is going to say, "Oh, 
+
+97
+00:03:26.780 --> 00:03:28.520
+no one passed any tax." It's 
+
+98
+00:03:28.530 --> 00:03:31.400
+going to assume 013 and then the 
+
+99
+00:03:31.980 --> 00:03:33.520
+customer tip is going to kick in 
+
+100
+00:03:33.530 --> 00:03:36.160
+here. You see, I've got 138 
+
+101
+00:03:36.370 --> 00:03:38.060
+bucks. That's it. Pretty simple. 
+
+102
+00:03:38.280 --> 00:03:40.510
+I've got another one where this 
+
+103
+00:03:40.520 --> 00:03:42.410
+is order dependent and when we 
+
+104
+00:03:42.420 --> 00:03:43.530
+hit destructuring, I'm going to 
+
+105
+00:03:43.530 --> 00:03:44.790
+show you how do you use an 
+
+106
+00:03:44.800 --> 00:03:46.800
+object in destructuring here, so 
+
+107
+00:03:46.810 --> 00:03:48.220
+that you could pass this in any 
+
+108
+00:03:48.230 --> 00:03:50.940
+order, as well as have default 
+
+109
+00:03:50.950 --> 00:03:51.930
+arguments. See you in that 
+
+110
+00:03:51.940 --> 00:03:52.260
+video.
+

@@ -1,0 +1,45 @@
+[00:00] [music]
+
+Instructor: [00:02] Let's do a little bit of an exercise with spread so we can get the hang of it. Now I'm going to use the simplest form of it, which is spreading a string. What I want you to do is build this where, look how fun this is. When you hover over one of these letters, they animate themselves on in.
+
+[00:19] I've given you some CSS, but you can feel free to grab that from the answer if you don't like writing CSS. Otherwise, I thought it would be fun to try to get that yourself. 
+
+[00:28] Then you are just given this, an H2 tag with a class of jump and it has spreads. You know that you can't hover on an individual letter inside of an H2, but you can take a look at what I've done here.
+
+[00:42] If I take a look at my elements panel, look at this, H2 with the class of jump. Inside of that, each one is wrapped in a span. I want you to use map, a spread, and query selector all to select the element. 
+
+[01:00] Give that maybe 5 or 10 minutes to try to do it yourself, and then come on back to this video and I'm going to explain how we would use spreads to solve this.
+
+[01:09] Welcome back. 
+
+[01:10] What I would like to do here is, first of all I would like to grab this H2 here. I would say const heading = document query sector. I have the actual heading element, and I need to take the text out of the spread, wrap every single item in a span, and then put it back into, so I'm going to create a function.
+
+[01:35] I like to call this SparanWrap, which is wrapping every single one in spans. I'm going to say function, SparanWrap. That is a function which takes in a word and it's going to return a bunch of HTML where it is. 
+
+[01:54] How does that work? Let's work through this together. We'll console log that word and see where we are at, and go ahead and run this. I'm going to say SparanWrap is heading.text content. That will give me the actual word spreads inside of it. 
+
+[02:14] We've got the word spreads here, but we don't want that. We want every single word to be an individual item. What we can do is we will spread that word.
+
+[02:25] We're going to return...word. If we stick this in a const spans = and console log that spans up here, we should be able to see, good. Now the spreads is now in its own array. 
+
+[02:40] Why? Because we took every single item out of the word and spread it. That's not good enough, because we need to return not just an array, but we need to have every single letter wrapped.
+
+[02:49] That is a good use case for .map, where we're going to take in a letter. In return, we'll return a template string where is just a span, and inside of that we have the letter. We loop over every single letter and return that letter, but wrapped in a span. 
+
+[03:06] Span, span, OK good, but still not perfect because we've got all these commas here. We don't want an array. We want a string, so we just call join on the end there. There we go, that's our HTML. 
+
+[03:18] We should now be able to say heading.enter HTML = take this SparanWrap here, get rid of this unnecessary variable, and pass in the text content. Refresh, you don't see anything, but go ahead and inspect them.
+
+[03:37] Look what's happening on page load. You can't even see it, it goes so fast. In page load, we're taking the word out, wrapping in spans, and immediately injecting it right back into the page there. That looks good. 
+
+[03:51] Now let's do the CSS part where, when you hover over a span, we needed it to animate up. We'll say jump span hover. I'm just going to say color black, make sure it actually works here. 
+
+[04:07] Good, now we know that that's working. We can say transform, translate, Y -20PX. See where we're at. Doesn't work. 
+
+[04:21] Why not? Because spans are inline, and you cannot translate Y on the inline element. We'll say display inline block. That seems to be working, but we want that nice little animation, so I'm going to say transition, transform. I'm going to transition the transform property over 03 seconds or something like that. 
+
+[04:40] Looking good. Maybe a little bit faster for nicer animation, looks good. Now we can go ahead and play with this translate Y. We'll say rotate 10 degrees and scale to...looks good. Pretty happy with that.
+
+[05:02] That's just a quick example of when you would use a spread. Rather than splitting and mapping over it, we can just spread the word immediately. It makes for a little bit of a nicer code base. 
+
+[05:12] I'll see you in the next video, where we look at some more examples of when we would use this in our code.

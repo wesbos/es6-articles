@@ -1,0 +1,17 @@
+[00:00] [music]
+
+[00:02] Instructor: We've learned about lat and const and what they do, and how they're scoped, and when they can be reassigned and when they cannot, but there's a question as to what I should actually use myself. 
+
+[00:11] That's a bit of a hot topic in the community right now, because some people prefer to still use var. Some people are saying, "Var is dead, entirely." Some people say, "Use lat." Some people always use const.
+
+[00:24] I'm just going to go over two of the leading opinions here. These are both done by some very, very smart people in the JavaScript scene, so I'll let you pick your own.
+
+[00:34] This one, by Mathias Bynens, is how I do it. He talked more about this like, "Const is not about immutability where you can change the properties." We went over that, but if you scroll down to the bottom right here, this is how he uses it, and this is how I use it. 
+
+"[00:49] Use const by default," so whenever you make a variable, assume it's const. "Use let only if rebinding is needed." Only if you need to update the value of your variable, you should use let. You can use const to keep it the same value. Then, var should not be ever used in ES6. That's sort of what I'm following.
+
+[01:07] Another popular opinion here, by Kyle Simpson, who writes a whole bunch of awesome JavaScript books is, "Use var for top level variables that are shared across many," so share larger scopes so you can put them inside of your function. "Use let for localized variables in smaller scopes."
+
+"[01:26] Refactor let to const only after some code has to be written, and you're reasonably sure that the case there shouldn't be a variable reassign," because that is bit of a pain with const. If you realize later that, "Oh, I do need to update this value," you have to go back and make it a let instead of a const.
+
+[01:42] Both of those are very valid opinions. I'll let you make your own choices on that. Through the series, I'm going to be following this advice on this one.

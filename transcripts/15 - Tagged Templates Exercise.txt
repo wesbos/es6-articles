@@ -1,0 +1,33 @@
+[00:00] [music]
+
+Wes: [00:02] Here's another example of when tag templates could come in handy. It's when you're trying to add an abbreviation tag to a sentence. I've got this dictionary object right here where HTML, CSS and JS, and it just shows what they actually mean. Now if I go down here and make a sentence about myself, and say, "hello, my name is..."
+
+[00:24] I want to pop in the first, and I want to pop in the last, and, "I love to code." Now I don't have variables for HTML, CSS and JS. What you can do to make them interpolated is just pass a string, "HTML, CSS and JS." Now just because I pass in a string and not a variable, they are still going to show up when we have that tag template.
+
+[00:55] I am going to just pop this into...I've got this bio right here. I'm going to show you another way. Instead of just popping it right into the body, let's show you how I might create an element. I'm going to say const bio = query selector. Going to create a paragraph element, and I'm going to set the inside of that paragraph to be the sentence. Append it.
+
+[01:23] Now we go to our HTML here, say, "hello my name is Wes Boss. I love to code HTML, CSS and JS." Now, how do we get it so that when I hover any of these variables, if there is a dictionary item for that variable or for that thing that was passed in, that it will then show up? That's where we can get a tag template.
+
+[01:44] I'm going to make a function here called "add abbreviations." I copy paste it there, so I do not know how to spell abbreviation. In this, so it's going to be a little bit different than the last one that we did. I want to make a new array of, not just of values, because the values are going to give me "Wes," "Boss," "HTML," "CSS," and "JS."
+
+[02:06] I want an array of values that, if there's an abbreviation, I want them wrapped in an APBR tag. What I'm going to say is const abbreviated. I'm going to take the regular values and map over them, and return a new array of the values. We'll say for each value...now we're going to check if there is a value in the dictionary.
+
+[02:32] We'll say if the dictionary has an item for that specific value, so if there's a value of "Wes," is there's going to be a value of "Wes?" No, there's not. It's just going to skip over that. Is there a value of "HTML?" If the dictionary has an "HTML" key, oh yes there is, there is one. We're just using a variable there.
+
+[02:54] If that is true then, we are going to return the abbreviation tag, which is "APBR," and the title of that abbreviation tag is going to be the dictionary item with that key of "HTML, CSS or JS." Then inside of the abbreviation tag, we are going to return the value there. What that's going to give us if we console.log the abbreviated values here, and we take that tag template, pop it on to here.
+
+[03:26] You'll see we get undefined, undefined. Why do we get undefined, undefined? That's Wes and Boss, what I forgot to do here. Otherwise, we just want to return the value. If it's not in the dictionary, it's just a regular variable. We're going to skip over that, but we still need to return it into the actual variable there. Here we go. "Wes Boss."
+
+[03:44] Now each of our values array is now abbreviation tags that have been created for us, cool. Now we're not working with the values or any more. We're going to be working with this new abbreviated tag. Then we can take our strings array and start to piece it together. Last time I did this one, where I said let string = empty string and that might be comfortable for you.
+
+[04:05] If you would rather use a reduce function, I'm going to show you how to do that. From this abbreviation function, we are going to return strings.reduce(). The way that reduce works is that it will loop over each one, and build the string as we go. It has that all inside of the function. We don't have to say this like let str = outside of the function.
+
+[04:27] The whole thing is nice and tidy inside of a single reduce function. Reduce takes two things. It takes the function, and it takes what you start with. We're going to start with an empty string, and then the actual function that we want to run is going to be an anonymous function, which gives us sentence, which is going to be whatever the previous one was.
+
+[04:47] The first one it's going to be a blank string. It's going to give us the actual string and the index for that one. I'm going to use an error function with a block here. From that we return. We're just going to build this entire thing together. We want to take the existing sentence. This is going to be whatever it was from the last iteration.
+
+[05:10] We are going to tack on the string. Notice how I'm not doing a space here, because the spaces that are in the string will actually come along in the string itself. We don't need a space there. Then we want to tack on the abbreviated, because we have this array here. Square bracket "I" or nothing, just that little trick that we did earlier there.
+
+[05:36] What that does is -- I think now we should take a look. "String is not defined." Uh, oh, where is that our string, "S." strings that reduce? There we go. "Hello my name is Wes Boss. I love to code HTML," hover over, "CSS and JS." I inspect that. Now our string here has been created with abbreviation tag.
+
+[06:02] That's a great example of when you might want to use it. You just have to tack on this add abbreviation and it's going to externally go and look up your dictionary, as well as, do all of this messy function right here. You just have to tack this one on in front of any time that you use it.

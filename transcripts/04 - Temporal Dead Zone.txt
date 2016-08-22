@@ -1,0 +1,13 @@
+[00:00] [music]
+
+Wes: [00:02] Let's talk real quick about the temporal dead zone. This is a bit of a boring topic, so I'm going to try and make it really fun for you. This is something that you probably won't come across too often, but it's helpful to know in case someone ever slings it out in an interview. You'd be able to talk them about it. First of all, I call it the temporal dad zone, which is kind of fun.
+
+[00:19] Let's make a var variable called pizza and set it to deep dish, and we'll put a pizza emoji in there. What happens when you try and console log pizza after it's been created. You'll see that we actually get to see deep dish, right? No big issue there.
+
+[00:35] What if I try to console log it before? Are we going to get a) Undefined, b) Pizza is not yet defined error, or c) Are we actually going to see the word deep dish with the pizza emoji?
+
+[00:47] We get a) Undefined. Undefined, why? Because with var variables, you can actually access them as they are defined. Before they are defined, you cannot access the actual value of them, but you can access the fact that the variable has been created before.
+
+[01:02] If I change that to const or let, you'll now see that pizza is not defined at all. That's an actual error, and that will break your code. That is called the temporal dead zone, where you cannot access a variable before it is defined. They mean that this is the temporal dead zone right here, because you cannot access it before it has been created.
+
+[01:26] That's pretty much it. That's all you need to know. Put that in your back pocket, because you'll need it someday.

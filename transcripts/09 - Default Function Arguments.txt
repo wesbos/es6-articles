@@ -1,0 +1,31 @@
+[00:00] [music]
+
+Instructor: [00:02] Default function arguments in JavaScript are here. This is one of those features that's going to make both your life much easier, as well as make your code much more readable and maintainable.
+
+[00:12] Let's say we have a function called calculateBill and that function is going to take in three things -- the total for our meal, how much we spent on it, how much we need to pay in taxes, the percentage, and then how much you would like to tip your waiter. From that, we can return the total, the tax, and the tip rate.
+
+[00:36] If you think I'm going to [indecipherable] you for not tipping on the tax amount, get out of here. I don't want to talk to you.
+
+[00:43] Then we'll make a new variable called totalBill, and we'll use our new function, maybe of a $100 meal, the tax rate in Ontario here is 13 percent, and tip rate is maybe 15 percent. We need to figure out how much all of that costs. That tells us 128 bucks.
+
+[01:04] What happens if we want to assume 13 percent tax rate, and we want to assume a 15 percent tip rate? Previously, what we would do, and maybe let's just go ahead and take those things off, we get an error here, NaN. That's because we're trying to do math against things that aren't passed in.
+
+[01:24] What is the value of tax and tip when they get passed in? They're going to be undefined. Watch, cancel log, tax, and it's going to tell us that is undefined.
+
+[01:33] What we would normally do is we would go into here, and we say, if tax is undefined, then tax equals 013. Then we would also do, if tip is undefined, we would say tip is equal to 015. Then it would actually go ahead and work for us. See, it works fine there, but there's a whole lot of code that we added.
+
+[02:00] You might be saying, "Yeah, you can do this, tax equals tax," or you can do this little trick here where you can say it equals itself. If "itself" is undefined, then the 13 percent will go in, but that's OK.
+
+[02:14] I don't mind that, but it can be a little bit hard on your team to have to read it, and also if you've got four or five different arguments coming in, then you've got to do all this crazy code at the top, so let's just do without that entirely. What we can do now in ES6 is just simply set it when we define our function. Let's say tax equals 013 and tip equals 015. Those things will be assumed.
+
+[02:42] If nothing is passed in for that one, then the defaults are going to go ahead. There we go. Good.
+
+[02:49] What else we can do? What if I wanted to pass only the total amount, as well as the tip amount, because I'm a big tipper. Let's say I'm tipping 25 percent here. For tax rate, that's not going to change, because I'm still here in Ontario. Can I just leave it empty, like we've done here? No, syntax error. It doesn't.
+
+[03:10] How do you leave a hole in here? Well, what does this essentially check for? It checks for someone passing "undefined," so you can just explicitly pass undefined. What that does is it's going to pass undefined as tax.
+
+[03:25] The function is going to say, "Oh, no one passed any tax." It's going to assume 013 and then the customer tip is going to kick in here. You see, I've got 138 bucks. That's it. Pretty simple.
+
+[03:38] I've got another one where this is order dependent and when we hit destructuring, I'm going to show you how do you use an object in destructuring here, so that you could pass this in any order, as well as have default arguments.
+
+[03:51] See you in that video.

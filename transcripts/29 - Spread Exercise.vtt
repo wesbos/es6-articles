@@ -1,0 +1,578 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.860 --> 00:00:03.450
+Let's do a little bit of an 
+
+3
+00:00:03.450 --> 00:00:05.360
+exercise with spread so we can 
+
+4
+00:00:05.020 --> 00:00:07.010
+get the hang of it. Now I'm 
+
+5
+00:00:07.085 --> 00:00:07.420
+going to use the simplest form 
+
+6
+00:00:07.430 --> 00:00:08.770
+of it, which is spreading a 
+
+7
+00:00:08.780 --> 00:00:11.190
+string. What I want you to do is 
+
+8
+00:00:11.350 --> 00:00:14.180
+build this where, look how fun 
+
+9
+00:00:14.190 --> 00:00:15.770
+this is. When you hover over one 
+
+10
+00:00:15.780 --> 00:00:18.190
+of these letters, they animate 
+
+11
+00:00:18.200 --> 00:00:20.190
+themselves on in. I've given 
+
+12
+00:00:20.200 --> 00:00:22.920
+you some CSS, but you can feel 
+
+13
+00:00:22.930 --> 00:00:23.950
+free to grab that from the 
+
+14
+00:00:23.960 --> 00:00:25.040
+answer if you don't like writing 
+
+15
+00:00:25.115 --> 00:00:26.470
+CSS. Otherwise, I thought it 
+
+16
+00:00:26.545 --> 00:00:27.720
+would be fun to try to get that 
+
+17
+00:00:27.720 --> 00:00:29.570
+yourself. Then you are just 
+
+18
+00:00:29.580 --> 00:00:31.080
+given this, an H2 tag with a 
+
+19
+00:00:31.090 --> 00:00:33.670
+class of jump and it has spreads. 
+
+20
+00:00:33.710 --> 00:00:35.720
+You know that you can't hover on 
+
+21
+00:00:35.730 --> 00:00:38.140
+an individual letter inside of 
+
+22
+00:00:38.150 --> 00:00:40.850
+an H2, but you can take a look 
+
+23
+00:00:40.860 --> 00:00:42.370
+at what I've done here. If I 
+
+24
+00:00:42.380 --> 00:00:44.780
+take a look at my elements panel, 
+
+25
+00:00:44.880 --> 00:00:46.050
+look at this, H2 with the class 
+
+26
+00:00:46.060 --> 00:00:47.680
+of jump. Inside of that, each 
+
+27
+00:00:47.690 --> 00:00:51.490
+one is wrapped in a span. I want 
+
+28
+00:00:51.500 --> 00:00:56.310
+you to use map, a spread, and 
+
+29
+00:00:56.385 --> 00:00:58.760
+query selector all to select the 
+
+30
+00:00:58.830 --> 00:01:01.080
+element. Give that maybe 5 
+
+31
+00:01:01.155 --> 00:01:02.820
+or 10 minutes to try to do it 
+
+32
+00:01:02.150 --> 00:01:03.810
+yourself, and then come on back 
+
+33
+00:01:03.820 --> 00:01:05.920
+to this video and I'm going to 
+
+34
+00:01:05.130 --> 00:01:07.110
+explain how we would use spreads 
+
+35
+00:01:07.120 --> 00:01:10.670
+to solve this. Welcome back. 
+
+36
+00:01:10.850 --> 00:01:13.210
+What I would like to do here is, 
+
+37
+00:01:13.220 --> 00:01:14.600
+first of all I would like to 
+
+38
+00:01:15.290 --> 00:01:18.070
+grab this H2 here. I would say 
+
+39
+00:01:18.145 --> 00:01:21.270
+const heading = document query 
+
+40
+00:01:21.280 --> 00:01:23.490
+sector. I have the actual 
+
+41
+00:01:23.580 --> 00:01:26.230
+heading element, and I need to 
+
+42
+00:01:26.240 --> 00:01:28.710
+take the text out of the spread, 
+
+43
+00:01:29.790 --> 00:01:31.870
+wrap every single item in a span, 
+
+44
+00:01:32.490 --> 00:01:34.420
+and then put it back into, so 
+
+45
+00:01:34.495 --> 00:01:35.370
+I'm going to create a function. 
+
+46
+00:01:35.380 --> 00:01:36.720
+I like to call this SparanWrap, 
+
+47
+00:01:36.795 --> 00:01:39.020
+which is wrapping every single 
+
+48
+00:01:39.030 --> 00:01:41.480
+one in spans. I'm going to say 
+
+49
+00:01:41.555 --> 00:01:46.070
+function, SparanWrap. That is a 
+
+50
+00:01:46.080 --> 00:01:48.990
+function which takes in a word 
+
+51
+00:01:49.660 --> 00:01:51.710
+and it's going to return a bunch 
+
+52
+00:01:51.720 --> 00:01:54.840
+of HTML where it is. How 
+
+53
+00:01:54.840 --> 00:01:55.880
+does that work? Let's work 
+
+54
+00:01:55.970 --> 00:01:57.020
+through this together. We'll 
+
+55
+00:01:57.030 --> 00:01:58.870
+console log that word and see 
+
+56
+00:01:59.060 --> 00:02:02.810
+where we are at, and go ahead 
+
+57
+00:02:02.820 --> 00:02:07.130
+and run this. I'm going to say 
+
+58
+00:02:07.205 --> 00:02:09.380
+SparanWrap is heading.text 
+
+59
+00:02:09.450 --> 00:02:11.670
+content. That will give me the 
+
+60
+00:02:11.680 --> 00:02:14.320
+actual word spreads inside of it. 
+
+61
+00:02:14.410 --> 00:02:15.710
+We've got the word spreads here, 
+
+62
+00:02:15.720 --> 00:02:16.980
+but we don't want that. We want 
+
+63
+00:02:16.990 --> 00:02:18.910
+every single word to be an 
+
+64
+00:02:18.920 --> 00:02:21.150
+individual item. What we can do 
+
+65
+00:02:21.520 --> 00:02:25.420
+is we will spread that word. 
+
+66
+00:02:25.495 --> 00:02:28.990
+We're going to return...word. If 
+
+67
+00:02:29.000 --> 00:02:30.980
+we stick this in a const spans = 
+
+68
+00:02:32.530 --> 00:02:34.000
+and console log that spans up 
+
+69
+00:02:34.010 --> 00:02:36.000
+here, we should be able to see, 
+
+70
+00:02:36.960 --> 00:02:39.920
+good. Now the spreads is now in 
+
+71
+00:02:39.930 --> 00:02:41.240
+its own array. Why? Because 
+
+72
+00:02:41.250 --> 00:02:42.860
+we took every single item out of 
+
+73
+00:02:42.870 --> 00:02:44.570
+the word and spread it. That's 
+
+74
+00:02:44.570 --> 00:02:45.610
+not good enough, because we need 
+
+75
+00:02:45.620 --> 00:02:47.500
+to return not just an array, but 
+
+76
+00:02:47.450 --> 00:02:48.490
+we need to have every single 
+
+77
+00:02:48.500 --> 00:02:50.000
+letter wrapped. That is a 
+
+78
+00:02:50.010 --> 00:02:51.840
+good use case for .map, where 
+
+79
+00:02:51.950 --> 00:02:53.680
+we're going to take in a letter. 
+
+80
+00:02:54.120 --> 00:02:55.980
+In return, we'll return a 
+
+81
+00:02:56.050 --> 00:02:57.360
+template string where is just a 
+
+82
+00:02:57.370 --> 00:03:00.000
+span, and inside of that we have 
+
+83
+00:03:00.010 --> 00:03:02.530
+the letter. We loop over every 
+
+84
+00:03:02.540 --> 00:03:03.770
+single letter and return that 
+
+85
+00:03:03.780 --> 00:03:05.410
+letter, but wrapped in a span. 
+
+86
+00:03:06.470 --> 00:03:09.170
+Span, span, OK good, but still 
+
+87
+00:03:09.180 --> 00:03:10.260
+not perfect because we've got 
+
+88
+00:03:10.720 --> 00:03:11.940
+all these commas here. We don't 
+
+89
+00:03:12.260 --> 00:03:13.860
+want an array. We want a string, 
+
+90
+00:03:13.870 --> 00:03:15.870
+so we just call join on the end 
+
+91
+00:03:15.880 --> 00:03:17.760
+there. There we go, that's our 
+
+92
+00:03:17.770 --> 00:03:20.320
+HTML. We should now be able 
+
+93
+00:03:20.330 --> 00:03:25.170
+to say heading.enter HTML = take 
+
+94
+00:03:26.230 --> 00:03:28.130
+this SparanWrap here, get rid of 
+
+95
+00:03:28.140 --> 00:03:30.750
+this unnecessary variable, and 
+
+96
+00:03:30.760 --> 00:03:31.940
+pass in the text content. 
+
+97
+00:03:32.600 --> 00:03:34.470
+Refresh, you don't see anything, 
+
+98
+00:03:34.480 --> 00:03:36.210
+but go ahead and inspect them. 
+
+99
+00:03:37.680 --> 00:03:38.890
+Look what's happening on page 
+
+100
+00:03:38.900 --> 00:03:40.580
+load. You can't even see it, it 
+
+101
+00:03:40.590 --> 00:03:42.410
+goes so fast. In page load, 
+
+102
+00:03:42.420 --> 00:03:44.220
+we're taking the word out, 
+
+103
+00:03:44.990 --> 00:03:46.150
+wrapping in spans, and 
+
+104
+00:03:46.160 --> 00:03:47.770
+immediately injecting it right 
+
+105
+00:03:47.780 --> 00:03:50.850
+back into the page there. That 
+
+106
+00:03:50.850 --> 00:03:52.980
+looks good. Now let's do the 
+
+107
+00:03:53.055 --> 00:03:55.340
+CSS part where, when you hover 
+
+108
+00:03:55.350 --> 00:03:57.510
+over a span, we needed it to 
+
+109
+00:03:57.520 --> 00:03:59.730
+animate up. We'll say jump span 
+
+110
+00:03:59.805 --> 00:04:02.280
+hover. I'm just going to say 
+
+111
+00:04:02.290 --> 00:04:03.450
+color black, make sure it 
+
+112
+00:04:03.460 --> 00:04:07.580
+actually works here. Good, 
+
+113
+00:04:07.580 --> 00:04:09.020
+now we know that that's working. 
+
+114
+00:04:09.700 --> 00:04:12.580
+We can say transform, 
+
+115
+00:04:13.240 --> 00:04:16.370
+translate, Y -20PX. See where 
+
+116
+00:04:16.530 --> 00:04:21.570
+we're at. Doesn't work. Why 
+
+117
+00:04:21.580 --> 00:04:23.180
+not? Because spans are inline, 
+
+118
+00:04:23.255 --> 00:04:25.730
+and you cannot translate Y on 
+
+119
+00:04:25.805 --> 00:04:27.730
+the inline element. We'll say 
+
+120
+00:04:27.805 --> 00:04:30.470
+display inline block. That seems 
+
+121
+00:04:30.545 --> 00:04:31.680
+to be working, but we want that 
+
+122
+00:04:31.730 --> 00:04:33.650
+nice little animation, so I'm 
+
+123
+00:04:33.725 --> 00:04:35.250
+going to say transition, 
+
+124
+00:04:35.325 --> 00:04:36.850
+transform. I'm going to 
+
+125
+00:04:36.640 --> 00:04:37.910
+transition the transform 
+
+126
+00:04:37.920 --> 00:04:41.620
+property over 03 seconds or 
+
+127
+00:04:41.695 --> 00:04:40.910
+something like that. Looking 
+
+128
+00:04:41.320 --> 00:04:45.910
+good. Maybe a little bit faster 
+
+129
+00:04:46.010 --> 00:04:49.240
+for nicer animation, looks good. 
+
+130
+00:04:49.510 --> 00:04:51.080
+Now we can go ahead and play 
+
+131
+00:04:51.090 --> 00:04:53.240
+with this translate Y. We'll say 
+
+132
+00:04:53.315 --> 00:04:57.210
+rotate 10 degrees and scale to...
+
+133
+00:04:59.510 --> 00:05:01.820
+looks good. Pretty happy with 
+
+134
+00:05:01.830 --> 00:05:02.850
+that. That's just a quick 
+
+135
+00:05:02.860 --> 00:05:04.320
+example of when you would use a 
+
+136
+00:05:04.330 --> 00:05:06.150
+spread. Rather than splitting 
+
+137
+00:05:06.160 --> 00:05:08.190
+and mapping over it, we can just 
+
+138
+00:05:08.200 --> 00:05:09.800
+spread the word immediately. It 
+
+139
+00:05:09.810 --> 00:05:11.040
+makes for a little bit of a 
+
+140
+00:05:11.050 --> 00:05:12.780
+nicer code base. I'll see 
+
+141
+00:05:12.855 --> 00:05:13.620
+you in the next video, where we 
+
+142
+00:05:13.630 --> 00:05:14.950
+look at some more examples of 
+
+143
+00:05:15.230 --> 00:05:16.360
+when we would use this in our 
+
+144
+00:05:16.370 --> 00:05:16.720
+code.
+

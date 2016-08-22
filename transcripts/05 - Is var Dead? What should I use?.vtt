@@ -1,0 +1,262 @@
+WEBVTT
+
+1
+00:00:02.640 --> 00:00:02.910
+ Instructor: We've 
+
+2
+00:00:02.910 --> 00:00:04.890
+learned about lat and const and 
+
+3
+00:00:04.190 --> 00:00:05.240
+what they do, and how they're 
+
+4
+00:00:05.315 --> 00:00:06.440
+scoped, and when they can be 
+
+5
+00:00:06.515 --> 00:00:07.710
+reassigned and when they cannot, 
+
+6
+00:00:07.810 --> 00:00:09.100
+but there's a question as to 
+
+7
+00:00:09.175 --> 00:00:10.530
+what I should actually use 
+
+8
+00:00:10.540 --> 00:00:12.860
+myself. That's a bit of a 
+
+9
+00:00:12.870 --> 00:00:14.960
+hot topic in the community right 
+
+10
+00:00:14.970 --> 00:00:17.320
+now, because some people prefer 
+
+11
+00:00:17.320 --> 00:00:19.050
+to still use var. Some people 
+
+12
+00:00:19.060 --> 00:00:20.290
+are saying, "Var is dead, 
+
+13
+00:00:20.560 --> 00:00:22.000
+entirely." Some people say, "Use 
+
+14
+00:00:22.010 --> 00:00:23.640
+lat." Some people always use 
+
+15
+00:00:23.715 --> 00:00:24.130
+const. I'm just going to go 
+
+16
+00:00:25.180 --> 00:00:27.920
+over two of the leading opinions 
+
+17
+00:00:27.930 --> 00:00:29.870
+here. These are both done by 
+
+18
+00:00:29.870 --> 00:00:31.330
+some very, very smart people in 
+
+19
+00:00:31.405 --> 00:00:32.520
+the JavaScript scene, so I'll 
+
+20
+00:00:32.530 --> 00:00:34.450
+let you pick your own. This 
+
+21
+00:00:34.460 --> 00:00:37.380
+one, by Mathias Bynens, is how I 
+
+22
+00:00:37.960 --> 00:00:41.100
+do it. He talked more about this 
+
+23
+00:00:41.110 --> 00:00:42.730
+like, "Const is not about 
+
+24
+00:00:42.805 --> 00:00:43.080
+immutability where you can 
+
+25
+00:00:43.150 --> 00:00:44.740
+change the properties." We went 
+
+26
+00:00:44.750 --> 00:00:46.800
+over that, but if you scroll 
+
+27
+00:00:46.875 --> 00:00:46.760
+down to the bottom right here, 
+
+28
+00:00:48.160 --> 00:00:50.490
+this is how he uses it, and this 
+
+29
+00:00:50.565 --> 00:00:50.580
+is how I use it. "Use const 
+
+30
+00:00:50.610 --> 00:00:51.850
+by default," so whenever you 
+
+31
+00:00:51.860 --> 00:00:53.460
+make a variable, assume it's 
+
+32
+00:00:53.535 --> 00:00:55.350
+const. "Use let only if 
+
+33
+00:00:55.425 --> 00:00:56.510
+rebinding is needed." Only if 
+
+34
+00:00:56.520 --> 00:00:58.250
+you need to update the value of 
+
+35
+00:00:58.260 --> 00:00:59.840
+your variable, you should use 
+
+36
+00:00:59.915 --> 00:01:02.750
+let. You can use const to keep 
+
+37
+00:01:02.760 --> 00:01:04.490
+it the same value. Then, var 
+
+38
+00:01:04.340 --> 00:01:05.940
+should not be ever used in ES6. 
+
+39
+00:01:06.015 --> 00:01:07.150
+That's sort of what I'm 
+
+40
+00:01:07.160 --> 00:01:09.070
+following. Another popular 
+
+41
+00:01:09.080 --> 00:01:11.420
+opinion here, by Kyle Simpson, 
+
+42
+00:01:11.420 --> 00:01:12.820
+who writes a whole bunch of 
+
+43
+00:01:13.050 --> 00:01:14.930
+awesome JavaScript books is, "
+
+44
+00:01:15.290 --> 00:01:17.090
+Use var for top level variables 
+
+45
+00:01:17.100 --> 00:01:18.670
+that are shared across many," so 
+
+46
+00:01:18.680 --> 00:01:20.430
+share larger scopes so you can 
+
+47
+00:01:20.440 --> 00:01:22.530
+put them inside of your function. "
+
+48
+00:01:23.170 --> 00:01:25.110
+Use let for localized variables 
+
+49
+00:01:25.120 --> 00:01:26.720
+in smaller scopes." "Refactor 
+
+50
+00:01:26.795 --> 00:01:29.790
+let to const only after some 
+
+51
+00:01:29.800 --> 00:01:31.770
+code has to be written, and 
+
+52
+00:01:31.845 --> 00:01:31.980
+you're reasonably sure that the 
+
+53
+00:01:31.990 --> 00:01:32.760
+case there shouldn't be a 
+
+54
+00:01:32.760 --> 00:01:33.930
+variable reassign," because that 
+
+55
+00:01:33.930 --> 00:01:35.680
+is bit of a pain with const. If 
+
+56
+00:01:36.000 --> 00:01:37.490
+you realize later that, "Oh, I 
+
+57
+00:01:37.500 --> 00:01:38.830
+do need to update this value," 
+
+58
+00:01:38.905 --> 00:01:40.370
+you have to go back and make it 
+
+59
+00:01:40.380 --> 00:01:42.750
+a let instead of a const. 
+
+60
+00:01:42.360 --> 00:01:43.490
+Both of those are very valid 
+
+61
+00:01:43.500 --> 00:01:45.380
+opinions. I'll let you make your 
+
+62
+00:01:45.390 --> 00:01:46.640
+own choices on that. Through the 
+
+63
+00:01:46.650 --> 00:01:47.890
+series, I'm going to be 
+
+64
+00:01:48.530 --> 00:01:50.990
+following this advice on this 
+
+65
+00:01:51.065 --> 00:01:51.390
+one.
+

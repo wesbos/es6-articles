@@ -1,0 +1,35 @@
+[00:00] [music]
+
+[00:02] Instructor: Let's look at a couple more arrow-function examples before we get into talking about this. This is something that comes up often where I'm building an application, and I don't necessary have the data in the right format that I want. 
+
+[00:15] I'm building a website for a bunch of racers, where this is the first place, this is the second place, and this is the third place. These people have been supplied to me in an array of strings, and then they also gave me a variable, which includes the race that they won. 
+
+[00:30] Ideally for me, I would have an object which would have the person's name, like Wes Boss. It would have the place that they won, like first place. Then it would also have the race that they won, which we could use the race variable for that up here.
+
+[00:49] How would we do that? Well, we can actually use Map again for that. By the way, Map is not the only function that arrow functions work with. Arrow functions work with anything, and they're particularly useful in these callback situations. 
+
+[01:00] I'm going to say, "Constwin=winners.map." I just want to return an object from each of those. I'm going to say, "winner." How do you return an object? If we're taking in a string, you would return an object, like this, where the name is the winner and the race is the race, and the place is going to be "I." 
+
+[01:26] Also we're going to pass in the index there, so that's two arguments. We have to put parentheses around that. That should work, where we've got this object here, but I don't know if it's going to work. Let's see. 
+
+[01:39] Unexpected token, colon. What's wrong here? Well, earlier we told you that if you take the curly brackets off it's an implicit return. How do you implicit return curly brackets when you mean for it to be an object literal, not the actual function block? 
+
+[01:56] What we can do is, you just pass parentheses around those. These parentheses show that you're actually going to return an object literal, and these curly brackets aren't for the actual function block, so name is winner. Race is set to the actual race variable we have here, and then the place is going to be set to the index. 
+
+[02:15] You've got to save. We'll take a look at our data. A little hot tip, you refresh. You can type in "win" to see all your objects, but then you got to do all this work on opening them up. What you can actually do is use console.table pass at win, and look. You get this sweet-looking table that will show you all the information. There's the names. There's the race. There's the actual place.
+
+[02:35] The problem that we have here is that place is zero-based obviously, because your index is zero-based. We'll probably have to say, "place plus one." There we go. One, two, three. 
+
+[02:46] Then the other thing, we haven't learned about this yet, but this "race race" looks a little bit redundant. A new feature of ES6 is you can just use "race." That's the same thing as saying, "race race." Just say the variable race and the property name race is all named race. It's going to do it just for us. 
+
+[03:02] There we go, so that's an example of doing an implicit return with an object literal. 
+
+[03:07] There's another example here where we poll the people in the room for ages. So, say constAge= ...Maybe someone's 23. Someone's 62. Just keep going. Maybe someone's 234, maybe someone's 2. You get the point, right? Just make a whole bunch of ages in the thing. Maybe don't go that crazy. 
+
+[03:28] We want to filter this list for people who are older than 60 years old. How would you do that? You say, "constOld=ages.filter," and then you get the age.
+
+[03:45] Normally you'd do something like, "If the age is greater than 60, return true." Since we can pass it a condition that goes to true or false, and filter will return if it's true and it won't return if it's false, we can just say, "Age is greater or equal to 60."
+
+[04:01] That looks like a bit funky because you got an arrow here and then a greater than or equal to 60 here, but what that will do is, if the age is greater or equal to 60, it will return true. 
+
+[04:12] That age is going to be put back into this new old array, which is a console log old. See this new array, 60? All the old people are in this whereas none of the young people are.

@@ -1,0 +1,722 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.380 --> 00:00:04.080
+Here's another example of when 
+
+3
+00:00:04.140 --> 00:00:05.330
+tag templates could come in 
+
+4
+00:00:05.340 --> 00:00:06.290
+handy. It's when you're trying 
+
+5
+00:00:06.300 --> 00:00:08.730
+to add an abbreviation tag to a 
+
+6
+00:00:08.740 --> 00:00:10.380
+sentence. I've got this 
+
+7
+00:00:10.450 --> 00:00:12.030
+dictionary object right here 
+
+8
+00:00:12.030 --> 00:00:13.550
+where HTML, CSS and JS, and it 
+
+9
+00:00:13.550 --> 00:00:16.470
+just shows what they actually 
+
+10
+00:00:16.580 --> 00:00:18.360
+mean. Now if I go down here and 
+
+11
+00:00:18.370 --> 00:00:19.820
+make a sentence about myself, 
+
+12
+00:00:19.895 --> 00:00:24.760
+and say, "hello, my name is..." 
+
+13
+00:00:24.960 --> 00:00:27.310
+I want to pop in the first, and 
+
+14
+00:00:27.310 --> 00:00:30.350
+I want to pop in the last, and, "
+
+15
+00:00:30.360 --> 00:00:32.900
+I love to code." Now I don't 
+
+16
+00:00:32.910 --> 00:00:35.430
+have variables for HTML, CSS and 
+
+17
+00:00:35.505 --> 00:00:38.230
+JS. What you can do to make them 
+
+18
+00:00:38.480 --> 00:00:40.080
+interpolated is just pass a 
+
+19
+00:00:40.090 --> 00:00:48.710
+string, "HTML, CSS and JS." Now 
+
+20
+00:00:48.720 --> 00:00:49.990
+just because I pass in a string 
+
+21
+00:00:50.000 --> 00:00:51.110
+and not a variable, they are 
+
+22
+00:00:51.120 --> 00:00:53.250
+still going to show up when we 
+
+23
+00:00:53.260 --> 00:00:56.360
+have that tag template. I am 
+
+24
+00:00:56.370 --> 00:00:58.240
+going to just pop this into...
+
+25
+00:00:58.320 --> 00:00:59.780
+I've got this bio right here. 
+
+26
+00:00:59.855 --> 00:01:00.520
+I'm going to show you another 
+
+27
+00:01:00.520 --> 00:01:01.510
+way. Instead of just popping it 
+
+28
+00:01:01.520 --> 00:01:02.710
+right into the body, let's show 
+
+29
+00:01:02.720 --> 00:01:04.820
+you how I might create an 
+
+30
+00:01:04.895 --> 00:01:07.220
+element. I'm going to say const 
+
+31
+00:01:07.295 --> 00:01:09.740
+bio = query selector. Going to 
+
+32
+00:01:09.750 --> 00:01:13.810
+create a paragraph element, and 
+
+33
+00:01:13.820 --> 00:01:17.160
+I'm going to set the inside of 
+
+34
+00:01:17.640 --> 00:01:19.390
+that paragraph to be the 
+
+35
+00:01:19.465 --> 00:01:24.390
+sentence. Append it. Now we 
+
+36
+00:01:24.040 --> 00:01:26.990
+go to our HTML here, say, "hello 
+
+37
+00:01:27.000 --> 00:01:28.120
+my name is Wes Boss. I love to 
+
+38
+00:01:28.130 --> 00:01:30.930
+code HTML, CSS and JS." Now, how 
+
+39
+00:01:30.940 --> 00:01:32.470
+do we get it so that when I 
+
+40
+00:01:32.480 --> 00:01:35.380
+hover any of these variables, if 
+
+41
+00:01:35.690 --> 00:01:37.290
+there is a dictionary item for 
+
+42
+00:01:37.300 --> 00:01:38.880
+that variable or for that thing 
+
+43
+00:01:38.890 --> 00:01:40.790
+that was passed in, that it will 
+
+44
+00:01:40.800 --> 00:01:42.700
+then show up? That's where we 
+
+45
+00:01:42.710 --> 00:01:45.090
+can get a tag template. I'm 
+
+46
+00:01:45.165 --> 00:01:46.350
+going to make a function here 
+
+47
+00:01:46.510 --> 00:01:49.440
+called "add abbreviations." I 
+
+48
+00:01:49.450 --> 00:01:50.870
+copy paste it there, so I do not 
+
+49
+00:01:50.880 --> 00:01:52.610
+know how to spell abbreviation. 
+
+50
+00:01:53.940 --> 00:01:55.080
+In this, so it's going to be a 
+
+51
+00:01:55.090 --> 00:01:56.560
+little bit different than the 
+
+52
+00:01:56.570 --> 00:01:59.050
+last one that we did. I want to 
+
+53
+00:01:58.560 --> 00:02:01.250
+make a new array of, not just of 
+
+54
+00:02:01.260 --> 00:02:03.530
+values, because the values are 
+
+55
+00:02:02.710 --> 00:02:05.220
+going to give me "Wes," "Boss," "
+
+56
+00:02:05.295 --> 00:02:07.220
+HTML," "CSS," and "JS." I 
+
+57
+00:02:07.295 --> 00:02:10.350
+want an array of values that, if 
+
+58
+00:02:10.360 --> 00:02:11.560
+there's an abbreviation, I want 
+
+59
+00:02:11.570 --> 00:02:13.740
+them wrapped in an APBR tag. 
+
+60
+00:02:13.815 --> 00:02:16.130
+What I'm going to say is const 
+
+61
+00:02:16.205 --> 00:02:21.230
+abbreviated. I'm going to take 
+
+62
+00:02:21.240 --> 00:02:23.080
+the regular values and map over 
+
+63
+00:02:23.090 --> 00:02:24.950
+them, and return a new array of 
+
+64
+00:02:25.510 --> 00:02:26.820
+the values. We'll say for each 
+
+65
+00:02:26.830 --> 00:02:30.630
+value...now we're going to check 
+
+66
+00:02:30.760 --> 00:02:32.290
+if there is a value in the 
+
+67
+00:02:32.300 --> 00:02:34.590
+dictionary. We'll say if the 
+
+68
+00:02:34.600 --> 00:02:37.630
+dictionary has an item for that 
+
+69
+00:02:37.640 --> 00:02:39.350
+specific value, so if there's a 
+
+70
+00:02:39.360 --> 00:02:41.090
+value of "Wes," is there's going 
+
+71
+00:02:41.165 --> 00:02:42.210
+to be a value of "Wes?" No, 
+
+72
+00:02:42.210 --> 00:02:43.400
+there's not. It's just going to 
+
+73
+00:02:43.410 --> 00:02:45.220
+skip over that. Is there a value 
+
+74
+00:02:45.230 --> 00:02:47.470
+of "HTML?" If the dictionary has 
+
+75
+00:02:47.545 --> 00:02:49.540
+an "HTML" key, oh yes there is, 
+
+76
+00:02:49.850 --> 00:02:52.570
+there is one. We're just using a 
+
+77
+00:02:53.050 --> 00:02:54.650
+variable there. If that is 
+
+78
+00:02:54.660 --> 00:02:56.180
+true then, we are going to 
+
+79
+00:02:56.190 --> 00:02:58.500
+return the abbreviation tag, 
+
+80
+00:02:58.575 --> 00:03:01.800
+which is "APBR," and the title 
+
+81
+00:03:01.810 --> 00:03:03.160
+of that abbreviation tag is 
+
+82
+00:03:03.170 --> 00:03:04.850
+going to be the dictionary item 
+
+83
+00:03:04.860 --> 00:03:06.850
+with that key of "HTML, CSS or 
+
+84
+00:03:06.925 --> 00:03:08.420
+JS." Then inside of the 
+
+85
+00:03:08.430 --> 00:03:10.360
+abbreviation tag, we are going 
+
+86
+00:03:10.370 --> 00:03:14.050
+to return the value there. What 
+
+87
+00:03:14.060 --> 00:03:16.030
+that's going to give us if we 
+
+88
+00:03:17.390 --> 00:03:19.880
+console.log the abbreviated 
+
+89
+00:03:20.120 --> 00:03:21.750
+values here, and we take that 
+
+90
+00:03:21.760 --> 00:03:24.230
+tag template, pop it on to here. 
+
+91
+00:03:26.970 --> 00:03:28.470
+You'll see we get undefined, 
+
+92
+00:03:28.510 --> 00:03:29.550
+undefined. Why do we get 
+
+93
+00:03:29.590 --> 00:03:30.900
+undefined, undefined? That's Wes 
+
+94
+00:03:30.910 --> 00:03:32.240
+and Boss, what I forgot to do 
+
+95
+00:03:32.250 --> 00:03:34.910
+here. Otherwise, we just want to 
+
+96
+00:03:33.690 --> 00:03:36.700
+return the value. If it's not in 
+
+97
+00:03:36.710 --> 00:03:37.810
+the dictionary, it's just a 
+
+98
+00:03:37.820 --> 00:03:40.080
+regular variable. We're going to 
+
+99
+00:03:39.010 --> 00:03:40.420
+skip over that, but we still 
+
+100
+00:03:40.430 --> 00:03:41.380
+need to return it into the 
+
+101
+00:03:41.390 --> 00:03:43.890
+actual variable there. Here we 
+
+102
+00:03:43.840 --> 00:03:45.670
+go. "Wes Boss." Now each of 
+
+103
+00:03:45.680 --> 00:03:47.190
+our values array is now 
+
+104
+00:03:47.200 --> 00:03:49.740
+abbreviation tags that have been 
+
+105
+00:03:49.750 --> 00:03:51.340
+created for us, cool. Now we're 
+
+106
+00:03:51.350 --> 00:03:52.360
+not working with the values or 
+
+107
+00:03:52.370 --> 00:03:53.080
+any more. We're going to be 
+
+108
+00:03:53.090 --> 00:03:54.000
+working with this new 
+
+109
+00:03:54.300 --> 00:03:56.210
+abbreviated tag. Then we can 
+
+110
+00:03:56.220 --> 00:03:57.820
+take our strings array and start 
+
+111
+00:03:57.830 --> 00:03:59.360
+to piece it together. Last time 
+
+112
+00:03:59.360 --> 00:04:01.230
+I did this one, where I said let 
+
+113
+00:04:01.240 --> 00:04:03.760
+string = empty string and that 
+
+114
+00:04:03.770 --> 00:04:05.080
+might be comfortable for you. 
+
+115
+00:04:05.350 --> 00:04:07.200
+If you would rather use a reduce 
+
+116
+00:04:07.210 --> 00:04:08.580
+function, I'm going to show you 
+
+117
+00:04:09.060 --> 00:04:10.830
+how to do that. From this 
+
+118
+00:04:10.840 --> 00:04:12.170
+abbreviation function, we are 
+
+119
+00:04:12.180 --> 00:04:15.460
+going to return strings.reduce(). 
+
+120
+00:04:16.030 --> 00:04:17.400
+The way that reduce works is 
+
+121
+00:04:17.410 --> 00:04:19.650
+that it will loop over each one, 
+
+122
+00:04:19.540 --> 00:04:21.940
+and build the string as we go. 
+
+123
+00:04:22.160 --> 00:04:23.350
+It has that all inside of the 
+
+124
+00:04:23.440 --> 00:04:24.590
+function. We don't have to say 
+
+125
+00:04:24.600 --> 00:04:27.130
+this like let str = outside of 
+
+126
+00:04:27.140 --> 00:04:28.380
+the function. The whole thing 
+
+127
+00:04:28.390 --> 00:04:29.910
+is nice and tidy inside of a 
+
+128
+00:04:29.920 --> 00:04:31.670
+single reduce function. Reduce 
+
+129
+00:04:31.680 --> 00:04:32.580
+takes two things. It takes the 
+
+130
+00:04:32.590 --> 00:04:33.860
+function, and it takes what you 
+
+131
+00:04:33.870 --> 00:04:35.630
+start with. We're going to start 
+
+132
+00:04:35.705 --> 00:04:37.010
+with an empty string, and then 
+
+133
+00:04:37.020 --> 00:04:38.240
+the actual function that we want 
+
+134
+00:04:38.315 --> 00:04:40.080
+to run is going to be an 
+
+135
+00:04:40.280 --> 00:04:41.850
+anonymous function, which gives 
+
+136
+00:04:41.860 --> 00:04:44.140
+us sentence, which is going to 
+
+137
+00:04:44.150 --> 00:04:46.640
+be whatever the previous one was. 
+
+138
+00:04:47.110 --> 00:04:48.110
+The first one it's going to be a 
+
+139
+00:04:48.120 --> 00:04:50.260
+blank string. It's going to give 
+
+140
+00:04:50.270 --> 00:04:52.950
+us the actual string and the 
+
+141
+00:04:52.960 --> 00:04:55.640
+index for that one. I'm going to 
+
+142
+00:04:55.715 --> 00:04:56.270
+use an error function with a 
+
+143
+00:04:56.280 --> 00:05:00.140
+block here. From that we return. 
+
+144
+00:05:00.200 --> 00:05:01.810
+We're just going to build this 
+
+145
+00:05:01.820 --> 00:05:03.700
+entire thing together. We want 
+
+146
+00:05:03.775 --> 00:05:05.170
+to take the existing sentence. 
+
+147
+00:05:06.530 --> 00:05:08.090
+This is going to be whatever it 
+
+148
+00:05:07.700 --> 00:05:09.820
+was from the last iteration. 
+
+149
+00:05:10.320 --> 00:05:13.150
+We are going to tack on the 
+
+150
+00:05:13.200 --> 00:05:15.800
+string. Notice how I'm not doing 
+
+151
+00:05:15.810 --> 00:05:17.670
+a space here, because the spaces 
+
+152
+00:05:17.680 --> 00:05:19.340
+that are in the string will 
+
+153
+00:05:19.350 --> 00:05:20.890
+actually come along in the 
+
+154
+00:05:20.900 --> 00:05:22.250
+string itself. We don't need a 
+
+155
+00:05:22.260 --> 00:05:24.830
+space there. Then we want to 
+
+156
+00:05:24.840 --> 00:05:28.950
+tack on the abbreviated, because 
+
+157
+00:05:28.950 --> 00:05:31.890
+we have this array here. Square 
+
+158
+00:05:31.900 --> 00:05:34.450
+bracket "I" or nothing, just 
+
+159
+00:05:34.460 --> 00:05:35.510
+that little trick that we did 
+
+160
+00:05:35.520 --> 00:05:37.700
+earlier there. What that does 
+
+161
+00:05:38.090 --> 00:05:39.730
+is -- I think now we should take 
+
+162
+00:05:39.740 --> 00:05:43.590
+a look. "String is not defined." 
+
+163
+00:05:43.640 --> 00:05:45.720
+Uh, oh, where is that our string, "
+
+164
+00:05:46.360 --> 00:05:48.300
+S." strings that reduce? There 
+
+165
+00:05:48.375 --> 00:05:49.960
+we go. "Hello my name is Wes 
+
+166
+00:05:49.970 --> 00:05:51.510
+Boss. I love to code HTML," 
+
+167
+00:05:51.550 --> 00:05:54.950
+hover over, "CSS and JS." I 
+
+168
+00:05:54.960 --> 00:05:57.380
+inspect that. Now our string 
+
+169
+00:05:57.390 --> 00:05:59.260
+here has been created with 
+
+170
+00:05:59.270 --> 00:06:02.390
+abbreviation tag. That's a 
+
+171
+00:06:02.390 --> 00:06:04.080
+great example of when you might 
+
+172
+00:06:04.090 --> 00:06:06.030
+want to use it. You just have to 
+
+173
+00:06:06.040 --> 00:06:07.720
+tack on this add abbreviation 
+
+174
+00:06:07.795 --> 00:06:08.960
+and it's going to externally go 
+
+175
+00:06:09.035 --> 00:06:10.650
+and look up your dictionary, as 
+
+176
+00:06:10.660 --> 00:06:13.160
+well as, do all of this messy 
+
+177
+00:06:13.840 --> 00:06:15.010
+function right here. You just 
+
+178
+00:06:15.010 --> 00:06:16.550
+have to tack this one on in 
+
+179
+00:06:16.560 --> 00:06:17.840
+front of any time that you use 
+
+180
+00:06:17.915 --> 00:06:18.240
+it.
+
