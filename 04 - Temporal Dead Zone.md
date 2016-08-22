@@ -5,11 +5,11 @@ This is something that you probably won't come across too often, but it's helpfu
 Let's get started.
 
 ```js
-    var pizza = 'Deep Dish 🍕🍕🍕’
+    var pizza = 'Deep Dish 🍕🍕🍕'
     console.log(pizza);
 ```
 
-What happens when you try and log `pizza` to the console after it's been created? You'll see that we actually get to see `'Deep Dish 🍕🍕🍕’`. 
+What happens when you try and log `pizza` to the console after it's been created? You'll see that we actually get to see `'Deep Dish 🍕🍕🍕'`. 
 
 No big issue there.
 
@@ -24,9 +24,9 @@ Are we going to get:
 
 -  `Undefined` 
 -  An error saying `pizza` is not defined yet
--  Are we actually going to see `Deep Dish :pizza:` 
+-  Are we actually going to see `'Deep Dish 🍕🍕🍕'` 
 
-We get undefined. 
+We get `undefined`. 
 
 Why? 
 
