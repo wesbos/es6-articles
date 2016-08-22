@@ -7,7 +7,7 @@ Let's get started.
 ```js
     var pizza = 'Deep Dish 🍕🍕🍕’
     console.log(pizza);
-````
+```
 
 What happens when you try and log `pizza` to the console after it's been created? You'll see that we actually get to see `'Deep Dish 🍕🍕🍕’`. 
 
@@ -18,7 +18,7 @@ What if I try to run `console.log` before creating it?
 ```js
     console.log(pizza);
     var pizza = 'Deep Dish 🍕🍕🍕'
-````
+```
 
 Are we going to get: 
 
