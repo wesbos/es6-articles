@@ -1,0 +1,31 @@
+[00:00] [music]
+
+[00:02] Instructor: A really great use case for spreads is when you spread into a function. Now, let's take a look at this example. I've got my inventors array right here, and I want to take the items from New Inventors and put them into Inventors. I don't want a third array. I don't want to overwrite the entire array. I just want to tack them onto the end.
+
+[00:20] You might think, "OK, we'll just take the inventors and we'll call push on it, and we'll pass it the new inventors." Let's see what that gives us. Console.log Inventors, now we get three items, and then we have the fourth item is an array of two things. That's inside it. That's not what we want. 
+
+[00:38] We essentially just did this. We took the array and added it as a fourth item, so we have an array in an array. We don't want that. 
+
+[00:45] A way that you could have solved this in the past is inventors.push, and then you call the apply on it, and you pass it this context, which is inventors, and you pass it. That will work, and I'll tell you why. There we go. 
+
+[01:02] What's happening here is when you call apply, it's going to run the function that you called apply against, but every single item of the array as an argument.
+
+[01:11] It's essentially doing this, .push, musk, and jobs, because you can't pass push an array. You can pass push as many arguments as you wish. 
+
+[01:21] That's a little bit funky, and I've seen a lot of people scratch their heads looking at something like that, where you have Inventors twice, and then you call this weird apply thing on it? It's a little bit hard to actually understand.
+
+[01:32] Rather than that, what we can do is you just simply call push, and we only pass it the New Inventors. Again, let's see the issue that we get with that. 
+
+[01:41] That's the array, but if you were to spread into it, what does spread do? Spread is going to take musk and jobs to pass it as individual argument into push. Now we don't have to worry about any of that ply, or this, or any of these things. 
+
+[01:58] We simply just spread right into the functions. We've been spreading into arrays, but you can also spread into a function where every single item of the array is going to be used as an argument. 
+
+[02:10] Let's build another example ourselves where we have a function that says, "Say hi." It's going to have a first name and a last name, and we're simply just going to alert, "Hey there first." What am I doing? Let's use a template string. "Hey there first and last." We're going to do a really simple thing. 
+
+[02:32] Then I have someone's name, so const name is an array Wes and Bos. For whatever reason, we've got an array, and we need to pass argument one, argument two. You could do this. Say, "Hi." Then you say, "Name 0And "Name 1." That should work.
+
+[02:56] OK. "Hey there, Wes Bos," but that doesn't really work that well, especially if you had a whole bunch of arguments that you need to pass in. 
+
+[03:02] What we could do instead of passing the two individual arguments is you just spread the array, and that will pass "Wes" as the first argument and "Bos" as the second argument. Then you say, "Hey there, Wes Bos," without having to do any of that weird square bracket stuff. 
+
+[03:18] Spreading into a function, very, very handy.

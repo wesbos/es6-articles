@@ -1,0 +1,23 @@
+[00:00] [music]
+
+[00:02] Instructor: If the concept of a set still hasn't set in, let's take an example with brunch, because everyone absolutely loves brunch. Let's say it's a busy Sunday morning at a restaurant and people are coming in for brunch and they want to put their name on the list.
+
+[00:16] We'll create a variable called brunch, and that will be a new set. Then as people start coming in, we want to add them to the list. We say brunch.add(Wes), brunch.add(Sarah Simone).
+
+[00:32] Then we are ready to open. What we're going to do is take the values from this line and start to use it. We'll say const line = brunch.values(). Now, we're working with this line here and we could say, "All right, who's up?" 
+
+[00:54] First one is line.next.value(). Why do we call line.next.value() against it? Because line.next() is going to give us the generator item, and value is going to be the actual item from our set. 
+
+[01:08] If I console.log that, we should see...OK, Wes is up. Then if we've got room for another person, we'll just call that same code again. All right, Sarah is up.
+
+[01:19] Now, where is our set at right now? Let's take a look. Brunch, Wes, Sarah, Simon; but that doesn't make too much sense. What about line? Just Simone is actually left.
+
+[01:30] That's really interesting because when you call next() against this line, it will remove itself from the set iterator, whereas the set is sort of the gold list of everyone that has currently went through it.
+
+[01:43] Then people start showing up. We've seated our first couple customers and people are showing up, so we can just starting adding them to the initial set. We'll say brunch.add(). 
+
+[01:53] Notice how we're not adding them to the line, we're adding them to the initial set here. Maybe Heather shows up, and then maybe Snickers the dog shows up for brunch.
+
+[02:01] We can just keep calling next() on it. We can call it next(), next(). As we do that, people are being seated. Wes, Sarah, Simone, Heather, Snickers. 
+
+[02:12] Even though I added these after the fact of creating the set and creating the line here, we can still add people to the original one, and the iterator is still going to iterate on through to them.

@@ -46,7 +46,7 @@ _example:_
 | 28 | Spread Operator Introduction | X | |
 | 29 | Spread Exercise | X | |
 | 30 | More Spread Examples |  | |
-| 31 | Spreading into a function |  | |
+| 31 | Spreading into a function | X | |
 | 32 | The ...rest param in Functions and destructuring |  | |
 | 33 | Object Literal Upgrades | X | X |
 | 34 | Promises |  | |
@@ -76,7 +76,7 @@ _example:_
 | 58 | What are Proxies? |  | |
 | 59 | Another Proxy Example |  | |
 | 60 | Using Proxies to combat silly errors |  | |
-| 61 | Sets |  | |
+| 61 | Sets | X | |
 | 62 | Understanding Sets with Brunch |  | |
 | 63 | WeakSets |  | |
 | 64 | Maps |  | |

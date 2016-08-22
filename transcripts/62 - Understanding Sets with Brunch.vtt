@@ -1,0 +1,282 @@
+WEBVTT
+
+1
+00:00:02.310 --> 00:00:02.480
+ Instructor: If the 
+
+2
+00:00:02.480 --> 00:00:04.490
+concept of a set still hasn't 
+
+3
+00:00:04.490 --> 00:00:06.480
+set in, let's take an example 
+
+4
+00:00:06.490 --> 00:00:07.940
+with brunch, because everyone 
+
+5
+00:00:08.100 --> 00:00:10.060
+absolutely loves brunch. Let's 
+
+6
+00:00:10.070 --> 00:00:11.600
+say it's a busy Sunday morning 
+
+7
+00:00:11.610 --> 00:00:13.310
+at a restaurant and people are 
+
+8
+00:00:13.320 --> 00:00:14.760
+coming in for brunch and they 
+
+9
+00:00:14.760 --> 00:00:16.400
+want to put their name on the 
+
+10
+00:00:16.475 --> 00:00:18.260
+list. We'll create a variable 
+
+11
+00:00:18.600 --> 00:00:20.680
+called brunch, and that will be 
+
+12
+00:00:20.730 --> 00:00:23.270
+a new set. Then as people start 
+
+13
+00:00:23.280 --> 00:00:25.000
+coming in, we want to add them 
+
+14
+00:00:25.010 --> 00:00:27.870
+to the list. We say brunch.add(
+
+15
+00:00:28.660 --> 00:00:32.420
+Wes), brunch.add(Sarah Simone). 
+
+16
+00:00:32.495 --> 00:00:39.190
+Then we are ready to open. What 
+
+17
+00:00:39.265 --> 00:00:41.040
+we're going to do is take the 
+
+18
+00:00:41.170 --> 00:00:43.430
+values from this line and start 
+
+19
+00:00:43.440 --> 00:00:45.550
+to use it. We'll say const line = 
+
+20
+00:00:45.625 --> 00:00:50.490
+brunch.values(). Now, we're 
+
+21
+00:00:50.500 --> 00:00:52.810
+working with this line here and 
+
+22
+00:00:52.940 --> 00:00:53.920
+we could say, "All right, who's 
+
+23
+00:00:53.930 --> 00:00:56.510
+up?" First one is line.next.
+
+24
+00:00:56.585 --> 00:00:59.850
+value(). Why do we call line.
+
+25
+00:00:59.990 --> 00:01:01.990
+next.value() against it? Because 
+
+26
+00:01:02.210 --> 00:01:03.640
+line.next() is going to give us 
+
+27
+00:01:03.910 --> 00:01:05.570
+the generator item, and value is 
+
+28
+00:01:05.580 --> 00:01:08.290
+going to be the actual item from 
+
+29
+00:01:08.300 --> 00:01:10.030
+our set. If I console.log 
+
+30
+00:01:10.040 --> 00:01:13.180
+that, we should see...OK, Wes is 
+
+31
+00:01:13.190 --> 00:01:15.370
+up. Then if we've got room for 
+
+32
+00:01:15.380 --> 00:01:16.590
+another person, we'll just call 
+
+33
+00:01:16.600 --> 00:01:18.350
+that same code again. All right, 
+
+34
+00:01:18.360 --> 00:01:19.850
+Sarah is up. Now, where is 
+
+35
+00:01:19.860 --> 00:01:21.890
+our set at right now? Let's take 
+
+36
+00:01:21.440 --> 00:01:24.080
+a look. Brunch, Wes, Sarah, 
+
+37
+00:01:24.080 --> 00:01:25.890
+Simon; but that doesn't make too 
+
+38
+00:01:25.900 --> 00:01:27.310
+much sense. What about line? 
+
+39
+00:01:28.080 --> 00:01:30.120
+Just Simone is actually left. 
+
+40
+00:01:30.130 --> 00:01:31.110
+That's really interesting 
+
+41
+00:01:31.120 --> 00:01:32.750
+because when you call next() 
+
+42
+00:01:33.100 --> 00:01:34.700
+against this line, it will 
+
+43
+00:01:34.700 --> 00:01:36.690
+remove itself from the set 
+
+44
+00:01:36.765 --> 00:01:38.590
+iterator, whereas the set is 
+
+45
+00:01:39.300 --> 00:01:40.500
+sort of the gold list of 
+
+46
+00:01:40.510 --> 00:01:42.180
+everyone that has currently went 
+
+47
+00:01:42.190 --> 00:01:44.010
+through it. Then people start 
+
+48
+00:01:44.020 --> 00:01:45.560
+showing up. We've seated our 
+
+49
+00:01:45.570 --> 00:01:46.760
+first couple customers and 
+
+50
+00:01:47.040 --> 00:01:48.800
+people are showing up, so we can 
+
+51
+00:01:48.875 --> 00:01:49.380
+just starting adding them to the 
+
+52
+00:01:49.390 --> 00:01:52.020
+initial set. We'll say brunch.
+
+53
+00:01:52.330 --> 00:01:53.710
+add(). Notice how we're not 
+
+54
+00:01:53.720 --> 00:01:54.830
+adding them to the line, we're 
+
+55
+00:01:54.840 --> 00:01:56.700
+adding them to the initial set 
+
+56
+00:01:56.710 --> 00:01:58.790
+here. Maybe Heather shows up, 
+
+57
+00:01:59.160 --> 00:02:00.840
+and then maybe Snickers the dog 
+
+58
+00:02:00.850 --> 00:02:02.630
+shows up for brunch. We can 
+
+59
+00:02:02.705 --> 00:02:05.590
+just keep calling next() on it. 
+
+60
+00:02:05.665 --> 00:02:07.320
+We can call it next(), next(). 
+
+61
+00:02:07.320 --> 00:02:09.340
+As we do that, people are being 
+
+62
+00:02:09.350 --> 00:02:11.680
+seated. Wes, Sarah, Simone, 
+
+63
+00:02:11.770 --> 00:02:13.340
+Heather, Snickers. Even 
+
+64
+00:02:13.350 --> 00:02:15.230
+though I added these after the 
+
+65
+00:02:15.240 --> 00:02:17.200
+fact of creating the set and 
+
+66
+00:02:17.210 --> 00:02:19.990
+creating the line here, we can 
+
+67
+00:02:20.000 --> 00:02:21.700
+still add people to the original 
+
+68
+00:02:21.710 --> 00:02:23.750
+one, and the iterator is still 
+
+69
+00:02:23.825 --> 00:02:24.300
+going to iterate on through to 
+
+70
+00:02:24.310 --> 00:02:24.520
+them.
+
