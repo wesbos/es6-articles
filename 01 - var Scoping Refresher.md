@@ -20,8 +20,8 @@ If I created a function  and put my var width inside of it, and console logged t
 
 ```
 function setWidth() {
-var width = 100;
-console.log(width);
+  var width = 100;
+  console.log(width);
 }
 setWidth();
 ```
@@ -33,8 +33,8 @@ But if I also tried to console log the width after I've set the width like this?
 
 ```
 function setWidth() {
-var width = 100;
-console.log(width);
+  var width = 100;
+  console.log(width);
 }
 setWidth();
 console.log(width);
@@ -49,8 +49,8 @@ That's important for us to know. If you do want to globally scope width, we need
 ```
 var width;
 function setWidth() {
-width = 100;
-console.log(width);
+  width = 100;
+  console.log(width);
 }
 setWidth();
 console.log(width);
@@ -63,8 +63,8 @@ Let's say we have an age variable and we have an if statement. We want to create
 ```
 var age = 100;
 if(age > 12) {
-var dogYears = age * 7;
-console.log(`You are ${dogYears} dog years old!`);
+  var dogYears = age * 7;
+  console.log(`You are ${dogYears} dog years old!`);
 }
 
 ```
@@ -80,8 +80,8 @@ What is a block? Here is a great example:
 ```
 ...
 if(age > 12) {
- var dogYears = age * 7;
-console.log(`You are ${dogYears} dog years old!`);
+  var dogYears = age * 7;
+  console.log(`You are ${dogYears} dog years old!`);
 }
 
 ...
@@ -95,8 +95,8 @@ If I now take this dog years here and change it to `let`...
 ```
 var age = 100;
 if(age > 12) {
-let dogYears = age * 7;
-console.log(`You are ${dogYears} dog years old!`);
+  let dogYears = age * 7;
+  console.log(`You are ${dogYears} dog years old!`);
 }
 
 ```
