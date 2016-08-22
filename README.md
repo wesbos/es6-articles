@@ -2,6 +2,16 @@
 
 Blog posts and articles about ES6.
 
+## Naming Conventions
+
+Prefix each article with the video number. Use a single leading zero for articles 1-9. The title should just use spaces as it shows in the video. Note the use of ` - ` in between the video number and the title.
+
+_example:_
+
+- 12 - Article Name.md 
+- 02 - I sure love Pizza.md 
+
+
 # WIP Status
 
 |  | Article Name   |      Captions       |  Blog Post |
