@@ -1,0 +1,422 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.440 --> 00:00:03.760
+One of the unique properties of 
+
+3
+00:00:03.760 --> 00:00:05.480
+a map over just a regular old 
+
+4
+00:00:05.490 --> 00:00:06.850
+object, is that you can actually 
+
+5
+00:00:06.860 --> 00:00:09.460
+use an object as the key in a 
+
+6
+00:00:09.470 --> 00:00:11.300
+map. What I mean by that is, 
+
+7
+00:00:11.310 --> 00:00:13.080
+let's say we had an object right 
+
+8
+00:00:12.860 --> 00:00:15.790
+here and we wanted to use a 
+
+9
+00:00:15.870 --> 00:00:17.930
+object as the key. We can't do 
+
+10
+00:00:17.940 --> 00:00:19.640
+that. We can only use a string, 
+
+11
+00:00:19.650 --> 00:00:21.950
+where we say key, or wes, or hi, 
+
+12
+00:00:22.340 --> 00:00:23.550
+that's the only thing. But 
+
+13
+00:00:23.690 --> 00:00:25.130
+what if we were able to use an 
+
+14
+00:00:25.190 --> 00:00:27.750
+object here, where the value can 
+
+15
+00:00:27.760 --> 00:00:29.190
+be a number, a string, or 
+
+16
+00:00:29.200 --> 00:00:31.070
+another object itself? That's 
+
+17
+00:00:31.080 --> 00:00:32.580
+where maps come in really handy, 
+
+18
+00:00:32.590 --> 00:00:34.230
+because they can be used as sort 
+
+19
+00:00:34.305 --> 00:00:36.880
+of a metadata dictionary, where 
+
+20
+00:00:36.960 --> 00:00:38.790
+it holds information about an 
+
+21
+00:00:38.800 --> 00:00:40.390
+object but it doesn't 
+
+22
+00:00:40.400 --> 00:00:41.830
+necessarily put that information 
+
+23
+00:00:41.880 --> 00:00:43.450
+on the object. Let's say I 
+
+24
+00:00:43.460 --> 00:00:44.830
+had a bunch of buttons right 
+
+25
+00:00:44.840 --> 00:00:46.630
+here, and every time I click one 
+
+26
+00:00:46.640 --> 00:00:48.400
+of those buttons I want to 
+
+27
+00:00:48.475 --> 00:00:48.990
+record how many times that 
+
+28
+00:00:49.000 --> 00:00:51.310
+specific button was clicked. 
+
+29
+00:00:51.760 --> 00:00:53.470
+I could put the click count 
+
+30
+00:00:53.480 --> 00:00:56.100
+right on the element itself, but 
+
+31
+00:00:56.100 --> 00:00:57.210
+I don't really want to do that 
+
+32
+00:00:57.220 --> 00:00:58.780
+because it's kind of dirty, and 
+
+33
+00:00:59.040 --> 00:01:00.200
+if I remove the element then 
+
+34
+00:01:00.210 --> 00:01:03.030
+that count is gone with it. I 
+
+35
+00:01:03.040 --> 00:01:05.000
+could also create an object 
+
+36
+00:01:05.010 --> 00:01:07.360
+where I take something unique 
+
+37
+00:01:07.370 --> 00:01:09.230
+about this button and use that. 
+
+38
+00:01:09.240 --> 00:01:10.590
+Maybe I give them each an ID. 
+
+39
+00:01:10.850 --> 00:01:12.040
+But in this case, we can 
+
+40
+00:01:12.050 --> 00:01:13.780
+actually use the button itself 
+
+41
+00:01:14.620 --> 00:01:16.180
+because when I select it it's 
+
+42
+00:01:16.255 --> 00:01:17.510
+going to be an object. We'll use 
+
+43
+00:01:17.520 --> 00:01:19.960
+that as the actual key. Let's 
+
+44
+00:01:19.970 --> 00:01:21.530
+make a new map called 
+
+45
+00:01:21.605 --> 00:01:23.980
+clickCounts, and then let's 
+
+46
+00:01:23.990 --> 00:01:25.270
+select every single button on 
+
+47
+00:01:25.280 --> 00:01:27.450
+the page. Now I'm going to loop 
+
+48
+00:01:27.460 --> 00:01:29.440
+over every single button and add 
+
+49
+00:01:29.450 --> 00:01:31.850
+it to this map, and we're going 
+
+50
+00:01:31.925 --> 00:01:32.980
+to set it by default zero. 
+
+51
+00:01:32.990 --> 00:01:35.630
+That's the actual click count. 
+
+52
+00:01:35.930 --> 00:01:38.620
+So, button. for each button. 
+
+53
+00:01:41.580 --> 00:01:42.970
+Then for each button, we're 
+
+54
+00:01:42.980 --> 00:01:44.520
+going to add it to the map. 
+
+55
+00:01:47.380 --> 00:01:49.100
+Notice how the key is going to 
+
+56
+00:01:49.110 --> 00:01:50.800
+just be the button itself. Let's 
+
+57
+00:01:50.810 --> 00:01:53.420
+save that and we'll take a look 
+
+58
+00:01:53.430 --> 00:01:55.340
+at...Oh, it's document.query. 
+
+59
+00:01:55.620 --> 00:01:58.430
+Select all. Take a look at 
+
+60
+00:01:58.440 --> 00:02:01.380
+our click counts. Look, this is 
+
+61
+00:02:01.380 --> 00:02:05.180
+our map, whereas every single 
+
+62
+00:02:05.400 --> 00:02:07.420
+key...look at that. The key is a 
+
+63
+00:02:07.430 --> 00:02:09.280
+button. I can open that up and 
+
+64
+00:02:09.330 --> 00:02:10.210
+you see that that's just a 
+
+65
+00:02:10.220 --> 00:02:12.300
+regular DOM node element right 
+
+66
+00:02:12.300 --> 00:02:13.720
+there. The key is an actual 
+
+67
+00:02:13.730 --> 00:02:15.030
+object. That's really handy. 
+
+68
+00:02:15.310 --> 00:02:16.540
+Now when someone clicks one of 
+
+69
+00:02:16.550 --> 00:02:17.680
+these, we'll just increment the 
+
+70
+00:02:17.690 --> 00:02:20.360
+number by one. Say, button.
+
+71
+00:02:20.435 --> 00:02:28.350
+avidListener, then I could say 
+
+72
+00:02:28.360 --> 00:02:30.590
+val get...what is the key to get? 
+
+73
+00:02:30.710 --> 00:02:32.730
+This, right? Because I used a 
+
+74
+00:02:32.740 --> 00:02:34.340
+regular function there, this is 
+
+75
+00:02:34.350 --> 00:02:36.480
+going to be equal to the button. 
+
+76
+00:02:37.060 --> 00:02:39.580
+So get this. Then we'll just 
+
+77
+00:02:39.580 --> 00:02:40.920
+console.log the val here and see 
+
+78
+00:02:40.930 --> 00:02:43.450
+what each one is. Zero, zero, 
+
+79
+00:02:43.525 --> 00:02:44.750
+obviously they're all zero right 
+
+80
+00:02:44.760 --> 00:02:47.180
+now. Then we can set it. Say 
+
+81
+00:02:47.190 --> 00:02:53.170
+click counts.set. This with the 
+
+82
+00:02:53.180 --> 00:02:54.930
+key is going to be the button, 
+
+83
+00:02:55.005 --> 00:02:56.230
+and then the value is just going 
+
+84
+00:02:55.460 --> 00:02:57.180
+to be val plus one, incremented 
+
+85
+00:02:57.280 --> 00:02:59.350
+by one. Then I'm going to 
+
+86
+00:02:59.530 --> 00:03:00.860
+console.log the click 
+
+87
+00:03:01.010 --> 00:03:04.070
+counts entire map, just to see 
+
+88
+00:03:04.080 --> 00:03:05.000
+what we're dealing with now. 
+
+89
+00:03:05.670 --> 00:03:07.050
+Good. So now we click snakes, 
+
+90
+00:03:07.320 --> 00:03:08.910
+open that sucker up, you see the 
+
+91
+00:03:08.920 --> 00:03:10.720
+first button which is this one, 
+
+92
+00:03:10.960 --> 00:03:13.280
+has a value of one. You could 
+
+93
+00:03:13.355 --> 00:03:14.250
+use an object or a string, or 
+
+94
+00:03:14.325 --> 00:03:15.120
+anything. I'm just using a 
+
+95
+00:03:15.130 --> 00:03:16.670
+regular old number. If I 
+
+96
+00:03:16.670 --> 00:03:18.250
+click it a few more times, here 
+
+97
+00:03:22.540 --> 00:03:24.000
+we go. You can see that every 
+
+98
+00:03:24.010 --> 00:03:26.040
+time I click one of these, the 
+
+99
+00:03:26.050 --> 00:03:27.540
+click count is going on up. 
+
+100
+00:03:27.750 --> 00:03:30.750
+That's a useful case for using a 
+
+101
+00:03:30.760 --> 00:03:32.540
+map where you want to store 
+
+102
+00:03:32.615 --> 00:03:34.490
+metadata, not necessarily on the 
+
+103
+00:03:34.500 --> 00:03:36.980
+object, but you want to store 
+
+104
+00:03:37.055 --> 00:03:38.680
+metadata about an object. A map 
+
+105
+00:03:38.690 --> 00:03:39.940
+is a good use case for that.
+

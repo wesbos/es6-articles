@@ -1,0 +1,23 @@
+[00:00] [music]
+
+Instructor: [00:02] Let's do another example with phone numbers. Phone numbers are a tricky thing because sometimes people put dashes in them, sometimes people put parenthesis or spaces or neither or pluses. There's all kinds of different characters that could go into a phone number when sometimes you might just want to store it as a raw actual number.
+
+[00:20] Now, I'm going to assume that these are US numbers. Obviously this would be a little bit more involved if it's an international numbers, but we'll keep it simple here. I'm going to first create what's called a phone handler, and that's going to do the trapping of the set and get methods.
+
+[00:37] Let's first start with set, and the set will take in the target, the name, and the value. Then we will go down here and create a phone number proxy. We're going to start off with an empty object because there's no phone numbers in it to start, and pass it to phone handler.
+
+[00:59] When I set it, I could just set the target name = value. Let's try that out. What we've done here is we've set the phone number. We've got a plus here. We have a space that someone accidentally put in. We've got a dash here, sometimes there's going to be parenthesis. 
+
+[01:17] Let's set another one, phoneNumber.work is maybe something like two, three, four, and they only put spaces in it in that case. Now we have phoneNumbers, which is an object, with some not nicely formatted data inside of it. 
+
+[01:35] What we can then do is, when someone sets it, we can clean it of all these characters that are non-numbers. We will say target.name = value, and then we'll just run a match against that, only for numbers. Then we'll join it together once we have it.
+
+[01:57] Now, I should be able to say phoneNumbers.work, and then when I pull up phoneNumbers.work is just a actual number. Same goes for the home one that we did. When I pull up phoneNumber.home, it will now be stripped of all of your dashes and spaces and any other characters that might have then come on in with it.
+
+[02:21] We could go one further and actually store it as number if we wanted to, but let's do it on the flip side of when I actually pull it out of this object, we want it to be consistently formatted. That will be our get, and from this we're going to return the target name. That's the default operation. 
+
+[02:40] What we can do is use a .replace RegExp here to format it in a standard phone number fashion. I just pulled this off the Internet here, and now when we try to set something. Let's try work. Now when I pull the work out, we intercept it with this get trap and then we format it as it comes out. 
+
+[03:06] No matter how I pass in the values, it's always going to pull it out and format it very nicely for me. That's another good example where you might want to use a handler. Again, we're using set and get to step in between on the proxy. 
+
+[03:28] One other thing we did here is we didn't start with an existing object, we just passed it a blank object and then use that to set values on.

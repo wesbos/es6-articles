@@ -50,7 +50,7 @@ _example:_
 | 32 | The ...rest param in Functions and destructuring |  | |
 | 33 | Object Literal Upgrades | X | X |
 | 34 | Promises |  | |
-| 35 | Building your own Promises |  | |
+| 35 | Building your own Promises | X | |
 | 36 | Chaining Promises + Flow Control |  | |
 | 37 | Working with Multiple Promises |  | |
 | 38 | All About Symbols | X | X |
@@ -74,11 +74,11 @@ _example:_
 | 56 | Using Generators for Ajax Flow Control |  | |
 | 57 | Looping Generators with for of |  | |
 | 58 | What are Proxies? |  | |
-| 59 | Another Proxy Example |  | |
+| 59 | Another Proxy Example | X | |
 | 60 | Using Proxies to combat silly errors |  | |
 | 61 | Sets | X | |
 | 62 | Understanding Sets with Brunch |  | |
-| 63 | WeakSets |  | |
-| 64 | Maps |  | |
-| 65 | Map Metadata with DOM Node Keys |  | |
+| 63 | WeakSets | X | |
+| 64 | Maps | X | |
+| 65 | Map Metadata with DOM Node Keys | X | |
 | 66 | WeakMap and Garbage Collection |  | |

@@ -1,0 +1,462 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:03.670 --> 00:00:04.840
+A WeakSet is just like a set, 
+
+3
+00:00:04.850 --> 00:00:06.220
+except there are a number of 
+
+4
+00:00:06.230 --> 00:00:07.310
+limitations, or I guess you 
+
+5
+00:00:07.320 --> 00:00:09.660
+could say benefits to using a 
+
+6
+00:00:09.735 --> 00:00:11.020
+WeakSet in some situations. 
+
+7
+00:00:11.510 --> 00:00:12.650
+We create it just like we would 
+
+8
+00:00:12.870 --> 00:00:15.430
+before, and you can pass it an 
+
+9
+00:00:15.505 --> 00:00:17.830
+iterable of items, so dog1 and 
+
+10
+00:00:17.905 --> 00:00:22.020
+dog2. I could also have done 
+
+11
+00:00:22.095 --> 00:00:27.770
+WeakSauce.add dog2. Let's check 
+
+12
+00:00:27.780 --> 00:00:30.620
+it out, WeakSauce, there we go. 
+
+13
+00:00:30.630 --> 00:00:34.160
+I can say .hasDog1, that is true, .
+
+14
+00:00:34.235 --> 00:00:36.550
+hasDog2. The important thing 
+
+15
+00:00:36.560 --> 00:00:38.200
+that we need to know here about 
+
+16
+00:00:38.220 --> 00:00:41.160
+a WeakSet is that a WeakSet can 
+
+17
+00:00:41.280 --> 00:00:44.240
+only ever contain objects. It 
+
+18
+00:00:44.250 --> 00:00:45.470
+cannot contain strings, or 
+
+19
+00:00:45.480 --> 00:00:47.820
+numbers, or arrays, or anything 
+
+20
+00:00:47.830 --> 00:00:49.600
+else. It can only ever contain 
+
+21
+00:00:50.020 --> 00:00:52.230
+an object. Now, we'll see why 
+
+22
+00:00:52.240 --> 00:00:53.340
+that's important in just a 
+
+23
+00:00:53.350 --> 00:00:54.710
+second. That's one thing that we 
+
+24
+00:00:54.720 --> 00:00:56.090
+need to know about it. The 
+
+25
+00:00:56.165 --> 00:00:56.440
+other thing we need to know 
+
+26
+00:00:56.450 --> 00:00:57.670
+about it is you cannot 
+
+27
+00:00:57.745 --> 00:00:59.580
+ennumerate, or you cannot loop 
+
+28
+00:00:59.590 --> 00:01:01.310
+over it, so we couldn't do our 
+
+29
+00:01:01.320 --> 00:01:06.400
+for constDog of WeakSauce and 
+
+30
+00:01:06.410 --> 00:01:07.910
+then console.log dog. Watch the 
+
+31
+00:01:07.920 --> 00:01:10.470
+error that it gives us, symbol.
+
+32
+00:01:10.545 --> 00:01:11.840
+iterator is not a function. 
+
+33
+00:01:11.850 --> 00:01:14.080
+There is no iterator on a 
+
+34
+00:01:14.155 --> 00:01:16.320
+WeakSet like there is on an 
+
+35
+00:01:16.330 --> 00:01:19.270
+array, or on a set, or any of 
+
+36
+00:01:18.880 --> 00:01:20.070
+the other things that we can use 
+
+37
+00:01:20.080 --> 00:01:22.070
+a for of on, so that's out the 
+
+38
+00:01:22.080 --> 00:01:23.580
+window. You might be thinking, "
+
+39
+00:01:23.620 --> 00:01:25.530
+Well, that's kind of weak. Why 
+
+40
+00:01:25.530 --> 00:01:26.990
+would I ever want to use that?" 
+
+41
+00:01:27.410 --> 00:01:29.000
+Really, the last thing that we 
+
+42
+00:01:29.010 --> 00:01:30.870
+need to know about a WeakSet is 
+
+43
+00:01:30.880 --> 00:01:32.790
+that there is no .clear method. 
+
+44
+00:01:33.740 --> 00:01:36.140
+If I have my WeakSauce here, 
+
+45
+00:01:37.350 --> 00:01:39.740
+there is no .clear method that I 
+
+46
+00:01:39.750 --> 00:01:40.960
+can call against it, and I'll 
+
+47
+00:01:40.970 --> 00:01:42.610
+tell you why. Because the 
+
+48
+00:01:42.685 --> 00:01:44.160
+WeakSets sort of clean 
+
+49
+00:01:44.170 --> 00:01:46.620
+themselves up. This has 
+
+50
+00:01:46.680 --> 00:01:48.050
+everything to do with garbage 
+
+51
+00:01:48.060 --> 00:01:50.510
+collection and memory. What that 
+
+52
+00:01:50.520 --> 00:01:52.870
+means is that when the reference 
+
+53
+00:01:52.910 --> 00:01:55.060
+to one of these dogs no longer 
+
+54
+00:01:55.070 --> 00:01:56.870
+exists, for example, if we were 
+
+55
+00:01:56.880 --> 00:01:58.400
+to delete one of these dogs, 
+
+56
+00:01:58.560 --> 00:02:00.380
+then it would automatically be 
+
+57
+00:02:00.390 --> 00:02:01.730
+garbage collected, which means 
+
+58
+00:02:02.010 --> 00:02:03.790
+it would automatically be taken 
+
+59
+00:02:03.940 --> 00:02:05.740
+out of our WeakSet. We have 
+
+60
+00:02:06.060 --> 00:02:08.760
+the set that is weakly held, 
+
+61
+00:02:08.770 --> 00:02:10.780
+which means that things can just 
+
+62
+00:02:10.810 --> 00:02:14.130
+automatically go away because if 
+
+63
+00:02:14.140 --> 00:02:15.530
+they're deleted in the code that 
+
+64
+00:02:15.540 --> 00:02:17.330
+you're running, then they are 
+
+65
+00:02:17.340 --> 00:02:19.150
+going to be also deleted from 
+
+66
+00:02:19.160 --> 00:02:20.860
+the set. To demonstrate that, 
+
+67
+00:02:20.870 --> 00:02:23.670
+what I'm going to do is set dog1 
+
+68
+00:02:23.490 --> 00:02:25.930
+to be null, and I'm just going 
+
+69
+00:02:25.940 --> 00:02:27.480
+to console.log the WeakSet right 
+
+70
+00:02:27.555 --> 00:02:29.230
+here. When does garbage 
+
+71
+00:02:29.240 --> 00:02:30.630
+collection happen? It really 
+
+72
+00:02:30.640 --> 00:02:32.840
+depends on your browser and a 
+
+73
+00:02:32.140 --> 00:02:33.110
+whole bunch of other things. 
+
+74
+00:02:33.110 --> 00:02:34.900
+There's no way to force it. But 
+
+75
+00:02:35.060 --> 00:02:36.100
+generally what you can do is you 
+
+76
+00:02:36.100 --> 00:02:37.530
+can wait for a couple seconds 
+
+77
+00:02:37.540 --> 00:02:39.490
+and you'll see that the WeakSet 
+
+78
+00:02:39.870 --> 00:02:41.620
+has been gone. We're going 
+
+79
+00:02:41.695 --> 00:02:44.020
+to conole.log the WeakSet here, 
+
+80
+00:02:44.095 --> 00:02:41.830
+and then I'm going to console.
+
+81
+00:02:43.510 --> 00:02:44.900
+log WeakSet here. We'll see if 
+
+82
+00:02:44.910 --> 00:02:47.380
+that does anything. Not the 
+
+83
+00:02:47.455 --> 00:02:49.060
+WeakSet, the WeakSauce. Poor 
+
+84
+00:02:49.070 --> 00:02:51.890
+name. Here we deleted dog1, 
+
+85
+00:02:53.770 --> 00:02:56.110
+but it's still in here. Does 
+
+86
+00:02:56.120 --> 00:02:58.420
+that mean we still have...That's 
+
+87
+00:02:58.430 --> 00:02:59.680
+what's called a memory leak to 
+
+88
+00:02:59.690 --> 00:03:00.800
+some people, where you reference 
+
+89
+00:03:00.810 --> 00:03:02.080
+something that cannot be a 
+
+90
+00:03:02.090 --> 00:03:04.490
+reference otherwise. I've 
+
+91
+00:03:04.500 --> 00:03:05.490
+just waited here a couple 
+
+92
+00:03:05.500 --> 00:03:06.700
+seconds now, and let's type it 
+
+93
+00:03:07.380 --> 00:03:10.690
+in, WeakSauce. Now it's gone. 
+
+94
+00:03:10.730 --> 00:03:12.600
+You see how Snickers is no 
+
+95
+00:03:12.610 --> 00:03:14.370
+longer in there? It's because we 
+
+96
+00:03:14.380 --> 00:03:16.300
+deleted it in our JavaScript, 
+
+97
+00:03:16.560 --> 00:03:18.630
+and the WeakSet ran a garbage 
+
+98
+00:03:18.640 --> 00:03:20.520
+collection that says, "OK, who 
+
+99
+00:03:20.530 --> 00:03:22.790
+of my items no longer exists? 
+
+100
+00:03:22.865 --> 00:03:24.270
+Because get out of here, we 
+
+101
+00:03:24.280 --> 00:03:25.270
+don't need you any longer. 
+
+102
+00:03:25.280 --> 00:03:26.830
+You've been garbage collected." 
+
+103
+00:03:28.080 --> 00:03:29.590
+Not a whole bunch of use cases 
+
+104
+00:03:29.600 --> 00:03:30.710
+for that, but if you're storing 
+
+105
+00:03:30.720 --> 00:03:33.590
+like a DOM node or any type of 
+
+106
+00:03:33.650 --> 00:03:35.730
+other object, then you don't 
+
+107
+00:03:35.740 --> 00:03:37.140
+have to make sure that...Even 
+
+108
+00:03:37.150 --> 00:03:38.390
+though you delete the actual 
+
+109
+00:03:38.400 --> 00:03:40.490
+reference to the object, you 
+
+110
+00:03:40.750 --> 00:03:42.650
+don't have to worry about it 
+
+111
+00:03:42.940 --> 00:03:44.800
+also being in an array or 
+
+112
+00:03:44.810 --> 00:03:46.020
+something somewhere and causing 
+
+113
+00:03:46.030 --> 00:03:47.490
+a memory leak. You'll know that 
+
+114
+00:03:47.520 --> 00:03:49.270
+the WeakSet is going to take 
+
+115
+00:03:49.280 --> 00:03:50.140
+care of it for you.
+
