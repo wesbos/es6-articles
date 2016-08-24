@@ -72,7 +72,7 @@ _example:_
 | 54 | Extending Arrays with Classes for Custom Collections |  | |
 | 55 | Introducing Generators |  | |
 | 56 | Using Generators for Ajax Flow Control |  | |
-| 57 | Looping Generators with for of |  | |
+| 57 | Looping Generators with for of | X | |
 | 58 | What are Proxies? |  | |
 | 59 | Another Proxy Example | X | |
 | 60 | Using Proxies to combat silly errors |  | |
@@ -81,4 +81,4 @@ _example:_
 | 63 | WeakSets | X | |
 | 64 | Maps | X | |
 | 65 | Map Metadata with DOM Node Keys | X | |
-| 66 | WeakMap and Garbage Collection |  | |
+| 66 | WeakMap and Garbage Collection | X | |

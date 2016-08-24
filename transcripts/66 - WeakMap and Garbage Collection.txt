@@ -1,0 +1,19 @@
+[00:00] [music]
+
+[00:02] Instructor: A couple of videos back, we talked about a WeakSet where it gets garbage collected. A WeakMap is pretty much exactly the same thing. 
+
+[00:09] A WeakMap doesn't have a size. You can never tell how many elements are in it. A WeakMap is not enumerable, which means you cannot loop over it. The items inside of a WeakMap, if they no longer exist anywhere else in your application, they will get garbage collected and they'll be removed from your WeakMap.
+
+[00:27] Let's go through a quick example of where we have a regular map and a regular WeakMap, and we'll show exactly the difference here. We'll create two objects here, then we'll create two maps. We'll add a button to each of the maps. Notice how I'm using the keys here, which are objects.
+
+[00:55] Let's take a look at what we've got here. We've got strong, which is our actual map here. Oops, we got to say weak.set. Strong should have one item in it, good, and weak should have another item in it. Good.
+
+[01:12] They each have one item in it. If I were to say weak.size, we get nothing. But if I say strong.size, we get 1. Why? Because a WeakMap doesn't have a size. Even though DevTools knows what it is here, you cannot get the size of a WeakMap at all.
+
+[01:29] Now, let's go and delete some of them. dog1 = null, dog2 = null. We've created these, we've added them to the map, and then we've deleted them. Let's take a look at our maps here. What is the error here? Assignment to constant variable. Cannot do this, so we would have to say let dog, not const dog. 
+
+[01:55] We have our strong, still has an item in it. Weak, it might still have an item in it. It takes a while to get garbage collected. Oh, nothing there.
+
+[02:03] We no longer have a dog1, and we no longer have a dog2, but the strong one is still holding onto this object that no longer exists. That's a memory leak there, because there's no way for us to reference it, whereas the WeakMap has totally cleaned it up. Garbage collection has happened and we no longer reference it there.
+
+[02:23] If you need something like that, where it gets garbage collected, where you don't have to babysit what is and isn't inside of the map, then that's the case where you reach for a WeakMap over a map.

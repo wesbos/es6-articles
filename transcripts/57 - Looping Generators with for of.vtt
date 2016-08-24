@@ -1,0 +1,178 @@
+WEBVTT
+
+1
+00:00:02.130 --> 00:00:02.280
+ Instructor: Remember 
+
+2
+00:00:02.355 --> 00:00:03.810
+we talked about the for-of loop, 
+
+3
+00:00:03.820 --> 00:00:05.160
+and how it pretty much works 
+
+4
+00:00:05.170 --> 00:00:06.340
+with absolutely everything 
+
+5
+00:00:06.350 --> 00:00:07.620
+except for objects? Well, it 
+
+6
+00:00:07.630 --> 00:00:08.610
+actually works on looping 
+
+7
+00:00:08.620 --> 00:00:10.180
+through generators as well. 
+
+8
+00:00:10.255 --> 00:00:11.630
+Let's take a quick look at an 
+
+9
+00:00:11.310 --> 00:00:12.770
+example right here, where I'll 
+
+10
+00:00:12.770 --> 00:00:15.250
+create a generator called lyrics. 
+
+11
+00:00:17.560 --> 00:00:19.840
+This lyrics function is just 
+
+12
+00:00:19.450 --> 00:00:21.280
+going to yield a line of, "My 
+
+13
+00:00:21.290 --> 00:00:22.840
+Achy Breaky Heart," every single 
+
+14
+00:00:22.850 --> 00:00:25.840
+time that we go through to it. 
+
+15
+00:00:25.850 --> 00:00:28.150
+I'm going to just type "yield" 
+
+16
+00:00:28.225 --> 00:00:32.140
+in front of each one. To go 
+
+17
+00:00:32.150 --> 00:00:33.800
+through this, we could call 
+
+18
+00:00:34.000 --> 00:00:36.230
+create a new generator. Let's do 
+
+19
+00:00:43.530 --> 00:00:44.850
+that. We see we have achy.
+
+20
+00:00:45.030 --> 00:00:48.380
+next.next.next.next.next. What 
+
+21
+00:00:48.455 --> 00:00:49.280
+if we don't want to manually 
+
+22
+00:00:49.290 --> 00:00:51.800
+call that, and we don't want to 
+
+23
+00:00:50.270 --> 00:00:51.870
+write some sort of recursive 
+
+24
+00:00:51.870 --> 00:00:53.150
+function? Well, you can use the 
+
+25
+00:00:53.160 --> 00:01:01.180
+for-of loop...and just console.
+
+26
+00:01:01.190 --> 00:01:02.690
+log the line. Notice how we're 
+
+27
+00:01:02.700 --> 00:01:04.450
+not going to call next anywhere 
+
+28
+00:01:04.460 --> 00:01:07.110
+in here. It just console.logs it 
+
+29
+00:01:07.120 --> 00:01:15.830
+all for us. That's really 
+
+30
+00:01:15.840 --> 00:01:17.410
+useful if you've got a generator 
+
+31
+00:01:17.420 --> 00:01:19.190
+that has either some hard-coded 
+
+32
+00:01:19.200 --> 00:01:20.150
+stuff that you need to loop 
+
+33
+00:01:20.160 --> 00:01:21.600
+through, or even better yet, you 
+
+34
+00:01:21.610 --> 00:01:22.970
+have a dynamic function that 
+
+35
+00:01:22.980 --> 00:01:24.880
+would generate some code for you, 
+
+36
+00:01:24.890 --> 00:01:26.290
+or some lines, or some numbers, 
+
+37
+00:01:26.300 --> 00:01:27.580
+or some objects. Whatever 
+
+38
+00:01:27.640 --> 00:01:29.490
+type of content it is, you can 
+
+39
+00:01:29.490 --> 00:01:31.580
+just use the for-of loop to loop 
+
+40
+00:01:31.650 --> 00:01:33.030
+right through it, just like it 
+
+41
+00:01:33.040 --> 00:01:35.700
+does on arrays, and sets, and 
+
+42
+00:01:35.710 --> 00:01:36.850
+maps, and everything else we 
+
+43
+00:01:36.860 --> 00:01:38.690
+talked about with the for-of 
+
+44
+00:01:38.700 --> 00:01:38.940
+loop.
+
