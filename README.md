@@ -26,7 +26,7 @@ _example:_
 | 8 | Arrow Functions and `this` |  | |
 | 9 | Default Function Arguments | X | |
 | 10 | When NOT to use an Arrow Function | X | |
-| 11 | Arrow Functions Exercises |  | |
+| 11 | Arrow Functions Exercises | X | |
 | 12 | Template Strings Introduction | X | |
 | 13 | Creating HTML fragments with Template Literals |  | |
 | 14 | Tagged Template Literals |  | |

@@ -1,0 +1,61 @@
+[00:00] [music]
+
+Man: [00:02] We just learned a whole bunch of stuff about arrow functions, and really the only way to make it sink in now is to do some practice. I've got two exercise lined up for you and how this is going to work is I'm going to explain it and then you go off and do it.
+
+[00:15] Then you come back and continue this video and I'm going to show you how I would have solved and to sort of compare your answers. There's obviously going to be way more than one possible answer so if it works for you that's probably a pretty good solution.
+
+[00:27] This is the actual problem that I had -- I'm in the exercise folder for the arrow functions here -- once where I actually wanted to sum up a YouTube series and say it was this many hours, but I didn't know like a nice way to do that. However, YouTube would list all of my videos here and they would have a data attribute of data-time equals 5 minutes and 17 seconds, 7 minutes and 24 seconds.
+
+[00:54] What I realized that you could do is you could select all of them, pop out the data time, parse the minutes and seconds into seconds, add them all up, and you're off and ready to go. You could do this in one big reduce function, but since I want you to get a practice with working with arrow functions, so I have to sort of step through where you can use filter(), map(), map(), and reduce to get the total, and that's going to really help us.
+
+[01:22] Go ahead and do that one. I'll show you exercise two as well. This is a little bit easier, we've got an array of numbers here, and use the filter method and an arrow function to create an array of numbers that are greater than 70, pretty straightforward, but it should just be a nice quick one-liner for you. Good luck with that and I will see you back in a couple of minutes.
+
+[01:44] Hopefully, you had a good time with that let's go through it together. The first one we'll select all the listed times on the page and convert it to an array. Select all of them, so const items, equals, we'll use document.querySelector() all here, and we're going to select them.
+
+[01:59] How should we select them? There's no class or ID or anything on there, the one thing that it does have in common is that it has a data-time attribute. I'm going to use an attribute selector, just square brackets anything with a data-time set on it, I want to select it.
+
+[02:16] Actually I'm running in Chrome Canary and probably by the time you watch this it's going to be available in standard Chrome and all your other browsers, but in some of the older browsers these items if I console.log it, this is, it looks like an array but what is it? It's a NodeList and NodeList doesn't have methods like map() and filter() and all of the things that we're using, so it's not a true array, it is just a NodeList.
+
+[02:44] While this is changing, not all browsers support all of the methods that we want to use, so in order to convert it to a true array we can just wrap the entire thing in array.from or any of the other favorite convert to arrays things there and that is going to make it a true array logic.
+
+[03:01] Give it a refresh, open it up. You see now the prototype is an array not a NodeList, but we still have all the items there. Now we have these items variable here and let's move through all of the ones. The first one is filter() only for the items that contain the word flexboxes.
+
+[03:19] Maybe I have some jumbled videos in here that I don't want to add up. The ones that have redux on them and my selector wasn't smart enough to look for anything, the class or redux, as we didn't have the data in that situation.
+
+[03:31] We'll say const filtered = items.filter and we can use an arrow function here where we are only going to return it if the items, text content includes -- text content is [indecipherable] case -- the word flexbox, so that should, we take this filtered variable.
+
+[03:59] Let's go all the way to the bottom here in console.log() filter(), because we're just going to be changing this filtered variable as we go. We had 20, now we've got 15, good. We've got our 15 items that I've filtered down.
+
+[04:12] What I'm going to do is I'm also going to just put this on its own line, because we're going to be chaining this filter(), map(), map(), and reduce() functions on each other, so I just like to have them each on their own line.
+
+[04:24] The next step is map down to a list of time strings. This is just a list of elements. We don't need the entire element. We just need that one piece of data which is the data-time attribute. How do we do that?
+
+[04:38] Map() will take in a list of things and convert it into a list of other things. We want to take in the item and we want to return the item.dataset.time. Why? Because that's going to give us data-time, so now I think if we refresh we should now see an array. Error on 40 item.days.time, I got it, semicolon, I shouldn't have stopped my line there, because we're chaining these line over lines, so I shouldn't have that semicolon there.
+
+[05:13] Now, I've got an array of still 15 items, but now we have a string of the time which is the problem in our next one which is map() to an array of seconds. We can use map() again and let's just say we'll call it timecode.
+
+[05:32] We can't just use an implicit return here like we've done here. We don't have curly brackets, we don't have the return keyword, because we're just doing one quick thing. Over here we need to use a full block because we are going to do a couple of things here.
+
+[05:44] First of all we need to separate the string into minutes and seconds. I'm going to make a variable called parts, and that is going to be time code.split, and we're going to split it on the colon. I think if we just said console.log the parts...Let's see what we got here, timecode, timecode again, make sure we got your [indecipherable] case correct.
+
+[06:12] We're getting an array now of two parts. First piece is going to be the full number of minutes, the second piece is going to be the full number of seconds.
+
+[06:22] This is still a string and you know that we can't do math with a string, so we can actually just work on this, this .split returns an array. Why don't we just map that array immediately and take that part and return parse float of that part.
+
+[06:40] What that's going to do is it's going to take in string of 8 and return number 8. It's going to take in string 22, return number 22. Now if you refresh, lately they just turned blue and that means that they are true numbers and no longer strings.
+
+[06:53] That was a little arrow function inside of an arrow function here, that's the beauty of this arrow function is you can just do quick little things like that on a single line without having to really worry about setting up an entire function for us.
+
+[07:06] That's good. I'm going to move this console.log here. We've got an array of minutes and seconds and we need to just return from this map(). We need to return the parts zero, the first thing, times 60, is we want to return second in total. Plus we just want to return the number of seconds, so parts of 60 plus parts one.
+
+[07:34] Now our time code should be -- we've got an array of just seconds, seconds, seconds, seconds, seconds. Final thing we need to do is reduce to get the actual total here. Reduce takes two arguments, first one is going to be our function which will give us the running total and the actual seconds number. Then it also -- that's the function here, and I'll leave that right there -- takes a number to start with.
+
+[08:06] Even though we don't technically need that in this case let's keep it there just so we know that we're starting with zero. We go on, and then from our arrow function we are going to just return the running total plus the seconds for this current one.
+
+[08:20] I'll give that a save, 6,132 seconds that's where we are at. I probably would have another function that would take in the seconds and then convert that to hours, minutes, and seconds and display it, but that's a whole another exercise on itself.
+
+[08:34] That's really what we wanted to do there as we just did one thing. We took this huge list of DOM elements converted it all the way down, distilled it all the way done just to a number of seconds.
+
+[08:46] That is the first one, let's take a look at the second one now. Exercise two, should be a piece of cake for you now. That's just one line of code, so what we're going to say is we're going to say const large equals numbers.filter, and we want to return the number if it is larger than 70, if not then we don't want to do anything. We get the number and we run a function where it says number is greater than 70.
+
+[09:12] If the number is greater than 70 that will be true and therefore, it will make it into the large if not it won't make it. We got there, good to go, one-liner. I'm really happy with that. Hopefully those exercises were good for you. Let's keep going with the rest of ES6.
