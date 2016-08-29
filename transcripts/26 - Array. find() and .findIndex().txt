@@ -1,0 +1,31 @@
+[00:00] [music]
+
+Wes Bos: [00:02] Arrays now have a .find and a .findIndex, which are really helpful. Some of my projects I don't even need to load in a utility library like lodash. Let's take a look at what find and findIndex do. A very common use case is when you have some data that comes back from an API. 
+
+[00:20] Here I've got some data that comes back from Instagram. It's a posts array, where each item inside of the post is an object. Often we'll have something like, let's take this one. BAF_KY4 blah, blah, blah, blah, and we want to find the entire object inside of this array. 
+
+[00:42] Now, because it's an object, we can't simply say post.the ID of the object. We can't say anything like posts or something like that, because we don't have any keys to grab things from an array because an array is always indexed based. 
+
+[01:03] What we actually need to do is we will say, const post equals, we'll take the post, and we'll call .find on it. Now, find is a callback where you return true or false until you actually find it. It's going to loop over every single post that we have, and I'm going to look for the specific one that I want.
+
+[01:25] I'm going to open up a hop log here and then I'll refactor that because we don't actually need it. Let's say I'm going to grab this one, VBGT, and I'm going to console.log the post. Let's just see where we're at here. OK, what this is doing is it is looping over every single one and giving me the entire post. 
+
+[01:44] Then I want to say post.code, should give me all of the codes. Then I want to say if post.code is equal to the one that we're looking for, then we will return true. Otherwise, we just can return, or return false explicitly. 
+
+[02:05] Then I think that what that should do to us is, we should now have a variable called post, and that is the actual one from our object, so now we have the entire post and we can go ahead and grab the caption, or the source, or the ID or the number of likes from that Instagram post. 
+
+[02:22] This can be done a lot easier. This is just explicit, so you can see what's going on, but we can actually just use this. For each post we say, does the post.code equal to the actual one that we're looking for? Again, I'm just going to grab an ID here, and paste it in there. We should be able to just console.log that post. 
+
+[02:45] One other improvement we can do is this probably isn't hard coded like that. We probably want to put in a variable called code, stick it like that, and then it should be able to still find the post, depending on our code. 
+
+[02:56] Great. That is good for finding the actual thing inside of the array. If you want to find multiple, how would you do that? You would use .filter, and that would give you an array of objects instead. 
+
+[03:08] Next up, we have .findIndex. That's really helpful when you actually have the item you want, but you want to know where in the array is it actually? 
+
+[03:17] What we want to do is, let's say we want to delete one of these posts, and all that we know is that we have the ID or the code right here. We need to find out where in this is it, so we can delete it.  I'm going to say, const post index equals post.findIndex. 
+
+[03:41] Again, I'm going to do it longhand. We'll say, if post.code equal to code, then return true. Otherwise, we can just do nothing, return, or return false explicitly. Now we should be able to find what the index is of that post. It's the 22nd post in there. 
+
+[04:13] We can also now go back and just say...we don't need these extra parentheses here. We don't need this entire thing. Why? Because we can only return as the post.code is equal to our code. 
+
+[04:29] Now that we actually have the index, we could go ahead and just take that out of there. We're going to look at a spread example in the future where it shows a great way, how do you just slice out one item from an array.

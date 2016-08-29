@@ -1,0 +1,714 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ Instructor: Let's 
+
+2
+00:00:01.950 --> 00:00:03.330
+take a look at some more spread 
+
+3
+00:00:03.340 --> 00:00:05.940
+examples. One use case for a 
+
+4
+00:00:05.950 --> 00:00:07.650
+spread is an alternative to 
+
+5
+00:00:07.660 --> 00:00:09.030
+array.from, which we learned 
+
+6
+00:00:09.040 --> 00:00:10.760
+about a couple of videos ago. 
+
+7
+00:00:11.070 --> 00:00:12.490
+Let's say we want to select all 
+
+8
+00:00:12.500 --> 00:00:13.620
+of these people right here. 
+
+9
+00:00:13.890 --> 00:00:16.320
+Let's say cons people = document.
+
+10
+00:00:16.395 --> 00:00:18.320
+querySelectorAll, and we want to 
+
+11
+00:00:21.500 --> 00:00:24.030
+select the .people paragraphs. 
+
+12
+00:00:24.260 --> 00:00:25.860
+Console.log the people, and 
+
+13
+00:00:25.935 --> 00:00:26.240
+we'll see what we're dealing 
+
+14
+00:00:26.250 --> 00:00:27.810
+with here. We got all of our 
+
+15
+00:00:27.820 --> 00:00:29.280
+three. You know that it's a 
+
+16
+00:00:29.355 --> 00:00:30.760
+NodeList. But if I wanted to 
+
+17
+00:00:30.770 --> 00:00:33.170
+call map against people, again, 
+
+18
+00:00:33.180 --> 00:00:34.990
+we were doing something like 
+
+19
+00:00:35.065 --> 00:00:37.250
+const names = people.map, you 
+
+20
+00:00:37.260 --> 00:00:39.130
+know that we aren't able to do 
+
+21
+00:00:39.140 --> 00:00:42.050
+that. Why? Because people.map is 
+
+22
+00:00:42.060 --> 00:00:43.550
+not an actual function. If we 
+
+23
+00:00:43.560 --> 00:00:46.250
+console.log people here, it's a 
+
+24
+00:00:46.325 --> 00:00:49.350
+NodeList, and the prototype 
+
+25
+00:00:49.530 --> 00:00:51.570
+doesn't have our .map or .
+
+26
+00:00:51.645 --> 00:00:52.670
+reducer or any of our arrays. 
+
+27
+00:00:53.700 --> 00:00:55.660
+You could do this, array.from, 
+
+28
+00:00:56.420 --> 00:00:58.540
+and that would then give us...
+
+29
+00:00:58.800 --> 00:01:00.700
+see how it's a NodeList? Refresh, 
+
+30
+00:01:00.880 --> 00:01:03.310
+now it is a true array where our 
+
+31
+00:01:03.320 --> 00:01:05.180
+map is located there for us. 
+
+32
+00:01:05.255 --> 00:01:07.300
+Quite honestly, I think that I 
+
+33
+00:01:07.310 --> 00:01:09.120
+prefer array.from, just because 
+
+34
+00:01:09.130 --> 00:01:10.870
+it reads a little bit nicer. But 
+
+35
+00:01:10.880 --> 00:01:12.380
+another way you could do it is 
+
+36
+00:01:12.390 --> 00:01:13.850
+you could immediately take every 
+
+37
+00:01:13.860 --> 00:01:16.680
+single item that it selects, and 
+
+38
+00:01:16.740 --> 00:01:19.610
+spread it right onto an array. 
+
+39
+00:01:19.685 --> 00:01:21.080
+That's going to take everything 
+
+40
+00:01:21.090 --> 00:01:22.850
+that it selects. Why? Because a 
+
+41
+00:01:22.925 --> 00:01:25.230
+NodeList is an iterable, and 
+
+42
+00:01:25.240 --> 00:01:26.740
+every single item from that 
+
+43
+00:01:26.815 --> 00:01:28.090
+iterable can then be spread onto 
+
+44
+00:01:28.100 --> 00:01:30.560
+this new array. Then you see 
+
+45
+00:01:30.570 --> 00:01:33.000
+that we have a proper array here 
+
+46
+00:01:33.010 --> 00:01:34.620
+too. It's really up to you 
+
+47
+00:01:34.630 --> 00:01:37.140
+what you like to use. If you're 
+
+48
+00:01:37.150 --> 00:01:39.380
+probably on a team, array.from 
+
+49
+00:01:39.390 --> 00:01:40.570
+probably reads a little bit 
+
+50
+00:01:40.580 --> 00:01:43.150
+nicer. But I have seen people do 
+
+51
+00:01:43.160 --> 00:01:44.860
+it the other way, and that would 
+
+52
+00:01:44.870 --> 00:01:48.130
+give us our map function as we 
+
+53
+00:01:48.140 --> 00:01:49.500
+like it. We've got one error 
+
+54
+00:01:49.510 --> 00:01:50.620
+here, undefined is not a 
+
+55
+00:01:50.630 --> 00:01:54.520
+function. I have to run person...
+
+56
+00:01:54.595 --> 00:01:58.790
+I want to return the person.
+
+57
+00:01:59.520 --> 00:02:00.440
+text content. 
+
+58
+00:02:01.120 --> 00:02:04.060
+Then we should have a 
+
+59
+00:02:04.070 --> 00:02:05.640
+names array of every single name. 
+
+60
+00:02:06.260 --> 00:02:07.530
+Good, I'm happy with that. 
+
+61
+00:02:07.530 --> 00:02:10.500
+Couple other examples is when 
+
+62
+00:02:10.630 --> 00:02:12.950
+you want to create a new array 
+
+63
+00:02:13.310 --> 00:02:16.130
+off of a property on an object. 
+
+64
+00:02:16.140 --> 00:02:17.910
+This is similar where we merged 
+
+65
+00:02:17.920 --> 00:02:19.180
+two arrays together. Maybe 
+
+66
+00:02:19.255 --> 00:02:22.630
+we did const shopping list 
+
+67
+00:02:23.660 --> 00:02:26.030
+equals a new array. We know we 
+
+68
+00:02:26.070 --> 00:02:28.860
+have to get milk to make the 
+
+69
+00:02:28.870 --> 00:02:30.020
+pizza, we know we have to get 
+
+70
+00:02:30.030 --> 00:02:31.850
+flour. But we also know that 
+
+71
+00:02:31.740 --> 00:02:33.860
+since tonight is deep dish pizza 
+
+72
+00:02:33.870 --> 00:02:35.500
+night, we have to get all of the 
+
+73
+00:02:35.510 --> 00:02:37.650
+ingredients from it. What I 
+
+74
+00:02:37.310 --> 00:02:38.650
+can do is just immediately 
+
+75
+00:02:38.660 --> 00:02:40.640
+spread all of the ingredients 
+
+76
+00:02:40.800 --> 00:02:43.710
+from deep dish.ingredients. 
+
+77
+00:02:43.785 --> 00:02:45.210
+Since that's an array, it's 
+
+78
+00:02:45.370 --> 00:02:47.110
+going to take every single item 
+
+79
+00:02:47.120 --> 00:02:48.420
+from that and put it into the 
+
+80
+00:02:48.430 --> 00:02:50.750
+new shopping list. If I console.
+
+81
+00:02:50.790 --> 00:02:53.790
+log shopping list, you see that 
+
+82
+00:02:53.800 --> 00:02:55.940
+we now have every single item in 
+
+83
+00:02:55.950 --> 00:02:58.170
+it. That is a true copy, not a 
+
+84
+00:02:58.180 --> 00:02:59.730
+reference to the deep dish. 
+
+85
+00:02:59.805 --> 00:03:01.310
+This is an example where I've 
+
+86
+00:03:01.320 --> 00:03:02.670
+run into a couple times. 
+
+87
+00:03:02.680 --> 00:03:04.810
+Specifically I do it a lot in 
+
+88
+00:03:04.820 --> 00:03:07.730
+reactor when using Redux. It's 
+
+89
+00:03:07.740 --> 00:03:08.950
+when you have an array of 
+
+90
+00:03:08.960 --> 00:03:10.670
+objects and you need to remove 
+
+91
+00:03:10.670 --> 00:03:12.920
+one of those objects from the 
+
+92
+00:03:12.930 --> 00:03:14.250
+actual array, and all you're 
+
+93
+00:03:14.260 --> 00:03:16.120
+given is...This is a mean 
+
+94
+00:03:16.130 --> 00:03:17.180
+comment, so I want to delete, "
+
+95
+00:03:17.240 --> 00:03:18.820
+You are so dumb." All you're 
+
+96
+00:03:18.830 --> 00:03:21.080
+given is an ID variable with 
+
+97
+00:03:21.190 --> 00:03:24.870
+that post ID inside of it. How 
+
+98
+00:03:24.880 --> 00:03:26.020
+do you actually take it away? 
+
+99
+00:03:26.240 --> 00:03:27.230
+First of all, we need to figure 
+
+100
+00:03:27.240 --> 00:03:29.340
+out where in this array is this 
+
+101
+00:03:29.470 --> 00:03:31.260
+comment? Because the ID doesn't 
+
+102
+00:03:31.270 --> 00:03:32.490
+tell us anything about its 
+
+103
+00:03:32.500 --> 00:03:33.710
+location inside the array. 
+
+104
+00:03:34.030 --> 00:03:35.300
+How would we do that? We would 
+
+105
+00:03:35.375 --> 00:03:37.280
+use the .find index method of 
+
+106
+00:03:37.290 --> 00:03:38.850
+the array. We'll say, const 
+
+107
+00:03:38.925 --> 00:03:40.050
+comment index = comments.
+
+108
+00:03:40.125 --> 00:03:47.050
+findIndex, and it's going to 
+
+109
+00:03:47.060 --> 00:03:49.180
+give us a comment. We're going 
+
+110
+00:03:49.190 --> 00:03:52.180
+to return if the comment.ID is 
+
+111
+00:03:52.250 --> 00:03:54.850
+equal to the ID variable. 
+
+112
+00:03:55.440 --> 00:03:57.600
+When the comment ID is equal to 
+
+113
+00:03:57.610 --> 00:03:59.680
+the ID variable we have set here, 
+
+114
+00:03:59.870 --> 00:04:01.310
+then return. That's going to 
+
+115
+00:04:01.390 --> 00:04:02.760
+tell us where the index is. 
+
+116
+00:04:02.770 --> 00:04:04.120
+Let's console.log the comment 
+
+117
+00:04:04.130 --> 00:04:06.100
+index, see where it tells us. 
+
+118
+00:04:06.290 --> 00:04:08.070
+Good, it tells me the index is 
+
+119
+00:04:08.080 --> 00:04:10.760
+two; one, zero, one, two, "You 
+
+120
+00:04:10.770 --> 00:04:12.240
+are so dumb." That's the one 
+
+121
+00:04:12.250 --> 00:04:14.720
+I want. Now how do I actually 
+
+122
+00:04:14.730 --> 00:04:16.850
+delete it from there? Previously, 
+
+123
+00:04:16.925 --> 00:04:18.810
+what we had to do is slice 
+
+124
+00:04:18.820 --> 00:04:19.890
+everything before, slice 
+
+125
+00:04:19.900 --> 00:04:21.200
+everything after. What we 
+
+126
+00:04:21.210 --> 00:04:23.190
+can do here is we will make a 
+
+127
+00:04:23.200 --> 00:04:26.110
+new comment variable. We'll say 
+
+128
+00:04:26.185 --> 00:04:29.930
+const new comments equals...and 
+
+129
+00:04:30.005 --> 00:04:31.050
+we are going to create an array 
+
+130
+00:04:31.060 --> 00:04:32.990
+of the new comments. We want 
+
+131
+00:04:33.050 --> 00:04:34.710
+everything up until the mean 
+
+132
+00:04:34.720 --> 00:04:37.080
+comment, and everything after 
+
+133
+00:04:37.190 --> 00:04:39.330
+the mean comment. What we can do 
+
+134
+00:04:39.340 --> 00:04:42.040
+is slice from the start to where 
+
+135
+00:04:42.050 --> 00:04:44.980
+we want, and then slice from one 
+
+136
+00:04:44.990 --> 00:04:47.330
+after the one that we want, to 
+
+137
+00:04:47.340 --> 00:04:50.320
+the end. We'll say, comments.
+
+138
+00:04:51.080 --> 00:04:52.760
+slice. We're going to start at 
+
+139
+00:04:52.770 --> 00:04:54.660
+zero and go until we hit the 
+
+140
+00:04:54.670 --> 00:04:58.540
+comment index. Then I'm going to 
+
+141
+00:04:59.390 --> 00:05:02.590
+go comments.slice. We're going 
+
+142
+00:05:02.665 --> 00:05:05.320
+to start at the comment index 
+
+143
+00:05:05.370 --> 00:05:08.980
+plus one. It's going to tell us 
+
+144
+00:05:08.980 --> 00:05:09.920
+two, so we're going to start at 
+
+145
+00:05:09.930 --> 00:05:11.700
+three. Then, we don't have to 
+
+146
+00:05:11.710 --> 00:05:13.070
+pass the second variable because 
+
+147
+00:05:13.180 --> 00:05:14.610
+that will just go to the end of 
+
+148
+00:05:14.620 --> 00:05:16.660
+the comments. Even if I had 10 
+
+149
+00:05:16.735 --> 00:05:17.350
+more comments, it would go to 
+
+150
+00:05:17.360 --> 00:05:19.440
+the end of it. This isn't 
+
+151
+00:05:19.515 --> 00:05:20.050
+going to totally work and I'll 
+
+152
+00:05:20.060 --> 00:05:21.780
+show you why. Let's console.log 
+
+153
+00:05:21.790 --> 00:05:23.250
+the new comments. What do we 
+
+154
+00:05:23.260 --> 00:05:26.430
+have here? We have an array of 
+
+155
+00:05:26.440 --> 00:05:28.740
+arrays, which is the first part 
+
+156
+00:05:29.060 --> 00:05:30.460
+and the second part. That's not 
+
+157
+00:05:30.470 --> 00:05:31.860
+very useful because you don't 
+
+158
+00:05:31.870 --> 00:05:33.410
+want an array of arrays. You 
+
+159
+00:05:33.420 --> 00:05:36.160
+want an array of comment objects. 
+
+160
+00:05:36.490 --> 00:05:38.270
+What we can do is just spread 
+
+161
+00:05:38.280 --> 00:05:41.110
+these two and spread this one, 
+
+162
+00:05:41.710 --> 00:05:43.360
+and that will take every item 
+
+163
+00:05:43.430 --> 00:05:45.560
+out of the array and put it into 
+
+164
+00:05:45.570 --> 00:05:47.620
+this new comment array right 
+
+165
+00:05:47.700 --> 00:05:49.510
+here. Now when I refresh it, 
+
+166
+00:05:49.585 --> 00:05:50.990
+you'll see this is our new 
+
+167
+00:05:51.000 --> 00:05:53.080
+comments array, that you have 
+
+168
+00:05:53.260 --> 00:05:54.440
+the new comments, and we've 
+
+169
+00:05:54.620 --> 00:05:57.210
+excluded that mean comment that 
+
+170
+00:05:57.220 --> 00:05:59.090
+we have sliced on out. Then 
+
+171
+00:05:59.090 --> 00:06:00.200
+you would probably take this new 
+
+172
+00:06:00.210 --> 00:06:01.900
+comment and you would set it to 
+
+173
+00:06:02.100 --> 00:06:05.820
+this, .set state and comments. 
+
+174
+00:06:05.830 --> 00:06:06.760
+If you're doing something like 
+
+175
+00:06:06.770 --> 00:06:08.560
+react, you can pass the new 
+
+176
+00:06:08.570 --> 00:06:09.570
+comments and it's going to 
+
+177
+00:06:09.620 --> 00:06:11.310
+update your new state without 
+
+178
+00:06:11.320 --> 00:06:13.220
+mutating the past state.
+

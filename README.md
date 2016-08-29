@@ -41,11 +41,11 @@ _example:_
 | 23 | The for of Loop in Action |  | |
 | 24 | Using for of with Objects | X | |
 | 25 | Array.from() and Array.of() |  | |
-| 26 | Array. find() and .findIndex() |  | |
+| 26 | Array. find() and .findIndex() | X | |
 | 27 | Array .some() and .every() | X | |
 | 28 | Spread Operator Introduction | X | |
 | 29 | Spread Exercise | X | |
-| 30 | More Spread Examples |  | |
+| 30 | More Spread Examples | X | |
 | 31 | Spreading into a function | X | |
 | 32 | The ...rest param in Functions and destructuring |  | |
 | 33 | Object Literal Upgrades | X | X |
