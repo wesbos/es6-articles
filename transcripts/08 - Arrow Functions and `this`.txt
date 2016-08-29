@@ -1,0 +1,43 @@
+[00:00] [music]
+
+Man: [00:02] We've learned about the concise syntax of arrow functions. We've learned about the implicit return of arrow functions. The last thing we're going to learn about and probably the most important is that the fact that this keyword does not get rebound. What does that mean? Let's show an example as to when you might run into this.
+
+[00:22] What I have here is I've got this div for the class of box right here. When you click that box what's going to happen is a two-stage animation. You click it, and it grows. Then it animates in these words, from the left and from the right. That's a two-stage animation where the way it's working is, I first add a class of opening() to it. What that does it actually grows it.
+
+[00:51] Then I add a class of open() to it, which will bring in the letters that have. Two stage of it's always box and it has a class of opening(), and then after a couple of seconds I have a class of open() being added to it. Let's go ahead and code that up here. I've given you all of the CSS that comes along with it. Nothing too exciting here, and that's a whole another course together.
+
+[01:17] Essentially the way it works is that when it has a class of open(), I transform all of those [indecipherable] in the Twitter handle in. Then when it has a class of opening(), I just change the width and the height. Then I've got transitions on everything so it goes has some funky effects. Let's go ahead and do that. First thing I need to do is open it up in a browser. I click it and nothing works.
+
+[01:39] You can see the text is actually there if I highlight it. We need to select that element. I'm going to say const box equals...and why I use const there, just because I don't ever want the reference to this box to change I use document.query.Selector() and I'm going to select the box, console.log() the box. Let's make sure we're good to go there. There we go. There is the box being logged.
+
+[02:02] Then we'll say box to addEventListener(). We want to wait for someone to click it. Here we are going to type a regular function. Why? Let's take a look at why we're going to do that. When someone clicks it, let's console.log() this. Click it. OK, it logs this as equal to the box. This is the thing then it got clicked on.
+
+[02:22] The way you can think about this is you look at what got called addEventListener() and you look at the thing to the left of it, the box. What's the box? That's the div with the class of box() that we ran. That's good. If you swap this out with an arrow function here, watch what happens, window. Why do we get window here?
+
+[02:44] That's because when you use an arrow function, the value of this is not rebound inside of that function. It is just inherited form whatever the parent scope is. What's the parent scope of this? It's the window. If you just go into your console here and type this, this is equal to the window, because it's not being bound to anything. It ends up by the window.
+
+[03:08] You don't just want to go willy-nilly using arrow functions everywhere, because it's just last to type. You need to know what are the benefits and the downsides of it. In this case -- pun intended -- I don't want an arrow function, because I need the keyword to reference the actual box that got clicked. That would be even more important if I had a whole bunch of them.
+
+[03:29] We can't use an arrow function there. I'm going to bring that back to regular function. That's what we want. You generally want these functions for your top level ones. Then inside of here, we're going to say this.classList.toggle(). We're going to toggle opening(). Let's see how that works. Good, it animates itself in and out, in and out. Good.
+
+[03:53] After maybe 500 milliseconds or so, I want to also toggle the class of open(), because that's the final stage. It's two stage here. I think we'll use a timeout for that. We'll set timeout. You run a function inside of there. We'll grab this.classList.toggle(), open(). OK, so does that work? See my dev tools here click it. Good and then, and no.
+
+[04:25] Uncaught type error cannot read property toggle of undefined. That's weird. It can't read toggle of undefined. That means classList() is not. How do I debug that? I would go like this, console.log() this.class List(). What is this.classList() actually undefined. It's nothing. Why is there no classList() on the box? Let me just console.log this and see what we're dealing with, window.
+
+[04:54] Why do we have window showing up here. If this right here was equal to the box, why the same hell is this not equal to the box here? That's because we've entered a new function, and this function has not been bound to anything, which means that, if it's not bound to anything, it's going to be equal to the window. That's a pain in the ass.
+
+[05:16] People would do things like these. You've probably done this for instance like var self equals this and now you have this self variable. You can go in here and say self.classList.toggle open(). Try to get that out. That's works, but not the greatest, because we have this weird or some of you like to say var that equals this and etc.
+
+[05:39] Fortunately, we don't need to do that anymore if I bring that back to this. What we need to do is just simply make it an arrow function. Why? Because when you have an arrow function, it does not change the value of this. It inherits the value of this from the parent. We don't have to worry about the scope changing or anything like that.
+
+[06:00] We can just go ahead and keep working using this as if it was scoped to this actual function here, just great. I'm going to leave that console.log() in and I should probably put 500 milliseconds in here. There we go. Then after 500 milliseconds it will animate itself [indecipherable] . Click it again and it closes. That's a little bit funky. I'm going to fix this to be a little bit nicer.
+
+[06:27] None of this has anything to do with arrow functions. If you're interested in seeing how I might figure this out, you can stay on with me. The problem with this right here is that when you toggle an open(), it adds a class of opening(). Then after 500 milliseconds it adds a class of open(). When you close it down, you want it to be the opposite.
+
+[06:50] The way I would probably solve this is first make two variables. I'm going to use let and I'll explain why in seconds. I would say let first equals opening() and let second equals open(). Then I'll take this first, and I'll replace it with that. I'll take my second, replace it right there. I'm just using variables we'll probably still have this problem.
+
+[07:16] We'll solve this weird problem where it animates in the wrong way. What I want to do is I'm going to say, if this.classList.contains() the first...if it already contains opening() that's because it's already in an open state. If it already contains it, opening(), because it's in the open state, then we want to switch the order of what this happens.
+
+[07:45] I'm just going to switch the first and the second variables. This is going to look forward into our destructuring exercise, but little hot tip. If we want to switch two variables with ES6 you can simply do this. First, second equals second, first. That will just switch the values. Then first will be equal to open(), and second will be open to opening().
+
+[08:10] Then they will close in the opposite order that they've been opened. Let's check this out. Bring it in, bring it out, close it down. Cool, a fun little animation that we've made there. Big thing we want to take home here is that we can use an arrow function for things inside of a normal function and it's going to inherit the value of this.

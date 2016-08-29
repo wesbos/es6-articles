@@ -23,7 +23,7 @@ _example:_
 | 5 | Is var Dead? What should I use? | X | |
 | 6 | Arrow Functions Introduction | X | |
 | 7 | More Arrow Function Examples | X | |
-| 8 | Arrow Functions and `this` |  | |
+| 8 | Arrow Functions and `this` | X | |
 | 9 | Default Function Arguments | X | |
 | 10 | When NOT to use an Arrow Function | X | |
 | 11 | Arrow Functions Exercises | X | |
@@ -56,7 +56,7 @@ _example:_
 | 38 | All About Symbols | X | X |
 | 39 | Getting Started with ESLint |  | |
 | 40 | Airbnb ESLint Settings |  | |
-| 41 | Line and File Specific Settings |  | |
+| 41 | Line and File Specific Settings | X | |
 | 42 | ESLint Plugins |  | |
 | 43 | ESLint inside Atom and Sublime Text | X | |
 | 44 | Only Allow ESLint Passing Code into your git repos |  | |

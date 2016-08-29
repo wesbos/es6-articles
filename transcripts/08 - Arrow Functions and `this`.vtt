@@ -1,0 +1,982 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.490 --> 00:00:04.680
+We've learned about the concise 
+
+3
+00:00:04.820 --> 00:00:06.370
+syntax of arrow functions. We've 
+
+4
+00:00:06.380 --> 00:00:07.550
+learned about the implicit 
+
+5
+00:00:07.560 --> 00:00:10.040
+return of arrow functions. The 
+
+6
+00:00:10.250 --> 00:00:11.300
+last thing we're going to learn 
+
+7
+00:00:11.310 --> 00:00:12.430
+about and probably the most 
+
+8
+00:00:12.440 --> 00:00:14.070
+important is that the fact that 
+
+9
+00:00:14.310 --> 00:00:16.170
+this keyword does not get 
+
+10
+00:00:16.180 --> 00:00:17.480
+rebound. What does that mean? 
+
+11
+00:00:17.830 --> 00:00:20.560
+Let's show an example as to when 
+
+12
+00:00:20.570 --> 00:00:22.420
+you might run into this. What I 
+
+13
+00:00:22.430 --> 00:00:24.330
+have here is I've got this div 
+
+14
+00:00:24.270 --> 00:00:26.110
+for the class of box right here. 
+
+15
+00:00:26.970 --> 00:00:28.250
+When you click that box what's 
+
+16
+00:00:28.270 --> 00:00:29.840
+going to happen is a two-stage 
+
+17
+00:00:29.850 --> 00:00:33.400
+animation. You click it, and it 
+
+18
+00:00:33.410 --> 00:00:36.350
+grows. Then it animates in these 
+
+19
+00:00:36.400 --> 00:00:37.960
+words, from the left and from 
+
+20
+00:00:37.970 --> 00:00:39.850
+the right. That's a two-stage 
+
+21
+00:00:39.860 --> 00:00:42.510
+animation where the way it's 
+
+22
+00:00:42.520 --> 00:00:45.860
+working is, I first add a class 
+
+23
+00:00:45.970 --> 00:00:49.570
+of opening() to it. What that 
+
+24
+00:00:49.580 --> 00:00:52.080
+does it actually grows it. Then 
+
+25
+00:00:52.090 --> 00:00:54.680
+I add a class of open() to it, 
+
+26
+00:00:54.840 --> 00:00:57.340
+which will bring in the letters 
+
+27
+00:00:57.350 --> 00:00:59.460
+that have. Two stage of it's 
+
+28
+00:00:59.320 --> 00:01:00.630
+always box and it has a class of 
+
+29
+00:01:00.680 --> 00:01:02.260
+opening(), and then after a 
+
+30
+00:01:02.270 --> 00:01:03.630
+couple of seconds I have a class 
+
+31
+00:01:03.640 --> 00:01:06.910
+of open() being added to it. 
+
+32
+00:01:06.985 --> 00:01:09.500
+Let's go ahead and code that up 
+
+33
+00:01:09.510 --> 00:01:11.530
+here. I've given you all of the 
+
+34
+00:01:11.605 --> 00:01:13.280
+CSS that comes along with it. 
+
+35
+00:01:13.290 --> 00:01:15.530
+Nothing too exciting here, and 
+
+36
+00:01:15.540 --> 00:01:16.510
+that's a whole another course 
+
+37
+00:01:16.520 --> 00:01:18.510
+together. Essentially the way 
+
+38
+00:01:18.520 --> 00:01:20.200
+it works is that when it has a 
+
+39
+00:01:20.210 --> 00:01:22.640
+class of open(), I transform all 
+
+40
+00:01:22.650 --> 00:01:24.440
+of those  in the 
+
+41
+00:01:24.450 --> 00:01:26.500
+Twitter handle in. Then when it 
+
+42
+00:01:26.510 --> 00:01:28.090
+has a class of opening(), I just 
+
+43
+00:01:28.100 --> 00:01:29.240
+change the width and the height. 
+
+44
+00:01:29.250 --> 00:01:30.370
+Then I've got transitions on 
+
+45
+00:01:30.380 --> 00:01:33.420
+everything so it goes has some 
+
+46
+00:01:33.495 --> 00:01:33.980
+funky effects. Let's go ahead 
+
+47
+00:01:33.990 --> 00:01:34.780
+and do that. First thing I need 
+
+48
+00:01:34.860 --> 00:01:36.950
+to do is open it up in a browser. 
+
+49
+00:01:38.590 --> 00:01:39.690
+I click it and nothing works. 
+
+50
+00:01:39.700 --> 00:01:40.930
+You can see the text is actually 
+
+51
+00:01:41.020 --> 00:01:42.560
+there if I highlight it. We need 
+
+52
+00:01:42.570 --> 00:01:43.990
+to select that element. I'm 
+
+53
+00:01:43.590 --> 00:01:45.350
+going to say const box equals...
+
+54
+00:01:45.425 --> 00:01:47.370
+and why I use const there, just 
+
+55
+00:01:47.380 --> 00:01:49.130
+because I don't ever want the 
+
+56
+00:01:49.140 --> 00:01:51.900
+reference to this box to change 
+
+57
+00:01:51.975 --> 00:01:53.950
+I use document.query.Selector() 
+
+58
+00:01:54.025 --> 00:01:55.940
+and I'm going to select the box, 
+
+59
+00:01:56.410 --> 00:01:57.810
+console.log() the box. Let's 
+
+60
+00:01:57.820 --> 00:01:59.490
+make sure we're good to go there. 
+
+61
+00:01:59.565 --> 00:02:01.480
+There we go. There is the box 
+
+62
+00:02:01.490 --> 00:02:03.060
+being logged. Then we'll say 
+
+63
+00:02:03.680 --> 00:02:04.350
+box to addEventListener(). We 
+
+64
+00:02:04.400 --> 00:02:06.410
+want to wait for someone to 
+
+65
+00:02:06.420 --> 00:02:08.180
+click it. Here we are going to 
+
+66
+00:02:08.180 --> 00:02:10.370
+type a regular function. Why? 
+
+67
+00:02:10.380 --> 00:02:11.520
+Let's take a look at why we're 
+
+68
+00:02:11.595 --> 00:02:12.630
+going to do that. When someone 
+
+69
+00:02:12.640 --> 00:02:13.700
+clicks it, let's console.log() 
+
+70
+00:02:13.710 --> 00:02:18.710
+this. Click it. OK, it logs this 
+
+71
+00:02:18.720 --> 00:02:20.500
+as equal to the box. This is the 
+
+72
+00:02:20.510 --> 00:02:21.590
+thing then it got clicked on. 
+
+73
+00:02:22.040 --> 00:02:24.410
+The way you can think about this 
+
+74
+00:02:24.420 --> 00:02:25.960
+is you look at what got called 
+
+75
+00:02:26.035 --> 00:02:27.650
+addEventListener() and you look 
+
+76
+00:02:27.660 --> 00:02:28.660
+at the thing to the left of it, 
+
+77
+00:02:28.980 --> 00:02:30.450
+the box. What's the box? That's 
+
+78
+00:02:30.460 --> 00:02:31.700
+the div with the class of box() 
+
+79
+00:02:32.090 --> 00:02:34.640
+that we ran. That's good. If you 
+
+80
+00:02:34.650 --> 00:02:35.980
+swap this out with an arrow 
+
+81
+00:02:35.990 --> 00:02:38.290
+function here, watch what 
+
+82
+00:02:38.300 --> 00:02:44.130
+happens, window. Why do we get 
+
+83
+00:02:44.140 --> 00:02:45.570
+window here? That's because 
+
+84
+00:02:46.880 --> 00:02:48.440
+when you use an arrow function, 
+
+85
+00:02:48.540 --> 00:02:51.140
+the value of this is not rebound 
+
+86
+00:02:51.150 --> 00:02:52.850
+inside of that function. It is 
+
+87
+00:02:52.860 --> 00:02:54.850
+just inherited form whatever the 
+
+88
+00:02:54.860 --> 00:02:56.580
+parent scope is. What's the 
+
+89
+00:02:56.590 --> 00:02:59.010
+parent scope of this? It's the 
+
+90
+00:02:59.020 --> 00:03:02.470
+window. If you just go into your 
+
+91
+00:03:02.530 --> 00:03:04.260
+console here and type this, this 
+
+92
+00:03:04.270 --> 00:03:05.440
+is equal to the window, because 
+
+93
+00:03:05.450 --> 00:03:06.850
+it's not being bound to anything. 
+
+94
+00:03:07.310 --> 00:03:08.850
+It ends up by the window. You 
+
+95
+00:03:08.860 --> 00:03:10.020
+don't just want to go willy-
+
+96
+00:03:10.030 --> 00:03:11.350
+nilly using arrow functions 
+
+97
+00:03:11.360 --> 00:03:12.550
+everywhere, because it's just 
+
+98
+00:03:12.560 --> 00:03:14.800
+last to type. You need to know 
+
+99
+00:03:15.070 --> 00:03:16.080
+what are the benefits and the 
+
+100
+00:03:16.090 --> 00:03:18.010
+downsides of it. In this case -- 
+
+101
+00:03:18.190 --> 00:03:21.190
+pun intended -- I don't want an 
+
+102
+00:03:21.200 --> 00:03:22.530
+arrow function, because I need 
+
+103
+00:03:22.540 --> 00:03:24.620
+the keyword to reference the 
+
+104
+00:03:24.630 --> 00:03:26.220
+actual box that got clicked. 
+
+105
+00:03:26.230 --> 00:03:26.940
+That would be even more 
+
+106
+00:03:26.950 --> 00:03:28.140
+important if I had a whole bunch 
+
+107
+00:03:28.150 --> 00:03:29.990
+of them. We can't use an arrow 
+
+108
+00:03:30.000 --> 00:03:31.980
+function there. I'm going to 
+
+109
+00:03:30.650 --> 00:03:31.970
+bring that back to regular 
+
+110
+00:03:31.980 --> 00:03:33.180
+function. That's what we want. 
+
+111
+00:03:33.460 --> 00:03:34.480
+You generally want these 
+
+112
+00:03:34.555 --> 00:03:36.060
+functions for your top level 
+
+113
+00:03:36.380 --> 00:03:44.350
+ones. Then inside of here, we're 
+
+114
+00:03:44.360 --> 00:03:45.970
+going to say this.classList.
+
+115
+00:03:46.045 --> 00:03:45.310
+toggle(). We're going to toggle 
+
+116
+00:03:45.540 --> 00:03:47.490
+opening(). Let's see how that 
+
+117
+00:03:47.500 --> 00:03:50.870
+works. Good, it animates itself 
+
+118
+00:03:50.880 --> 00:03:53.100
+in and out, in and out. Good. 
+
+119
+00:03:53.150 --> 00:03:56.850
+After maybe 500 milliseconds or 
+
+120
+00:03:56.860 --> 00:03:58.600
+so, I want to also toggle the 
+
+121
+00:03:58.610 --> 00:04:01.310
+class of open(), because that's 
+
+122
+00:04:01.310 --> 00:04:03.020
+the final stage. It's two stage 
+
+123
+00:04:03.660 --> 00:04:04.910
+here. I think we'll use a 
+
+124
+00:04:04.920 --> 00:04:06.260
+timeout for that. We'll set 
+
+125
+00:04:06.100 --> 00:04:09.010
+timeout. You run a function 
+
+126
+00:04:09.020 --> 00:04:11.130
+inside of there. We'll grab this.
+
+127
+00:04:11.205 --> 00:04:12.730
+classList.toggle(), open(). OK, 
+
+128
+00:04:17.690 --> 00:04:21.890
+so does that work? See my dev 
+
+129
+00:04:21.900 --> 00:04:23.950
+tools here click it. Good and 
+
+130
+00:04:24.025 --> 00:04:26.300
+then, and no. Uncaught type 
+
+131
+00:04:26.310 --> 00:04:27.750
+error cannot read property 
+
+132
+00:04:27.980 --> 00:04:31.250
+toggle of undefined. That's 
+
+133
+00:04:31.250 --> 00:04:33.120
+weird. It can't read toggle of 
+
+134
+00:04:33.130 --> 00:04:34.170
+undefined. That means classList() 
+
+135
+00:04:34.245 --> 00:04:35.920
+is not. How do I debug that? I 
+
+136
+00:04:35.930 --> 00:04:37.420
+would go like this, console.log() 
+
+137
+00:04:37.420 --> 00:04:42.170
+this.class List(). What is this.
+
+138
+00:04:42.245 --> 00:04:45.650
+classList() actually undefined. 
+
+139
+00:04:45.650 --> 00:04:47.590
+It's nothing. Why is there no 
+
+140
+00:04:47.665 --> 00:04:49.780
+classList() on the box? Let me 
+
+141
+00:04:49.420 --> 00:04:51.270
+just console.log this and see 
+
+142
+00:04:51.280 --> 00:04:54.410
+what we're dealing with, window. 
+
+143
+00:04:54.450 --> 00:04:56.670
+Why do we have window showing up 
+
+144
+00:04:56.820 --> 00:04:58.860
+here. If this right here was 
+
+145
+00:04:58.870 --> 00:05:01.270
+equal to the box, why the same 
+
+146
+00:05:01.280 --> 00:05:03.790
+hell is this not equal to the 
+
+147
+00:05:03.800 --> 00:05:04.970
+box here? That's because we've 
+
+148
+00:05:05.110 --> 00:05:07.720
+entered a new function, and this 
+
+149
+00:05:07.730 --> 00:05:09.170
+function has not been bound to 
+
+150
+00:05:09.180 --> 00:05:10.830
+anything, which means that, if 
+
+151
+00:05:10.870 --> 00:05:12.170
+it's not bound to anything, it's 
+
+152
+00:05:12.180 --> 00:05:14.100
+going to be equal to the window. 
+
+153
+00:05:14.990 --> 00:05:16.020
+That's a pain in the ass. 
+
+154
+00:05:16.290 --> 00:05:17.690
+People would do things like 
+
+155
+00:05:17.750 --> 00:05:18.930
+these. You've probably done this 
+
+156
+00:05:19.000 --> 00:05:20.310
+for instance like var self 
+
+157
+00:05:20.385 --> 00:05:22.790
+equals this and now you have 
+
+158
+00:05:22.790 --> 00:05:24.790
+this self variable. You can go 
+
+159
+00:05:24.800 --> 00:05:26.690
+in here and say self.classList.
+
+160
+00:05:26.765 --> 00:05:29.090
+toggle open(). Try to get that 
+
+161
+00:05:26.360 --> 00:05:33.130
+out. That's works, but not the 
+
+162
+00:05:33.140 --> 00:05:34.410
+greatest, because we have this 
+
+163
+00:05:34.420 --> 00:05:37.110
+weird or some of you like to say 
+
+164
+00:05:37.185 --> 00:05:39.120
+var that equals this and etc. 
+
+165
+00:05:39.490 --> 00:05:40.580
+Fortunately, we don't need to do 
+
+166
+00:05:40.590 --> 00:05:42.870
+that anymore if I bring that 
+
+167
+00:05:42.945 --> 00:05:44.860
+back to this. What we need to do 
+
+168
+00:05:45.840 --> 00:05:48.200
+is just simply make it an arrow 
+
+169
+00:05:48.210 --> 00:05:50.670
+function. Why? Because when you 
+
+170
+00:05:50.680 --> 00:05:52.180
+have an arrow function, it does 
+
+171
+00:05:52.190 --> 00:05:54.440
+not change the value of this. It 
+
+172
+00:05:54.320 --> 00:05:56.310
+inherits the value of this from 
+
+173
+00:05:56.320 --> 00:05:57.520
+the parent. We don't have to 
+
+174
+00:05:57.530 --> 00:05:59.550
+worry about the scope changing 
+
+175
+00:05:59.590 --> 00:06:00.580
+or anything like that. We can 
+
+176
+00:06:00.590 --> 00:06:02.530
+just go ahead and keep working 
+
+177
+00:06:02.050 --> 00:06:03.630
+using this as if it was scoped 
+
+178
+00:06:03.960 --> 00:06:05.570
+to this actual function here, 
+
+179
+00:06:05.880 --> 00:06:07.990
+just great. I'm going to leave 
+
+180
+00:06:08.000 --> 00:06:09.790
+that console.log() in and I 
+
+181
+00:06:09.865 --> 00:06:11.390
+should probably put 500 
+
+182
+00:06:11.465 --> 00:06:15.330
+milliseconds in here. There we 
+
+183
+00:06:14.930 --> 00:06:18.090
+go. Then after 500 milliseconds 
+
+184
+00:06:18.170 --> 00:06:20.490
+it will animate itself 
+
+185
+00:06:20.490 --> 00:06:22.420
+ . Click it 
+
+186
+00:06:22.430 --> 00:06:24.110
+again and it closes. That's a 
+
+187
+00:06:23.650 --> 00:06:25.840
+little bit funky. I'm going to 
+
+188
+00:06:25.840 --> 00:06:27.300
+fix this to be a little bit 
+
+189
+00:06:27.310 --> 00:06:28.530
+nicer. None of this has 
+
+190
+00:06:28.530 --> 00:06:29.450
+anything to do with arrow 
+
+191
+00:06:29.460 --> 00:06:30.630
+functions. If you're interested 
+
+192
+00:06:30.640 --> 00:06:32.800
+in seeing how I might figure 
+
+193
+00:06:32.810 --> 00:06:35.160
+this out, you can stay on with 
+
+194
+00:06:35.170 --> 00:06:38.700
+me. The problem with this right 
+
+195
+00:06:38.710 --> 00:06:41.430
+here is that when you toggle an 
+
+196
+00:06:41.440 --> 00:06:42.980
+open(), it adds a class of 
+
+197
+00:06:43.160 --> 00:06:45.010
+opening(). Then after 500 
+
+198
+00:06:44.840 --> 00:06:46.750
+milliseconds it adds a class of 
+
+199
+00:06:46.760 --> 00:06:48.670
+open(). When you close it down, 
+
+200
+00:06:48.680 --> 00:06:50.140
+you want it to be the opposite. 
+
+201
+00:06:50.990 --> 00:06:52.310
+The way I would probably solve 
+
+202
+00:06:52.320 --> 00:06:54.640
+this is first make two variables. 
+
+203
+00:06:54.715 --> 00:06:56.170
+I'm going to use let and I'll 
+
+204
+00:06:56.180 --> 00:06:58.050
+explain why in seconds. I would 
+
+205
+00:06:58.125 --> 00:07:00.180
+say let first equals opening() 
+
+206
+00:07:01.860 --> 00:07:04.950
+and let second equals open(). 
+
+207
+00:07:05.025 --> 00:07:08.540
+Then I'll take this first, and 
+
+208
+00:07:08.615 --> 00:07:10.740
+I'll replace it with that. I'll 
+
+209
+00:07:10.750 --> 00:07:13.130
+take my second, replace it right 
+
+210
+00:07:13.190 --> 00:07:15.390
+there. I'm just using variables 
+
+211
+00:07:15.465 --> 00:07:16.110
+we'll probably still have this 
+
+212
+00:07:16.110 --> 00:07:19.260
+problem. We'll solve this weird 
+
+213
+00:07:19.270 --> 00:07:20.820
+problem where it animates in the 
+
+214
+00:07:20.830 --> 00:07:24.180
+wrong way. What I want to do is 
+
+215
+00:07:24.255 --> 00:07:25.800
+I'm going to say, if this.
+
+216
+00:07:25.875 --> 00:07:29.530
+classList.contains() the first...
+
+217
+00:07:30.430 --> 00:07:32.460
+if it already contains opening() 
+
+218
+00:07:32.630 --> 00:07:34.820
+that's because it's already in 
+
+219
+00:07:34.830 --> 00:07:37.220
+an open state. If it already 
+
+220
+00:07:37.230 --> 00:07:39.570
+contains it, opening(), because 
+
+221
+00:07:39.580 --> 00:07:42.210
+it's in the open state, then we 
+
+222
+00:07:42.210 --> 00:07:44.900
+want to switch the order of what 
+
+223
+00:07:44.910 --> 00:07:46.580
+this happens. I'm just going to 
+
+224
+00:07:46.210 --> 00:07:47.770
+switch the first and the second 
+
+225
+00:07:48.060 --> 00:07:51.220
+variables. This is going to look 
+
+226
+00:07:51.230 --> 00:07:53.070
+forward into our destructuring 
+
+227
+00:07:52.750 --> 00:07:54.930
+exercise, but little hot tip. If 
+
+228
+00:07:54.940 --> 00:07:56.330
+we want to switch two variables 
+
+229
+00:07:57.230 --> 00:07:58.640
+with ES6 you can simply do this. 
+
+230
+00:07:59.160 --> 00:08:02.550
+First, second equals second, 
+
+231
+00:08:02.890 --> 00:08:04.570
+first. That will just switch the 
+
+232
+00:08:04.580 --> 00:08:06.580
+values. Then first will be equal 
+
+233
+00:08:06.590 --> 00:08:08.410
+to open(), and second will be 
+
+234
+00:08:08.760 --> 00:08:11.120
+open to opening(). Then they 
+
+235
+00:08:11.130 --> 00:08:12.550
+will close in the opposite order 
+
+236
+00:08:12.560 --> 00:08:13.840
+that they've been opened. Let's 
+
+237
+00:08:13.850 --> 00:08:16.440
+check this out. Bring it in, 
+
+238
+00:08:16.800 --> 00:08:18.280
+bring it out, close it down. 
+
+239
+00:08:18.340 --> 00:08:20.640
+Cool, a fun little animation 
+
+240
+00:08:20.650 --> 00:08:22.120
+that we've made there. Big thing 
+
+241
+00:08:22.130 --> 00:08:23.440
+we want to take home here is 
+
+242
+00:08:23.450 --> 00:08:24.670
+that we can use an arrow 
+
+243
+00:08:24.680 --> 00:08:26.760
+function for things inside of a 
+
+244
+00:08:26.900 --> 00:08:28.480
+normal function and it's going 
+
+245
+00:08:28.490 --> 00:08:30.840
+to inherit the value of this.
+
