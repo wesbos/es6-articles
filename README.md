@@ -19,7 +19,7 @@ _example:_
 | 1 | var Scoping Refresher | X | X |
 | 2 | let VS const | X | X |
 | 3 | let and const in the Real World | X | X |
-| 4 | Temporal Dead Zone | X | |
+| 4 | Temporal Dead Zone | X | X |
 | 5 | Is var Dead? What should I use? | X | |
 | 6 | Arrow Functions Introduction | X | |
 | 7 | More Arrow Function Examples | X | |
