@@ -1,0 +1,1106 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.480 --> 00:00:03.830
+Let's make our own JavaScript 
+
+3
+00:00:03.830 --> 00:00:05.220
+modules which we can import and 
+
+4
+00:00:05.230 --> 00:00:06.890
+export into each other. I could 
+
+5
+00:00:06.900 --> 00:00:08.180
+make another JavaScript file 
+
+6
+00:00:08.190 --> 00:00:10.370
+alongside app.js but I'm going 
+
+7
+00:00:10.445 --> 00:00:12.370
+to make a new folder called SRC. 
+
+8
+00:00:13.110 --> 00:00:14.170
+That's not anything special but 
+
+9
+00:00:14.245 --> 00:00:15.460
+it allows me to keep my modules 
+
+10
+00:00:15.530 --> 00:00:17.880
+in its own folder. I'm going to 
+
+11
+00:00:17.880 --> 00:00:19.380
+create a couple of modules, 
+
+12
+00:00:19.455 --> 00:00:19.880
+we're going to start with very 
+
+13
+00:00:19.890 --> 00:00:21.260
+simple one where we import and 
+
+14
+00:00:21.270 --> 00:00:23.580
+export one function in two 
+
+15
+00:00:23.590 --> 00:00:25.910
+strings. We'll create a new file 
+
+16
+00:00:25.920 --> 00:00:27.340
+and let's call it config.js. 
+
+17
+00:00:27.415 --> 00:00:29.390
+Config.js is a place where I 
+
+18
+00:00:29.400 --> 00:00:31.060
+like to put all of my API keys 
+
+19
+00:00:31.070 --> 00:00:33.330
+and rest endpoints. Rather than 
+
+20
+00:00:33.340 --> 00:00:34.400
+scattering them through the 
+
+21
+00:00:34.410 --> 00:00:35.900
+entire application, I like to 
+
+22
+00:00:35.910 --> 00:00:37.460
+put them in one single file so 
+
+23
+00:00:37.470 --> 00:00:38.920
+that if I ever have to reference 
+
+24
+00:00:39.290 --> 00:00:41.380
+any of the configuration for my 
+
+25
+00:00:41.880 --> 00:00:43.810
+application, I could just go to 
+
+26
+00:00:43.885 --> 00:00:45.230
+config.js. Inside of that let's 
+
+27
+00:00:45.620 --> 00:00:47.810
+take const API key is equal to 
+
+28
+00:00:47.885 --> 00:00:50.980
+ABC123. Let's stop it at that 
+
+29
+00:00:50.990 --> 00:00:52.920
+and say, "How do I get access to 
+
+30
+00:00:52.930 --> 00:00:54.970
+this API key variable when I'm 
+
+31
+00:00:55.270 --> 00:00:56.750
+in another module, when I'm in 
+
+32
+00:00:56.760 --> 00:00:59.210
+another file?" I'm an app.js 
+
+33
+00:00:58.810 --> 00:01:01.780
+here and I want to know, how do 
+
+34
+00:01:01.650 --> 00:01:03.630
+I get access to this config here? 
+
+35
+00:01:04.930 --> 00:01:06.890
+Variables are not global with 
+
+36
+00:01:06.900 --> 00:01:08.850
+modules. Variables are always 
+
+37
+00:01:08.925 --> 00:01:10.680
+scoped either to their function 
+
+38
+00:01:10.690 --> 00:01:12.790
+or their block, or if they're 
+
+39
+00:01:12.865 --> 00:01:13.990
+not scoped to anything they are 
+
+40
+00:01:14.065 --> 00:01:16.450
+scoped to that module. That's 
+
+41
+00:01:16.450 --> 00:01:17.690
+the kind of benefit of having 
+
+42
+00:01:17.700 --> 00:01:19.100
+modules is you have this little 
+
+43
+00:01:19.110 --> 00:01:21.570
+files that are self-contained 
+
+44
+00:01:21.920 --> 00:01:22.950
+and they don't bleed into 
+
+45
+00:01:22.960 --> 00:01:23.960
+anything else. There's no 
+
+46
+00:01:23.970 --> 00:01:25.390
+global variables that sit on 
+
+47
+00:01:25.400 --> 00:01:26.840
+window for you to be able to 
+
+48
+00:01:27.740 --> 00:01:30.680
+access everything. How do we 
+
+49
+00:01:30.750 --> 00:01:33.700
+actually get API key from app.js? 
+
+50
+00:01:34.330 --> 00:01:36.980
+We need to first of all import 
+
+51
+00:01:36.990 --> 00:01:39.040
+it from app.js, so I'm going to 
+
+52
+00:01:39.040 --> 00:01:43.240
+say import API key from. Now, 
+
+53
+00:01:43.315 --> 00:01:45.620
+this is not a node module, it is 
+
+54
+00:01:45.440 --> 00:01:46.840
+a local file, so we start it 
+
+55
+00:01:46.850 --> 00:01:48.750
+with a relative path./src/config. 
+
+56
+00:01:52.420 --> 00:01:53.980
+Notice how we don't have the .js 
+
+57
+00:01:53.810 --> 00:01:56.980
+on there. It's not necessary. If 
+
+58
+00:01:56.990 --> 00:01:59.070
+I were to try and console.log 
+
+59
+00:01:59.145 --> 00:02:01.740
+the API key, give that a save, 
+
+60
+00:02:01.815 --> 00:02:04.740
+you see that our bundler.js 
+
+61
+00:02:04.815 --> 00:02:07.900
+refreshes. I'm going to open the 
+
+62
+00:02:07.910 --> 00:02:09.940
+index in our browser. You see 
+
+63
+00:02:09.950 --> 00:02:11.410
+on line five where we tried to 
+
+64
+00:02:11.420 --> 00:02:14.620
+console.log API key you do not 
+
+65
+00:02:14.630 --> 00:02:16.060
+see anything. It's an empty 
+
+66
+00:02:16.070 --> 00:02:17.260
+object that has not been 
+
+67
+00:02:17.270 --> 00:02:19.270
+imported. That's because config.
+
+68
+00:02:19.345 --> 00:02:20.120
+js has not yet exported itself. 
+
+69
+00:02:20.120 --> 00:02:24.320
+In order to make this API key 
+
+70
+00:02:24.330 --> 00:02:27.410
+available outside of this module, 
+
+71
+00:02:27.670 --> 00:02:29.160
+we need to export it. There are 
+
+72
+00:02:29.170 --> 00:02:31.250
+two types of exporting in the 
+
+73
+00:02:31.325 --> 00:02:32.430
+ES6. There is something called 
+
+74
+00:02:32.440 --> 00:02:34.090
+the default export which will 
+
+75
+00:02:34.165 --> 00:02:36.180
+allow you to export it as the 
+
+76
+00:02:36.190 --> 00:02:37.640
+default, which means that when 
+
+77
+00:02:37.650 --> 00:02:39.210
+you import it you can import it 
+
+78
+00:02:39.220 --> 00:02:41.570
+as any name that you like. Then 
+
+79
+00:02:41.580 --> 00:02:43.390
+we also have what's called named 
+
+80
+00:02:43.650 --> 00:02:45.790
+exports, which when you export 
+
+81
+00:02:45.800 --> 00:02:47.000
+it you export it as that 
+
+82
+00:02:47.010 --> 00:02:49.060
+variable name. When someone 
+
+83
+00:02:49.070 --> 00:02:50.610
+imports it on the other end they 
+
+84
+00:02:50.620 --> 00:02:52.930
+must know the name of the thing 
+
+85
+00:02:52.970 --> 00:02:54.190
+that they are importing. 
+
+86
+00:02:54.620 --> 00:02:56.860
+Generally, a default export is 
+
+87
+00:02:56.980 --> 00:02:58.890
+made the main thing that that 
+
+88
+00:02:58.900 --> 00:03:00.900
+module does, if there's anything 
+
+89
+00:03:00.910 --> 00:03:02.360
+the main thing that the module 
+
+90
+00:03:02.410 --> 00:03:05.300
+does. A named export is used for 
+
+91
+00:03:05.620 --> 00:03:06.950
+methods, and variables, and 
+
+92
+00:03:06.960 --> 00:03:08.570
+things that you need to pluck 
+
+93
+00:03:08.580 --> 00:03:10.560
+off from that. I'm going to 
+
+94
+00:03:10.570 --> 00:03:12.050
+show you the default export 
+
+95
+00:03:12.060 --> 00:03:13.100
+first, and then we'll change 
+
+96
+00:03:13.110 --> 00:03:14.970
+this one over to a named export. 
+
+97
+00:03:15.320 --> 00:03:17.810
+To make this API key exported as 
+
+98
+00:03:17.820 --> 00:03:19.040
+default, we go to the bottom 
+
+99
+00:03:19.050 --> 00:03:21.040
+here and we say export default 
+
+100
+00:03:21.900 --> 00:03:24.780
+API key. That is going to be 
+
+101
+00:03:24.790 --> 00:03:27.020
+available outside. Go into appjs 
+
+102
+00:03:27.310 --> 00:03:28.630
+and then we import it. We 
+
+103
+00:03:28.630 --> 00:03:30.560
+already did, import API key from 
+
+104
+00:03:30.790 --> 00:03:33.390
+source config. We can go back to 
+
+105
+00:03:33.430 --> 00:03:36.340
+our JavaScript here and 
+
+106
+00:03:36.530 --> 00:03:38.370
+refresh, and now we see ABC123. 
+
+107
+00:03:40.000 --> 00:03:42.500
+The important part is because we 
+
+108
+00:03:42.575 --> 00:03:45.000
+exported it as a default, we can 
+
+109
+00:03:45.010 --> 00:03:47.190
+name it any possible thing that 
+
+110
+00:03:47.200 --> 00:03:48.710
+we want right here. We've called 
+
+111
+00:03:48.720 --> 00:03:50.060
+it API key because it's the same 
+
+112
+00:03:50.070 --> 00:03:51.710
+thing, but I could name is '"Wes 
+
+113
+00:03:51.720 --> 00:03:54.980
+is cool" as well, and refresh. 
+
+114
+00:03:55.070 --> 00:03:57.300
+It still works exactly the same 
+
+115
+00:03:57.310 --> 00:03:58.890
+way. How come? Because the 
+
+116
+00:03:58.900 --> 00:04:01.080
+default export gets renamed as 
+
+117
+00:04:01.090 --> 00:04:03.350
+whatever you import it as. So 
+
+118
+00:04:03.360 --> 00:04:05.300
+we've imported it as "Wes is 
+
+119
+00:04:05.310 --> 00:04:09.580
+cool" from there. Every module 
+
+120
+00:04:09.655 --> 00:04:11.340
+that you have can only ever have 
+
+121
+00:04:11.350 --> 00:04:13.500
+one default export. However, you 
+
+122
+00:04:13.510 --> 00:04:16.090
+can have multiple named exports 
+
+123
+00:04:16.100 --> 00:04:18.260
+from a module. Let's take this 
+
+124
+00:04:18.270 --> 00:04:20.230
+API key and change it over to 
+
+125
+00:04:20.240 --> 00:04:22.700
+being a named export. The way we 
+
+126
+00:04:22.000 --> 00:04:23.060
+do that is let's just remove 
+
+127
+00:04:23.070 --> 00:04:25.090
+this entirely, and we stick in 
+
+128
+00:04:25.150 --> 00:04:27.450
+export right in front of it. 
+
+129
+00:04:27.680 --> 00:04:28.820
+What that will do is it will 
+
+130
+00:04:28.830 --> 00:04:30.300
+export this variable, or the 
+
+131
+00:04:30.310 --> 00:04:31.750
+function, or the string, or 
+
+132
+00:04:32.580 --> 00:04:33.460
+whatever it is you'd like to 
+
+133
+00:04:33.470 --> 00:04:35.480
+export from the module and 
+
+134
+00:04:35.640 --> 00:04:37.610
+export it is as the name. When I 
+
+135
+00:04:37.610 --> 00:04:39.910
+say this, Webpack is going to 
+
+136
+00:04:39.810 --> 00:04:41.340
+get a little bit angry at me, 
+
+137
+00:04:41.470 --> 00:04:42.920
+because we have a bit of an 
+
+138
+00:04:42.930 --> 00:04:44.750
+error now. It says, export 
+
+139
+00:04:44.760 --> 00:04:47.490
+default imported as "Wes is cool" 
+
+140
+00:04:47.740 --> 00:04:49.900
+was not found. Now, if we go 
+
+141
+00:04:49.910 --> 00:04:52.230
+back here we called it "Wes is 
+
+142
+00:04:52.240 --> 00:04:54.220
+cool," but because we did it as 
+
+143
+00:04:54.220 --> 00:04:56.100
+a named export -- let's put a 
+
+144
+00:04:56.175 --> 00:04:57.960
+little comment, named export -- 
+
+145
+00:04:58.940 --> 00:05:00.790
+you have to import it as 
+
+146
+00:05:00.800 --> 00:05:02.840
+whatever it was exported as. We 
+
+147
+00:05:02.850 --> 00:05:04.080
+have to go back here, we can't 
+
+148
+00:05:04.090 --> 00:05:05.410
+use whatever we want. We have to 
+
+149
+00:05:05.420 --> 00:05:07.560
+use API key and then that's 
+
+150
+00:05:07.570 --> 00:05:09.430
+still not going to be enough, 
+
+151
+00:05:09.505 --> 00:05:10.120
+Webpack's going to give us an 
+
+152
+00:05:10.130 --> 00:05:13.290
+error here. It says, "Export 
+
+153
+00:05:13.300 --> 00:05:15.330
+default imported as API key was 
+
+154
+00:05:15.340 --> 00:05:17.350
+not found." What happens is 
+
+155
+00:05:17.410 --> 00:05:19.480
+this syntax imports something 
+
+156
+00:05:19.560 --> 00:05:21.850
+from something that is used for 
+
+157
+00:05:22.050 --> 00:05:23.700
+when something was exported as a 
+
+158
+00:05:23.790 --> 00:05:26.450
+default. If you wish to import a...
+
+159
+00:05:26.460 --> 00:05:28.040
+What kind of import is this, 
+
+160
+00:05:28.480 --> 00:05:30.300
+it's a named export. If you want 
+
+161
+00:05:30.310 --> 00:05:31.500
+to import something that is a 
+
+162
+00:05:31.510 --> 00:05:34.210
+named export, you simply stick 
+
+163
+00:05:34.330 --> 00:05:35.750
+some curly brackets around it. 
+
+164
+00:05:35.825 --> 00:05:37.250
+It looks kind of like 
+
+165
+00:05:37.325 --> 00:05:38.090
+destructuring, but it's not. 
+
+166
+00:05:38.120 --> 00:05:39.840
+This is just a syntax for 
+
+167
+00:05:39.850 --> 00:05:42.450
+importing things that were named 
+
+168
+00:05:42.560 --> 00:05:44.650
+export from a file. Then if I 
+
+169
+00:05:44.660 --> 00:05:46.510
+gave that a save, Webpack should 
+
+170
+00:05:46.520 --> 00:05:48.340
+finally be happy with us, there 
+
+171
+00:05:48.350 --> 00:05:50.110
+we go. We go back here and 
+
+172
+00:05:50.120 --> 00:05:51.870
+refresh, we get ABC123. Let's 
+
+173
+00:05:51.870 --> 00:05:55.040
+do it again. Go back to config, 
+
+174
+00:05:55.010 --> 00:05:56.530
+let's create a variable called 
+
+175
+00:05:56.540 --> 00:05:58.970
+url and send it to wesbos.com. 
+
+176
+00:05:58.530 --> 00:06:03.380
+How do I get that available to 
+
+177
+00:06:03.840 --> 00:06:05.960
+this other file? Let's take an 
+
+178
+00:06:05.970 --> 00:06:07.770
+export in front of it and you 
+
+179
+00:06:07.780 --> 00:06:10.750
+head back to here. We simply 
+
+180
+00:06:10.760 --> 00:06:15.760
+just import URL, then we have 
+
+181
+00:06:15.770 --> 00:06:17.540
+that URL variable available to 
+
+182
+00:06:17.550 --> 00:06:19.350
+us anywhere inside of this file. 
+
+183
+00:06:19.580 --> 00:06:22.000
+You see how you just pick and 
+
+184
+00:06:22.010 --> 00:06:23.390
+choose the things that you want. 
+
+185
+00:06:23.580 --> 00:06:24.600
+At first that might seem like a 
+
+186
+00:06:24.610 --> 00:06:25.680
+little bit of a pain because you 
+
+187
+00:06:25.690 --> 00:06:27.050
+don't have access to everything, 
+
+188
+00:06:27.370 --> 00:06:29.060
+but that really helps enforced 
+
+189
+00:06:29.070 --> 00:06:30.800
+these small modules that do one 
+
+190
+00:06:30.920 --> 00:06:33.550
+thing and one thing well. If 
+
+191
+00:06:33.560 --> 00:06:35.070
+you make this self-contained 
+
+192
+00:06:35.080 --> 00:06:36.920
+modules, chances are you'd be 
+
+193
+00:06:36.520 --> 00:06:37.720
+able to use them on multiple 
+
+194
+00:06:37.800 --> 00:06:39.490
+projects, and you can just trade 
+
+195
+00:06:39.500 --> 00:06:41.120
+them around and they're easily 
+
+196
+00:06:41.195 --> 00:06:41.840
+testable, and all kinds of other 
+
+197
+00:06:41.850 --> 00:06:43.530
+benefits that we have there. 
+
+198
+00:06:44.170 --> 00:06:45.650
+Here, I've just been exporting 
+
+199
+00:06:45.260 --> 00:06:46.560
+variables but you can also 
+
+200
+00:06:46.570 --> 00:06:48.450
+export functions. Let's say I 
+
+201
+00:06:48.060 --> 00:06:49.740
+have a function called "Say hi," 
+
+202
+00:06:49.815 --> 00:06:51.420
+and it takes in someone's name 
+
+203
+00:06:51.850 --> 00:06:55.160
+and it console.logs, hello there, 
+
+204
+00:06:55.250 --> 00:06:56.950
+name. If I want that to be 
+
+205
+00:06:56.960 --> 00:06:58.730
+available -- and that could very 
+
+206
+00:06:58.740 --> 00:07:00.170
+well just be an internal 
+
+207
+00:07:00.250 --> 00:07:01.450
+function that I use inside of 
+
+208
+00:07:01.460 --> 00:07:03.130
+this module. They don't all 
+
+209
+00:07:03.140 --> 00:07:05.260
+have to be exported, but if for 
+
+210
+00:07:05.335 --> 00:07:06.470
+whatever reason I wanted it 
+
+211
+00:07:06.480 --> 00:07:08.400
+available in another module. I 
+
+212
+00:07:08.410 --> 00:07:10.360
+would have to stick an export on 
+
+213
+00:07:10.370 --> 00:07:12.880
+it. That would be exported as "
+
+214
+00:07:12.890 --> 00:07:15.700
+Say hi." Then I can go back into 
+
+215
+00:07:15.710 --> 00:07:18.790
+my import, import "Say hi," and 
+
+216
+00:07:18.865 --> 00:07:22.690
+then I can say, "Hi, Wes." Give 
+
+217
+00:07:22.700 --> 00:07:24.320
+that a save and a refresh here. 
+
+218
+00:07:25.080 --> 00:07:26.840
+It says, "Hello there Wes." 
+
+219
+00:07:28.000 --> 00:07:29.350
+There's all kinds of really nice 
+
+220
+00:07:29.360 --> 00:07:32.230
+syntax for ES6 modules and I 
+
+221
+00:07:32.240 --> 00:07:33.680
+encourage you to search for 
+
+222
+00:07:33.690 --> 00:07:36.440
+export MDN and take a look at 
+
+223
+00:07:36.450 --> 00:07:37.940
+the Mozilla developer network 
+
+224
+00:07:38.090 --> 00:07:40.420
+docs for export. What we've been 
+
+225
+00:07:40.430 --> 00:07:42.510
+doing is we have been exporting 
+
+226
+00:07:42.880 --> 00:07:44.480
+something like this, export 
+
+227
+00:07:44.810 --> 00:07:47.080
+variable, export expression, 
+
+228
+00:07:47.240 --> 00:07:49.370
+export function. You can export 
+
+229
+00:07:49.380 --> 00:07:51.460
+multiple things at once. If we 
+
+230
+00:07:51.470 --> 00:07:53.950
+had a bunch of variable names 
+
+231
+00:07:54.025 --> 00:07:56.350
+const-age = 100 and const-dog = 
+
+232
+00:08:00.830 --> 00:08:02.620
+snickers. I could export both of 
+
+233
+00:08:02.630 --> 00:08:03.610
+those at once, I would say 
+
+234
+00:08:03.660 --> 00:08:06.030
+export, open curly brackets, age 
+
+235
+00:08:06.040 --> 00:08:08.260
+and dog. Then I will be able to 
+
+236
+00:08:08.820 --> 00:08:12.520
+import those into just like I 
+
+237
+00:08:12.530 --> 00:08:16.000
+was doing it here, age and dog. 
+
+238
+00:08:16.010 --> 00:08:16.910
+I'm not going to console.log 
+
+239
+00:08:16.920 --> 00:08:17.530
+them. You'll just have to 
+
+240
+00:08:17.540 --> 00:08:19.400
+believe me that I actually can 
+
+241
+00:08:19.410 --> 00:08:21.200
+use them like that. There's 
+
+242
+00:08:21.210 --> 00:08:22.860
+also a couple of other things 
+
+243
+00:08:22.870 --> 00:08:24.910
+where you can rename them using 
+
+244
+00:08:24.985 --> 00:08:27.130
+the "'as" key word. That's 
+
+245
+00:08:27.140 --> 00:08:28.910
+really important because imagine 
+
+246
+00:08:28.920 --> 00:08:31.530
+you had a variable called url, 
+
+247
+00:08:31.540 --> 00:08:32.890
+or imagine you already had a 
+
+248
+00:08:32.900 --> 00:08:34.620
+variable called API key, you 
+
+249
+00:08:34.630 --> 00:08:35.980
+needed to rename it. What you 
+
+250
+00:08:35.980 --> 00:08:37.470
+can do is you can say import API 
+
+251
+00:08:37.480 --> 00:08:40.490
+key "as" key and it's going to 
+
+252
+00:08:40.500 --> 00:08:43.800
+take the named export of API key 
+
+253
+00:08:44.650 --> 00:08:47.370
+and import it "as" variable key. 
+
+254
+00:08:47.640 --> 00:08:48.940
+It's no longer API key. You can 
+
+255
+00:08:48.940 --> 00:08:51.340
+see my ESLint is saying that is 
+
+256
+00:08:51.350 --> 00:08:53.310
+not defined, why? Because we 
+
+257
+00:08:53.320 --> 00:08:55.230
+imported the API key "as" key 
+
+258
+00:08:55.660 --> 00:08:57.070
+and we have it there, so that's 
+
+259
+00:08:57.070 --> 00:08:58.880
+how we would have to change that 
+
+260
+00:08:58.890 --> 00:09:00.730
+one. The same goes for when you 
+
+261
+00:09:00.740 --> 00:09:02.620
+export things, you can export 
+
+262
+00:09:02.630 --> 00:09:08.250
+age as old. Then when you import 
+
+263
+00:09:08.260 --> 00:09:10.610
+age it's no longer being able to 
+
+264
+00:09:10.620 --> 00:09:13.530
+import it. You have to import it 
+
+265
+00:09:13.810 --> 00:09:16.200
+as old not as age. You have 
+
+266
+00:09:16.210 --> 00:09:17.460
+some flexibility there. If you'd 
+
+267
+00:09:17.470 --> 00:09:19.110
+like to rename them you can also 
+
+268
+00:09:19.120 --> 00:09:21.100
+put this on their own lines just 
+
+269
+00:09:21.110 --> 00:09:22.730
+for readability sake. You do 
+
+270
+00:09:22.730 --> 00:09:23.550
+something like this. 
+
+271
+00:09:23.740 --> 00:09:26.600
+That can be really 
+
+272
+00:09:26.610 --> 00:09:27.940
+handy when you're importing 
+
+273
+00:09:27.950 --> 00:09:29.080
+maybe five or six different 
+
+274
+00:09:29.090 --> 00:09:30.300
+methods from it. That's just a 
+
+275
+00:09:30.310 --> 00:09:32.510
+personal preference as to how 
+
+276
+00:09:32.520 --> 00:09:33.520
+you like to write your code.
+

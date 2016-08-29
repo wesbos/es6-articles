@@ -61,7 +61,7 @@ _example:_
 | 43 | ESLint inside Atom and Sublime Text | X | |
 | 44 | Only Allow ESLint Passing Code into your git repos |  | |
 | 45 | JavaScript Modules and WebPack 2 Tooling Setup |  | |
-| 46 | Creating your own Modules |  | |
+| 46 | Creating your own Modules | X | |
 | 47 | More ES6 Module Practice |  | |
 | 48 | Tool-Free Modules with SystemJS (+bonus BrowserSync setup) |  | |
 | 49 | All About Babel + npm scripts |  | |
@@ -75,7 +75,7 @@ _example:_
 | 57 | Looping Generators with for of | X | |
 | 58 | What are Proxies? |  | |
 | 59 | Another Proxy Example | X | |
-| 60 | Using Proxies to combat silly errors |  | |
+| 60 | Using Proxies to combat silly errors | X | |
 | 61 | Sets | X | |
 | 62 | Understanding Sets with Brunch |  | |
 | 63 | WeakSets | X | |
