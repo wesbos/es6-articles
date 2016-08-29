@@ -2,193 +2,264 @@ WEBVTT
 
 1
 00:00:00.000 --> 00:00:00.000
- Instructor: I hope 
+ Instructor: Let's
 
 2
-00:00:02.570 --> 00:00:03.620
-you're super excited to learn 
+00:00:02.450 --> 00:00:03.880
+look at a couple more examples
 
 3
-00:00:03.695 --> 00:00:04.880
-ES6. I just wanted to have a 
+00:00:03.950 --> 00:00:05.690
+of when you would actually use
 
 4
-00:00:04.890 --> 00:00:07.090
-quick video, in order to get you 
+00:00:05.765 --> 00:00:07.230
+destructuring in the real world.
 
 5
-00:00:05.960 --> 00:00:07.320
-set up for this. First of all, 
+00:00:08.170 --> 00:00:09.690
+This is not just when you want
 
 6
-00:00:07.330 --> 00:00:08.820
-you need a browser that can 
+00:00:09.700 --> 00:00:11.710
+to grab variables out of an
 
 7
-00:00:08.830 --> 00:00:10.950
-support ES6. Right now, that's 
+00:00:11.720 --> 00:00:12.920
+object or out of an array.
 
 8
-00:00:11.000 --> 00:00:12.580
-all of the latest versions of a 
+00:00:13.580 --> 00:00:15.200
+Let's take a look right here
 
 9
-00:00:12.655 --> 00:00:14.130
-browser. I'm going to be using 
+00:00:15.210 --> 00:00:16.380
+where we're building an
 
 10
-00:00:14.140 --> 00:00:15.940
-Chrome in this one, but grab the 
+00:00:16.390 --> 00:00:18.330
+application for a wrestling
 
 11
-00:00:15.950 --> 00:00:17.660
-latest Internet Explorer Edge, 
+00:00:18.340 --> 00:00:21.720
+application. In wrestling, they
 
 12
-00:00:17.670 --> 00:00:19.950
-or Firefox, or latest Safari, 
+00:00:21.730 --> 00:00:23.300
+are tag teaming. I don't really
 
 13
-00:00:19.960 --> 00:00:21.600
-and you'd be good to go. Once 
+00:00:23.310 --> 00:00:24.430
+know that much about wrestling,
 
 14
-00:00:21.610 --> 00:00:24.140
-you are signed in, go ahead and 
+00:00:24.440 --> 00:00:25.620
+but I know that there's one guy
 
 15
-00:00:24.320 --> 00:00:25.480
-you can stream the course by 
+00:00:25.630 --> 00:00:27.150
+in the ring and one guy on the
 
 16
-00:00:25.490 --> 00:00:26.480
-clicking it here. You can go 
+00:00:27.160 --> 00:00:29.740
+side. Let's create let inRing = "
 
 17
-00:00:26.490 --> 00:00:27.430
-ahead and download all of the 
+00:00:29.815 --> 00:00:33.570
+The Hulkster" and we'll say let
 
 18
-00:00:27.440 --> 00:00:29.340
-videos if you prefer to watch 
+00:00:33.645 --> 00:00:36.380
+onSide = "The Rock". I'm not
 
 19
-00:00:29.350 --> 00:00:31.870
-them offline. Then, you also 
+00:00:35.980 --> 00:00:37.210
+sure if these guys ever wrestled
 
 20
-00:00:31.880 --> 00:00:33.090
-want to make sure that you grab 
+00:00:37.220 --> 00:00:39.610
+together, but it seems feasible.
 
 21
-00:00:33.100 --> 00:00:35.190
-the starter files. Now, starter 
+00:00:41.070 --> 00:00:43.260
+They need to tag team each other.
 
 22
-00:00:35.190 --> 00:00:36.740
-files are hosted up on GitHub 
+00:00:44.230 --> 00:00:45.540
+What happens when you need to
 
 23
-00:00:36.750 --> 00:00:38.850
-here. It's just a whole bunch of 
+00:00:45.550 --> 00:00:48.140
+switch? The Rock's going in the
 
 24
-00:00:38.860 --> 00:00:40.670
-different HTML and JavaScript 
+00:00:48.150 --> 00:00:50.330
+ring and the Hulkster is going
 
 25
-00:00:40.720 --> 00:00:41.490
-files that we're going to be 
+00:00:51.030 --> 00:00:53.500
+on the side. How did you do that
 
 26
-00:00:41.500 --> 00:00:42.710
-using throughout the course. 
+00:00:53.500 --> 00:00:56.610
+before? If you do this, inRing
 
 27
-00:00:42.970 --> 00:00:44.630
-I recommend that you code all of 
+00:01:00.340 --> 00:01:02.310
+is Hulk Hogan. If you say inRing =
 
 28
-00:00:44.640 --> 00:00:46.260
-this stuff yourself, sort of 
+00:01:02.385 --> 00:01:08.670
+onSide, now inRing is The Rock,
 
 29
-00:00:46.270 --> 00:00:48.580
-from scratch. I think it's going 
+00:01:08.745 --> 00:01:10.890
+but then also onSide is also The
 
 30
-00:00:48.655 --> 00:00:50.400
-to set in the best. But if you 
+00:01:10.900 --> 00:01:13.140
+Rock and we've lost the Hulkster
 
 31
-00:00:50.410 --> 00:00:51.620
-prefer to just watch them and 
+00:01:13.215 --> 00:01:14.020
+altogether. How do we
 
 32
-00:00:51.630 --> 00:00:53.880
-then code them after, you can do 
+00:01:14.020 --> 00:01:15.660
+actually get around that? The
 
 33
-00:00:53.890 --> 00:00:54.880
-that, or if you will just need 
+00:01:15.670 --> 00:01:19.180
+way we used to be able to do it
 
 34
-00:00:54.980 --> 00:00:56.260
-to reference some of the code, 
+00:01:19.255 --> 00:01:19.530
+is we would make a temp variable.
 
 35
-00:00:56.430 --> 00:00:58.120
-it's also available inside of 
+00:01:19.640 --> 00:01:23.160
+We'd say var temp = inRing, and
 
 36
-00:00:57.790 --> 00:00:59.380
-here. There is a file called 
+00:01:23.170 --> 00:01:24.830
+then you'd say inRing = onSide,
 
 37
-00:00:59.390 --> 00:01:01.980
-data.js. If you ever need just 
+00:01:24.905 --> 00:01:26.430
+and onSide = temp. They're
 
 38
-00:01:01.990 --> 00:01:03.910
-an array of things, or a couple 
+00:01:33.330 --> 00:01:34.580
+totally switched now, and then
 
 39
-00:01:03.920 --> 00:01:06.330
-objects, or just some data to 
+00:01:34.590 --> 00:01:36.030
+you would delete your actual
 
 40
-00:01:06.340 --> 00:01:08.350
-actually work with, then I 
+00:01:36.040 --> 00:01:37.350
+temp variable. That's really
 
 41
-00:01:08.490 --> 00:01:10.100
-recommend grabbing it from here. 
+00:01:37.360 --> 00:01:38.320
+hard to follow. That's hard to
 
 42
-00:01:10.160 --> 00:01:12.310
-I also use this data throughout 
+00:01:38.330 --> 00:01:40.180
+look at, especially someone
 
 43
-00:01:12.320 --> 00:01:14.430
-the entire series. That's 
+00:01:39.900 --> 00:01:42.120
+coming after six months of not
 
 44
-00:01:14.440 --> 00:01:16.090
-pretty much it, so enjoy the 
+00:01:42.130 --> 00:01:43.250
+working on this code, trying to
 
 45
-00:01:16.100 --> 00:01:17.470
-course. Make sure you jump into 
+00:01:43.260 --> 00:01:44.660
+understand what's going on.
 
 46
-00:01:17.480 --> 00:01:19.410
-the Slack channel and chat with 
+00:01:44.735 --> 00:01:47.450
+With destructuring, we can just
 
 47
-00:01:19.410 --> 00:01:20.610
-everyone else who's taking it. 
+00:01:47.500 --> 00:01:56.920
+swap them. We can just take an
 
 48
-00:01:20.660 --> 00:01:21.090
-Enjoy.
+00:01:57.140 --> 00:01:58.800
+array and say inRing, onSide =
 
+49
+00:01:58.875 --> 00:01:59.260
+onSide, inRing. What? What
+
+50
+00:01:59.270 --> 00:02:00.350
+that's going to do is it's going
+
+51
+00:02:00.360 --> 00:02:02.850
+to create an array of onSide,
+
+52
+00:02:02.925 --> 00:02:04.050
+inRing and immediately
+
+53
+00:02:04.125 --> 00:02:05.790
+destructure them into the
+
+54
+00:02:05.830 --> 00:02:07.110
+opposite variables. Now you
+
+55
+00:02:07.130 --> 00:02:09.030
+see why I use let instead of
+
+56
+00:02:09.105 --> 00:02:09.730
+const here, because we're
+
+57
+00:02:09.730 --> 00:02:11.410
+actually updating the values of
+
+58
+00:02:11.420 --> 00:02:13.860
+these variables. Let's take
+
+59
+00:02:13.870 --> 00:02:15.720
+these inRing, onSide variables,
+
+60
+00:02:15.840 --> 00:02:18.930
+console.log it beforehand, and
+
+61
+00:02:18.940 --> 00:02:20.350
+then also console.log it right
+
+62
+00:02:20.360 --> 00:02:22.740
+after we do it. Hulk Hogan, The
+
+63
+00:02:22.750 --> 00:02:24.710
+Rock and then The Rock, Hulk
+
+64
+00:02:24.720 --> 00:02:26.330
+Hogan. They've totally swapped
+
+65
+00:02:26.440 --> 00:02:28.500
+themselves, without the need for
+
+66
+00:02:28.510 --> 00:02:30.790
+a third swap temp variable.

@@ -35,7 +35,7 @@ _example:_
 | 17 | New String Methods |  | |
 | 18 | Destructuring Objects |  | |
 | 19 | Destructing Arrays | X | X |
-| 20 | Swapping Variables with Destructuring | X | |
+| 20 | Swapping Variables with Destructuring | X | X |
 | 21 | Destructuring Functions - Multiple returns and named defaults |  | |
 | 22 | The for of loop |  | |
 | 23 | The for of Loop in Action |  | |
