@@ -33,7 +33,7 @@ _example:_
 | 15 | Tagged Templates Exercise | X | |
 | 16 | Santizing User Data with Tagged Templates | X | |
 | 17 | New String Methods |  | |
-| 18 | Destructuring Objects | X | |
+| 18 | Destructuring Objects | X | X |
 | 19 | Destructing Arrays | X | X |
 | 20 | Swapping Variables with Destructuring | X | X |
 | 21 | Destructuring Functions - Multiple returns and named defaults |  | |

@@ -10,33 +10,33 @@
 
 [01:13] We say first last = what? Person. Now what does that do? That says, give me a variable called first, a variable called last, and take it from the person. It's weird because we're not setting the entire object, but we're taking the first property and the last property and putting them into two top level variables.
 
-[01:38] If I save that now and I say first and last, you'll see that we get Wes and Bos, because I've created two top level variables. Similarly, if I also wanted twitter, I would just add twitter into that, and I would get a third top level variable inside of my actual scope. 
+[01:38] If I save that now and I say first and last, you'll see that we get Wes and Bos, because I've created two top level variables. Similarly, if I also wanted twitter, I would just add twitter into that, and I would get a third top level variable inside of my actual scope.
 
-[01:56] That's really handy in many use cases. This is just one nested level, but for example, in react often you want to use destructuring because the data is so deeply nested. 
+[01:56] That's really handy in many use cases. This is just one nested level, but for example, in react often you want to use destructuring because the data is so deeply nested.
 
 [02:08] Let's take a look at some nested data here. I'm going to make another variable down here called Wes, and we've got a first, last. Now this data is something you might get back from an API where it's really deeply nested.
 
-[02:23] I want to be able to pull out Twitter and Facebook URLs here. I could do this, constTwitter=wes.links.social.twitter. Then we also want facebook, so I will just add facebook and I'm off and running. But again, that's really annoying. 
+[02:23] I want to be able to pull out Twitter and Facebook URLs here. I could do this, constTwitter=wes.links.social.twitter. Then we also want facebook, so I will just add facebook and I'm off and running. But again, that's really annoying.
 
 [02:43] We can use destructuring to do it one better. We just say const, open and close your curly brackets there, to open and close the destructuring syntax. Then we'll say twitter and facebook are going to be equal to...
 
-[02:56] We don't just say Wes here. We say wes.links.social, and that will then reach into the social object and pull out two variables called twitter and facebook. 
+[02:56] We don't just say Wes here. We say wes.links.social, and that will then reach into the social object and pull out two variables called twitter and facebook.
 
-[03:08] Now, I just consted twitter and I did that up here as well. You can see my editor is getting all red and mad at me because I used that variable already, so I'm just going to comment that out and it's good. Now if I look at twitter, you see the link to my actual Twitter. 
+[03:08] Now, I just consted twitter and I did that up here as well. You can see my editor is getting all red and mad at me because I used that variable already, so I'm just going to comment that out and it's good. Now if I look at twitter, you see the link to my actual Twitter.
 
-[03:23] That is how you do it with nested data. Let's take a look at another use case which would be renaming your variables. Sometimes data comes back in some odd names, and you might not necessarily want to use a property key. 
+[03:23] That is how you do it with nested data. Let's take a look at another use case which would be renaming your variables. Sometimes data comes back in some odd names, and you might not necessarily want to use a property key.
 
-[03:36] For example here, I already used twitter as a variable. I can't use it again, but I'm stuck, because this object gives me twitter as a key and this object gives me twitter as a key. What you can do is you can rename them as you destructure them. 
+[03:36] For example here, I already used twitter as a variable. I can't use it again, but I'm stuck, because this object gives me twitter as a key and this object gives me twitter as a key. What you can do is you can rename them as you destructure them.
 
 [03:51] You can say, I want the twitter property, but I want to call it tweet. I want the facebook property, but I want to call it fb. [laughs] That's my snippet text expander, I want to call it fb.
 
-[04:10] Let's see here. [laughs] Now I've got my tweet variable and I have my fb variable, and they are being destructured as wes.links.social.facebook, but then stored in a variable called fb and stored in an actual variable called tweet. 
+[04:10] Let's see here. [laughs] Now I've got my tweet variable and I have my fb variable, and they are being destructured as wes.links.social.facebook, but then stored in a variable called fb and stored in an actual variable called tweet.
 
-[04:26] There's one last thing we need to know about destructuring objects, and that is the ability to set defaults. This one's a little bit confusing, so bear with me here and we're going to circle back for another example later on in a couple of videos with a function. 
+[04:26] There's one last thing we need to know about destructuring objects, and that is the ability to set defaults. This one's a little bit confusing, so bear with me here and we're going to circle back for another example later on in a couple of videos with a function.
 
-[04:40] Let's say we have a function that's going to do some animation on our page, and it's going to create an element and style it for us. We have things like width, height, color, and font size that we want to set on this actual element. 
+[04:40] Let's say we have a function that's going to do some animation on our page, and it's going to create an element and style it for us. We have things like width, height, color, and font size that we want to set on this actual element.
 
-[04:56] We have that settings object. Now I'm going to create my own settings, so settings equals...and we want the width to be 300, and we want the color to be black. Those are our settings. 
+[04:56] We have that settings object. Now I'm going to create my own settings, so settings equals...and we want the width to be 300, and we want the color to be black. Those are our settings.
 
 [05:13] However, the thing that we're building also requires a height and a font size. Those are the four properties that the thing that we're building requires. How do we actually deal with them when they're not in there?
 
@@ -44,23 +44,23 @@
 
 [05:55] What that's going to do is, it's going to pick out the width, and it's going to pick out the color from our settings. But what about height and front size? They haven't been set in settings so they're going to be undefined and that's going to be a bit of a problem for us.
 
-[06:07] What you can do is, when you do your destructuring you can also set a fallback or a default value. Maybe width is default to 100, height is default to 100 as well, color is default to blue, and font size is default to 25. 
+[06:07] What you can do is, when you do your destructuring you can also set a fallback or a default value. Maybe width is default to 100, height is default to 100 as well, color is default to blue, and font size is default to 25.
 
 [06:27] What's going to happen is, this destructuring works like this. Width, is it being destructured from the settings object? Yes, so width is going to be 300. Height, is that being destructured from the settings object? No, it's not in there, so it's going to roll back to the default, 100.
 
-[06:44] Color, is that in there? Yes, so blue will not be used. Black will win over. Font size, that's not in there, so we will use the default. 
+[06:44] Color, is that in there? Yes, so blue will not be used. Black will win over. Font size, that's not in there, so we will use the default.
 
 [06:53] If I open this up in my browser here, we should be able to see the width. It's 300, good. The settings took over. But let's look at height, which is not in the settings object. It's 100 because the default has fallen in.
 
-[07:09] Where this is going to be real useful is when we pass a settings object to a function in just a couple of videos. I know what you're asking right now is, "Wes, I just learned all the stuff about destructuring, but can we put it all together into one major thing?" 
+[07:09] Where this is going to be real useful is when we pass a settings object to a function in just a couple of videos. I know what you're asking right now is, "Wes, I just learned all the stuff about destructuring, but can we put it all together into one major thing?"
 
-[07:23] I actually wondered at that as well, so I came up with this, which is...[laughs] Take a look at this. Maybe pause it for a second, and try to ask yourself, what is going on here and what are the variables that are being created? 
+[07:23] I actually wondered at that as well, so I came up with this, which is...[laughs] Take a look at this. Maybe pause it for a second, and try to ask yourself, what is going on here and what are the variables that are being created?
 
-[07:37] I'm going to go open my DevTools here. What are the variables being created? Well, the variables being created are width and height. Why, because it's destructuring W and H. But it's renaming them to width and height, so that I should be able to say width. I guess I've got to save first. Width and height, good, so it's 800 and 500. 
+[07:37] I'm going to go open my DevTools here. What are the variables being created? Well, the variables being created are width and height. Why, because it's destructuring W and H. But it's renaming them to width and height, so that I should be able to say width. I guess I've got to save first. Width and height, good, so it's 800 and 500.
 
-[08:01] What's happening here is that it's destructuring width from this object here. It's going to take 800, then it's immediately renaming it to width, so it's going to be 800. 
+[08:01] What's happening here is that it's destructuring width from this object here. It's going to take 800, then it's immediately renaming it to width, so it's going to be 800.
 
-[08:12] Then height, what are these equals right here? Those are default values. Height, there is no H being passed at all, so H tries to destructure from the object here. It can't, so it falls back to 500 default, and then it renamed itself to height. 
+[08:12] Then height, what are these equals right here? Those are default values. Height, there is no H being passed at all, so H tries to destructure from the object here. It can't, so it falls back to 500 default, and then it renamed itself to height.
 
 [08:29] I'm not sure if you would use that every day or it maybe even every year, but it's fun to look at it and to wrap your head around. It's something that you can maybe write and put it on a t-shirt and be cool. [laughs]
 
