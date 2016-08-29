@@ -20,9 +20,9 @@ _example:_
 | 2 | let VS const | X | X |
 | 3 | let and const in the Real World | X | X |
 | 4 | Temporal Dead Zone | X | X |
-| 5 | Is var Dead? What should I use? | X | |
-| 6 | Arrow Functions Introduction | X | |
-| 7 | More Arrow Function Examples | X | |
+| 5 | Is var Dead? What should I use? | X | X |
+| 6 | Arrow Functions Introduction | X | X |
+| 7 | More Arrow Function Examples | X | X |
 | 8 | Arrow Functions and `this` | X | |
 | 9 | Default Function Arguments | X | |
 | 10 | When NOT to use an Arrow Function | X | |
