@@ -1,6 +1,10 @@
 # ES6 Articles
 
-Blog posts and articles about ES6.
+Blog posts and articles about ES6. These posts are derived from the video course available at [ES6.io](https://ES6.io).
+
+Professional transcripts of the videos are being made available. From those we are creating easy to reference blog posts that will live on Wesbos.com. 
+
+Anyone is welcome to convert transcripts to blog posts as a means of solidifying their ES6 knowledge. Reviews, spelling corrections and re-wording is also welcome.
 
 ## Naming Conventions
 
