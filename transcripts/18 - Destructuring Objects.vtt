@@ -1,0 +1,1026 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ Wes: Now we're going 
+
+2
+00:00:00.000 --> 00:00:00.000
+to learn about destructuring. 
+
+3
+00:00:03.970 --> 00:00:05.340
+Along with arrow functions, let, 
+
+4
+00:00:05.350 --> 00:00:06.660
+and const, it's probably 
+
+5
+00:00:06.735 --> 00:00:06.760
+something you're going to be 
+
+6
+00:00:06.770 --> 00:00:08.300
+using every single day. I find 
+
+7
+00:00:08.310 --> 00:00:10.270
+them to be extremely useful in 
+
+8
+00:00:10.280 --> 00:00:11.490
+the code that I'm writing. 
+
+9
+00:00:11.565 --> 00:00:13.090
+What does destructuring mean? 
+
+10
+00:00:14.900 --> 00:00:16.430
+It's a JavaScript expression 
+
+11
+00:00:16.440 --> 00:00:18.750
+that allows us to extract data 
+
+12
+00:00:18.980 --> 00:00:20.680
+from arrays, objects, and 
+
+13
+00:00:20.690 --> 00:00:21.960
+something called maps and sets, 
+
+14
+00:00:21.970 --> 00:00:23.810
+which we're going to learn about 
+
+15
+00:00:23.885 --> 00:00:25.140
+it in a feature video, into 
+
+16
+00:00:25.150 --> 00:00:26.990
+their own variable. It allows us 
+
+17
+00:00:27.000 --> 00:00:29.100
+to extract properties from an 
+
+18
+00:00:29.110 --> 00:00:31.370
+object or items from an array, 
+
+19
+00:00:32.140 --> 00:00:34.160
+multiple at a time. Let's 
+
+20
+00:00:34.235 --> 00:00:35.400
+take a look at what this problem 
+
+21
+00:00:35.460 --> 00:00:36.910
+really solves. Sometimes you 
+
+22
+00:00:36.910 --> 00:00:39.080
+need to have top level variables 
+
+23
+00:00:39.130 --> 00:00:42.040
+like const = name or first = 
+
+24
+00:00:42.115 --> 00:00:43.640
+person.first, constlast = person.
+
+25
+00:00:45.230 --> 00:00:48.540
+last. You get the point. You do 
+
+26
+00:00:48.615 --> 00:00:49.470
+this over and over, and over 
+
+27
+00:00:49.480 --> 00:00:50.820
+again. You've got this pretty 
+
+28
+00:00:50.830 --> 00:00:53.030
+much repetitive code over and 
+
+29
+00:00:53.080 --> 00:00:54.540
+over again, where you need to 
+
+30
+00:00:54.550 --> 00:00:56.190
+make a variable from something 
+
+31
+00:00:56.200 --> 00:00:58.340
+that is inside of an object or 
+
+32
+00:00:58.350 --> 00:01:00.450
+inside of an array. What we 
+
+33
+00:01:00.460 --> 00:01:02.650
+could do instead of doing two 
+
+34
+00:01:02.660 --> 00:01:06.690
+variables, or six, you could say 
+
+35
+00:01:06.765 --> 00:01:07.570
+const and you open up a curly 
+
+36
+00:01:07.580 --> 00:01:10.520
+bracket. That is not a block. 
+
+37
+00:01:10.630 --> 00:01:12.710
+That is not an object. It's the 
+
+38
+00:01:12.785 --> 00:01:14.740
+destructuring syntax. We say 
+
+39
+00:01:14.740 --> 00:01:20.140
+first last = what? Person. Now 
+
+40
+00:01:20.140 --> 00:01:21.710
+what does that do? That says, 
+
+41
+00:01:21.790 --> 00:01:23.700
+give me a variable called first, 
+
+42
+00:01:24.000 --> 00:01:26.280
+a variable called last, and take 
+
+43
+00:01:26.290 --> 00:01:28.500
+it from the person. It's weird 
+
+44
+00:01:28.510 --> 00:01:29.450
+because we're not setting the 
+
+45
+00:01:29.460 --> 00:01:31.610
+entire object, but we're taking 
+
+46
+00:01:31.620 --> 00:01:34.520
+the first property and the last 
+
+47
+00:01:34.530 --> 00:01:35.820
+property and putting them into 
+
+48
+00:01:35.830 --> 00:01:38.230
+two top level variables. If I 
+
+49
+00:01:38.240 --> 00:01:40.520
+save that now and I say first 
+
+50
+00:01:40.870 --> 00:01:42.470
+and last, you'll see that we get 
+
+51
+00:01:42.480 --> 00:01:43.810
+Wes and Bos, because I've 
+
+52
+00:01:43.820 --> 00:01:45.860
+created two top level variables. 
+
+53
+00:01:46.190 --> 00:01:47.430
+Similarly, if I also wanted 
+
+54
+00:01:47.440 --> 00:01:48.330
+twitter, I would just add 
+
+55
+00:01:48.340 --> 00:01:50.980
+twitter into that, and I would 
+
+56
+00:01:51.055 --> 00:01:52.550
+get a third top level variable 
+
+57
+00:01:53.650 --> 00:01:55.600
+inside of my actual scope. 
+
+58
+00:01:56.290 --> 00:01:58.460
+That's really handy in many use 
+
+59
+00:01:58.470 --> 00:02:00.180
+cases. This is just one nested 
+
+60
+00:02:00.190 --> 00:02:02.660
+level, but for example, in react 
+
+61
+00:02:02.820 --> 00:02:04.560
+often you want to use 
+
+62
+00:02:04.635 --> 00:02:06.030
+destructuring because the data 
+
+63
+00:02:06.060 --> 00:02:08.560
+is so deeply nested. Let's 
+
+64
+00:02:08.720 --> 00:02:10.720
+take a look at some nested data 
+
+65
+00:02:10.730 --> 00:02:13.910
+here. I'm going to make another 
+
+66
+00:02:13.920 --> 00:02:16.300
+variable down here called Wes, 
+
+67
+00:02:16.310 --> 00:02:17.820
+and we've got a first, last. Now 
+
+68
+00:02:17.830 --> 00:02:19.330
+this data is something you might 
+
+69
+00:02:19.340 --> 00:02:21.610
+get back from an API where it's 
+
+70
+00:02:21.620 --> 00:02:24.080
+really deeply nested. I want 
+
+71
+00:02:24.155 --> 00:02:25.400
+to be able to pull out Twitter 
+
+72
+00:02:25.410 --> 00:02:28.690
+and Facebook URLs here. I could 
+
+73
+00:02:28.700 --> 00:02:33.570
+do this, constTwitter=wes.links.
+
+74
+00:02:33.940 --> 00:02:37.350
+social.twitter. Then we also 
+
+75
+00:02:37.360 --> 00:02:38.740
+want facebook, so I will just 
+
+76
+00:02:38.750 --> 00:02:41.160
+add facebook and I'm off and 
+
+77
+00:02:41.170 --> 00:02:42.740
+running. But again, that's 
+
+78
+00:02:42.750 --> 00:02:43.900
+really annoying. We can use 
+
+79
+00:02:43.975 --> 00:02:46.180
+destructuring to do it one 
+
+80
+00:02:46.190 --> 00:02:48.570
+better. We just say const, open 
+
+81
+00:02:48.580 --> 00:02:50.320
+and close your curly brackets 
+
+82
+00:02:50.330 --> 00:02:52.020
+there, to open and close the 
+
+83
+00:02:52.095 --> 00:02:53.620
+destructuring syntax. Then we'll 
+
+84
+00:02:53.695 --> 00:02:55.580
+say twitter and facebook are 
+
+85
+00:02:55.590 --> 00:02:57.210
+going to be equal to... We 
+
+86
+00:02:56.880 --> 00:02:58.280
+don't just say Wes here. We say 
+
+87
+00:02:58.290 --> 00:03:02.210
+wes.links.social, and that will 
+
+88
+00:03:02.220 --> 00:03:04.440
+then reach into the social 
+
+89
+00:03:04.720 --> 00:03:06.100
+object and pull out two 
+
+90
+00:03:06.110 --> 00:03:07.720
+variables called twitter and 
+
+91
+00:03:07.730 --> 00:03:09.560
+facebook. Now, I just 
+
+92
+00:03:09.635 --> 00:03:11.210
+consted twitter and I did that 
+
+93
+00:03:11.220 --> 00:03:13.110
+up here as well. You can see my 
+
+94
+00:03:13.120 --> 00:03:14.480
+editor is getting all red and 
+
+95
+00:03:14.490 --> 00:03:15.600
+mad at me because I used that 
+
+96
+00:03:15.610 --> 00:03:17.630
+variable already, so I'm just 
+
+97
+00:03:17.705 --> 00:03:18.430
+going to comment that out and 
+
+98
+00:03:18.440 --> 00:03:20.130
+it's good. Now if I look at 
+
+99
+00:03:20.220 --> 00:03:22.160
+twitter, you see the link to my 
+
+100
+00:03:22.230 --> 00:03:24.320
+actual Twitter. That is how 
+
+101
+00:03:24.330 --> 00:03:26.230
+you do it with nested data. 
+
+102
+00:03:26.320 --> 00:03:27.860
+Let's take a look at another use 
+
+103
+00:03:27.870 --> 00:03:29.340
+case which would be renaming 
+
+104
+00:03:29.350 --> 00:03:31.200
+your variables. Sometimes data 
+
+105
+00:03:31.210 --> 00:03:33.140
+comes back in some odd names, 
+
+106
+00:03:33.150 --> 00:03:34.230
+and you might not necessarily 
+
+107
+00:03:34.240 --> 00:03:36.360
+want to use a property key. 
+
+108
+00:03:36.680 --> 00:03:38.690
+For example here, I already used 
+
+109
+00:03:38.610 --> 00:03:40.680
+twitter as a variable. I can't 
+
+110
+00:03:40.690 --> 00:03:42.580
+use it again, but I'm stuck, 
+
+111
+00:03:42.590 --> 00:03:44.180
+because this object gives me 
+
+112
+00:03:44.190 --> 00:03:46.440
+twitter as a key and this object 
+
+113
+00:03:46.660 --> 00:03:48.350
+gives me twitter as a key. What 
+
+114
+00:03:48.350 --> 00:03:49.930
+you can do is you can rename 
+
+115
+00:03:49.940 --> 00:03:51.410
+them as you destructure them. 
+
+116
+00:03:51.485 --> 00:03:53.590
+You can say, I want the twitter 
+
+117
+00:03:53.640 --> 00:03:55.310
+property, but I want to call it 
+
+118
+00:03:55.320 --> 00:03:57.570
+tweet. I want the facebook 
+
+119
+00:03:57.580 --> 00:04:07.820
+property, but I want to call it 
+
+120
+00:04:07.895 --> 00:04:09.420
+fb.  That's my snippet 
+
+121
+00:04:09.495 --> 00:04:07.980
+text expander, I want to call it 
+
+122
+00:04:08.055 --> 00:04:11.230
+fb. Let's see here.  
+
+123
+00:04:12.190 --> 00:04:14.020
+Now I've got my tweet variable 
+
+124
+00:04:14.030 --> 00:04:16.350
+and I have my fb variable, and 
+
+125
+00:04:16.440 --> 00:04:18.120
+they are being destructured as 
+
+126
+00:04:19.120 --> 00:04:20.870
+wes.links.social.facebook, but 
+
+127
+00:04:20.880 --> 00:04:22.350
+then stored in a variable called 
+
+128
+00:04:22.425 --> 00:04:24.960
+fb and stored in an actual 
+
+129
+00:04:24.970 --> 00:04:26.360
+variable called tweet. 
+
+130
+00:04:26.870 --> 00:04:27.740
+There's one last thing we need 
+
+131
+00:04:27.750 --> 00:04:28.940
+to know about destructuring 
+
+132
+00:04:29.300 --> 00:04:30.650
+objects, and that is the ability 
+
+133
+00:04:30.660 --> 00:04:32.120
+to set defaults. This one's a 
+
+134
+00:04:32.130 --> 00:04:33.600
+little bit confusing, so bear 
+
+135
+00:04:33.610 --> 00:04:34.670
+with me here and we're going to 
+
+136
+00:04:34.720 --> 00:04:37.030
+circle back for another example 
+
+137
+00:04:37.220 --> 00:04:38.900
+later on in a couple of videos 
+
+138
+00:04:38.910 --> 00:04:40.890
+with a function. Let's say 
+
+139
+00:04:40.900 --> 00:04:44.060
+we have a function that's going 
+
+140
+00:04:43.660 --> 00:04:45.530
+to do some animation on our page, 
+
+141
+00:04:45.540 --> 00:04:47.500
+and it's going to create an 
+
+142
+00:04:47.510 --> 00:04:49.180
+element and style it for us. We 
+
+143
+00:04:49.190 --> 00:04:51.770
+have things like width, height, 
+
+144
+00:04:51.800 --> 00:04:53.360
+color, and font size that we 
+
+145
+00:04:53.370 --> 00:04:55.260
+want to set on this actual 
+
+146
+00:04:55.360 --> 00:04:57.560
+element. We have that 
+
+147
+00:04:57.570 --> 00:04:59.650
+settings object. Now I'm going 
+
+148
+00:04:59.660 --> 00:05:01.050
+to create my own settings, so 
+
+149
+00:05:01.450 --> 00:05:05.120
+settings equals...and we want 
+
+150
+00:05:05.130 --> 00:05:08.110
+the width to be 300, and we want 
+
+151
+00:05:08.120 --> 00:05:12.470
+the color to be black. Those are 
+
+152
+00:05:12.540 --> 00:05:14.360
+our settings. However, the 
+
+153
+00:05:14.370 --> 00:05:15.880
+thing that we're building also 
+
+154
+00:05:15.890 --> 00:05:19.060
+requires a height and a font 
+
+155
+00:05:19.070 --> 00:05:20.970
+size. Those are the four 
+
+156
+00:05:20.980 --> 00:05:22.110
+properties that the thing that 
+
+157
+00:05:22.120 --> 00:05:24.820
+we're building requires. How do 
+
+158
+00:05:24.820 --> 00:05:27.790
+we actually deal with them when 
+
+159
+00:05:27.800 --> 00:05:28.890
+they're not in there? 
+
+160
+00:05:28.910 --> 00:05:30.170
+Previously what you'd do is 
+
+161
+00:05:30.170 --> 00:05:31.770
+you'd have a default settings 
+
+162
+00:05:31.780 --> 00:05:33.600
+object, then you would fold this 
+
+163
+00:05:33.610 --> 00:05:35.840
+one in, you would merge it on in. 
+
+164
+00:05:35.915 --> 00:05:38.560
+But with ES6 what we can do is, 
+
+165
+00:05:38.590 --> 00:05:40.770
+we change that to const, and we 
+
+166
+00:05:40.810 --> 00:05:43.460
+can create our variables here. 
+
+167
+00:05:43.535 --> 00:05:45.860
+I'm going to say const, width, 
+
+168
+00:05:45.935 --> 00:05:49.480
+height, color, font size equals, 
+
+169
+00:05:50.180 --> 00:05:52.320
+then in here we are going to say 
+
+170
+00:05:52.450 --> 00:05:54.640
+settings because that's this 
+
+171
+00:05:54.680 --> 00:05:55.840
+variable. What that's going 
+
+172
+00:05:55.840 --> 00:05:57.010
+to do is, it's going to pick out 
+
+173
+00:05:57.020 --> 00:05:58.230
+the width, and it's going to 
+
+174
+00:05:58.230 --> 00:05:59.440
+pick out the color from our 
+
+175
+00:05:59.560 --> 00:06:01.280
+settings. But what about height 
+
+176
+00:06:01.530 --> 00:06:02.660
+and front size? They haven't 
+
+177
+00:06:02.670 --> 00:06:04.330
+been set in settings so they're 
+
+178
+00:06:04.340 --> 00:06:06.560
+going to be undefined and that's 
+
+179
+00:06:06.635 --> 00:06:06.940
+going to be a bit of a problem 
+
+180
+00:06:06.950 --> 00:06:09.500
+for us. What you can do is, 
+
+181
+00:06:10.010 --> 00:06:12.350
+when you do your destructuring 
+
+182
+00:06:12.010 --> 00:06:14.490
+you can also set a fallback or a 
+
+183
+00:06:14.565 --> 00:06:17.210
+default value. Maybe width is 
+
+184
+00:06:17.220 --> 00:06:19.060
+default to 100, height is 
+
+185
+00:06:19.070 --> 00:06:22.100
+default to 100 as well, color is 
+
+186
+00:06:22.150 --> 00:06:24.450
+default to blue, and font size 
+
+187
+00:06:24.460 --> 00:06:27.570
+is default to 25. What's 
+
+188
+00:06:27.570 --> 00:06:28.830
+going to happen is, this 
+
+189
+00:06:28.905 --> 00:06:30.040
+destructuring works like this. 
+
+190
+00:06:30.440 --> 00:06:32.740
+Width, is it being destructured 
+
+191
+00:06:32.870 --> 00:06:34.420
+from the settings object? Yes, 
+
+192
+00:06:34.770 --> 00:06:36.650
+so width is going to be 300. 
+
+193
+00:06:37.500 --> 00:06:38.710
+Height, is that being 
+
+194
+00:06:38.785 --> 00:06:39.880
+destructured from the settings 
+
+195
+00:06:39.890 --> 00:06:41.960
+object? No, it's not in there, 
+
+196
+00:06:41.970 --> 00:06:43.680
+so it's going to roll back to 
+
+197
+00:06:43.690 --> 00:06:45.530
+the default, 100. Color, is 
+
+198
+00:06:45.540 --> 00:06:47.090
+that in there? Yes, so blue will 
+
+199
+00:06:47.100 --> 00:06:48.960
+not be used. Black will win over. 
+
+200
+00:06:49.260 --> 00:06:50.960
+Font size, that's not in there, 
+
+201
+00:06:51.270 --> 00:06:53.490
+so we will use the default. 
+
+202
+00:06:53.490 --> 00:06:55.010
+If I open this up in my browser 
+
+203
+00:06:55.020 --> 00:06:56.810
+here, we should be able to see 
+
+204
+00:06:57.050 --> 00:07:00.020
+the width. It's 300, good. The 
+
+205
+00:07:00.030 --> 00:07:02.160
+settings took over. But let's 
+
+206
+00:07:02.170 --> 00:07:05.000
+look at height, which is not in 
+
+207
+00:07:05.010 --> 00:07:07.640
+the settings object. It's 100 
+
+208
+00:07:06.860 --> 00:07:09.130
+because the default has fallen 
+
+209
+00:07:09.140 --> 00:07:10.460
+in. Where this is going to be 
+
+210
+00:07:10.470 --> 00:07:12.670
+real useful is when we pass a 
+
+211
+00:07:12.680 --> 00:07:14.990
+settings object to a function in 
+
+212
+00:07:15.000 --> 00:07:17.130
+just a couple of videos. I know 
+
+213
+00:07:17.205 --> 00:07:17.440
+what you're asking right now is, "
+
+214
+00:07:17.480 --> 00:07:19.190
+Wes, I just learned all the 
+
+215
+00:07:19.220 --> 00:07:19.650
+stuff about destructuring, but 
+
+216
+00:07:19.660 --> 00:07:21.430
+can we put it all together into 
+
+217
+00:07:21.440 --> 00:07:24.160
+one major thing?" I actually 
+
+218
+00:07:24.170 --> 00:07:25.190
+wondered at that as well, so I 
+
+219
+00:07:25.200 --> 00:07:27.200
+came up with this, which is...
+
+220
+00:07:27.200 --> 00:07:29.250
+ Take a look at this. 
+
+221
+00:07:29.260 --> 00:07:30.780
+Maybe pause it for a second, and 
+
+222
+00:07:31.280 --> 00:07:33.190
+try to ask yourself, what is 
+
+223
+00:07:33.200 --> 00:07:35.310
+going on here and what are the 
+
+224
+00:07:35.320 --> 00:07:37.380
+variables that are being created? 
+
+225
+00:07:37.455 --> 00:07:39.350
+I'm going to go open my DevTools 
+
+226
+00:07:39.425 --> 00:07:42.650
+here. What are the variables 
+
+227
+00:07:42.660 --> 00:07:43.730
+being created? Well, the 
+
+228
+00:07:43.740 --> 00:07:44.990
+variables being created are 
+
+229
+00:07:45.000 --> 00:07:46.960
+width and height. Why, because 
+
+230
+00:07:47.130 --> 00:07:49.980
+it's destructuring W and H. But 
+
+231
+00:07:50.690 --> 00:07:52.010
+it's renaming them to width and 
+
+232
+00:07:52.020 --> 00:07:53.300
+height, so that I should be able 
+
+233
+00:07:53.300 --> 00:07:55.400
+to say width. I guess I've got 
+
+234
+00:07:55.475 --> 00:07:57.760
+to save first. Width and height, 
+
+235
+00:07:57.800 --> 00:07:59.550
+good, so it's 800 and 500. 
+
+236
+00:08:01.030 --> 00:08:02.790
+What's happening here is that 
+
+237
+00:08:03.230 --> 00:08:05.830
+it's destructuring width from 
+
+238
+00:08:05.930 --> 00:08:07.820
+this object here. It's going to 
+
+239
+00:08:08.220 --> 00:08:09.380
+take 800, then it's immediately 
+
+240
+00:08:09.470 --> 00:08:10.910
+renaming it to width, so it's 
+
+241
+00:08:10.920 --> 00:08:13.290
+going to be 800. Then height, 
+
+242
+00:08:13.490 --> 00:08:14.530
+what are these equals right here? 
+
+243
+00:08:14.540 --> 00:08:16.700
+Those are default values. Height, 
+
+244
+00:08:16.770 --> 00:08:18.520
+there is no H being passed at 
+
+245
+00:08:18.530 --> 00:08:20.600
+all, so H tries to destructure 
+
+246
+00:08:20.750 --> 00:08:22.760
+from the object here. It can't, 
+
+247
+00:08:22.980 --> 00:08:26.110
+so it falls back to 500 default, 
+
+248
+00:08:26.185 --> 00:08:28.780
+and then it renamed itself to 
+
+249
+00:08:28.790 --> 00:08:30.730
+height. I'm not sure if you 
+
+250
+00:08:30.805 --> 00:08:32.210
+would use that every day or it 
+
+251
+00:08:31.820 --> 00:08:33.600
+maybe even every year, but it's 
+
+252
+00:08:33.870 --> 00:08:35.680
+fun to look at it and to wrap 
+
+253
+00:08:35.740 --> 00:08:37.100
+your head around. It's something 
+
+254
+00:08:37.175 --> 00:08:39.680
+that you can maybe write and put 
+
+255
+00:08:39.680 --> 00:08:41.340
+it on a t-shirt and be cool. 
+
+256
+00:08:41.340 --> 00:08:43.260
+ Enjoy that one.
+
