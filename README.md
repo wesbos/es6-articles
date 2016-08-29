@@ -37,7 +37,7 @@ _example:_
 | 19 | Destructing Arrays | X | X |
 | 20 | Swapping Variables with Destructuring | X | X |
 | 21 | Destructuring Functions - Multiple returns and named defaults |  | |
-| 22 | The for of loop |  | |
+| 22 | The for of loop | X | |
 | 23 | The for of Loop in Action |  | |
 | 24 | Using for of with Objects | X | |
 | 25 | Array.from() and Array.of() |  | |

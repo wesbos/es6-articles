@@ -1,0 +1,938 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.430 --> 00:00:03.440
+We have a new type of loop in 
+
+3
+00:00:03.440 --> 00:00:05.180
+JavaScript, and that is the for...
+
+4
+00:00:05.240 --> 00:00:06.990
+of loop. It's used to loop over 
+
+5
+00:00:07.070 --> 00:00:08.880
+any type of data that isn't 
+
+6
+00:00:08.955 --> 00:00:10.860
+iterable. We're going to learn 
+
+7
+00:00:10.870 --> 00:00:12.040
+all about different types of 
+
+8
+00:00:12.115 --> 00:00:12.770
+iterables, and we're going to 
+
+9
+00:00:12.770 --> 00:00:15.280
+learn why this for...of loop is 
+
+10
+00:00:15.290 --> 00:00:17.020
+so useful when we hit things 
+
+11
+00:00:17.030 --> 00:00:18.530
+like generators and maps and 
+
+12
+00:00:18.540 --> 00:00:21.420
+sets and so on. For now we want 
+
+13
+00:00:21.495 --> 00:00:23.120
+to get an idea as to how this 
+
+14
+00:00:23.130 --> 00:00:25.510
+loop actually works. What is 
+
+15
+00:00:26.390 --> 00:00:27.170
+an iterable? An iterable is 
+
+16
+00:00:27.180 --> 00:00:28.990
+anything that can be looped over. 
+
+17
+00:00:29.065 --> 00:00:30.270
+If you have an array, you can 
+
+18
+00:00:30.280 --> 00:00:32.340
+loop over an array, or a string, 
+
+19
+00:00:32.520 --> 00:00:34.130
+or a map, or a set, or a 
+
+20
+00:00:34.140 --> 00:00:35.090
+generator. We're going to look 
+
+21
+00:00:35.100 --> 00:00:35.960
+at all kinds of different 
+
+22
+00:00:35.970 --> 00:00:37.890
+examples as to when you can do 
+
+23
+00:00:37.900 --> 00:00:39.940
+it, but let's get going with 
+
+24
+00:00:40.200 --> 00:00:41.520
+looking at some of the existing 
+
+25
+00:00:41.530 --> 00:00:43.790
+loops first, and see what are 
+
+26
+00:00:43.800 --> 00:00:45.490
+the shortcomings of our existing 
+
+27
+00:00:45.500 --> 00:00:47.770
+loops, and why does for...of 
+
+28
+00:00:47.780 --> 00:00:49.590
+shine above all of them in a 
+
+29
+00:00:49.600 --> 00:00:51.280
+couple of use cases. The 
+
+30
+00:00:51.290 --> 00:00:52.500
+first one I want to talk about 
+
+31
+00:00:52.520 --> 00:00:54.480
+is, I've got a survey right here, 
+
+32
+00:00:54.600 --> 00:00:55.900
+which is just a regular array 
+
+33
+00:00:55.910 --> 00:00:58.300
+with four items in it. We're 
+
+34
+00:00:58.310 --> 00:01:00.420
+going to look at the regular for 
+
+35
+00:01:00.850 --> 00:01:01.770
+loop. You've probably have 
+
+36
+00:01:01.780 --> 00:01:03.710
+written this one over and over. 
+
+37
+00:01:03.640 --> 00:01:06.670
+For let i = 0I < cuts.length; i++. 
+
+38
+00:01:06.745 --> 00:01:11.960
+Then you console.log(cuts). 
+
+39
+00:01:12.035 --> 00:01:15.790
+You've done that one many times 
+
+40
+00:01:15.800 --> 00:01:17.180
+and you see chuck, brisket, 
+
+41
+00:01:17.190 --> 00:01:19.060
+shank, and short rib. No problem 
+
+42
+00:01:19.070 --> 00:01:20.800
+there. What is the downside 
+
+43
+00:01:21.470 --> 00:01:22.860
+to something like this? The 
+
+44
+00:01:22.870 --> 00:01:24.120
+downside is that it's kind of a 
+
+45
+00:01:24.130 --> 00:01:26.080
+confusing syntax. In all of my 
+
+46
+00:01:26.090 --> 00:01:27.130
+years of teaching JavaScript, 
+
+47
+00:01:27.480 --> 00:01:28.530
+this is probably one that trips 
+
+48
+00:01:28.540 --> 00:01:31.160
+people up the most. It does 
+
+49
+00:01:31.170 --> 00:01:32.110
+make sense when you break it 
+
+50
+00:01:32.120 --> 00:01:34.050
+down into the three parts, but 
+
+51
+00:01:34.060 --> 00:01:35.340
+people look at it and get 
+
+52
+00:01:35.480 --> 00:01:37.010
+anxious when you see it because 
+
+53
+00:01:36.620 --> 00:01:38.060
+there's a whole bunch going on 
+
+54
+00:01:38.660 --> 00:01:40.320
+here. Also, it doesn't read that 
+
+55
+00:01:40.330 --> 00:01:41.470
+nice to me. You don't have a 
+
+56
+00:01:41.590 --> 00:01:43.240
+variable called cut as a 
+
+57
+00:01:43.250 --> 00:01:44.740
+singular of cut, you just have 
+
+58
+00:01:44.815 --> 00:01:47.180
+cuts, and you have a problem 
+
+59
+00:01:47.280 --> 00:01:48.970
+here where if you use a var you 
+
+60
+00:01:48.980 --> 00:01:50.620
+don't have a closure, etc., etc. 
+
+61
+00:01:51.750 --> 00:01:53.740
+It's good in some cases, but not 
+
+62
+00:01:53.750 --> 00:01:56.040
+great because of the syntax that 
+
+63
+00:01:56.050 --> 00:01:57.300
+we have here, so I'm going to 
+
+64
+00:01:57.300 --> 00:01:58.320
+comment that one out. What 
+
+65
+00:01:58.330 --> 00:02:00.110
+other kinds of loops do we have? 
+
+66
+00:02:00.120 --> 00:02:01.680
+We have the .forEach array 
+
+67
+00:02:01.755 --> 00:02:04.080
+method, if we say cuts.forEach. 
+
+68
+00:02:04.155 --> 00:02:07.330
+That will give us a function. 
+
+69
+00:02:07.340 --> 00:02:08.280
+Actually, we use an arrow 
+
+70
+00:02:08.290 --> 00:02:09.530
+function there because we don't 
+
+71
+00:02:09.540 --> 00:02:12.660
+need this. That is going to be .
+
+72
+00:02:12.735 --> 00:02:14.240
+forEach they're going to give us 
+
+73
+00:02:14.250 --> 00:02:16.620
+a cut, console.log a cut. 
+
+74
+00:02:17.840 --> 00:02:20.410
+That works pretty well. What's 
+
+75
+00:02:20.420 --> 00:02:21.860
+the downside to that? Well, we 
+
+76
+00:02:21.870 --> 00:02:24.470
+cannot abort this loop. We 
+
+77
+00:02:24.480 --> 00:02:27.290
+cannot skip one of the ones. For 
+
+78
+00:02:27.570 --> 00:02:29.710
+example, if I wanted to stop 
+
+79
+00:02:29.940 --> 00:02:32.370
+once we hit the word brisket, I 
+
+80
+00:02:32.370 --> 00:02:34.580
+would say if cut = brisket then 
+
+81
+00:02:36.060 --> 00:02:37.710
+I would break, and then that 
+
+82
+00:02:37.720 --> 00:02:39.580
+should console.log chuck brisket, 
+
+83
+00:02:39.590 --> 00:02:41.040
+and then stop the actual loop. 
+
+84
+00:02:41.680 --> 00:02:43.630
+It doesn't work because you 
+
+85
+00:02:43.630 --> 00:02:46.590
+can't use a break inside of a .
+
+86
+00:02:46.665 --> 00:02:49.070
+forEach. Same goes for continue. 
+
+87
+00:02:49.140 --> 00:02:52.260
+We can't continue. We can't skip 
+
+88
+00:02:52.270 --> 00:02:53.750
+over that specific one, it's 
+
+89
+00:02:53.760 --> 00:02:54.890
+going to yell us, illegal 
+
+90
+00:02:54.900 --> 00:02:56.750
+continue statement. I like 
+
+91
+00:02:56.760 --> 00:02:58.050
+the for each in a couple of use 
+
+92
+00:02:58.060 --> 00:02:59.750
+cases, but if you need to be 
+
+93
+00:02:59.760 --> 00:03:01.500
+able to skip over then that's 
+
+94
+00:03:01.510 --> 00:03:03.920
+not a good one. So far we've got 
+
+95
+00:03:03.730 --> 00:03:04.850
+these two loops and you have to 
+
+96
+00:03:04.880 --> 00:03:07.050
+decide what you want. We also 
+
+97
+00:03:07.060 --> 00:03:08.880
+have the for...in loop. We're 
+
+98
+00:03:08.955 --> 00:03:10.570
+going to learn about for...of, 
+
+99
+00:03:10.580 --> 00:03:12.230
+but we have for...in. For 
+
+100
+00:03:12.305 --> 00:03:16.510
+const, let's say cut in cuts. 
+
+101
+00:03:16.980 --> 00:03:21.300
+Console.log cut 01, 2, 3, 
+
+102
+00:03:21.375 --> 00:03:26.180
+4. It actually gives us the 
+
+103
+00:03:26.190 --> 00:03:28.570
+index, so you could say, maybe, 
+
+104
+00:03:28.570 --> 00:03:32.130
+index cut. No, that doesn't work. 
+
+105
+00:03:32.205 --> 00:03:33.460
+It doesn't let us do that. Maybe 
+
+106
+00:03:33.535 --> 00:03:34.650
+take the const out? No, that 
+
+107
+00:03:34.650 --> 00:03:37.230
+doesn't work. There's no way 
+
+108
+00:03:37.240 --> 00:03:38.640
+for us to actually do that 
+
+109
+00:03:39.380 --> 00:03:40.690
+either, so I'm going to bring 
+
+110
+00:03:40.700 --> 00:03:42.140
+that back. This is actually the 
+
+111
+00:03:42.190 --> 00:03:43.540
+index, and we'd have to console 
+
+112
+00:03:43.540 --> 00:03:48.480
+logs cuts. That will give 
+
+113
+00:03:48.570 --> 00:03:50.270
+us our value, just like we did 
+
+114
+00:03:50.280 --> 00:03:51.980
+on this first one. That 
+
+115
+00:03:51.990 --> 00:03:55.110
+might be OK, but one thing is if 
+
+116
+00:03:55.120 --> 00:03:57.180
+you have ever worked with an 
+
+117
+00:03:57.190 --> 00:03:59.090
+array, or someone has monkeyed 
+
+118
+00:03:59.160 --> 00:04:01.480
+with the prototype, what does 
+
+119
+00:04:01.490 --> 00:04:03.910
+that mean here? You may know 
+
+120
+00:04:03.920 --> 00:04:06.220
+that there are many methods on 
+
+121
+00:04:06.230 --> 00:04:07.950
+the prototype, like .forEach and .
+
+122
+00:04:08.210 --> 00:04:10.260
+filter and .map. However, some 
+
+123
+00:04:10.270 --> 00:04:12.260
+people believe that you can just 
+
+124
+00:04:12.370 --> 00:04:13.820
+add things to the prototype of 
+
+125
+00:04:13.830 --> 00:04:15.550
+the array. For example, I'm 
+
+126
+00:04:14.630 --> 00:04:18.490
+going to go here. I'm going to 
+
+127
+00:04:18.500 --> 00:04:22.340
+say the array prototype, shuffle. 
+
+128
+00:04:22.415 --> 00:04:24.560
+I'll turn off my ESLint here. 
+
+129
+00:04:24.570 --> 00:04:26.930
+It's just yelling at me. ESLint 
+
+130
+00:04:26.730 --> 00:04:28.340
+disable. We'll talk about ESLint 
+
+131
+00:04:28.340 --> 00:04:30.040
+in future video. I've added 
+
+132
+00:04:30.050 --> 00:04:31.230
+the shuffle method here, which 
+
+133
+00:04:31.240 --> 00:04:32.760
+is kind of cool, because you can 
+
+134
+00:04:32.760 --> 00:04:33.970
+do thing like this. You could 
+
+135
+00:04:33.980 --> 00:04:36.060
+take your array here, which is 
+
+136
+00:04:36.130 --> 00:04:38.400
+cuts. We could say cuts.shuffle. 
+
+137
+00:04:38.475 --> 00:04:40.000
+Now we have this new shuffle 
+
+138
+00:04:40.010 --> 00:04:41.020
+method that was just made, 
+
+139
+00:04:41.030 --> 00:04:41.950
+because we added it to the 
+
+140
+00:04:41.960 --> 00:04:43.580
+prototype of every single array, 
+
+141
+00:04:43.655 --> 00:04:45.530
+and that will just shuffle the 
+
+142
+00:04:45.540 --> 00:04:47.430
+actual array for us. That's 
+
+143
+00:04:47.630 --> 00:04:49.710
+cool, but now what happens when 
+
+144
+00:04:50.060 --> 00:04:53.890
+I console.log the index of 
+
+145
+00:04:54.090 --> 00:04:57.400
+cuts? Chuck, brisket, shank, 
+
+146
+00:04:57.430 --> 00:04:59.430
+short rib, function. What 
+
+147
+00:04:59.440 --> 00:05:02.080
+happens? It iterates over 
+
+148
+00:05:02.120 --> 00:05:04.710
+absolutely everything in the 
+
+149
+00:05:04.720 --> 00:05:07.250
+array, including things that 
+
+150
+00:05:07.260 --> 00:05:10.000
+have been added to the prototype. 
+
+151
+00:05:10.210 --> 00:05:12.240
+It doesn't just iterate over the 
+
+152
+00:05:12.330 --> 00:05:14.030
+items in the collection, because 
+
+153
+00:05:14.040 --> 00:05:14.980
+what are the items of the 
+
+154
+00:05:14.990 --> 00:05:16.440
+collection? The items of the 
+
+155
+00:05:16.440 --> 00:05:17.520
+collections are chuck, brisket, 
+
+156
+00:05:17.530 --> 00:05:19.200
+shank, and short rib. But it 
+
+157
+00:05:19.220 --> 00:05:21.450
+also iterates over additional 
+
+158
+00:05:21.460 --> 00:05:22.780
+things that have been added. 
+
+159
+00:05:22.760 --> 00:05:23.960
+If someone comes along and says 
+
+160
+00:05:23.970 --> 00:05:26.000
+cuts.shop = meats, watch this. 
+
+161
+00:05:26.075 --> 00:05:33.060
+Now, all of a sudden, any time 
+
+162
+00:05:33.070 --> 00:05:34.810
+you add a property, or a method, 
+
+163
+00:05:34.820 --> 00:05:37.440
+or anything to the array, it's 
+
+164
+00:05:37.490 --> 00:05:39.840
+also going to show up in this. 
+
+165
+00:05:39.960 --> 00:05:41.960
+That's kind of a pain. You may 
+
+166
+00:05:41.970 --> 00:05:43.700
+say, "That's fine but I never do 
+
+167
+00:05:43.740 --> 00:05:46.310
+that," but lots of times there's 
+
+168
+00:05:46.320 --> 00:05:48.040
+libraries that actually modify 
+
+169
+00:05:48.050 --> 00:05:49.500
+the prototype. For example, 
+
+170
+00:05:49.575 --> 00:05:54.000
+MooTools is known for modifying 
+
+171
+00:05:54.120 --> 00:05:56.560
+the prototype here. If I am on a 
+
+172
+00:05:56.570 --> 00:05:58.200
+website; I'm not even going to 
+
+173
+00:05:58.275 --> 00:06:00.600
+use MooTools here, but I'm going 
+
+174
+00:06:00.675 --> 00:06:01.350
+to make an array with var names, 
+
+175
+00:06:02.910 --> 00:06:05.080
+and I want to iterate over them. 
+
+176
+00:06:05.155 --> 00:06:08.570
+I would say for name in names, 
+
+177
+00:06:09.920 --> 00:06:14.230
+console.log name. Watch what 
+
+178
+00:06:14.240 --> 00:06:18.010
+happens. Holy smokes, we get 
+
+179
+00:06:18.370 --> 00:06:20.580
+zero and one, that's the index. 
+
+180
+00:06:20.655 --> 00:06:20.940
+That's going to be the name, 
+
+181
+00:06:20.950 --> 00:06:22.120
+actually, but then you get all 
+
+182
+00:06:22.130 --> 00:06:23.440
+this other crap. What's this? 
+
+183
+00:06:23.600 --> 00:06:25.410
+This is just because the 
+
+184
+00:06:25.420 --> 00:06:29.110
+prototype has been modified, and 
+
+185
+00:06:29.140 --> 00:06:30.530
+that's what shows up when you 
+
+186
+00:06:30.605 --> 00:06:33.290
+use a for...in loop. Those 
+
+187
+00:06:33.920 --> 00:06:36.150
+three things aside, we now have 
+
+188
+00:06:36.160 --> 00:06:39.010
+the for...of loop, which gives 
+
+189
+00:06:39.020 --> 00:06:41.180
+us the best of all three worlds. 
+
+190
+00:06:42.170 --> 00:06:44.170
+You're able to use the for...of 
+
+191
+00:06:44.180 --> 00:06:47.150
+loop for absolutely any type of 
+
+192
+00:06:47.160 --> 00:06:49.020
+data, except objects. We can't 
+
+193
+00:06:49.095 --> 00:06:49.740
+use it with objects. We'll look 
+
+194
+00:06:49.815 --> 00:06:51.190
+at that in a second. The way 
+
+195
+00:06:51.200 --> 00:06:55.680
+that works is you is for cut of 
+
+196
+00:06:56.200 --> 00:06:59.190
+cuts console.log. Actually, you 
+
+197
+00:06:59.200 --> 00:07:01.100
+have to do a const variable here. 
+
+198
+00:07:01.110 --> 00:07:02.340
+If you just do that, that's 
+
+199
+00:07:02.415 --> 00:07:03.360
+going to leak into the global 
+
+200
+00:07:03.360 --> 00:07:06.190
+names, so I'm going to say const 
+
+201
+00:07:06.265 --> 00:07:09.920
+and cut. There we go. Even 
+
+202
+00:07:09.930 --> 00:07:10.940
+though I've monkeyed with the 
+
+203
+00:07:10.950 --> 00:07:12.470
+prototype and added this weird 
+
+204
+00:07:12.480 --> 00:07:15.080
+property on to the array, we 
+
+205
+00:07:15.130 --> 00:07:18.050
+still only get actual items of 
+
+206
+00:07:18.060 --> 00:07:19.620
+it with the for...of loop. 
+
+207
+00:07:19.695 --> 00:07:21.040
+You're able to use your break 
+
+208
+00:07:21.050 --> 00:07:22.960
+and continue. If cut = 
+
+209
+00:07:23.010 --> 00:07:28.040
+brisket, I want to break. I want 
+
+210
+00:07:26.450 --> 00:07:28.320
+to stop the entire loop from 
+
+211
+00:07:28.330 --> 00:07:30.530
+going. We only stop. We get 
+
+212
+00:07:30.540 --> 00:07:31.710
+chuck, brisket, and then the 
+
+213
+00:07:31.720 --> 00:07:33.360
+rest should not show because we 
+
+214
+00:07:33.370 --> 00:07:35.150
+broke the loop. Here we go, 
+
+215
+00:07:35.160 --> 00:07:36.980
+chuck and brisket. Similarly, 
+
+216
+00:07:36.990 --> 00:07:39.020
+if we wanted to just skip a 
+
+217
+00:07:39.030 --> 00:07:41.220
+whole bunch of stuff, if we 
+
+218
+00:07:41.220 --> 00:07:42.960
+wanted to skip console.logging 
+
+219
+00:07:42.970 --> 00:07:44.410
+brisket, we could just simply 
+
+220
+00:07:44.410 --> 00:07:46.240
+say continue. That's not going 
+
+221
+00:07:46.240 --> 00:07:48.200
+to break the entire loop, but 
+
+222
+00:07:48.210 --> 00:07:49.690
+it's going to skip over this one 
+
+223
+00:07:49.700 --> 00:07:51.020
+iteration, so we should see 
+
+224
+00:07:51.470 --> 00:07:52.660
+chuck, shank, and short rib. 
+
+225
+00:07:52.670 --> 00:07:54.160
+Why? Because when it was brisket, 
+
+226
+00:07:54.170 --> 00:07:56.580
+we hit continue. It's like 
+
+227
+00:07:56.590 --> 00:07:57.940
+having a return from a function. 
+
+228
+00:07:57.950 --> 00:07:58.990
+It just ignores everything 
+
+229
+00:07:59.000 --> 00:08:00.560
+underneath it, and goes on to 
+
+230
+00:08:00.570 --> 00:08:03.050
+the next iteration of our item. 
+
+231
+00:08:03.960 --> 00:08:05.330
+That's introduction to the for...
+
+232
+00:08:05.340 --> 00:08:06.840
+of loop. Let's dive in a little 
+
+233
+00:08:06.850 --> 00:08:08.230
+bit deeper and see where else we 
+
+234
+00:08:08.240 --> 00:08:08.720
+can use it.
+
