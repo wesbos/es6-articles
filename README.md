@@ -34,7 +34,7 @@ _example:_
 | 16 | Santizing User Data with Tagged Templates | X | |
 | 17 | New String Methods |  | |
 | 18 | Destructuring Objects |  | |
-| 19 | Destructing Arrays | X | |
+| 19 | Destructing Arrays | X | X |
 | 20 | Swapping Variables with Destructuring | X | |
 | 21 | Destructuring Functions - Multiple returns and named defaults |  | |
 | 22 | The for of loop |  | |
