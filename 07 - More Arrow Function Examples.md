@@ -8,10 +8,9 @@ I'm building a website for a bunch of racers, where the winners have been suppli
 ```js
 const race = '100m Dash';
 const winners =['Hunter Gath', 'Singa Song', 'Imda Bos'];
-``` 
+```
  
 So Hunter Gath came in first, Singa Song came in second, and Imda Bos came in third.
-
 
 Ideally for me, I would have an object with `name`, with the name of the racer, `place` with the place that they came in, and we can use the race variable to say what they won:
  
@@ -20,10 +19,8 @@ Ideally for me, I would have an object with `name`, with the name of the racer, 
     name: 'Wes Bos',
     place: 1,
     race: race
-    
 })
-``` 
- 
+```
  
 How would we do that? Well, we can actually use `map` again for that. By the way, `map` is not the only function that arrow functions work with. Arrow functions work with anything, and they're particularly useful in these callback situations. 
 
@@ -65,15 +62,15 @@ There's another example here where we poll the people in the room for ages.
  
 ```js
 const ages = [23, 62, 45, 234, 2, 62, 234, 62, 34];
+```
 
-``` 
 We want to filter this list for people who are older than 60 years old. Normally you'd do something like:
 
 ```js
 const old = ages.filter(age => if(age > 60))...
 ```
 
- Since we can pass it a condition that goes to true or false, and filter will return if it's true and it won't return if it's false, we can just say, "Age is greater or equal to 60."
+Since we can pass it a condition that goes to true or false, and filter will return if it's true and it won't return if it's false, we can just say, "Age is greater or equal to 60."
 
 ```js
 const old = ages.filter(age => age >= 60);

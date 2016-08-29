@@ -65,13 +65,13 @@ const key = 'abc123';
 
 If I try to update it like so:
 
- ```
+```js
 const key = 'abc123';
 let points = 50;
 let winner = false;
 
 key = abc1234;
-  ```
+```
 
 That won't work because you cannot update a `const` variable, whereas you can update a `let` variable.
 
@@ -80,15 +80,16 @@ We're going to go more into examples of these and you're going to understand whi
 
  One other quick thing is that sometimes people think that `const` means it's **immutable**, which means that if I have an object...
 
-  ```js
-  const person = {
-     name: 'Wes',
-     age: 28
-  }
-  ```
- ...and if I try to update something in the `const` object by typing `person = {name = 'Wesley'}` it won't allow me to do that.
+```js
+const person = {
+ name: 'Wes',
+ age: 28
+}
+```
 
- However, the properties of a `const` variable *can* change. That's because the entire object is not immutable. It just can't be reassigned.
+...and if I try to update something in the `const` object by typing `person = {name = 'Wesley'}` it won't allow me to do that.
+
+However, the properties of a `const` variable *can* change. That's because the entire object is not immutable. It just can't be reassigned.
 
 
 The way I like to think about it with an object is that the person is me. I'm not going to ever change, my entire life, but attributes about me are going to change.
@@ -110,8 +111,8 @@ If you do need to freeze everything, we have this thing called `Object.freeze`. 
 
  So we can use it on our object:
 
- ```js
- const wes = Object.freeze(person);
- ```
+```js
+const wes = Object.freeze(person);
+```
 
 If I try to update `Wes.age = 30`, it will still say `28`.

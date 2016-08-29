@@ -15,17 +15,15 @@ I want to add Bos to the end of all three of these.
 Normally, you'd do something like this:
  
  
- ```js
- const fullNames = names.map(function(name){
-     return `${name} bos`;
- });
- 
- console.log(fullNames);
- 
- ```
+```js
+const fullNames = names.map(function(name){
+  return `${name} bos`;
+});
+
+console.log(fullNames);
+```
 
 We're going to use **backticks** here, which is our template strings. Don't worry exactly about what that is, if you're not sure just yet. We have a whole chapter on that coming up.
-
 
 
 Anyway, It's going to give me Wes Bos, Kate Bos, Lux Bos in the entire array. It took this array, transformed it into whatever it was plus the name "Bos" on the end.
@@ -37,11 +35,11 @@ The first thing you do with an arrow function is, you simply delete the word fun
 
 
 ```js
- const fullNames2 = names.map((name) => {
-     return `${name} bos`;
- });
- 
- console.log(fullNames2);
+const fullNames2 = names.map((name) => {
+ return `${name} bos`;
+});
+
+console.log(fullNames2);
 ```
 If you've come from other programming languages, you might have seen that before, but in JavaScript it's the first time we're seeing a fat arrow. It's an equals sign with an angle bracket beside it. 
 
@@ -52,11 +50,11 @@ It'll do exactly the same thing as `function`. If you `console.log` it, there sh
 That's the first thing that you can do, but we can go even further with it where, if you only have one or two parameters you can take out the parentheses:
 
 ```js
- const fullNames3 = names.map(name => {
-     return `${name} bos`;
- });
- 
- console.log(fullNames3);
+const fullNames3 = names.map(name => {
+ return `${name} bos`;
+});
+
+console.log(fullNames3);
 ```
 
 That's a bit of a stylistic choice. Some people say put the parenthesis on regardless if you have one or two. In my case, if I have one, I could do something like this. It's still working great.
@@ -70,9 +68,9 @@ That's when you explicitly write `return` for what you want to `return`. But a l
 Why do we have to do this return? Well, what we could do is something like this:
 
 ```js
- const fullNames4 = names.map(name => `${name} bos`);
- 
- console.log(fullNames4);
+const fullNames4 = names.map(name => `${name} bos`);
+
+console.log(fullNames4);
 ```
 
 
@@ -85,9 +83,9 @@ Then finally, if you have no arguments at all -- in our above examples obviously
 Maybe we'll just say Cool Bos, and they'll all be Cool Bos at the end. 
 
 ```js
- const fullNames5 = names.map(() => `cool bos`);
- 
- console.log(fullNames5);
+const fullNames5 = names.map(() => `cool bos`);
+
+console.log(fullNames5);
 ```
 
 
@@ -100,7 +98,7 @@ A named function is something like this:
 
 ```js
 function sayMyName(name) {
-    alert(`Hello ${name}`);
+  alert(`Hello ${name}`);
 }
 ```
 

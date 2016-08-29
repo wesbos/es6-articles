@@ -6,9 +6,7 @@ The first one is replacing the **Immediately-Involved Function Expression**, or 
 
 An IIFE function runs itself immediately, and it creates a scope where nothing is going to leak into the parent scope. In our case, nothing is going to leak into the global scope of the window.
 
-If I have a `var` variable:
-
-`var name = 'wes'`
+If I have a `var` variable: `var name = 'wes'`
 
 You can call that in the console, and that's fine here. However, the window already has a `name` attribute, which is needed when you have a window opening up a another window.
 
@@ -16,10 +14,10 @@ That could something that some third-party JavaScript relies on in order for it 
 
 The way the IFFE fixes that is that the function runs immediately and you put your variables inside of that:
 
-```
+```js
 (function() {
   var name = 'wes';
-  })();
+})();
 ```
 
 These variables are now scoped to the IIFE function, and because `var` variables are function-scoped, they are not available in the global scope.
@@ -34,13 +32,13 @@ Why? Because `let` and `const` use **block scope**.
 
 Let's start over with a `const` instead of a `var`
 
-```
+```js
 const name = 'wes';
 ```
 
 If we call this in the console, we'll see `'wes'`, but if we wrap it in curly brackets:
 
-```
+```js
 {
 const name = 'wes';
 }
@@ -49,7 +47,7 @@ const name = 'wes';
 
 Our `const` is going to be scoped to that block. If you try to call `name` in the console, we'll get the window's `name`, which is blank. But if we add a `console.log` to our block:
 
-```
+```js
 {
 const name = 'wes';
 console.log(name);
@@ -62,7 +60,7 @@ The other problem using `let` and `const` will fix is with our `for` loop.
 
 This is something that you probably have all run into with your regular `for` loop, like one that will count from zero to nine:
 
-```
+```js
 for(var i = 0; i < 10; i++) {
     console.log(i);
     }
@@ -75,14 +73,13 @@ First of all, if I type `i` into the console, it returns `10`. We have this glob
 
 Second of all, maybe you had something that's going to run after some bit of time, an AJAX request, or, for this case, I going to mark it up with a `setTimeout()` and that function is going to run after one second:
 
-```
+```js
 for(var i = 0; i < 10; i++) {
-    console.log(i);
-    setTimeout(function() {
+  console.log(i);
+  setTimeout(function() {
     console.log('The number is ' + i);
-    },1000;
-    }
-
+  },1000);
+}
 ```
 
 If we run this, all of them are 10. The reason that we have that is because, `console.log(i)`  will run immediately and reference whatever `i` is. That runs immediately at `console.log` itself.
@@ -94,14 +91,15 @@ The problem with that is that by the time the first `setTimeout()` runs, `i` is 
 If you had an AJAX request where you are looping through a few of them, there isn't any way without an IFFE to reference what the `i` variable was when it ran, not what it currently is after the loop.
 
 One quick way we can fix that is if we just change `var` to `let`:
- ```
- for(let i = 0; i < 10; i++) {
-     console.log(i);
-     setTimeout(function() {
-     console.log('The number is ' + i);
-     },1000;
-     }
- ```
+
+```js
+for(let i = 0; i < 10; i++) {
+ console.log(i);
+ setTimeout(function() {
+   console.log('The number is ' + i);
+ },1000);
+}
+```
 
 What do we know about `let`? It's block-scoped. We have curly brackets in the `for` loop. If you run it now, after a second we'll log zero through nine. We're not getting 10, 10 times. We getting it as it was declared each and every time.
 

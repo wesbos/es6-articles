@@ -5,7 +5,7 @@ These two have some attributes about them which are going to be helpful for us i
 
 Firstly, `var` variables can be **redefined** or **updated**. Let's use console.log to show the width which we can update the width to be 200, and then we'll console log the width again.
 
-```
+```js
  var width = 100;
  console.log(width);
  width = 200;
@@ -18,7 +18,7 @@ We also need to remember how `var` variables are scoped. **Scoping** essentially
 
 If I created a function  and put my var width inside of it, and console logged the width, and then I were to run it? Is that going to work?
 
-```
+```js
 function setWidth() {
   var width = 100;
   console.log(width);
@@ -31,7 +31,7 @@ Of course, it's going to work because this width is available inside of this fun
 
 But if I also tried to console log the width after I've set the width like this?
 
-```
+```js
 function setWidth() {
   var width = 100;
   console.log(width);
@@ -46,7 +46,7 @@ It won't work. Why won't it work? Because **`width` is only scoped to that funct
 
 That's important for us to know. If you do want to globally scope width, we need to declare it outside the function like so, and update it inside the function:
 
-```
+```js
 var width;
 function setWidth() {
   width = 100;
@@ -60,7 +60,7 @@ Generally, it's probably not what you want to do. You want to keep your variable
 
 Let's say we have an age variable and we have an if statement. We want to create a number of dog years. If they are greater than 12, let's calculate their ages in dog years and show "You are (however many) dog years old" in the console if they're older than 12.
 
-```
+```js
 var age = 100;
 if(age > 12) {
   var dogYears = age * 7;
@@ -77,7 +77,7 @@ Even though this was a temporary variable that I only needed inside of one if st
 
 What is a block? Here is a great example:
 
-```
+```js
 ...
 if(age > 12) {
   var dogYears = age * 7;
@@ -92,7 +92,7 @@ if(age > 12) {
 
 If I now take this dog years here and change it to `let`...
 
-```
+```js
 var age = 100;
 if(age > 12) {
   let dogYears = age * 7;
