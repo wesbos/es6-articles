@@ -11,7 +11,6 @@ What I have here is I've got this `div` with the class of `box` right here.
         <p class="social">@wesbos</p>
     </div>
 </div>
-
 ```
 
 When you click that box what's going to happen is a two-stage animation. You click it, and it grows. Then it animates in the `h2`, and the `social` paragraph, from the left and from the right. 
@@ -25,7 +24,6 @@ With the source files, you can try this out in your browser's element inspector.
         <p class="social">@wesbos</p>
     </div>
 </div>
-
 ```
 
 What that does it actually grows it.
@@ -39,7 +37,6 @@ Then if you add a class of `open()` to it, that will bring in the text.
         <p class="social">@wesbos</p>
     </div>
 </div>
-
 ```
 
 
@@ -119,9 +116,9 @@ I think we'll use a timeout for that:
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     this.classList.toggle('opening');
-        setTimeout(function() {
-           this.classList.toggle('open'); 
-        });
+    setTimeout(function() {
+       this.classList.toggle('open'); 
+    });
 });
 ```
 OK, so does that work? No.
@@ -134,10 +131,10 @@ Let's take a look using `console.log` to help us out:
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     this.classList.toggle('opening');
-        setTimeout(function() {
-           console.log(this.classList);
-           this.classList.toggle('open'); 
-        });
+    setTimeout(function() {
+       console.log(this.classList);
+       this.classList.toggle('open'); 
+    });
 });
 ```
 
@@ -149,10 +146,10 @@ Let's take another look, this time we'll just `console.log(this)` to get a littl
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     this.classList.toggle('opening');
-        setTimeout(function() {
-           console.log(this);
-           this.classList.toggle('open'); 
-        });
+    setTimeout(function() {
+       console.log(this);
+       this.classList.toggle('open'); 
+    });
 });
 ```
 
@@ -169,10 +166,10 @@ const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     var self = this;
     this.classList.toggle('opening');
-        setTimeout(function() {
-           console.log(this);
-           self.classList.toggle('open'); 
-        });
+    setTimeout(function() {
+       console.log(this);
+       self.classList.toggle('open'); 
+    });
 });
 ```
 
@@ -184,12 +181,12 @@ Fortunately, we don't need to do that anymore if I bring that back to this. What
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     this.classList.toggle('opening');
-        setTimeout(() => {
-           console.log(this);
-           this.classList.toggle('open'); 
-        });
+    setTimeout(() => {
+       console.log(this);
+       this.classList.toggle('open'); 
+    });
 });
-``` 
+```
  
 Why? Because when you have an arrow function, **it does not change the value** of `this`. It inherits the value of this from the **parent**. We don't have to worry about the scope changing or anything like that.
 
@@ -201,12 +198,12 @@ We can just go ahead and keep working using this as if it was scoped to this act
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     this.classList.toggle('opening');
-        setTimeout(() => {
-           console.log(this);
-           this.classList.toggle('open'); 
-        }, 500);
+    setTimeout(() => {
+       console.log(this);
+       this.classList.toggle('open'); 
+    }, 500);
 });
-``` 
+```
 
 We should probably put 500 milliseconds in here. 
  
@@ -224,10 +221,10 @@ box.addEventListener('click', function() {
     let first = 'opening';
     let second ='open';
     this.classList.toggle(first);
-        setTimeout(() => {
-           console.log(this);
-           this.classList.toggle(second); 
-        }, 500);
+    setTimeout(() => {
+       console.log(this);
+       this.classList.toggle(second); 
+    }, 500);
 });
 ```
 
@@ -245,10 +242,10 @@ box.addEventListener('click', function() {
         [first, second] = [second, first];
     }
     this.classList.toggle(first);
-        setTimeout(() => {
-           console.log(this);
-           this.classList.toggle(second); 
-        }, 500);
+    setTimeout(() => {
+       console.log(this);
+       this.classList.toggle(second); 
+    }, 500);
 });
 ```
 
