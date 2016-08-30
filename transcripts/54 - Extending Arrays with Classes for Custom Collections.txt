@@ -1,0 +1,45 @@
+[00:00] [music]
+
+Wes Bos: [00:02] Another neat thing about ES6 is that you can extend the built-ins. I don't mean monkeying with the prototype of something like an array or a number, but I mean that we can create our own classes that are modeled after an array. 
+
+[00:13] Let's say we wanted to create a movie collection. I'm going to show how we are going to use it first. It's going to look like this. We're going to say const movies equals a new movie collection. 
+
+[00:24] Now the movie collection is going to take in Wes' Favorite Movies -- that's the name of the collection -- and then argument two, three, four, five, and to infinity, are going to be a movie, where you have the name of the movie and the number of stars that you've given it.
+
+[00:39] What we need to do is, this is kind of like an array except it's going to have a property of Wes' Favorite Movies, and then we're also going to add methods to this. What we do is we create a new movie collection, then we're going to extend the array. That's the built-in one, right there.
+
+[01:00] Now, what do we need here? We need a constructor. What arguments are getting passed in when we create a new movie collection? The first thing getting passed in is the name of the collection, that's easy. But then, how do we capture items two, three, four, five, to infinity? 
+
+[01:16] How do you capture the rest of them? Well, I just said it, you use a rest. So, ...items. What that's going to do is the first thing is a movie and the rest of them are going to be movies that get passed in. The first of them is a name and the rest of them that get passed in are going to be items.
+
+[01:34] What we need to do here is...we could try to do this, this.name = name. That gets passed in. Let's see how that actually works. We get the same error that we did in the last one. This is not defined. 
+
+[01:51] Why can't we set this on movie collection? Because we have not yet given ourselves that initial array that we are extending it. Remember, whenever you extend something, you need to create the thing that you're extending first, before you create the thing that you want.
+
+[02:06] How do we do that? We call super, and this is just the same thing as calling new array. A new array will take item one, item two, item three. How do we pass item one, item two, item three? We don't do items zero, items one...We're not going to do that. That will take forever and we don't know how many there are. But we can pass it in items. Let's take a look at how that works.
+
+[02:35] We'll see our movies here, but movies is an array of an array, so now we have an array in an array. That's not exactly what we want. We want to be able to put each item in there, so we spread into the function because items is an array, but we want to pass super each item as an argument. 
+
+[02:57] We spread into the array. This is cool because we've captured all of them with a rest, and then we then turn and spread them into our super function, which is the array. Let's take a look at it now.
+
+[03:10] There we go. Now we've got this movies object, which if you open it up, you see all of the different movies that are inside of it. We can also do something like this, movies.name. Oh, Wes' Favorite Movies. That's really neat, that we can have an array but we can also have properties. That's because, at the end of the day, arrays still are objects in JavaScript.
+
+[03:35] Now what we can do is just add methods to this movie collection, like add. Let's say we wanted to add a movie. That's going to say just this.push(movie). Why? Because, even though we have a movie collection, we still have inherited all of the array methods. We'll be able to add a secondary movie. Let's say movies.add and we're going to add a new movie here.
+
+[04:02] The name of that movie is going to be Titanic, and the number of stars is going to be five. I should take a look here at movies. The last movie is Titanic. Movies.length.
+
+[04:17] The thing I want to show you is, if I were to use the for...in loop here, for const movie in movies, and I were to console.log each movie, watch what happens. We get zero, one, two, three, four. That makes sense because it's the index, and then we get name. Why do we get name? Because movie has five items in it, but then we also gave it a property of name, and for...in will loop over that.
+
+[04:48] However, we also learned about for...of, which only iterates over the iterable properties of an object. We can use for const, just take this const movie of. That's in, we'll change it to of. 
+
+[05:04] Look at that. We don't get name, and we also get the actual object, not just the key. That's a really neat thing where you can still add properties to an array, but we're able to skip over those properties with a for...of loop.
+
+[05:18] Let's add one more method to this, where I want to be able to sort this array of movies and then get the top 2, 3, 10, however many we want. We'll call it top_rated(), which is a method, and top_rated() is going to take in a limit, in case you want to limit how many movies you are bringing back.
+
+[05:37] If you have thousands, you only want to bring maybe the first 10 back, so we'll set a default of 10. That's using a default function argument. Then all we have to do is return this.sort. Why? What is this? This is the actual movie collection, which is an array. Then we just say a, b, then we'll say if the a.stars is greater than the b.stars then we'll have a -1 and 1. 
+
+[06:06] Then what that does is it's just a quick-and-dirty sort for us. Then we can call .slice on it. We'll start at zero, and go to the limit. That will limit it by default 10, or whatever we pass in. 
+
+[06:21] Now we should be able to call movies.top_rated and it will bring back...Well, that's not very good. Watch this little trick. Console.table. That will give us all of the movies, sorted by the number of stars, but I can also pass in like give me the top two rated, and that will bring me a table of the top two rated.
+
+[06:43] That's really handy if you're able to have an array, but also have methods on front of it. Extending arrays, you can extend any of the native stuff that are built into JavaScript to create your own collections.

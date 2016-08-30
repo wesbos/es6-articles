@@ -1,0 +1,794 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.410 --> 00:00:03.770
+Another neat thing about ES6 is 
+
+3
+00:00:03.770 --> 00:00:05.150
+that you can extend the built-
+
+4
+00:00:05.150 --> 00:00:06.610
+ins. I don't mean monkeying with 
+
+5
+00:00:06.610 --> 00:00:07.980
+the prototype of something like 
+
+6
+00:00:07.980 --> 00:00:09.490
+an array or a number, but I mean 
+
+7
+00:00:09.490 --> 00:00:11.420
+that we can create our own 
+
+8
+00:00:11.420 --> 00:00:13.140
+classes that are modeled after 
+
+9
+00:00:13.140 --> 00:00:14.480
+an array. Let's say we 
+
+10
+00:00:14.480 --> 00:00:15.830
+wanted to create a movie 
+
+11
+00:00:15.830 --> 00:00:17.070
+collection. I'm going to show 
+
+12
+00:00:17.070 --> 00:00:19.450
+how we are going to use it first. 
+
+13
+00:00:19.450 --> 00:00:20.370
+It's going to look like this. 
+
+14
+00:00:20.370 --> 00:00:21.860
+We're going to say const movies 
+
+15
+00:00:21.920 --> 00:00:24.390
+equals a new movie collection. 
+
+16
+00:00:24.700 --> 00:00:25.810
+Now the movie collection is 
+
+17
+00:00:25.810 --> 00:00:27.490
+going to take in Wes' Favorite 
+
+18
+00:00:27.490 --> 00:00:28.570
+Movies -- that's the name of the 
+
+19
+00:00:28.570 --> 00:00:30.240
+collection -- and then argument 
+
+20
+00:00:30.240 --> 00:00:32.520
+two, three, four, five, and to 
+
+21
+00:00:32.520 --> 00:00:34.880
+infinity, are going to be a 
+
+22
+00:00:34.880 --> 00:00:36.960
+movie, where you have the name 
+
+23
+00:00:36.960 --> 00:00:38.150
+of the movie and the number of 
+
+24
+00:00:38.150 --> 00:00:39.200
+stars that you've given it. 
+
+25
+00:00:39.860 --> 00:00:42.730
+What we need to do is, this is 
+
+26
+00:00:42.730 --> 00:00:44.570
+kind of like an array except 
+
+27
+00:00:44.570 --> 00:00:46.440
+it's going to have a property of 
+
+28
+00:00:46.440 --> 00:00:48.110
+Wes' Favorite Movies, and then 
+
+29
+00:00:48.110 --> 00:00:49.730
+we're also going to add methods 
+
+30
+00:00:49.730 --> 00:00:52.490
+to this. What we do is we create 
+
+31
+00:00:52.520 --> 00:00:55.380
+a new movie collection, then 
+
+32
+00:00:55.380 --> 00:00:57.830
+we're going to extend the array. 
+
+33
+00:00:57.980 --> 00:00:59.360
+That's the built-in one, right 
+
+34
+00:00:59.400 --> 00:01:00.610
+there. Now, what do we need 
+
+35
+00:01:00.610 --> 00:01:01.680
+here? We need a constructor. 
+
+36
+00:01:03.660 --> 00:01:04.830
+What arguments are getting 
+
+37
+00:01:04.830 --> 00:01:06.200
+passed in when we create a new 
+
+38
+00:01:06.200 --> 00:01:07.640
+movie collection? The first 
+
+39
+00:01:07.640 --> 00:01:08.970
+thing getting passed in is the 
+
+40
+00:01:08.970 --> 00:01:10.260
+name of the collection, that's 
+
+41
+00:01:10.310 --> 00:01:11.840
+easy. But then, how do we 
+
+42
+00:01:11.840 --> 00:01:15.180
+capture items two, three, four, 
+
+43
+00:01:15.180 --> 00:01:16.660
+five, to infinity? How do 
+
+44
+00:01:16.660 --> 00:01:18.720
+you capture the rest of them? 
+
+45
+00:01:19.000 --> 00:01:20.350
+Well, I just said it, you use a 
+
+46
+00:01:20.350 --> 00:01:23.050
+rest. So, ...items. What that's 
+
+47
+00:01:23.050 --> 00:01:24.230
+going to do is the first thing 
+
+48
+00:01:24.230 --> 00:01:26.100
+is a movie and the rest of them 
+
+49
+00:01:26.100 --> 00:01:28.050
+are going to be movies that get 
+
+50
+00:01:28.080 --> 00:01:29.560
+passed in. The first of them is 
+
+51
+00:01:29.560 --> 00:01:31.540
+a name and the rest of them that 
+
+52
+00:01:31.540 --> 00:01:33.650
+get passed in are going to be 
+
+53
+00:01:33.810 --> 00:01:35.830
+items. What we need to do 
+
+54
+00:01:35.830 --> 00:01:40.070
+here is...we could try to do 
+
+55
+00:01:40.070 --> 00:01:44.400
+this, this.name = name. That 
+
+56
+00:01:44.400 --> 00:01:45.840
+gets passed in. Let's see how 
+
+57
+00:01:45.840 --> 00:01:47.920
+that actually works. We get the 
+
+58
+00:01:47.920 --> 00:01:48.960
+same error that we did in the 
+
+59
+00:01:48.960 --> 00:01:50.900
+last one. This is not defined. 
+
+60
+00:01:51.180 --> 00:01:52.600
+Why can't we set this on movie 
+
+61
+00:01:52.600 --> 00:01:54.290
+collection? Because we have not 
+
+62
+00:01:54.340 --> 00:01:56.720
+yet given ourselves that initial 
+
+63
+00:01:56.930 --> 00:01:58.540
+array that we are extending it. 
+
+64
+00:01:58.540 --> 00:02:00.110
+Remember, whenever you extend 
+
+65
+00:02:00.110 --> 00:02:01.920
+something, you need to create 
+
+66
+00:02:01.970 --> 00:02:03.510
+the thing that you're extending 
+
+67
+00:02:03.580 --> 00:02:05.210
+first, before you create the 
+
+68
+00:02:05.330 --> 00:02:06.840
+thing that you want. How do 
+
+69
+00:02:06.840 --> 00:02:09.110
+we do that? We call super, and 
+
+70
+00:02:09.190 --> 00:02:10.730
+this is just the same thing as 
+
+71
+00:02:10.730 --> 00:02:13.040
+calling new array. A new array 
+
+72
+00:02:13.040 --> 00:02:14.600
+will take item one, item two, 
+
+73
+00:02:14.660 --> 00:02:17.590
+item three. How do we pass item 
+
+74
+00:02:17.590 --> 00:02:19.570
+one, item two, item three? We 
+
+75
+00:02:19.570 --> 00:02:24.220
+don't do items zero, items one...
+
+76
+00:02:24.220 --> 00:02:25.160
+We're not going to do that. That 
+
+77
+00:02:25.160 --> 00:02:26.340
+will take forever and we don't 
+
+78
+00:02:26.340 --> 00:02:27.760
+know how many there are. But we 
+
+79
+00:02:27.760 --> 00:02:32.060
+can pass it in items. Let's take 
+
+80
+00:02:32.060 --> 00:02:33.490
+a look at how that works. 
+
+81
+00:02:35.590 --> 00:02:38.870
+We'll see our movies here, but 
+
+82
+00:02:39.180 --> 00:02:43.600
+movies is an array of an array, 
+
+83
+00:02:43.600 --> 00:02:44.840
+so now we have an array in an 
+
+84
+00:02:44.840 --> 00:02:46.290
+array. That's not exactly what 
+
+85
+00:02:46.290 --> 00:02:47.720
+we want. We want to be able to 
+
+86
+00:02:47.860 --> 00:02:50.260
+put each item in there, so we 
+
+87
+00:02:50.260 --> 00:02:53.000
+spread into the function because 
+
+88
+00:02:53.090 --> 00:02:55.130
+items is an array, but we want 
+
+89
+00:02:55.130 --> 00:02:57.130
+to pass super each item as an 
+
+90
+00:02:57.260 --> 00:02:59.280
+argument. We spread into the 
+
+91
+00:02:59.280 --> 00:03:00.790
+array. This is cool because 
+
+92
+00:03:00.790 --> 00:03:02.020
+we've captured all of them with 
+
+93
+00:03:02.020 --> 00:03:04.270
+a rest, and then we then turn 
+
+94
+00:03:04.350 --> 00:03:06.500
+and spread them into our super 
+
+95
+00:03:06.500 --> 00:03:07.830
+function, which is the array. 
+
+96
+00:03:08.100 --> 00:03:09.060
+Let's take a look at it now. 
+
+97
+00:03:10.480 --> 00:03:11.920
+There we go. Now we've got this 
+
+98
+00:03:11.920 --> 00:03:14.200
+movies object, which if you open 
+
+99
+00:03:14.200 --> 00:03:17.040
+it up, you see all of the 
+
+100
+00:03:17.040 --> 00:03:19.040
+different movies that are inside 
+
+101
+00:03:19.040 --> 00:03:21.230
+of it. We can also do something 
+
+102
+00:03:21.230 --> 00:03:23.730
+like this, movies.name. Oh, Wes' 
+
+103
+00:03:23.880 --> 00:03:25.850
+Favorite Movies. That's really 
+
+104
+00:03:25.850 --> 00:03:27.850
+neat, that we can have an array 
+
+105
+00:03:27.850 --> 00:03:29.760
+but we can also have properties. 
+
+106
+00:03:30.060 --> 00:03:31.410
+That's because, at the end of 
+
+107
+00:03:31.410 --> 00:03:32.940
+the day, arrays still are 
+
+108
+00:03:32.970 --> 00:03:35.400
+objects in JavaScript. Now 
+
+109
+00:03:35.400 --> 00:03:36.700
+what we can do is just add 
+
+110
+00:03:36.920 --> 00:03:38.960
+methods to this movie collection, 
+
+111
+00:03:39.460 --> 00:03:41.520
+like add. Let's say we wanted to 
+
+112
+00:03:41.610 --> 00:03:44.910
+add a movie. That's going to say 
+
+113
+00:03:44.910 --> 00:03:48.360
+just this.push(movie). Why? 
+
+114
+00:03:48.390 --> 00:03:51.000
+Because, even though we have a 
+
+115
+00:03:51.000 --> 00:03:52.750
+movie collection, we still have 
+
+116
+00:03:52.750 --> 00:03:54.560
+inherited all of the array 
+
+117
+00:03:54.560 --> 00:03:56.650
+methods. We'll be able to add a 
+
+118
+00:03:56.650 --> 00:03:58.250
+secondary movie. Let's say 
+
+119
+00:03:58.250 --> 00:04:01.340
+movies.add and we're going to 
+
+120
+00:04:01.450 --> 00:04:02.880
+add a new movie here. The 
+
+121
+00:04:02.940 --> 00:04:04.480
+name of that movie is going to 
+
+122
+00:04:04.480 --> 00:04:07.940
+be Titanic, and the number of 
+
+123
+00:04:07.940 --> 00:04:10.810
+stars is going to be five. I 
+
+124
+00:04:10.810 --> 00:04:12.020
+should take a look here at 
+
+125
+00:04:12.340 --> 00:04:15.030
+movies. The last movie is 
+
+126
+00:04:15.030 --> 00:04:17.460
+Titanic. Movies.length. The 
+
+127
+00:04:17.460 --> 00:04:18.730
+thing I want to show you is, if 
+
+128
+00:04:18.800 --> 00:04:20.970
+I were to use the for...in loop 
+
+129
+00:04:20.970 --> 00:04:24.960
+here, for const movie in movies, 
+
+130
+00:04:25.400 --> 00:04:28.330
+and I were to console.log each 
+
+131
+00:04:29.010 --> 00:04:33.150
+movie, watch what happens. We 
+
+132
+00:04:33.150 --> 00:04:35.140
+get zero, one, two, three, four. 
+
+133
+00:04:35.410 --> 00:04:36.330
+That makes sense because it's 
+
+134
+00:04:36.330 --> 00:04:38.540
+the index, and then we get name. 
+
+135
+00:04:38.740 --> 00:04:40.320
+Why do we get name? Because 
+
+136
+00:04:40.320 --> 00:04:43.620
+movie has five items in it, but 
+
+137
+00:04:43.620 --> 00:04:45.110
+then we also gave it a property 
+
+138
+00:04:45.220 --> 00:04:47.600
+of name, and for...in will loop 
+
+139
+00:04:47.660 --> 00:04:48.990
+over that. However, we also 
+
+140
+00:04:48.990 --> 00:04:51.450
+learned about for...of, which 
+
+141
+00:04:51.590 --> 00:04:53.960
+only iterates over the iterable 
+
+142
+00:04:53.960 --> 00:04:56.810
+properties of an object. We can 
+
+143
+00:04:56.810 --> 00:05:00.180
+use for const, just take this 
+
+144
+00:05:00.300 --> 00:05:02.560
+const movie of. That's in, we'll 
+
+145
+00:05:02.560 --> 00:05:04.670
+change it to of. Look at 
+
+146
+00:05:04.670 --> 00:05:06.790
+that. We don't get name, and we 
+
+147
+00:05:06.790 --> 00:05:08.320
+also get the actual object, not 
+
+148
+00:05:08.320 --> 00:05:09.780
+just the key. That's a really 
+
+149
+00:05:09.780 --> 00:05:10.920
+neat thing where you can still 
+
+150
+00:05:10.920 --> 00:05:13.430
+add properties to an array, but 
+
+151
+00:05:13.710 --> 00:05:15.630
+we're able to skip over those 
+
+152
+00:05:15.670 --> 00:05:18.270
+properties with a for...of loop. 
+
+153
+00:05:18.920 --> 00:05:20.610
+Let's add one more method to 
+
+154
+00:05:20.610 --> 00:05:22.120
+this, where I want to be able to 
+
+155
+00:05:22.120 --> 00:05:24.790
+sort this array of movies and 
+
+156
+00:05:24.790 --> 00:05:27.180
+then get the top 2, 3, 10, 
+
+157
+00:05:27.180 --> 00:05:29.080
+however many we want. We'll call 
+
+158
+00:05:29.080 --> 00:05:30.350
+it top_rated(), which is a 
+
+159
+00:05:30.350 --> 00:05:32.440
+method, and top_rated() is going 
+
+160
+00:05:32.440 --> 00:05:34.390
+to take in a limit, in case you 
+
+161
+00:05:34.390 --> 00:05:36.380
+want to limit how many movies 
+
+162
+00:05:36.380 --> 00:05:37.660
+you are bringing back. If you 
+
+163
+00:05:37.660 --> 00:05:38.730
+have thousands, you only want to 
+
+164
+00:05:38.730 --> 00:05:40.710
+bring maybe the first 10 back, 
+
+165
+00:05:40.770 --> 00:05:42.410
+so we'll set a default of 10. 
+
+166
+00:05:42.720 --> 00:05:44.660
+That's using a default function 
+
+167
+00:05:44.790 --> 00:05:46.840
+argument. Then all we have to do 
+
+168
+00:05:46.840 --> 00:05:50.050
+is return this.sort. Why? What 
+
+169
+00:05:50.050 --> 00:05:51.740
+is this? This is the actual 
+
+170
+00:05:52.220 --> 00:05:54.430
+movie collection, which is an 
+
+171
+00:05:54.430 --> 00:05:57.950
+array. Then we just say a, b, 
+
+172
+00:05:58.250 --> 00:06:00.420
+then we'll say if the a.stars is 
+
+173
+00:06:00.640 --> 00:06:04.060
+greater than the b.stars then 
+
+174
+00:06:04.060 --> 00:06:07.060
+we'll have a -1 and 1. Then 
+
+175
+00:06:07.300 --> 00:06:08.620
+what that does is it's just a 
+
+176
+00:06:09.290 --> 00:06:10.880
+quick-and-dirty sort for us. 
+
+177
+00:06:11.370 --> 00:06:13.960
+Then we can call .slice on it. 
+
+178
+00:06:13.960 --> 00:06:16.370
+We'll start at zero, and go to 
+
+179
+00:06:16.370 --> 00:06:18.600
+the limit. That will limit it by 
+
+180
+00:06:18.600 --> 00:06:20.350
+default 10, or whatever we pass 
+
+181
+00:06:20.350 --> 00:06:21.880
+in. Now we should be able to 
+
+182
+00:06:21.880 --> 00:06:26.400
+call movies.top_rated and it 
+
+183
+00:06:26.400 --> 00:06:27.970
+will bring back...Well, that's 
+
+184
+00:06:27.970 --> 00:06:29.340
+not very good. Watch this little 
+
+185
+00:06:29.340 --> 00:06:32.900
+trick. Console.table. That will 
+
+186
+00:06:32.900 --> 00:06:34.380
+give us all of the movies, 
+
+187
+00:06:34.980 --> 00:06:36.880
+sorted by the number of stars, 
+
+188
+00:06:37.260 --> 00:06:38.700
+but I can also pass in like give 
+
+189
+00:06:38.700 --> 00:06:41.080
+me the top two rated, and that 
+
+190
+00:06:41.080 --> 00:06:42.610
+will bring me a table of the top 
+
+191
+00:06:42.680 --> 00:06:44.020
+two rated. That's really 
+
+192
+00:06:44.020 --> 00:06:45.590
+handy if you're able to have an 
+
+193
+00:06:45.590 --> 00:06:47.340
+array, but also have methods on 
+
+194
+00:06:47.340 --> 00:06:49.820
+front of it. Extending arrays, 
+
+195
+00:06:49.820 --> 00:06:51.310
+you can extend any of the native 
+
+196
+00:06:51.310 --> 00:06:53.110
+stuff that are built into 
+
+197
+00:06:53.110 --> 00:06:54.470
+JavaScript to create your own 
+
+198
+00:06:54.890 --> 00:06:55.360
+collections.
+

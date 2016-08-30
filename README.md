@@ -71,9 +71,9 @@ _example:_
 | 49 | All About Babel + npm scripts | X | |
 | 50 | Polyfilling ES6 for Older Browsers | X | |
 | 51 | Prototypal Inheritance Review |  | |
-| 52 | Say Hello to Classes |  | |
+| 52 | Say Hello to Classes | X | |
 | 53 | Extending Classes and using super() | X | |
-| 54 | Extending Arrays with Classes for Custom Collections |  | |
+| 54 | Extending Arrays with Classes for Custom Collections | X | |
 | 55 | Introducing Generators |  | |
 | 56 | Using Generators for Ajax Flow Control |  | |
 | 57 | Looping Generators with for of | X | |
