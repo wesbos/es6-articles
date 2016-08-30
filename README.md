@@ -68,7 +68,7 @@ _example:_
 | 46 | Creating your own Modules | X | |
 | 47 | More ES6 Module Practice |  | |
 | 48 | Tool-Free Modules with SystemJS (+bonus BrowserSync setup) |  | |
-| 49 | All About Babel + npm scripts |  | |
+| 49 | All About Babel + npm scripts | X | |
 | 50 | Polyfilling ES6 for Older Browsers | X | |
 | 51 | Prototypal Inheritance Review |  | |
 | 52 | Say Hello to Classes |  | |
