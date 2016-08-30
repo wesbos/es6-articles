@@ -1,0 +1,57 @@
+[00:00] [music]
+
+[00:02] Instructor: There are a number of upgrades to object literals in ES6 and these are some that I use absolutely every single day. These are probably some of the more practical things of ES6 that you're going to be using. 
+
+[00:11] This is an example where I've got all these variables -- first, last age, and breed -- and I need to put them into an object so I would say const dog = make myself an object and I go, "Hmm, I need first, I need last, I need age, I need breed." 
+
+[00:25] Pop those suckers in there, but the property names are the same as the variables, so I'm just going to take the property name and paste the variable in there.
+
+[00:36] That is OK, but it's very repetitive because we're doing the same thing over and over again. I've just made that object with all those variables inside of it. If we console.log that, you'll see it's just a regular object here. 
+
+[00:51] No problem, but what you can do is if the property name and the variable you're setting it to are named the exact same thing, you do not need to do this twice. That's actually why I'm getting these red lines here. My ESLint is telling me, "Hey, it's unnecessary." What you can do is just take them out.
+
+[01:10] This may look a little bit weird, because right now this kind of looks like an array, but it's really an object. Doing that it still gives us the exact same object that we're looking for, just without the repetitive property name is equal to the actual variable name.
+
+[01:28] You don't have to go all in on that. That's only when that is the actual case. For example, if you want to rename it to firstName and it would be first, that's no problem there. Similarly, if you want to add just pals, it would be Hugo and Sunny. Then that is just a regular array. 
+
+[01:47] You only need to use it when the property name and the variable name are exactly the same. That's pretty straightforward. You can start using that, absolutely, already.
+
+[01:56] Another update is when you have method definitions inside of an object. Let's say we have a modal object here, so let's say const modal =, and inside of that we have three methods. We've got create, we've got open, and we have close. All three of those are functions in which, they are just a function, and after each one we have a comma here.
+
+[02:25] We did that on, and on, and on. However, what you can do instead of doing that is just leave out the word function and leave out the colon, and that is the exact same thing, so create () is the exact same thing as doing colon function, it's just a shorthand. 
+
+[02:44] There's no weirdness with the keyword this or anything, and that's exactly why I said you should not use an arrow function when you're using a method of an object, because we have this other shorthand here and it's not going to monkey with the scoping of any of your variables or the keyword this. We can just take that to there and that to there. 
+
+[03:04] Similarly, if you had any params that you needed to pass it, like maybe a selector here, maybe some content here, maybe like a goodbye message here, you can just pass them in as you normally would into a function. Those are two big updates to the object literal.
+
+[03:22] A third one I want to talk about is something called computed property names. It's also something that you might not use every single day. Good to know in case you'll ever run into a situation when you need it. 
+
+[03:34] Let's set up a little example where we have a key that needs to be set on an object. We'll make a key variable and we'll say pocket color. Why? Because we're going to make a tshirt here and the tshirt has a whole bunch of different attributes about it, like pocket color, main color, ink color, sleeve color, all these things. 
+
+[03:54] We're going to talk about the pocket color here, and we have a value of that actual color is going to be set to yellow. We need to use these variables to set a property and a value of an object. 
+
+[04:08] What we could do is say const tshirt = object literal. Previously what we've been able to do is you can say key is equal to the actual value. Let's take a look at what we've got so far. Console.log tshirt, there's the tshirt. 
+
+[04:27] The pocket color has been dynamically set, and if I were to change this from pocket color to ink color, see the variables are now updated to ink color. We are creating an object literal with it.
+
+[04:42] That has always been possible, but one thing that is now possible is, what if we wanted the opposite color to go along with that as well, because maybe we are printing something on top of that pocket and we needed to know what is the exact opposite color of that? It could go on top of it.
+
+[04:58] I've got a little function right here that I'm going to bring in. It's just a function that takes in the hex code and returns the inverse color, so just the opposite color. 
+
+[05:10] If I wanted to make a key of pocket color opposite, how would I do that? I could make another variable here and then say opposite, but that's not really what I'm looking for.
+
+[05:25] What we need to do is we need to compute the copy. What we can do here is just use a function, a template string or any other JavaScript right inside of the property name. I'm going to give myself the key and then tack on the word opposite. We can use this function that I run here, invert color, and it's going to take the value as well.
+
+[05:55] Look at what's going to happen. We refresh, key has already been declared, because I made two keys here. We've got pocket color and pocket color opposite. Those are being dynamically set on this actual variable. 
+
+[06:10] Previously what you had to do, is you would have had to make the tshirt object, then go and update the tshirt object like that and like that. Which is not the end of the world, but it's kind of cool that we can now do it inside of our object literal. As we define it, we can compute the property keys.
+
+[06:31] Let's look at one more example here, where sometimes you have some funky data that you get in from an API and you don't have too much of an option to work with. 
+
+[06:39] Obviously, you would have a little bit of a nicer structure but sometimes you might have a keys array, which is size, color, and weight. Then you have a values array, which is something like medium, red, and 100, and you need to make an object where the size is medium, the color is red and the weight is 100.
+
+[07:04] You could make an object here where you say const shirt =, you could say keys of zero, and that's actually a computed property name here. One cool thing that you could do is you say keys.shift = values.shift and then do it once more, and again. 
+
+[07:30] That's the same code three times, but what is it going to do? Size medium, color red, and weight 100. What happens here is that essentially we just plucked off one from each of the arrays as we went through. You can just run the same code over and over again. 
+
+[07:53] Obviously, you could have also just looped over them and set it on the shirt after the fact, but that's another example to show you when you might be able to use computed property keys.

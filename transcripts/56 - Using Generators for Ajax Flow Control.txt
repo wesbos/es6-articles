@@ -1,0 +1,47 @@
+[00:00] [music]
+
+Instructor: [00:02] One use case for generators is the ability to do waterfall-like ajax requests. You've probably run into a situation before where you first need to hit an ajax request where you search for something, and then when that search comes back, it maybe gives you a user ID. 
+
+[00:18] Given that ID, you have to hit a second ajax request based on that ID. When that comes back, maybe you get a list of photos for that user, and you need specific information about the first photo, or something that came back based on that photo ID. 
+
+[00:31] These are like waterfall, one, two, three. We need the information from the previous one in order to do the next one. You know that that can lead to what's called the callback hell, where you have nested code inside of each other. 
+
+[00:43] There's libraries like async that are really good for dealing with that, however the browser is getting much better at being able to do it natively. We're going to look at an example of how you can do it with generators.
+
+[00:53] What I want to do is make a function called steps. This is going to be a generator itself, so we have to put an asterisk after the word function. By the way, you can also put an asterisk in front of the function name. Either will work, it's just a personal preference.
+
+[01:08] What I want to do here is that I've got three ajax requests that I'm going to be making here. I've got one that's going to go fetch me a list of beers, one that's going to go fetch my information from GitHub and one that's going to go fetch information about the artist Fat Joe.
+
+[01:26] Assume that these relied on each other -- they don't really, but I just want to make one ajax request, when that comes back I want the second one, and I want the third one. 
+
+[01:35] Would you believe me if I were to say that we could write this code in one line, just like this, and that it would execute, stop, execute, stop, execute and stop? That's actually how it's going to work. 
+
+[01:47] What I've done here is I've yielded. I've created a variable called beers. I've yielded whatever the result of ajax. We're going to create a function called ajax, and only once that ajax function returns a value, will the next one run. Only once that ajax request returns my GitHub info, it's going to come back and run the next one.
+
+[02:13] We're going to be able to write code that's very nice and clean, top-to-bottom here, without having to worry about callbacks or promises or anything like that.
+
+[02:21] We'll go up here and make that ajax function. That's going to be called ajax, and it's going to take in a URL. Inside of that function we'll say fetch the URL. When that comes back, we are going to get the data and return thedata.json. You'll know from our previous ones that that also returns a promise which we call .thenOn which we have the data that gives it back.
+
+[02:49] What do we then do with this data once we have it? Once we have the data, essentially what we want to do is call next on this generator that we're going to create. We need to create the generator down here, so we'll say, const datagen = steps. Then what we're going to say is go up here and say datagen.next, and pass it the data.
+
+[03:17] This is a little bit confusing, so bear with me a second. What's happening here is that, on page load, we are going to create a brand new generator and call it datagen. This is the generator we've created right here. 
+
+[03:30] Then I'm going to call the first one, just to kick it off, otherwise it won't run its first one. Datagen.next. We'll put a comment there, "kick it off."
+
+[03:41] What will happen is when you kick it off, the first one is going to run. It's going to request ajax. We're going to go here, it's going to fetch this URL. When the data comes back to us, we're going to call next. Next is on our generator that we created. 
+
+[03:59] The cool thing about this here is that whatever we pass from next will go back to the generator and get stored in this initial variable.
+
+[04:09] It's really cool, because you create this variable beers, and then even if this takes 10 minutes or 10 hours, the result of this yield is going to get put back into the variable beers. 
+
+[04:21] Then next is going to run, so the next yield will run here, where we'll run an ajax request. That might take five seconds, five minutes, who knows? When that comes back, we're going to get the Fat Joe one.
+
+[04:34] Let's take a look at how it works. I'm going to put some comments above here. Console.log fetching beers, and then console.log beers when we're done. Console.log fetching Wes, console.log Wes, console.log fetching Fat Joe, and console.log Fat Joe.
+
+[05:00] Now when I give this a refresh, we'll see where we're at, fetching beers comes back. Oh, that went nice and fast. Fetching beers took a second, and then when the beers came back it stored it in a variable called beers, console.logged it, moved along to save fetching Wes Bos, made that second request here to go fetch my information from GitHub. When that one came back, fetching Fat Joe came back, run the ajax request, and came back. 
+
+[05:27] That's really nice top-to-bottom, very readable code. The only thing that you need to know is that we must call the next on our actual generator that gets called, and pass it the actual data, and that will put it inside of there.
+
+[05:43] That's really nice because if I wanted to maybe see if there's a beers...I could put the beers name inside of here. Obviously there's not a GitHub name with that beer, but if I needed the data from this first one in the second request, I could have easily done that because this code will not run until this one comes back.
+
+[06:03] Hopefully that helped you understand a little bit more about generators.

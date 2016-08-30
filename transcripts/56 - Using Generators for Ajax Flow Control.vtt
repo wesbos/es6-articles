@@ -1,0 +1,738 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.480 --> 00:00:04.340
+One use case for generators is 
+
+3
+00:00:04.380 --> 00:00:07.020
+the ability to do waterfall-like 
+
+4
+00:00:07.620 --> 00:00:09.810
+ajax requests. You've probably 
+
+5
+00:00:09.820 --> 00:00:11.200
+run into a situation before 
+
+6
+00:00:11.210 --> 00:00:12.490
+where you first need to hit an 
+
+7
+00:00:13.050 --> 00:00:13.880
+ajax request where you search 
+
+8
+00:00:13.910 --> 00:00:15.190
+for something, and then when 
+
+9
+00:00:15.200 --> 00:00:16.800
+that search comes back, it maybe 
+
+10
+00:00:16.810 --> 00:00:18.570
+gives you a user ID. Given 
+
+11
+00:00:18.580 --> 00:00:19.630
+that ID, you have to hit a 
+
+12
+00:00:19.640 --> 00:00:21.720
+second ajax request based on 
+
+13
+00:00:21.730 --> 00:00:23.690
+that ID. When that comes back, 
+
+14
+00:00:23.700 --> 00:00:25.140
+maybe you get a list of photos 
+
+15
+00:00:25.150 --> 00:00:26.590
+for that user, and you need 
+
+16
+00:00:26.600 --> 00:00:28.550
+specific information about the 
+
+17
+00:00:28.560 --> 00:00:29.880
+first photo, or something that 
+
+18
+00:00:29.890 --> 00:00:31.520
+came back based on that photo ID. 
+
+19
+00:00:31.595 --> 00:00:33.470
+These are like waterfall, one, 
+
+20
+00:00:33.480 --> 00:00:34.590
+two, three. We need the 
+
+21
+00:00:34.600 --> 00:00:35.870
+information from the previous 
+
+22
+00:00:35.880 --> 00:00:37.880
+one in order to do the next one. 
+
+23
+00:00:38.160 --> 00:00:39.610
+You know that that can lead to 
+
+24
+00:00:39.620 --> 00:00:41.010
+what's called the callback hell, 
+
+25
+00:00:41.010 --> 00:00:42.270
+where you have nested code 
+
+26
+00:00:42.280 --> 00:00:43.190
+inside of each other. 
+
+27
+00:00:43.590 --> 00:00:45.270
+There's libraries like async 
+
+28
+00:00:44.890 --> 00:00:46.040
+that are really good for dealing 
+
+29
+00:00:46.050 --> 00:00:47.380
+with that, however the browser 
+
+30
+00:00:47.390 --> 00:00:48.580
+is getting much better at being 
+
+31
+00:00:48.590 --> 00:00:50.250
+able to do it natively. We're 
+
+32
+00:00:50.325 --> 00:00:51.460
+going to look at an example of 
+
+33
+00:00:51.470 --> 00:00:52.310
+how you can do it with 
+
+34
+00:00:52.400 --> 00:00:54.000
+generators. What I want to do 
+
+35
+00:00:54.010 --> 00:00:55.730
+is make a function called steps. 
+
+36
+00:00:56.020 --> 00:00:57.740
+This is going to be a generator 
+
+37
+00:00:57.750 --> 00:00:59.800
+itself, so we have to put an 
+
+38
+00:00:59.810 --> 00:01:01.950
+asterisk after the word function. 
+
+39
+00:01:02.260 --> 00:01:03.280
+By the way, you can also put an 
+
+40
+00:01:03.290 --> 00:01:04.360
+asterisk in front of the 
+
+41
+00:01:04.370 --> 00:01:06.150
+function name. Either will work, 
+
+42
+00:01:06.160 --> 00:01:07.670
+it's just a personal preference. 
+
+43
+00:01:08.150 --> 00:01:09.990
+What I want to do here is that 
+
+44
+00:01:10.000 --> 00:01:13.170
+I've got three ajax requests 
+
+45
+00:01:13.180 --> 00:01:14.720
+that I'm going to be making here. 
+
+46
+00:01:15.480 --> 00:01:16.760
+I've got one that's going to go 
+
+47
+00:01:16.770 --> 00:01:19.030
+fetch me a list of beers, one 
+
+48
+00:01:19.040 --> 00:01:20.010
+that's going to go fetch my 
+
+49
+00:01:20.020 --> 00:01:22.170
+information from GitHub and one 
+
+50
+00:01:22.170 --> 00:01:23.090
+that's going to go fetch 
+
+51
+00:01:23.100 --> 00:01:25.160
+information about the artist Fat 
+
+52
+00:01:25.170 --> 00:01:28.280
+Joe. Assume that these relied 
+
+53
+00:01:28.290 --> 00:01:29.250
+on each other -- they don't 
+
+54
+00:01:29.260 --> 00:01:30.530
+really, but I just want to make 
+
+55
+00:01:30.540 --> 00:01:32.290
+one ajax request, when that 
+
+56
+00:01:32.300 --> 00:01:33.650
+comes back I want the second one, 
+
+57
+00:01:33.660 --> 00:01:34.580
+and I want the third one. 
+
+58
+00:01:35.090 --> 00:01:36.320
+Would you believe me if I were 
+
+59
+00:01:36.330 --> 00:01:37.630
+to say that we could write this 
+
+60
+00:01:37.640 --> 00:01:39.870
+code in one line, just like this, 
+
+61
+00:01:40.110 --> 00:01:41.840
+and that it would execute, stop, 
+
+62
+00:01:42.070 --> 00:01:44.510
+execute, stop, execute and stop? 
+
+63
+00:01:44.940 --> 00:01:46.250
+That's actually how it's going 
+
+64
+00:01:46.260 --> 00:01:48.540
+to work. What I've done here 
+
+65
+00:01:49.420 --> 00:01:52.700
+is I've yielded. I've created a 
+
+66
+00:01:52.710 --> 00:01:54.410
+variable called beers. I've 
+
+67
+00:01:54.420 --> 00:01:56.680
+yielded whatever the result of 
+
+68
+00:01:56.755 --> 00:01:58.230
+ajax. We're going to create a 
+
+69
+00:01:58.240 --> 00:02:00.740
+function called ajax, and only 
+
+70
+00:02:00.750 --> 00:02:03.560
+once that ajax function returns 
+
+71
+00:02:03.570 --> 00:02:06.810
+a value, will the next one run. 
+
+72
+00:02:07.160 --> 00:02:08.840
+Only once that ajax request 
+
+73
+00:02:08.850 --> 00:02:11.270
+returns my GitHub info, it's 
+
+74
+00:02:11.270 --> 00:02:12.820
+going to come back and run the 
+
+75
+00:02:12.830 --> 00:02:14.280
+next one. We're going to be 
+
+76
+00:02:14.280 --> 00:02:15.730
+able to write code that's very 
+
+77
+00:02:15.740 --> 00:02:17.440
+nice and clean, top-to-bottom 
+
+78
+00:02:17.450 --> 00:02:18.820
+here, without having to worry 
+
+79
+00:02:19.310 --> 00:02:20.550
+about callbacks or promises or 
+
+80
+00:02:20.560 --> 00:02:22.240
+anything like that. We'll go 
+
+81
+00:02:22.250 --> 00:02:23.670
+up here and make that ajax 
+
+82
+00:02:23.680 --> 00:02:25.750
+function. That's going to be 
+
+83
+00:02:25.760 --> 00:02:28.170
+called ajax, and it's going to 
+
+84
+00:02:27.100 --> 00:02:29.900
+take in a URL. Inside of that 
+
+85
+00:02:29.910 --> 00:02:33.160
+function we'll say fetch the URL. 
+
+86
+00:02:34.300 --> 00:02:36.180
+When that comes back, we are 
+
+87
+00:02:36.190 --> 00:02:38.560
+going to get the data and return 
+
+88
+00:02:38.635 --> 00:02:42.520
+thedata.json. You'll know from 
+
+89
+00:02:42.530 --> 00:02:43.870
+our previous ones that that also 
+
+90
+00:02:43.880 --> 00:02:45.580
+returns a promise which we call .
+
+91
+00:02:45.655 --> 00:02:47.970
+thenOn which we have the data 
+
+92
+00:02:48.360 --> 00:02:49.820
+that gives it back. What do 
+
+93
+00:02:49.830 --> 00:02:52.720
+we then do with this data once 
+
+94
+00:02:52.730 --> 00:02:55.610
+we have it? Once we have the 
+
+95
+00:02:55.610 --> 00:02:57.050
+data, essentially what we want 
+
+96
+00:02:57.050 --> 00:02:59.230
+to do is call next on this 
+
+97
+00:02:59.240 --> 00:03:01.280
+generator that we're going to 
+
+98
+00:03:00.540 --> 00:03:01.770
+create. We need to create the 
+
+99
+00:03:01.780 --> 00:03:03.030
+generator down here, so we'll 
+
+100
+00:03:03.040 --> 00:03:09.570
+say, const datagen = steps. Then 
+
+101
+00:03:09.630 --> 00:03:11.310
+what we're going to say is go up 
+
+102
+00:03:11.320 --> 00:03:15.180
+here and say datagen.next, and 
+
+103
+00:03:15.190 --> 00:03:17.480
+pass it the data. This is a 
+
+104
+00:03:17.480 --> 00:03:19.430
+little bit confusing, so bear 
+
+105
+00:03:19.440 --> 00:03:20.710
+with me a second. What's 
+
+106
+00:03:20.720 --> 00:03:22.710
+happening here is that, on page 
+
+107
+00:03:22.720 --> 00:03:25.210
+load, we are going to create a 
+
+108
+00:03:25.220 --> 00:03:27.430
+brand new generator and call it 
+
+109
+00:03:27.505 --> 00:03:28.740
+datagen. This is the generator 
+
+110
+00:03:28.910 --> 00:03:29.960
+we've created right here. 
+
+111
+00:03:30.130 --> 00:03:32.190
+Then I'm going to call the first 
+
+112
+00:03:32.200 --> 00:03:33.990
+one, just to kick it off, 
+
+113
+00:03:34.210 --> 00:03:35.620
+otherwise it won't run its first 
+
+114
+00:03:35.660 --> 00:03:38.700
+one. Datagen.next. We'll put a 
+
+115
+00:03:38.310 --> 00:03:41.020
+comment there, "kick it off." 
+
+116
+00:03:41.760 --> 00:03:43.230
+What will happen is when you 
+
+117
+00:03:43.240 --> 00:03:45.310
+kick it off, the first one is 
+
+118
+00:03:45.320 --> 00:03:46.940
+going to run. It's going to 
+
+119
+00:03:46.950 --> 00:03:49.050
+request ajax. We're going to go 
+
+120
+00:03:49.060 --> 00:03:50.220
+here, it's going to fetch this 
+
+121
+00:03:50.230 --> 00:03:52.730
+URL. When the data comes back to 
+
+122
+00:03:52.740 --> 00:03:56.230
+us, we're going to call next. 
+
+123
+00:03:56.720 --> 00:03:58.710
+Next is on our generator that we 
+
+124
+00:03:58.720 --> 00:04:00.420
+created. The cool thing 
+
+125
+00:04:00.430 --> 00:04:02.180
+about this here is that whatever 
+
+126
+00:04:02.190 --> 00:04:06.300
+we pass from next will go back 
+
+127
+00:04:06.310 --> 00:04:08.080
+to the generator and get stored 
+
+128
+00:04:08.090 --> 00:04:09.480
+in this initial variable. 
+
+129
+00:04:09.740 --> 00:04:10.940
+It's really cool, because you 
+
+130
+00:04:10.950 --> 00:04:12.560
+create this variable beers, and 
+
+131
+00:04:12.570 --> 00:04:14.080
+then even if this takes 10 
+
+132
+00:04:14.155 --> 00:04:16.060
+minutes or 10 hours, the result 
+
+133
+00:04:16.230 --> 00:04:18.410
+of this yield is going to get 
+
+134
+00:04:18.670 --> 00:04:21.090
+put back into the variable beers. 
+
+135
+00:04:21.390 --> 00:04:23.200
+Then next is going to run, so 
+
+136
+00:04:23.210 --> 00:04:24.830
+the next yield will run here, 
+
+137
+00:04:25.290 --> 00:04:27.290
+where we'll run an ajax request. 
+
+138
+00:04:27.820 --> 00:04:29.540
+That might take five seconds, 
+
+139
+00:04:29.550 --> 00:04:30.980
+five minutes, who knows? When 
+
+140
+00:04:31.300 --> 00:04:33.310
+that comes back, we're going to 
+
+141
+00:04:32.670 --> 00:04:34.900
+get the Fat Joe one. Let's 
+
+142
+00:04:34.910 --> 00:04:37.330
+take a look at how it works. I'm 
+
+143
+00:04:36.930 --> 00:04:38.590
+going to put some comments above 
+
+144
+00:04:38.600 --> 00:04:41.860
+here. Console.log fetching beers, 
+
+145
+00:04:42.630 --> 00:04:44.430
+and then console.log beers when 
+
+146
+00:04:44.440 --> 00:04:48.100
+we're done. Console.log fetching 
+
+147
+00:04:49.110 --> 00:04:52.060
+Wes, console.log Wes, 
+
+148
+00:04:52.950 --> 00:04:56.350
+console.log fetching Fat Joe, 
+
+149
+00:04:57.920 --> 00:05:00.560
+and console.log Fat Joe. Now 
+
+150
+00:05:00.635 --> 00:05:01.480
+when I give this a refresh, 
+
+151
+00:05:01.490 --> 00:05:02.470
+we'll see where we're at, 
+
+152
+00:05:02.620 --> 00:05:05.330
+fetching beers comes back. Oh, 
+
+153
+00:05:05.405 --> 00:05:05.980
+that went nice and fast. 
+
+154
+00:05:06.550 --> 00:05:08.550
+Fetching beers took a second, 
+
+155
+00:05:08.625 --> 00:05:09.650
+and then when the beers came 
+
+156
+00:05:09.660 --> 00:05:12.360
+back it stored it in a variable 
+
+157
+00:05:12.370 --> 00:05:13.920
+called beers, console.logged it, 
+
+158
+00:05:14.380 --> 00:05:16.750
+moved along to save fetching Wes 
+
+159
+00:05:16.760 --> 00:05:19.280
+Bos, made that second request 
+
+160
+00:05:19.290 --> 00:05:20.810
+here to go fetch my information 
+
+161
+00:05:20.885 --> 00:05:22.660
+from GitHub. When that one came 
+
+162
+00:05:22.670 --> 00:05:24.840
+back, fetching Fat Joe came back, 
+
+163
+00:05:25.300 --> 00:05:27.240
+run the ajax request, and came 
+
+164
+00:05:27.240 --> 00:05:29.280
+back. That's really nice top-
+
+165
+00:05:29.290 --> 00:05:30.910
+to-bottom, very readable code. 
+
+166
+00:05:31.280 --> 00:05:32.510
+The only thing that you need to 
+
+167
+00:05:32.520 --> 00:05:35.210
+know is that we must call the 
+
+168
+00:05:35.220 --> 00:05:37.790
+next on our actual generator 
+
+169
+00:05:37.800 --> 00:05:40.340
+that gets called, and pass it 
+
+170
+00:05:40.350 --> 00:05:41.670
+the actual data, and that will 
+
+171
+00:05:41.680 --> 00:05:42.790
+put it inside of there. 
+
+172
+00:05:43.100 --> 00:05:44.490
+That's really nice because if I 
+
+173
+00:05:44.500 --> 00:05:47.380
+wanted to maybe see if there's a 
+
+174
+00:05:47.390 --> 00:05:50.950
+beers...I could put the beers 
+
+175
+00:05:50.960 --> 00:05:52.700
+name inside of here. Obviously 
+
+176
+00:05:52.775 --> 00:05:54.000
+there's not a GitHub name with 
+
+177
+00:05:54.040 --> 00:05:55.710
+that beer, but if I needed the 
+
+178
+00:05:55.720 --> 00:05:57.510
+data from this first one in the 
+
+179
+00:05:57.520 --> 00:05:59.060
+second request, I could have 
+
+180
+00:05:59.070 --> 00:06:00.350
+easily done that because this 
+
+181
+00:06:00.360 --> 00:06:02.440
+code will not run until this one 
+
+182
+00:06:02.600 --> 00:06:04.410
+comes back. Hopefully that 
+
+183
+00:06:04.410 --> 00:06:05.720
+helped you understand a little 
+
+184
+00:06:05.730 --> 00:06:07.180
+bit more about generators.
+

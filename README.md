@@ -74,8 +74,8 @@ _example:_
 | 52 | Say Hello to Classes | X | |
 | 53 | Extending Classes and using super() | X | |
 | 54 | Extending Arrays with Classes for Custom Collections | X | |
-| 55 | Introducing Generators |  | |
-| 56 | Using Generators for Ajax Flow Control |  | |
+| 55 | Introducing Generators | X | |
+| 56 | Using Generators for Ajax Flow Control | X | |
 | 57 | Looping Generators with for of | X | |
 | 58 | What are Proxies? | X | |
 | 59 | Another Proxy Example | X | |

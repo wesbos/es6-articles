@@ -1,0 +1,47 @@
+[00:00] [music]
+
+[00:02] Instructor: Let's take some time to learn all about generators in ES6.
+
+[00:05] Currently with functions in JavaScript, when you run a function, it runs top to bottom and that function is done. However, with a generator function, what we are essentially going to be making is a function that you can start and stop, or a function that you can pause for an indefinite amount of time, and a function that you can pass additional information to at a later point in time.
+
+[00:29] When we create a generator function, what you do is you put an asterisk after the keyword function. We'll look at the syntax for doing it with a method in a bit. 
+
+[00:39] Then, we learn a new keyword, that is called yield. The yield keyword is sort of like a return for now. If I were to return from a function, that would be it for the function. But if we yield from a function, what that will do is it will return that one item until the function is then called again.
+
+[01:02] I could yield Wes, and then I could yield Kate, and then I could yield Snickers. That function will need to be called three times in order for me to get all of that information. This is a generator function. The only thing that is different is that we have an asterisk here, and we yield values from it.
+
+[01:21] To use a generator function, what you need to do is first invoke this function and store that in a variable. I'm going to say, const people = listPeople. Let's take a look at it in the browser here. 
+
+[01:36] We have people. Did that give me Wes, Kate, and Snickers? No. That gives me this, which is a generator. It is currently suspended, which means it's not running, and there's really no other information about it on there.
+
+[01:51] Now, how do we get this information out of there? We call .next on the generator. We say, people .next. That returns to us -- this is kind of interesting -- it returns to us not Wes, but it returns to us an object. 
+
+[02:06] In that object we have the value, which you would expect, and then we have another property called done. That means is this generator done running? Well, it's not, because we've only run it once, and Wes is being returned.
+
+[02:18] You could probably imagine, I call people .next and that gives me value Kate, done false. Then we call it once more, and we get value Snickers, still done false. Call it once more, and you get done is true, and obviously, we don't get a value there.
+
+[02:34] You see how we can create these functions that offer up maybe multiple returns to us? Then when we want to use it, we simply just call .next on that generator. It will give us sort of the next thing in the line. I've hard-coded these values here, but those yields could be generated dynamically with you.
+
+[02:55] If you had some variables inside of here, maybe it would say, let i = 0The first time we'll yield i. Then we'll do i++. Then the next time we'll yield i again. Let's say, i++, and you could obviously do this in a loop as well. The third time we'll yield i.
+
+[03:17] Now every single time that I call it, I'm going to say, people .next, what that does is it creates a variable called i, it set to zero when I initialized it here and the first time we yield the variable i.
+
+[03:32] The reference to the variable i is scoped to this function right here, and that is kept. When I were to call people .next again, the variable i is still living inside of this function, because it is not yet done. I call it again and again and again. Finally, we hit done true, and it gets cleaned up inside of that.
+
+[03:53] The things to know, this is a generator function, it will keep its variables until it's finished, and you can yield multiple values from it.
+
+[04:01] Let's look at another example where we iterate through an array. Instead of just console.logging them or showing them all at once, we're going to use next, next, next to get through them. I've got an array of inventors here. I'm going to create a new generator function called, loop.
+
+[04:17] I'm going to say, function* loop, and that loop is going to take in an array. Inside of it, we need to do our looping. We would use, for const item of, we're going to use for of here, array. Or you can think of that as a const inventor of inventors. Then for each one, we are going to yield the item.
+
+[04:45] That's kind of interesting here, because we aren't giving ourselves three yields, we're simply just giving ourselves one yield. That's going to create one, two, three, four, five, six, seven yields for us when we loop. The generator is smart enough to know that when there are no more to loop through, the entire function will be done.
+
+[05:07] How do we actually call it? We have to create that generator. I'm going to say, const inventor gen = loop through the inventors. That's the array that we have right here.
+
+[05:20] You'll see that we don't have it anywhere in here. You don't actually see the inventors getting console.logged. Even if I console.log the inventors right here, do you expect to see the inventors log as soon as we create the generator? No. It actually doesn't show up until we do the first next.
+
+[05:38] We'll say, inventor gen, that's our generator there. If we want to call it, we call .next against it. The first time we see that huge array of all the inventors, but then we see this. The object, where is it done, no, and then the value is Albert Einstein. That's the first one there.
+
+[05:58] I could call inventor gen .next. That will give me the next one value, one little trick you can do is you can just tack on .value onto the end if you don't care about the done status, Galileo, Curie, Kepler, Copernicus -- I don't know how to say that -- and then we're done.
+
+[06:22] You see how we went through it. I could keep calling this until we're done, but what's really cool about that is it will just finish once it actually went through every single one. Again, we did a yield inside of here and a yield returned multiple values to us.
