@@ -1,0 +1,538 @@
+WEBVTT
+
+1
+00:00:02.370 --> 00:00:02.490
+ Instructor: One 
+
+2
+00:00:02.490 --> 00:00:03.950
+really cool thing about ESLint 
+
+3
+00:00:04.025 --> 00:00:05.190
+is that there is a fantastic 
+
+4
+00:00:05.260 --> 00:00:07.060
+community that has built great 
+
+5
+00:00:07.070 --> 00:00:09.420
+plugins for ESLint, and if you 
+
+6
+00:00:09.430 --> 00:00:10.470
+take a look at this awesome 
+
+7
+00:00:10.545 --> 00:00:12.780
+ESLint GitHub repo, you'll see 
+
+8
+00:00:12.850 --> 00:00:14.270
+that there is a listing of all 
+
+9
+00:00:14.280 --> 00:00:15.370
+kinds of different plugins that 
+
+10
+00:00:15.380 --> 00:00:17.070
+you can use depending on what 
+
+11
+00:00:17.080 --> 00:00:18.580
+type of JavaScript that you 
+
+12
+00:00:18.620 --> 00:00:19.590
+write every single day. 
+
+13
+00:00:19.930 --> 00:00:21.080
+Whether you're writing Angular 
+
+14
+00:00:21.090 --> 00:00:22.490
+or Backbone, or you need to 
+
+15
+00:00:22.500 --> 00:00:24.130
+specifically lint your Jasmine 
+
+16
+00:00:24.140 --> 00:00:26.250
+docs, every time you write stuff 
+
+17
+00:00:26.380 --> 00:00:27.400
+that is for a different 
+
+18
+00:00:27.680 --> 00:00:29.000
+framework, you have a little bit 
+
+19
+00:00:29.010 --> 00:00:30.570
+of different style rules, and 
+
+20
+00:00:30.790 --> 00:00:31.870
+chances are that someone has 
+
+21
+00:00:31.880 --> 00:00:33.400
+already built some sort of 
+
+22
+00:00:33.475 --> 00:00:35.340
+linting plugin for that specific 
+
+23
+00:00:35.900 --> 00:00:37.640
+framework. Now, something 
+
+24
+00:00:37.650 --> 00:00:39.890
+that I use plugins for are, I 
+
+25
+00:00:39.900 --> 00:00:41.670
+need to lint my JavaScript that 
+
+26
+00:00:41.680 --> 00:00:43.730
+is inside of script tags in HTML 
+
+27
+00:00:43.800 --> 00:00:45.260
+files, because that's often how 
+
+28
+00:00:45.270 --> 00:00:46.670
+I teach. It doesn't require 
+
+29
+00:00:46.970 --> 00:00:48.790
+extra JS files, and it doesn't 
+
+30
+00:00:48.800 --> 00:00:50.070
+require any extra tooling to get 
+
+31
+00:00:50.080 --> 00:00:52.380
+up and running. Second, I often 
+
+32
+00:00:52.430 --> 00:00:54.090
+will write JavaScript inside of 
+
+33
+00:00:54.100 --> 00:00:56.200
+markdown, which is very often 
+
+34
+00:00:56.210 --> 00:00:57.470
+the case when I'm writing docs 
+
+35
+00:00:57.480 --> 00:00:59.510
+or notes for a course. How do 
+
+36
+00:00:59.360 --> 00:01:00.880
+I lint code that as not inside 
+
+37
+00:01:00.890 --> 00:01:03.270
+of a .JS file? if you run ESLint 
+
+38
+00:01:03.510 --> 00:01:05.860
+code right through HTML, it's 
+
+39
+00:01:05.935 --> 00:01:06.950
+going to give you an error and 
+
+40
+00:01:06.960 --> 00:01:09.070
+say "This ESLint doesn't 
+
+41
+00:01:09.080 --> 00:01:11.010
+understand HTML." We need a 
+
+42
+00:01:11.020 --> 00:01:12.140
+plugin that's going to strip 
+
+43
+00:01:12.215 --> 00:01:13.360
+your JavaScript out of your 
+
+44
+00:01:13.370 --> 00:01:15.490
+script tags, lint it, and tell 
+
+45
+00:01:15.500 --> 00:01:17.100
+you what's wrong with it. Same 
+
+46
+00:01:17.110 --> 00:01:19.120
+goes for markdown. Here we go, 
+
+47
+00:01:19.130 --> 00:01:20.500
+let's take a look at how to use 
+
+48
+00:01:20.510 --> 00:01:22.190
+those two specific plugins here. 
+
+49
+00:01:22.560 --> 00:01:26.030
+I going to go into here and find 
+
+50
+00:01:26.030 --> 00:01:27.930
+the HTML. Looks like the HTML is 
+
+51
+00:01:27.930 --> 00:01:30.120
+actually not in here, so I'm 
+
+52
+00:01:31.690 --> 00:01:33.380
+going to say ESLint HTML. Here 
+
+53
+00:01:33.455 --> 00:01:35.780
+we go eslint-plugin-html. The 
+
+54
+00:01:35.855 --> 00:01:39.740
+way that it works is you open up 
+
+55
+00:01:39.740 --> 00:01:41.730
+your ESLint and you have a 
+
+56
+00:01:41.740 --> 00:01:44.290
+property called plugins, and 
+
+57
+00:01:44.300 --> 00:01:46.480
+that itself is an array, and you 
+
+58
+00:01:46.480 --> 00:01:48.370
+simply pass the name of all of 
+
+59
+00:01:48.380 --> 00:01:49.600
+your plugins that you want. 
+
+60
+00:01:50.070 --> 00:01:51.830
+I've already went ahead and done 
+
+61
+00:01:51.905 --> 00:01:54.400
+npm install eslint-plugin-html-g. 
+
+62
+00:01:54.500 --> 00:01:58.600
+I installed it globally on my 
+
+63
+00:01:58.610 --> 00:02:00.310
+system, and now any time I have 
+
+64
+00:02:00.320 --> 00:02:02.540
+an ESLint file, I simply just 
+
+65
+00:02:02.150 --> 00:02:04.950
+say I have the HTML file, give 
+
+66
+00:02:04.960 --> 00:02:07.820
+that a save. Now if I run my 
+
+67
+00:02:07.895 --> 00:02:13.760
+ESLint against an HTML file, it 
+
+68
+00:02:13.760 --> 00:02:14.670
+actually tells me. It 
+
+69
+00:02:14.680 --> 00:02:17.150
+doesn't trip up on any of my 
+
+70
+00:02:17.160 --> 00:02:19.340
+actual HTML, but it's going to 
+
+71
+00:02:18.770 --> 00:02:21.260
+tell me things like age is never 
+
+72
+00:02:21.270 --> 00:02:23.380
+reassigned, use const instead. 
+
+73
+00:02:23.100 --> 00:02:26.150
+Good. And unexpected alert. I 
+
+74
+00:02:26.160 --> 00:02:27.420
+shouldn't be using alert. OK, 
+
+75
+00:02:27.430 --> 00:02:29.300
+maybe I should have console.log(
+
+76
+00:02:29.310 --> 00:02:31.810
+age) or taken that out entirely 
+
+77
+00:02:31.810 --> 00:02:32.820
+because it was for debugging 
+
+78
+00:02:32.830 --> 00:02:34.210
+reasons. Now I have fixed both 
+
+79
+00:02:34.220 --> 00:02:36.330
+of those, no errors in that one. 
+
+80
+00:02:36.700 --> 00:02:38.540
+Let's do the same for markdown. 
+
+81
+00:02:38.615 --> 00:02:40.140
+I'm going to go back to this 
+
+82
+00:02:40.150 --> 00:02:41.320
+list here. I'm going to go to 
+
+83
+00:02:41.330 --> 00:02:43.160
+the markdown linting for 
+
+84
+00:02:43.170 --> 00:02:44.720
+JavaScript and markdown, how do 
+
+85
+00:02:44.730 --> 00:02:46.250
+you install it, npm install 
+
+86
+00:02:46.325 --> 00:02:49.560
+eslint-plugin-markdown. Again, 
+
+87
+00:02:49.635 --> 00:02:50.950
+I'm going to that globally as I 
+
+88
+00:02:50.950 --> 00:02:52.130
+want it available on all of my 
+
+89
+00:02:52.130 --> 00:02:54.970
+projects SG eslint-plugin-
+
+90
+00:02:54.970 --> 00:02:57.300
+markdown. Finish installing 
+
+91
+00:02:57.300 --> 00:02:58.740
+after about a minute or so. 
+
+92
+00:02:59.220 --> 00:03:00.340
+How does it work? Well it looks 
+
+93
+00:03:00.340 --> 00:03:02.200
+like you simply add markdown to 
+
+94
+00:03:02.210 --> 00:03:04.390
+your plugins are right here, and 
+
+95
+00:03:04.390 --> 00:03:06.390
+it looks like I would be able to 
+
+96
+00:03:06.880 --> 00:03:08.580
+say ESLint...I could say 
+
+97
+00:03:08.580 --> 00:03:10.060
+something like *md and that 
+
+98
+00:03:10.410 --> 00:03:11.640
+would give me all of my 
+
+99
+00:03:11.715 --> 00:03:13.240
+markdowns. Here we go, 
+
+100
+00:03:13.315 --> 00:03:15.240
+unexpected var. We'll say const. 
+
+101
+00:03:17.660 --> 00:03:20.270
+X is defined but never used. I 
+
+102
+00:03:20.270 --> 00:03:22.320
+do something like console.log(x) 
+
+103
+00:03:22.590 --> 00:03:23.710
+so that I make sure I actually 
+
+104
+00:03:23.720 --> 00:03:27.130
+use it. Now rerun it and we're 
+
+105
+00:03:27.140 --> 00:03:28.280
+off and running. By the way 
+
+106
+00:03:28.290 --> 00:03:30.520
+this is glob pattern if you have 
+
+107
+00:03:29.720 --> 00:03:32.440
+ever used gulp-matching or any 
+
+108
+00:03:32.780 --> 00:03:34.050
+other sort of matching, you can 
+
+109
+00:03:34.060 --> 00:03:37.330
+pass it a list of *.something. 
+
+110
+00:03:37.340 --> 00:03:39.470
+You can also pass it --ext. If 
+
+111
+00:03:39.690 --> 00:03:41.240
+you wanted to know all of the 
+
+112
+00:03:41.250 --> 00:03:42.980
+options for ESLint, simply type 
+
+113
+00:03:43.055 --> 00:03:44.860
+eslint--help and it will give 
+
+114
+00:03:44.870 --> 00:03:45.940
+you a list of all of the 
+
+115
+00:03:45.950 --> 00:03:47.580
+possible ways where you can 
+
+116
+00:03:47.650 --> 00:03:48.700
+search for different kinds of 
+
+117
+00:03:48.890 --> 00:03:50.330
+extensions, and pass it a 
+
+118
+00:03:50.530 --> 00:03:52.700
+specific ESLint file. Those 
+
+119
+00:03:52.710 --> 00:03:53.890
+are plugins. Take a look through 
+
+120
+00:03:53.900 --> 00:03:55.640
+it and see which plugins 
+
+121
+00:03:55.650 --> 00:03:57.220
+probably work best with your 
+
+122
+00:03:57.230 --> 00:03:58.830
+workflow, but those are the two 
+
+123
+00:03:58.840 --> 00:04:00.890
+that you probably will run into 
+
+124
+00:04:00.900 --> 00:04:02.190
+at some point, and they're very 
+
+125
+00:04:02.200 --> 00:04:03.690
+helpful to use. One little 
+
+126
+00:04:03.700 --> 00:04:05.400
+thing I should mention that is 
+
+127
+00:04:05.410 --> 00:04:06.600
+currently, at the time of 
+
+128
+00:04:06.610 --> 00:04:09.310
+recording, you cannot use --fix 
+
+129
+00:04:09.670 --> 00:04:13.120
+on HTML or markdown files. --fix 
+
+130
+00:04:13.200 --> 00:04:15.270
+only works on pure .JS files. 
+
+131
+00:04:15.690 --> 00:04:16.630
+Hopefully that will get fixed 
+
+132
+00:04:16.640 --> 00:04:18.180
+soon, but don't spend any time 
+
+133
+00:04:18.190 --> 00:04:19.160
+trying to get it to work because 
+
+134
+00:04:19.170 --> 00:04:19.900
+it's not possible.
+

@@ -1,0 +1,35 @@
+[00:00] [music]
+
+[00:02] Instructor: Proxies allow you to overwrite the default behavior for many of an object's default operations. What I mean by that is, an object you can get things, you can set things, you can check if it has an item, you can delete a property. 
+
+[00:14] There's a whole bunch of methods that come along with a default object. What if you wanted to overwrite these? We've looked previously at custom setters and getters, which are actually not part of the ES6, but what if you wanted to overwrite absolutely everything, or what if you wanted to overwrite some of the other properties in an object? That's what proxies do. They allow you to overwrite the default behavior of an operation on an object. 
+
+[00:42] To explain that, let's take a look here. Let's say we have a person that is equal to, let's say name is Wes, and age is 100. When I get the name, let's say I wanted to return something other than Wes. What we can do is create a proxy for that object. We'll say const person proxy = new proxy. 
+
+[01:08] Now, a proxy it takes two things. First it takes a target, which is, what object would you like to proxy? We'll give it the person. Then the second is something called the handler, and the handler is where you specify all of the operations which you wish to rewrite. That is an object inside of there.
+
+[01:28] I'm going to bring you over to the MDN docs for Proxy right here. When you want to overwrite one of the default operation, those things are called traps. Essentially what it does is it sits between you and the object. 
+
+[01:42] If I was to say, person proxy.name = Wesley, what I'm doing there is I'm setting the property of name on this person proxy here. What I want to do is trap that from happening. I sort of want to go in the middle and implement my own logic for when I want to set it. 
+
+[02:05] Here is all the methods that you can actually trap each other. This thing is called a handler, and each thing inside of the handler is called a trap. I can trap a get, a set, a delete, and apply a contract.
+
+[02:20] There's a whole bunch of them that we can go through, and you can look through here, but let's do the very basics of a .get. In here, what I'm going to do is define a get. This is just a regular object with methods on it, so I can use our shorthand here. When you get it, you get the target, and you get the name that the person is requesting, and from that, we can just do a console.log.
+
+[02:44] Someone is asking for target and name. Let's take a look at what that does here, person proxy that's R. You can think of this just as a regular old object, and then I call .name on it. We'll see, someone is asking for, it gives me the entire object as well as the name or the key. Sometimes people will call it, of it. 
+
+[03:12] What could we do there? We could just return nah, and maybe some fun emojis. Let's see what we got here. Germany. Now when I ask for person proxy.name, we [laughs] get "nah" back, right? We've sort of jumped in the middle of that get, and hijacked it, and returned our own.
+
+[03:34] Obviously, that's not what you want to do, but you can modify, you can check if things are meeting your standards, or you can do something like return target name. That would just bring us what we're actually looking for. Console.log out. Wesley. But you could do something like .toUpperCase, assuming that you're always going to have a string, and then I return it. It always returns me upper case. 
+
+[04:01] That's really helpful for a variety of reasons. We're going to look at a whole bunch of examples, but let's quickly do another example of when you might want to use another trap, let's say a set. Something that might happen where you are setting, and there's a whole bunch of white space in the string that you're setting. 
+
+[04:18] You have a target and a name. Then we could say if...Oh, and then we also get passed the value that the person is sending it. If the type of value is equal to a string, then what we want to do is say target name = value.trim. 
+
+[04:45] Now if I go to this person proxy, and I try to set something new, like cool = oh yeah, and a whole bunch of white space in there, it shows us that, but if we take a look at our person proxy, you'll see that we now have cool is oh yeah. It's been trimmed as we then brought it in.
+
+[05:12] We can also store like toUpperCase, and then maybe we can concatenate on some scissors because it was trimmed. Just do something silly like that. Person proxy.Wes = I love Wes, lots of space on the end there. Now if we take a look at person proxy.Wes, it should give us trimmed, upper cased, and tacked on with an actual scissors. 
+
+[05:45] Again, with a proxy you can jump in-between and overwrite the default operations. You notice that I'm not using any special methods, I'm not using any special functions here to set those things. I'm simply just using the object as I normally would. Then the custom logic, which is our handler, and the traps, will take over. 
+
+[06:07] If you do not specify one of these traps that we have here, obviously there's a whole bunch of them, the default for the object will take over.

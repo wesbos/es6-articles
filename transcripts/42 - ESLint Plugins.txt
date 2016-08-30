@@ -1,0 +1,29 @@
+[00:00] [music]
+
+[00:02] Instructor: One really cool thing about ESLint is that there is a fantastic community that has built great plugins for ESLint, and if you take a look at this awesome ESLint GitHub repo, you'll see that there is a listing of all kinds of different plugins that you can use depending on what type of JavaScript that you write every single day.
+
+[00:19] Whether you're writing Angular or Backbone, or you need to specifically lint your Jasmine docs, every time you write stuff that is for a different framework, you have a little bit of different style rules, and chances are that someone has already built some sort of linting plugin for that specific framework.
+
+[00:36] Now, something that I use plugins for are, I need to lint my JavaScript that is inside of script tags in HTML files, because that's often how I teach. It doesn't require extra JS files, and it doesn't require any extra tooling to get up and running. Second, I often will write JavaScript inside of markdown, which is very often the case when I'm writing docs or notes for a course.
+
+[00:58] How do I lint code that as not inside of a .JS file? if you run ESLint code right through HTML, it's going to give you an error and say "This ESLint doesn't understand HTML." We need a plugin that's going to strip your JavaScript out of your script tags, lint it, and tell you what's wrong with it. Same goes for markdown.
+
+[01:18] Here we go, let's take a look at how to use those two specific plugins here. I going to go into here and find the HTML. Looks like the HTML is actually not in here, so I'm going to say ESLint HTML. Here we go eslint-plugin-html. The way that it works is you open up your ESLint and you have a property called plugins, and that itself is an array, and you simply pass the name of all of your plugins that you want.
+
+[01:50] I've already went ahead and done npm install eslint-plugin-html-g. I installed it globally on my system, and now any time I have an ESLint file, I simply just say I have the HTML file, give that a save. Now if I run my ESLint against an HTML file, it actually tells me. 
+
+[02:14] It doesn't trip up on any of my actual HTML, but it's going to tell me things like age is never reassigned, use const instead. Good. And unexpected alert. I shouldn't be using alert. OK, maybe I should have console.log(age) or taken that out entirely because it was for debugging reasons. Now I have fixed both of those, no errors in that one. 
+
+[02:36] Let's do the same for markdown. I'm going to go back to this list here. I'm going to go to the markdown linting for JavaScript and markdown, how do you install it, npm install eslint-plugin-markdown. Again, I'm going to that globally as I want it available on all of my projects SG eslint-plugin-markdown.
+
+[02:55] Finish installing after about a minute or so. 
+
+[02:59] How does it work? Well it looks like you simply add markdown to your plugins are right here, and it looks like I would be able to say ESLint...I could say something like *md and that would give me all of my markdowns. 
+
+[03:12] Here we go, unexpected var. We'll say const. X is defined but never used. I do something like console.log(x) so that I make sure I actually use it. Now rerun it and we're off and running.
+
+[03:27] By the way this is glob pattern if you have ever used gulp-matching or any other sort of matching, you can pass it a list of *.something. You can also pass it --ext. If you wanted to know all of the options for ESLint, simply type eslint--help and it will give you a list of all of the possible ways where you can search for different kinds of extensions, and pass it a specific ESLint file.
+
+[03:52] Those are plugins. Take a look through it and see which plugins probably work best with your workflow, but those are the two that you probably will run into at some point, and they're very helpful to use. 
+
+[04:03] One little thing I should mention that is currently, at the time of recording, you cannot use --fix on HTML or markdown files. --fix only works on pure .JS files. Hopefully that will get fixed soon, but don't spend any time trying to get it to work because it's not possible.

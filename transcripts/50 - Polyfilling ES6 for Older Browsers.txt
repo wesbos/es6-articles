@@ -1,0 +1,47 @@
+[00:00] [music]
+
+[00:02] Instructor: Just learned that Babel takes our ES6 code and compiles it down to ES5 code, but that really only gets us about half the way there. Babel only works on syntax. 
+
+[00:11] What do I mean by that? It only works on the new syntax, like an arrow function, or using template strings, or any of the const stuff that we've been using. Those are all syntax. That's just what our code looks like and how it acts. 
+
+[00:26] The other side of things is there is a whole bunch of new methods that we've learned about, where those things aren't included in Babel. 
+
+[00:33] What am I talking about? Well, we've got here Array.from(). That is a new method and it's part of ES6. We got that added to arrays and we've looked at a whole bunch of other methods that are new. However, Babel doesn't convert the Array.from() to something else. It just assumes that you have .from available on all of your arrays.
+
+[00:55] What you need to do in a situation like this is use what's called a polyfill. A polyfill is very simple. Essentially it says, if the browser does not have it, we must recreate it with regular JavaScript. 
+
+[01:09] What I like to do is, whenever I'm looking at a method, MDN will always have a polyfill for it inside of the documentation. What it says is if there is no Array.from() method available, then they just instantiate Array.from(), or they put it on the prototype if it's something that gets inherited by every single array.
+
+[01:33] Array.from(), and you can take a look that someone really smart has figured out how to just re-implement Array.from() without actually having it in the browser. What that allows us to do is back port it to older browsers, and that's really, really nice. 
+
+[01:49] It's sort of a pain to say, "What browsers do I support? Do I need to use this method or do I need to polyfill it?" Rather than doing that, you can just implement a polyfill that will just figure it out all for you.
+
+[02:04] There's two major polyfills that I like to tell people to use. The first one is using the Babel polyfill. This uses something called core-js which has a polyfill for every single ES6 feature. All you need to do, if you're using modules, you just import Babel-polyfill. 
+
+[02:25] You put that at the top of your initial file, and what that's going to do is include a whole bunch of code which will polyfill all of the older browsers that you don't have. 
+
+[02:35] That's great, but if you aren't using modules, or if you really don't need to polyfill all that much, it can be a little bit of code overhead that you don't necessarily need, so there's this other really great service called polyfill.io. Let me go over to the documentation right here.
+
+[02:54] This is really cool, because what it does is, you just include it with a script tag on your page and then it detects what browser is doing the requesting. You don't decide, "All right, who's visiting my website and what do I need to polyfill?" Polyfill.io says, "All right, who's visiting and what do they need polyfilled?" 
+
+[03:15] If someone's visiting on IE9, they're going to polyfill a whole bunch of stuff. If someone's visiting on latest Chrome, they're probably not going to polyfill all that much. It's pretty cool. 
+
+[03:24] If we actually go to polyfill.io and copy the script tag here, put in your URL bar and take off the .min.js. What this is, is a dynamically-generated JavaScript file for my specific user agent, for my specific browser. 
+
+[03:43] What is it doing here? It's actually really not polyfilling all that much. It looks like it's just polyfilling a bunch of new properties, like .after, append, before, prepend, and replaceWith. These are all new methods that are coming to our elements.
+
+[03:59] If I were to fake this, if I were to fake IE9...Let me open up my Chrome DevTools here. If I go to this little kabob, Network Conditions...It's hidden deep inside of Chrome DevTools, but we want to change our user agent to something like Internet Explorer 9. 
+
+[04:18] Watch me refresh this now. Whoa, look what it's doing. It detected that we are on IE9 -- or faking it -- and it's polyfilling, look at, Array.from(). That's the one we were just looking at.
+
+[04:31] If you read this code here, let's just search for Array.from(). It will show us the code here, and if there is no Array.from() it's going to polyfill that for us. It's going to polyfill Array.of(), Array.fill(), all of the element stuff, all of the string .endsWith(), .startsWith(), .includes(). We went over all these, and now you can use them in your older ones.
+
+[05:00] What I would recommend is go ahead and just stick this sucker in an HTML file. I'm going to go into to my system.js file, and just give yourself a script tag and pop it in there, and you don't have to worry about anything evermore.
+
+[05:17] If you are worried about multiple requests where you have to polyfill it and then load your JavaScript, then I might look at using the Babel polyfill, where you just include it all into one bundle. It's totally up to you.
+
+[05:28] One other thing with Polyfill.io, you can also tailor your response so if you know you're only using three or four ES6 methods and you don't want to polyfill the entire ES6 feature set for your IE9 visitors, you can go ahead and tailor your own. 
+
+[05:43] There's a whole bunch of options that you can use here to specifically request some of the features that you want. You can take a look here, and you can go to the browser and the features and look at every possible thing that you want. 
+
+[05:56] Polyfilling, along with transpiling with Babel, is going to give you very good coverage of all of your ES6 features.

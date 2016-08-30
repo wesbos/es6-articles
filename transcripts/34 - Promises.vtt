@@ -1,0 +1,690 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ Instructor: In the 
+
+2
+00:00:00.000 --> 00:00:00.000
+next couple of videos, we're 
+
+3
+00:00:03.570 --> 00:00:04.530
+going to learn all about 
+
+4
+00:00:04.700 --> 00:00:06.450
+promises. In order to get the 
+
+5
+00:00:06.525 --> 00:00:07.440
+most out of these lessons, you 
+
+6
+00:00:07.450 --> 00:00:08.580
+need to know two things. First 
+
+7
+00:00:08.590 --> 00:00:10.360
+of all, promises are often used 
+
+8
+00:00:10.400 --> 00:00:12.620
+when you're fetching a JSON API 
+
+9
+00:00:12.630 --> 00:00:14.070
+and doing some AJAX work. 
+
+10
+00:00:14.600 --> 00:00:16.760
+Here I've got my wesbos.com JSON 
+
+11
+00:00:17.280 --> 00:00:18.710
+API, and I'm pulling in a list 
+
+12
+00:00:18.720 --> 00:00:20.880
+of blog posts. Second, I'm going 
+
+13
+00:00:20.890 --> 00:00:22.390
+to be using a thing called Fetch 
+
+14
+00:00:22.400 --> 00:00:24.390
+to be able to fetch in this JSON 
+
+15
+00:00:24.465 --> 00:00:26.360
+API. That's not a library or 
+
+16
+00:00:25.970 --> 00:00:26.960
+anything, it's a thing that's 
+
+17
+00:00:26.970 --> 00:00:29.320
+built right into the browser. It 
+
+18
+00:00:29.330 --> 00:00:31.120
+also returns a promise. If 
+
+19
+00:00:31.120 --> 00:00:32.260
+you haven't heard of Fetch 
+
+20
+00:00:32.270 --> 00:00:33.670
+before, it's very similar to 
+
+21
+00:00:33.680 --> 00:00:35.640
+dollar.getJSON if you've used 
+
+22
+00:00:35.715 --> 00:00:38.460
+jquery before, or dollar.AJAX, 
+
+23
+00:00:38.470 --> 00:00:39.800
+or any of these other AJAX 
+
+24
+00:00:39.810 --> 00:00:41.980
+libraries. Except, rather than 
+
+25
+00:00:41.700 --> 00:00:42.660
+having to load an external 
+
+26
+00:00:42.670 --> 00:00:43.800
+library, it's going to be built 
+
+27
+00:00:43.860 --> 00:00:45.010
+right into the browser. 
+
+28
+00:00:45.590 --> 00:00:47.320
+Knowing that, let's jump into 
+
+29
+00:00:47.330 --> 00:00:50.070
+some examples of promises. What 
+
+30
+00:00:50.080 --> 00:00:51.990
+is a promise? A promise is 
+
+31
+00:00:52.100 --> 00:00:53.360
+something that will happen 
+
+32
+00:00:53.370 --> 00:00:55.880
+between now and the end of time. 
+
+33
+00:00:55.890 --> 00:00:57.530
+A really nice way to think of 
+
+34
+00:00:57.540 --> 00:00:59.950
+that is something that will 
+
+35
+00:00:59.960 --> 00:01:01.750
+happen in the future, but 
+
+36
+00:01:01.760 --> 00:01:04.040
+probably not immediately. In 
+
+37
+00:01:04.115 --> 00:01:05.540
+order to understand this, we 
+
+38
+00:01:05.550 --> 00:01:06.460
+need to be reminded that 
+
+39
+00:01:06.470 --> 00:01:08.180
+JavaScript is almost entirely 
+
+40
+00:01:08.190 --> 00:01:09.710
+asynchronous, which means that 
+
+41
+00:01:10.420 --> 00:01:11.440
+if we take some code here...
+
+42
+00:01:11.450 --> 00:01:12.880
+Let's take a look at the example. 
+
+43
+00:01:13.840 --> 00:01:15.050
+I'm console.logging, going to 
+
+44
+00:01:15.050 --> 00:01:17.050
+fetch the latest posts. I am 
+
+45
+00:01:17.060 --> 00:01:19.050
+going to fetch the post from my 
+
+46
+00:01:19.180 --> 00:01:21.070
+blog right here. I'm going to 
+
+47
+00:01:21.070 --> 00:01:22.780
+attempt to store those posts in 
+
+48
+00:01:22.790 --> 00:01:24.250
+a post variable console.log done, 
+
+49
+00:01:24.260 --> 00:01:25.380
+and console.log the posts. 
+
+50
+00:01:25.810 --> 00:01:27.360
+What happens when we refresh 
+
+51
+00:01:27.370 --> 00:01:30.730
+this? We see going to fetch, 
+
+52
+00:01:30.790 --> 00:01:33.120
+done immediately. How can we see 
+
+53
+00:01:33.130 --> 00:01:35.180
+both of these immediately? Then, 
+
+54
+00:01:35.190 --> 00:01:37.370
+if we console.log the posts, we 
+
+55
+00:01:37.380 --> 00:01:39.330
+don't actually see the actual 
+
+56
+00:01:39.450 --> 00:01:41.700
+data inside of it. That's 
+
+57
+00:01:41.710 --> 00:01:43.530
+really important, because this 
+
+58
+00:01:43.530 --> 00:01:46.500
+right here, Fetch, it queues up 
+
+59
+00:01:46.510 --> 00:01:48.520
+the search. It goes over to 
+
+60
+00:01:48.595 --> 00:01:49.700
+wesbos.com and tries to fetch 
+
+61
+00:01:49.710 --> 00:01:51.500
+the posts immediately, but it 
+
+62
+00:01:51.510 --> 00:01:53.090
+does not just store them in your 
+
+63
+00:01:53.100 --> 00:01:54.730
+post variable. That might be 
+
+64
+00:01:54.740 --> 00:01:55.750
+different if you're coming from 
+
+65
+00:01:55.760 --> 00:01:57.480
+another language like PHP, where 
+
+66
+00:01:57.680 --> 00:01:59.140
+you will just stop everything 
+
+67
+00:01:59.180 --> 00:02:00.550
+from running. This will just 
+
+68
+00:02:00.600 --> 00:02:02.540
+queue it up and put inside of 
+
+69
+00:02:02.550 --> 00:02:04.610
+posts, not the post, but it puts 
+
+70
+00:02:04.930 --> 00:02:06.330
+what's called a promise. Which 
+
+71
+00:02:06.340 --> 00:02:07.880
+means like, "Hey, I don't have 
+
+72
+00:02:07.890 --> 00:02:10.570
+the data from it just yet, but 
+
+73
+00:02:10.800 --> 00:02:13.390
+here's a little IOU the posts 
+
+74
+00:02:13.430 --> 00:02:16.120
+from Wes's blog. When they do 
+
+75
+00:02:16.130 --> 00:02:18.940
+come back, I'll be sure to let 
+
+76
+00:02:18.950 --> 00:02:22.920
+you know about that." Let me 
+
+77
+00:02:22.930 --> 00:02:24.430
+get rid these console.logs here. 
+
+78
+00:02:24.505 --> 00:02:26.920
+I'm going to rename this post 
+
+79
+00:02:26.930 --> 00:02:31.210
+variable to posts promise. This 
+
+80
+00:02:31.210 --> 00:02:33.360
+promise, we can then listen to 
+
+81
+00:02:33.370 --> 00:02:36.000
+it. We can say, post promise.
+
+82
+00:02:36.620 --> 00:02:41.390
+then. We're sort of in normal, 
+
+83
+00:02:41.400 --> 00:02:43.270
+where we have a link, and we'd 
+
+84
+00:02:43.280 --> 00:02:46.390
+say onClick, and only when we 
+
+85
+00:02:46.400 --> 00:02:49.140
+click does the code here get run. 
+
+86
+00:02:49.215 --> 00:02:50.130
+We'll be able to do like, alert, 
+
+87
+00:02:50.140 --> 00:02:52.710
+hey. That's what's called a 
+
+88
+00:02:52.785 --> 00:02:53.970
+callback, and that callback will 
+
+89
+00:02:53.970 --> 00:02:57.710
+run only when someone clicks it. 
+
+90
+00:02:57.980 --> 00:02:59.920
+It's the same thing here, where 
+
+91
+00:02:59.930 --> 00:03:02.240
+we have a then function that 
+
+92
+00:03:02.250 --> 00:03:04.150
+will only run when the data 
+
+93
+00:03:04.260 --> 00:03:06.580
+comes back. The then function 
+
+94
+00:03:06.590 --> 00:03:09.470
+will give us the data. We can 
+
+95
+00:03:09.470 --> 00:03:11.480
+run a little arrow function here, 
+
+96
+00:03:11.510 --> 00:03:12.410
+and I'm just going to console.
+
+97
+00:03:12.420 --> 00:03:14.570
+log the data to see what we've 
+
+98
+00:03:13.730 --> 00:03:15.340
+got. Open this up, there we 
+
+99
+00:03:15.340 --> 00:03:16.320
+go. It looks like we have a 
+
+100
+00:03:16.330 --> 00:03:18.150
+response here. Because when the 
+
+101
+00:03:18.160 --> 00:03:19.250
+data comes back...let me save it 
+
+102
+00:03:19.260 --> 00:03:21.260
+again already. One, two, and 
+
+103
+00:03:21.270 --> 00:03:22.230
+then after two seconds it 
+
+104
+00:03:22.240 --> 00:03:24.920
+actually comes back. Then you 
+
+105
+00:03:24.930 --> 00:03:26.810
+see here, this looks like some 
+
+106
+00:03:26.820 --> 00:03:28.370
+good data that I've got. You've 
+
+107
+00:03:28.445 --> 00:03:30.380
+got some headers and the body. 
+
+108
+00:03:30.380 --> 00:03:31.550
+That's probably what we want. 
+
+109
+00:03:31.625 --> 00:03:34.990
+Where are my posts? Well, it 
+
+110
+00:03:35.000 --> 00:03:36.930
+does bring back the actual raw 
+
+111
+00:03:36.940 --> 00:03:38.840
+data, but it doesn't yet know 
+
+112
+00:03:38.850 --> 00:03:40.980
+that we're expecting JSON, 
+
+113
+00:03:41.055 --> 00:03:42.180
+because you could fetch any type 
+
+114
+00:03:42.190 --> 00:03:43.940
+of data, not just JSON. What 
+
+115
+00:03:44.070 --> 00:03:45.460
+we can do from there is just, we 
+
+116
+00:03:45.470 --> 00:03:48.440
+return data.JSON. Or you're 
+
+117
+00:03:48.440 --> 00:03:50.270
+probably looking at this, we 
+
+118
+00:03:50.280 --> 00:03:52.010
+could probably just do an 
+
+119
+00:03:52.120 --> 00:03:53.870
+implicit return like the first 
+
+120
+00:03:53.880 --> 00:03:56.270
+videos, which is data.JSON. You 
+
+121
+00:03:56.270 --> 00:03:58.440
+can attach another .then onto 
+
+122
+00:03:58.500 --> 00:04:01.160
+that. Let's see what that data 
+
+123
+00:04:01.170 --> 00:04:07.120
+gives us, .log data. One, 
+
+124
+00:04:07.120 --> 00:04:08.620
+two, OK. That took a second 
+
+125
+00:04:08.630 --> 00:04:11.100
+there. Give it another save, and 
+
+126
+00:04:11.110 --> 00:04:12.540
+bam. They show up after two 
+
+127
+00:04:12.550 --> 00:04:14.710
+seconds. Open it up, and there 
+
+128
+00:04:14.720 --> 00:04:16.760
+is the actual data that comes 
+
+129
+00:04:16.820 --> 00:04:19.570
+back from our blog. You see 
+
+130
+00:04:19.580 --> 00:04:21.580
+there's the content, there's the 
+
+131
+00:04:21.590 --> 00:04:23.430
+excerpt, "super excited to 
+
+132
+00:04:23.430 --> 00:04:24.680
+announce," etc., etc. We 
+
+133
+00:04:24.720 --> 00:04:26.840
+have the good data here. Now, a 
+
+134
+00:04:26.840 --> 00:04:27.940
+couple of things we can do here 
+
+135
+00:04:27.950 --> 00:04:29.790
+is, probably you want to format 
+
+136
+00:04:29.800 --> 00:04:31.000
+it a little bit, something like 
+
+137
+00:04:31.010 --> 00:04:34.220
+this, where you can chain .thens 
+
+138
+00:04:34.295 --> 00:04:35.990
+together. Often people will put 
+
+139
+00:04:36.470 --> 00:04:37.920
+them on their own line, just for 
+
+140
+00:04:37.995 --> 00:04:40.280
+readability's sake. Second of 
+
+141
+00:04:40.290 --> 00:04:42.560
+all, there is another thing that 
+
+142
+00:04:42.570 --> 00:04:43.990
+we need to listen to, and that 
+
+143
+00:04:44.000 --> 00:04:45.870
+is what's called a catch. The 
+
+144
+00:04:46.760 --> 00:04:49.690
+then will only fire when the 
+
+145
+00:04:49.700 --> 00:04:51.850
+promise successfully comes back, 
+
+146
+00:04:52.040 --> 00:04:54.420
+but what if there is an error 
+
+147
+00:04:54.460 --> 00:04:55.660
+with the data that comes back? 
+
+148
+00:04:55.670 --> 00:04:57.000
+That's where the catch actually 
+
+149
+00:04:57.010 --> 00:04:58.440
+runs. Generally, you say .
+
+150
+00:04:58.450 --> 00:05:00.000
+then, .then. That's all of your 
+
+151
+00:05:00.075 --> 00:05:01.420
+thens that you need. It might be 
+
+152
+00:05:01.430 --> 00:05:03.150
+one, it might be four. Then we 
+
+153
+00:05:03.160 --> 00:05:04.670
+have a catch on the end that 
+
+154
+00:05:04.680 --> 00:05:06.120
+will just catch any errors that 
+
+155
+00:05:06.195 --> 00:05:08.830
+happen anywhere along the way. 
+
+156
+00:05:08.830 --> 00:05:10.870
+That's going to give us an error 
+
+157
+00:05:10.880 --> 00:05:13.210
+here, console.error. We can 
+
+158
+00:05:13.240 --> 00:05:15.060
+console.log that actual error. 
+
+159
+00:05:15.135 --> 00:05:16.850
+Let's see what we've got here. 
+
+160
+00:05:17.400 --> 00:05:18.810
+Now it's working, but if I were 
+
+161
+00:05:18.820 --> 00:05:20.810
+to break this like, doJASON. I 
+
+162
+00:05:20.885 --> 00:05:23.710
+don't know how to spell it. 
+
+163
+00:05:26.370 --> 00:05:27.900
+There we go. We've got our error 
+
+164
+00:05:27.910 --> 00:05:28.940
+here. There's some other errors 
+
+165
+00:05:28.950 --> 00:05:29.930
+that happened, but this is the 
+
+166
+00:05:29.940 --> 00:05:31.730
+one that actually gets thrown by 
+
+167
+00:05:31.740 --> 00:05:33.590
+this catch block here. Type 
+
+168
+00:05:33.600 --> 00:05:35.330
+error failed to actually do the 
+
+169
+00:05:35.340 --> 00:05:37.470
+fetching. That is Fetch at a 
+
+170
+00:05:37.480 --> 00:05:39.720
+very high level. Let's dive into 
+
+171
+00:05:39.730 --> 00:05:41.270
+it a little bit deeper, and see 
+
+172
+00:05:41.280 --> 00:05:42.970
+how we can create our own.
+

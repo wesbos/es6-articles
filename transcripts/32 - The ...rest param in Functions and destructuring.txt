@@ -1,0 +1,39 @@
+[00:00] [music]
+
+[00:02] Instructor: Whenever you see these three little dots, it's not just a spread. It could also be what's called a rest param. Even though it looks to be the exact same thing, it's actually the exact opposite thing. Let's think about that for a second.
+
+[00:14] If the ...spread param takes one thing, which is an array, and unpacks it into multiple items, or takes a string and unpacks it into multiple items of an array, the rest param does the exact opposite. It takes multiple things and packs it into a single array. Let's take a look at an example here.
+
+[00:36] There's two places where you'll use a rest param. That is first in a function, and second in a destructuring situation. Let's say we have a function here called convert currency. 
+
+[00:49] That function is going to take two things. It's going to take a rate, and then it's also going to take a unknown amount of currency. Maybe it would be amount one, amount two, amount three, amount four, etc., etc. Here we don't really know how many the person is going to pass. 
+
+[01:10] Now you might be saying, "That's fine, just don't do it all and use the arguments object." The problem here is that we actually want the first thing to be the rate, and then the rest of them to be the amounts that the person would like to convert. Let's see how we would run it here. 
+
+[01:27] We say convert currency, and we want to convert at $1.54 per dollar. Then we want to pass a whole bunch of dollar values that we have. Maybe we have $10, maybe we have $23, maybe we have $52, maybe a $1, and then another $56. Those amounts are being passed, and there's no real good way for us to do that, until now that we have the rest param.
+
+[01:50] What we can do is we can say ...amounts, and it's going to do exactly what you think it would do. It's going to grab the rest of them. Let's take a quick look at what we have. We're going to console.log rate and amounts. Now what do we have here?
+
+[02:04] The first one is just the value as it was passed in. But because we did a rest param here, what it does is it captures everything else that gets passed to this function. If I run it again with only one item, you'll see here we get 1.54 in an array of everything, here we get 1.54 in just an array of one actual item. 
+
+[02:27] That's really handy because we can do something like this. We could return the amounts, and we could just map over that, and we take the amount and return the amount times the rate. Const amounts equals and console.log that amounts right here. We should be able to get an array of all of those converted currency values. 
+
+[02:48] That's where it is. You can use as many possible pre ones. If you had rate, and tax, and tip, and then amounts, what that would give us is three things. Let's take a look here. Console.log rate tax tip amounts. One, two, three. Rate, tax, tip, and then the rest of them are put into an array here.
+
+[03:14] Open that up, you'll notice that it is a true array. It's not an arguments object, it's not something weird, it's not array-ish. It's a true array. That's the first use case for when you would use a rest param. 
+
+[03:26] Second use case is when you are destructuring. Now we took a look at this a whole bunch of videos ago, but let's take a look at a example again.
+
+[03:36] Let's say that we have an array of data that came from a jogging application. We'll have const runner equals, and they just gave us an array of actual data. The first one is their name, the second one is their runner ID, and then from there on out it's just information about how many kilometers they have run. Maybe 5.5 km, 5 km, 3 km, 6 km, and a big one, 35 km.
+
+[04:07] That's maybe some comma separated data that we would get in. We want to destructure this data in, assuming the first item will be the name, the second item will be the runner ID, and then the rest of the items are going to be a log of all their runs. 
+
+[04:24] We could destructure that data by doing this. We'll say const square brackets, name, ID, and we want to say runs here, but let's try without the rest and see what we have. Equals runner. We'll take all three of those variables and console.log them. 
+
+[04:45] We see Wes Bos, 1, 2, 3, and 5.5, because that's just grabbing the third thing. What if I wanted the rest of them? We do ...runs, and that should bundle up everything that is left in the array as you are destructuring it. Everything to the end will be bundled up into an array here and you could loop over that and use that data.
+
+[05:10] We looked at another example earlier, where we had a team array. The first person would be the captain, second person would be the assistant captain, and then the rest of the people would be on the actual team. We could do something like this.
+
+[05:27] Const captain assistant, and then the rest of the...we'll just call them players. We do ... and that should give us array of Lux, Sheena and Kelly = team. Take those variables now, console.log them. You see we get Wes as the first one, Kate as the second one, and then the rest of them are put into an array of players.
+
+[05:52] Not something you're going to use all the time, but it really helps you when you don't have to do any splicing or counting on indexes. You can just say, "Just give me the rest," for either a function definition, or for when I'm destructuring an array.

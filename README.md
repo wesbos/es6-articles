@@ -32,7 +32,7 @@ _example:_
 | 10 | When NOT to use an Arrow Function | X | |
 | 11 | Arrow Functions Exercises | X | |
 | 12 | Template Strings Introduction | X | |
-| 13 | Creating HTML fragments with Template Literals |  | |
+| 13 | Creating HTML fragments with Template Literals | X | |
 | 14 | Tagged Template Literals |  | |
 | 15 | Tagged Templates Exercise | X | |
 | 16 | Santizing User Data with Tagged Templates | X | |
@@ -44,44 +44,44 @@ _example:_
 | 22 | The for of loop | X | |
 | 23 | The for of Loop in Action |  | |
 | 24 | Using for of with Objects | X | |
-| 25 | Array.from() and Array.of() |  | |
+| 25 | Array.from() and Array.of() | X | |
 | 26 | Array. find() and .findIndex() | X | |
 | 27 | Array .some() and .every() | X | |
 | 28 | Spread Operator Introduction | X | |
 | 29 | Spread Exercise | X | |
 | 30 | More Spread Examples | X | |
 | 31 | Spreading into a function | X | |
-| 32 | The ...rest param in Functions and destructuring |  | |
+| 32 | The ...rest param in Functions and destructuring | X | |
 | 33 | Object Literal Upgrades | X | X |
-| 34 | Promises |  | |
+| 34 | Promises | X | |
 | 35 | Building your own Promises | X | |
 | 36 | Chaining Promises + Flow Control |  | |
-| 37 | Working with Multiple Promises |  | |
+| 37 | Working with Multiple Promises | X | |
 | 38 | All About Symbols | X | X |
 | 39 | Getting Started with ESLint |  | |
 | 40 | Airbnb ESLint Settings |  | |
 | 41 | Line and File Specific Settings | X | |
-| 42 | ESLint Plugins |  | |
+| 42 | ESLint Plugins | X | |
 | 43 | ESLint inside Atom and Sublime Text | X | |
-| 44 | Only Allow ESLint Passing Code into your git repos |  | |
+| 44 | Only Allow ESLint Passing Code into your git repos | X | |
 | 45 | JavaScript Modules and WebPack 2 Tooling Setup |  | |
 | 46 | Creating your own Modules | X | |
 | 47 | More ES6 Module Practice |  | |
 | 48 | Tool-Free Modules with SystemJS (+bonus BrowserSync setup) |  | |
 | 49 | All About Babel + npm scripts |  | |
-| 50 | Polyfilling ES6 for Older Browsers |  | |
+| 50 | Polyfilling ES6 for Older Browsers | X | |
 | 51 | Prototypal Inheritance Review |  | |
 | 52 | Say Hello to Classes |  | |
-| 53 | Extending Classes and using super() |  | |
+| 53 | Extending Classes and using super() | X | |
 | 54 | Extending Arrays with Classes for Custom Collections |  | |
 | 55 | Introducing Generators |  | |
 | 56 | Using Generators for Ajax Flow Control |  | |
 | 57 | Looping Generators with for of | X | |
-| 58 | What are Proxies? |  | |
+| 58 | What are Proxies? | X | |
 | 59 | Another Proxy Example | X | |
 | 60 | Using Proxies to combat silly errors | X | |
 | 61 | Sets | X | |
-| 62 | Understanding Sets with Brunch |  | |
+| 62 | Understanding Sets with Brunch | X | |
 | 63 | WeakSets | X | |
 | 64 | Maps | X | |
 | 65 | Map Metadata with DOM Node Keys | X | |

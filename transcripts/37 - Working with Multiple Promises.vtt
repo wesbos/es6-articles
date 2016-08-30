@@ -1,0 +1,838 @@
+WEBVTT
+
+1
+00:00:02.330 --> 00:00:02.640
+ Instructor: The last 
+
+2
+00:00:02.640 --> 00:00:04.440
+example we had stepped, where we 
+
+3
+00:00:04.450 --> 00:00:06.830
+waited for the post to come back 
+
+4
+00:00:06.840 --> 00:00:08.150
+before we actually found the 
+
+5
+00:00:08.160 --> 00:00:09.410
+author, because we needed to 
+
+6
+00:00:09.420 --> 00:00:10.800
+know who the author of the post 
+
+7
+00:00:10.810 --> 00:00:12.100
+was, before we could populate 
+
+8
+00:00:12.110 --> 00:00:13.370
+the author, right? The first 
+
+9
+00:00:13.380 --> 00:00:14.600
+thing needed to happen before 
+
+10
+00:00:14.610 --> 00:00:15.760
+the second thing could happen. 
+
+11
+00:00:15.770 --> 00:00:16.820
+It's sort of a waterfall 
+
+12
+00:00:16.830 --> 00:00:19.060
+approach. But in some cases, 
+
+13
+00:00:19.070 --> 00:00:20.310
+you just want to fire them all 
+
+14
+00:00:20.320 --> 00:00:21.770
+off at the exact same time, 
+
+15
+00:00:21.780 --> 00:00:23.170
+because they're not dependent on 
+
+16
+00:00:23.180 --> 00:00:24.720
+each other, and you want to get 
+
+17
+00:00:24.730 --> 00:00:26.320
+these two things back, or four 
+
+18
+00:00:26.330 --> 00:00:28.340
+things back, as soon as possible. 
+
+19
+00:00:28.690 --> 00:00:30.030
+Here, I've got an example for 
+
+20
+00:00:30.030 --> 00:00:31.270
+weather, where I'm going to 
+
+21
+00:00:31.270 --> 00:00:32.300
+fetch the weather, and it's 
+
+22
+00:00:32.310 --> 00:00:33.430
+going to come back after two 
+
+23
+00:00:33.440 --> 00:00:36.210
+seconds with a temperature of 29, 
+
+24
+00:00:36.285 --> 00:00:37.330
+sunny with clouds. Then I also 
+
+25
+00:00:37.405 --> 00:00:39.320
+want to go get my tweets. The 
+
+26
+00:00:39.395 --> 00:00:41.880
+tweets, I'm not searching based 
+
+27
+00:00:41.970 --> 00:00:43.540
+on weather or anything like that. 
+
+28
+00:00:43.850 --> 00:00:44.820
+They've nothing to do with the 
+
+29
+00:00:44.830 --> 00:00:46.000
+weather, other than I just need 
+
+30
+00:00:46.010 --> 00:00:47.380
+to get these two pieces of data. 
+
+31
+00:00:47.610 --> 00:00:49.540
+This goes back after 500 
+
+32
+00:00:49.150 --> 00:00:50.340
+milliseconds, half a second. 
+
+33
+00:00:50.890 --> 00:00:51.980
+The way that we can do that, 
+
+34
+00:00:51.990 --> 00:00:53.840
+instead of chaining the .thens 
+
+35
+00:00:53.915 --> 00:00:56.040
+together, we say promise.all, 
+
+36
+00:00:56.115 --> 00:00:58.920
+and you pass it an array of 
+
+37
+00:00:58.930 --> 00:01:01.520
+promises, so weather and tweets, 
+
+38
+00:01:01.595 --> 00:01:06.120
+and you call .then against that. 
+
+39
+00:01:06.120 --> 00:01:08.320
+I'm just going to format this 
+
+40
+00:01:08.330 --> 00:01:12.040
+like I like to. Then when that 
+
+41
+00:01:12.050 --> 00:01:13.930
+comes back, we are going to get 
+
+42
+00:01:13.960 --> 00:01:18.300
+responses. Let's take a look 
+
+43
+00:01:18.310 --> 00:01:19.730
+at what those responses are. 
+
+44
+00:01:23.860 --> 00:01:26.100
+One, two, here we go, it took 
+
+45
+00:01:26.110 --> 00:01:27.490
+two seconds to come back. How 
+
+46
+00:01:27.500 --> 00:01:30.160
+come? This one came back after 
+
+47
+00:01:30.235 --> 00:01:31.220
+500 milliseconds. Even if this 
+
+48
+00:01:31.230 --> 00:01:33.480
+one came back immediately -- 
+
+49
+00:01:33.480 --> 00:01:34.800
+let's not even put a time out on 
+
+50
+00:01:34.875 --> 00:01:37.570
+it at all -- how come it still 
+
+51
+00:01:37.580 --> 00:01:38.930
+takes two seconds to come back? 
+
+52
+00:01:39.350 --> 00:01:41.220
+Because we're waiting for every 
+
+53
+00:01:41.230 --> 00:01:43.130
+single promise to be resolved 
+
+54
+00:01:43.250 --> 00:01:46.560
+before we run our then. If this 
+
+55
+00:01:46.570 --> 00:01:47.850
+one takes 10 seconds, it's going 
+
+56
+00:01:47.925 --> 00:01:49.380
+to take 10 seconds. It's like 
+
+57
+00:01:49.390 --> 00:01:51.350
+the slowest one will decide how 
+
+58
+00:01:51.360 --> 00:01:52.460
+long these things should 
+
+59
+00:01:52.470 --> 00:01:55.000
+actually take. That's after 
+
+60
+00:01:55.010 --> 00:01:56.960
+two seconds. I open it up, what 
+
+61
+00:01:57.035 --> 00:01:59.170
+have we got? Zero is sunny with 
+
+62
+00:01:59.180 --> 00:02:02.360
+clouds, second one, "I like cake." 
+
+63
+00:02:02.460 --> 00:02:04.350
+You know, from a previous video, 
+
+64
+00:02:04.360 --> 00:02:05.700
+how would we get that into some 
+
+65
+00:02:05.710 --> 00:02:07.090
+sort of sane response? We could 
+
+66
+00:02:07.100 --> 00:02:08.610
+just say, const weather tweets = 
+
+67
+00:02:12.930 --> 00:02:13.830
+responses. 
+
+68
+00:02:14.000 --> 00:02:17.140
+Then 
+
+69
+00:02:17.150 --> 00:02:19.440
+console.log weather and tweets. 
+
+70
+00:02:20.240 --> 00:02:21.700
+Now, we have two separate 
+
+71
+00:02:21.710 --> 00:02:24.280
+variables, one with our weather, 
+
+72
+00:02:24.530 --> 00:02:26.780
+one with our tweets in it, and 
+
+73
+00:02:26.855 --> 00:02:26.540
+we can go ahead and start 
+
+74
+00:02:27.530 --> 00:02:29.250
+populating the data on our 
+
+75
+00:02:29.260 --> 00:02:30.790
+actual home page. Probably 
+
+76
+00:02:30.930 --> 00:02:32.030
+not a good idea to name this 
+
+77
+00:02:32.040 --> 00:02:33.610
+weather and tweets. Why? Because 
+
+78
+00:02:33.620 --> 00:02:35.410
+our promises are named weather 
+
+79
+00:02:35.485 --> 00:02:37.280
+and tweets, so maybe call 
+
+80
+00:02:37.290 --> 00:02:41.240
+weather info and tweets info. 
+
+81
+00:02:41.440 --> 00:02:43.160
+That is an example with 
+
+82
+00:02:43.235 --> 00:02:44.570
+setTimeouts. Let's actually do 
+
+83
+00:02:44.580 --> 00:02:46.770
+some with some real data here. 
+
+84
+00:02:46.845 --> 00:02:48.080
+Let's go comment this out. 
+
+85
+00:02:48.155 --> 00:02:50.460
+We need to APIs. If you work 
+
+86
+00:02:50.470 --> 00:02:52.880
+with an API during the day, I 
+
+87
+00:02:53.030 --> 00:02:54.150
+encourage you to go grab that 
+
+88
+00:02:54.160 --> 00:02:55.390
+API. Otherwise, you can use the 
+
+89
+00:02:55.400 --> 00:02:56.520
+ones I've got right here. 
+
+90
+00:02:57.110 --> 00:02:58.400
+I've got a post promise here, 
+
+91
+00:02:58.410 --> 00:02:59.660
+which is going to go to my blog 
+
+92
+00:02:59.670 --> 00:03:01.380
+and grab all of my latest posts. 
+
+93
+00:03:01.455 --> 00:03:03.200
+We saw that one already. Second, 
+
+94
+00:03:03.210 --> 00:03:04.590
+we have the streetcar promise, 
+
+95
+00:03:04.930 --> 00:03:06.820
+which is going to go and fetch 
+
+96
+00:03:06.860 --> 00:03:09.640
+some data from the Paris transit 
+
+97
+00:03:09.650 --> 00:03:13.630
+system here. We need to 
+
+98
+00:03:13.910 --> 00:03:16.120
+resolve both of those promises, 
+
+99
+00:03:16.130 --> 00:03:17.580
+or they will resolve themselves, 
+
+100
+00:03:17.590 --> 00:03:19.290
+but we need to listen to when 
+
+101
+00:03:19.300 --> 00:03:21.300
+they are both resolved so we'll 
+
+102
+00:03:21.375 --> 00:03:24.250
+say promise.all, and pass it an 
+
+103
+00:03:24.260 --> 00:03:28.080
+array of promises. I'm going to 
+
+104
+00:03:28.080 --> 00:03:29.510
+put that on its own line for 
+
+105
+00:03:29.890 --> 00:03:31.080
+readability. Then we will have a 
+
+106
+00:03:31.090 --> 00:03:33.580
+then, which will give us the 
+
+107
+00:03:33.590 --> 00:03:36.530
+responses. Let's just see 
+
+108
+00:03:36.540 --> 00:03:37.700
+what we have inside that 
+
+109
+00:03:37.710 --> 00:03:39.440
+response. Open that up on my 
+
+110
+00:03:39.450 --> 00:03:41.000
+browser. Actually, by the way, 
+
+111
+00:03:41.010 --> 00:03:42.370
+this is not going to work right 
+
+112
+00:03:42.380 --> 00:03:44.780
+away, because I'm just running 
+
+113
+00:03:44.900 --> 00:03:46.520
+it from my file system right 
+
+114
+00:03:46.530 --> 00:03:49.910
+here, and you know that fetch 
+
+115
+00:03:49.920 --> 00:03:52.370
+only allows for cors. There's no 
+
+116
+00:03:52.445 --> 00:03:53.400
+jsonp or anything like that. 
+
+117
+00:03:53.475 --> 00:03:55.110
+If we want to be working with 
+
+118
+00:03:55.320 --> 00:03:56.850
+the fetch API, you need to be 
+
+119
+00:03:56.860 --> 00:03:58.970
+running it through some sort of 
+
+120
+00:03:58.980 --> 00:04:02.180
+server, so I'm just going to pop 
+
+121
+00:04:02.260 --> 00:04:05.650
+open my browser sync server here. 
+
+122
+00:04:06.440 --> 00:04:08.230
+I'm in promises and I have this 
+
+123
+00:04:08.240 --> 00:04:10.790
+browser sync command here that I 
+
+124
+00:04:10.800 --> 00:04:13.590
+run. Start--directory server...
+
+125
+00:04:14.300 --> 00:04:17.920
+actually two directories --files. 
+
+126
+00:04:17.930 --> 00:04:19.410
+What this will do is start up a 
+
+127
+00:04:19.420 --> 00:04:21.050
+little server for you and give 
+
+128
+00:04:21.060 --> 00:04:22.340
+you actually the files that are 
+
+129
+00:04:22.350 --> 00:04:23.790
+in this folder. That's nice, you 
+
+130
+00:04:23.800 --> 00:04:25.800
+can do npm install-g browser 
+
+131
+00:04:25.810 --> 00:04:26.920
+sync and you can get that 
+
+132
+00:04:27.320 --> 00:04:28.570
+installed if you don't have any 
+
+133
+00:04:28.580 --> 00:04:30.100
+other way of running a server. 
+
+134
+00:04:30.600 --> 00:04:33.270
+We have the multiple promises.
+
+135
+00:04:33.360 --> 00:04:35.720
+html, and then we can open up 
+
+136
+00:04:36.270 --> 00:04:39.990
+this, and what have we got here? 
+
+137
+00:04:40.065 --> 00:04:40.060
+An array of two things, well 
+
+138
+00:04:40.135 --> 00:04:41.300
+that makes sense. Open it up. 
+
+139
+00:04:41.375 --> 00:04:43.800
+We got the first response that 
+
+140
+00:04:43.810 --> 00:04:45.860
+comes back form Wes Bos, and we 
+
+141
+00:04:45.935 --> 00:04:46.620
+got the second response that 
+
+142
+00:04:46.630 --> 00:04:48.180
+comes back from the Paris 
+
+143
+00:04:48.360 --> 00:04:51.400
+transit. What's going on here? I 
+
+144
+00:04:51.410 --> 00:04:52.780
+don't see the data. Is it in 
+
+145
+00:04:52.790 --> 00:04:55.700
+body? No, that's a stream. We 
+
+146
+00:04:55.710 --> 00:04:57.100
+actually have this problem here 
+
+147
+00:04:57.110 --> 00:04:59.310
+where we have to convert this 
+
+148
+00:04:59.320 --> 00:05:01.690
+readable stream into json, right? 
+
+149
+00:05:01.765 --> 00:05:02.890
+This is the problem we had on 
+
+150
+00:05:02.900 --> 00:05:04.740
+the first one. How do you do 
+
+151
+00:05:04.750 --> 00:05:07.260
+that with two things? What we 
+
+152
+00:05:07.260 --> 00:05:09.400
+can do is we can return a 
+
+153
+00:05:09.410 --> 00:05:13.000
+promise.all again, and then we 
+
+154
+00:05:13.010 --> 00:05:14.910
+will take each of these things, 
+
+155
+00:05:15.080 --> 00:05:18.460
+which is the responses, and we 
+
+156
+00:05:18.460 --> 00:05:20.380
+can just map over them and call .
+
+157
+00:05:20.455 --> 00:05:22.740
+json on each one. We'll say 
+
+158
+00:05:22.750 --> 00:05:24.690
+response, and we will return 
+
+159
+00:05:24.970 --> 00:05:27.750
+response.json. Why do we have to 
+
+160
+00:05:27.780 --> 00:05:29.330
+call this res.json? Why can't we 
+
+161
+00:05:29.340 --> 00:05:33.300
+just say json.parse around, res.
+
+162
+00:05:34.000 --> 00:05:35.570
+body or something like that? 
+
+163
+00:05:35.990 --> 00:05:37.290
+The reason behind that is 
+
+164
+00:05:37.340 --> 00:05:39.910
+because there are many different 
+
+165
+00:05:39.920 --> 00:05:41.280
+types of data that could come 
+
+166
+00:05:41.320 --> 00:05:43.090
+back. I just got the docs here 
+
+167
+00:05:43.100 --> 00:05:45.130
+on mdn and it could come back as 
+
+168
+00:05:45.140 --> 00:05:47.030
+an ArrayBuffer, a blob, which is 
+
+169
+00:05:47.190 --> 00:05:48.170
+cool, because you could fetch 
+
+170
+00:05:48.320 --> 00:05:49.890
+the data from a video or an 
+
+171
+00:05:49.900 --> 00:05:51.640
+image and stream that in. 
+
+172
+00:05:51.715 --> 00:05:53.960
+You can use json or if it's just 
+
+173
+00:05:54.380 --> 00:05:58.260
+text or formed data. Don't just 
+
+174
+00:05:58.270 --> 00:05:59.630
+assume that your APIs or your 
+
+175
+00:05:59.640 --> 00:06:00.910
+AJAX requests are always going 
+
+176
+00:06:00.920 --> 00:06:02.500
+to be json, because it could be 
+
+177
+00:06:02.510 --> 00:06:03.780
+any type of data that we have 
+
+178
+00:06:04.030 --> 00:06:05.240
+there. What is this doing 
+
+179
+00:06:05.240 --> 00:06:06.840
+right here? This response is in 
+
+180
+00:06:06.980 --> 00:06:08.610
+an array, and what does map do? 
+
+181
+00:06:08.620 --> 00:06:10.310
+Map takes every item out of an 
+
+182
+00:06:10.320 --> 00:06:11.960
+array, does something to it, and 
+
+183
+00:06:11.970 --> 00:06:13.000
+then returns a new array. 
+
+184
+00:06:13.120 --> 00:06:14.950
+What we're doing here, is we're 
+
+185
+00:06:14.960 --> 00:06:17.210
+taking the array of responses 
+
+186
+00:06:17.460 --> 00:06:20.010
+and taking each one and calling .
+
+187
+00:06:20.085 --> 00:06:21.460
+json on it, which returns a 
+
+188
+00:06:21.470 --> 00:06:24.390
+second promise, which we can 
+
+189
+00:06:24.400 --> 00:06:27.900
+then call .then on, and that 
+
+190
+00:06:27.910 --> 00:06:30.510
+should then, responses, that 
+
+191
+00:06:30.520 --> 00:06:31.750
+should give us some real data. 
+
+192
+00:06:31.870 --> 00:06:34.690
+Let's see here, here we go. It 
+
+193
+00:06:34.765 --> 00:06:35.840
+looks like I got 10 posts here, 
+
+194
+00:06:36.590 --> 00:06:38.890
+and then in here we've got some 
+
+195
+00:06:38.960 --> 00:06:40.390
+information. There we go, 
+
+196
+00:06:40.910 --> 00:06:43.030
+information about all of the 
+
+197
+00:06:43.040 --> 00:06:46.130
+transit in Paris. That's 
+
+198
+00:06:46.140 --> 00:06:48.160
+pretty neat. We do promise.all, 
+
+199
+00:06:48.200 --> 00:06:49.690
+we pass it both of our initial 
+
+200
+00:06:49.700 --> 00:06:51.410
+promises. Then when both of 
+
+201
+00:06:51.420 --> 00:06:53.860
+those come back, we run .json on 
+
+202
+00:06:53.760 --> 00:06:55.590
+all of them. When both of those 
+
+203
+00:06:55.650 --> 00:06:57.740
+come back from being turned from 
+
+204
+00:06:58.040 --> 00:07:00.000
+just regular data into json, 
+
+205
+00:06:59.600 --> 00:07:01.350
+which is just instant, that's 
+
+206
+00:07:01.360 --> 00:07:03.550
+very, very fast, then this final 
+
+207
+00:07:03.710 --> 00:07:05.580
+promise then is called and we 
+
+208
+00:07:05.590 --> 00:07:07.130
+can do whatever it is that we 
+
+209
+00:07:07.140 --> 00:07:08.220
+want with that data.
+

@@ -1,0 +1,438 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ Instructor: If you 
+
+2
+00:00:02.780 --> 00:00:04.390
+work on a team or an open source 
+
+3
+00:00:04.400 --> 00:00:06.070
+project with other people, it's 
+
+4
+00:00:06.080 --> 00:00:07.640
+helpful to have an ESLint file 
+
+5
+00:00:07.650 --> 00:00:09.980
+right in your Git repo, and then 
+
+6
+00:00:09.990 --> 00:00:11.200
+you can have what's called a Git 
+
+7
+00:00:11.210 --> 00:00:13.210
+hook, which will not allow 
+
+8
+00:00:13.250 --> 00:00:14.810
+anyone to commit any code, 
+
+9
+00:00:15.080 --> 00:00:16.950
+unless it first passes the 
+
+10
+00:00:17.025 --> 00:00:18.660
+ESLint rule. That's really 
+
+11
+00:00:18.880 --> 00:00:20.270
+important because than you're 
+
+12
+00:00:20.280 --> 00:00:21.710
+going to keep up code quality 
+
+13
+00:00:21.720 --> 00:00:22.900
+for everyone that touched that 
+
+14
+00:00:22.930 --> 00:00:24.530
+project. Let's do something 
+
+15
+00:00:24.530 --> 00:00:25.600
+from scratch here. There's no 
+
+16
+00:00:25.675 --> 00:00:27.060
+predefined folder you're going 
+
+17
+00:00:27.070 --> 00:00:29.130
+to get. We'll say git init ES6 
+
+18
+00:00:30.640 --> 00:00:32.160
+git, and we're doing this inside 
+
+19
+00:00:32.170 --> 00:00:34.410
+of our 12th folder here. What 
+
+20
+00:00:34.420 --> 00:00:36.160
+that will do is, it should make 
+
+21
+00:00:36.170 --> 00:00:37.890
+a folder called ES6 git. We'll 
+
+22
+00:00:37.900 --> 00:00:39.260
+go into that, and you'll see 
+
+23
+00:00:39.270 --> 00:00:41.470
+that we have a clean master 
+
+24
+00:00:41.480 --> 00:00:43.070
+branch now. Let's go ahead 
+
+25
+00:00:43.080 --> 00:00:45.570
+and create a file that actually 
+
+26
+00:00:46.010 --> 00:00:47.890
+has some bad code in it. Code.JS, 
+
+27
+00:00:47.965 --> 00:00:50.900
+and we'll open up that file in 
+
+28
+00:00:50.910 --> 00:00:53.440
+our editor. In here, I'm going 
+
+29
+00:00:53.515 --> 00:00:56.240
+to say var x = 100. Then I'm 
+
+30
+00:00:56.315 --> 00:00:57.810
+going to leave off that. Let's 
+
+31
+00:00:57.810 --> 00:00:59.050
+do a couple bad things here. 
+
+32
+00:00:59.490 --> 00:01:00.840
+Let's go ahead and say ESLint 
+
+33
+00:01:00.915 --> 00:01:01.030
+our code, then it's going to 
+
+34
+00:01:01.105 --> 00:01:04.770
+yell at us, and and here's all 
+
+35
+00:01:04.780 --> 00:01:06.230
+the specific things. You'll 
+
+36
+00:01:06.240 --> 00:01:07.500
+note that we don't have an 
+
+37
+00:01:07.575 --> 00:01:09.290
+ESLint file in this folder, but 
+
+38
+00:01:09.300 --> 00:01:10.840
+it's picking the one up from the 
+
+39
+00:01:10.850 --> 00:01:12.670
+parent folder here, because that 
+
+40
+00:01:12.680 --> 00:01:13.730
+how it works. It will always 
+
+41
+00:01:13.740 --> 00:01:15.600
+check the parent until it finds 
+
+42
+00:01:15.610 --> 00:01:17.810
+one. Now we're inside of ES6 
+
+43
+00:01:18.190 --> 00:01:20.340
+Git, and I want to be able to 
+
+44
+00:01:20.350 --> 00:01:22.180
+commit these files, but before I 
+
+45
+00:01:22.190 --> 00:01:24.200
+do that, we want to make a hook 
+
+46
+00:01:24.470 --> 00:01:26.050
+for this. A lot of people don't 
+
+47
+00:01:26.060 --> 00:01:27.400
+know this, but if you were to 
+
+48
+00:01:27.410 --> 00:01:30.100
+open up the actual Git directory, 
+
+49
+00:01:32.010 --> 00:01:33.700
+watch what we get inside of here. 
+
+50
+00:01:34.340 --> 00:01:36.190
+There is a folder in here. 
+
+51
+00:01:36.260 --> 00:01:38.360
+There's branches and other kinds 
+
+52
+00:01:38.435 --> 00:01:39.990
+of info, but there's a folder in 
+
+53
+00:01:40.000 --> 00:01:42.390
+here called Hooks. If you open 
+
+54
+00:01:42.400 --> 00:01:43.590
+that up, there's all kinds of 
+
+55
+00:01:43.600 --> 00:01:45.640
+sample. Hooks in git are 
+
+56
+00:01:45.650 --> 00:01:47.390
+essentially code that runs 
+
+57
+00:01:47.570 --> 00:01:49.920
+before things happen, and you 
+
+58
+00:01:49.930 --> 00:01:51.130
+can stop those things from 
+
+59
+00:01:51.140 --> 00:01:53.100
+happening unless they pass a 
+
+60
+00:01:53.110 --> 00:01:54.980
+specific use case. In our 
+
+61
+00:01:54.990 --> 00:01:56.750
+case, if we open up the commit-
+
+62
+00:01:56.750 --> 00:01:58.930
+message-sample, this is an 
+
+63
+00:01:58.940 --> 00:02:00.270
+example of something that will 
+
+64
+00:02:00.280 --> 00:02:04.560
+run before someone commits their 
+
+65
+00:02:04.570 --> 00:02:06.690
+code. What I want you to do is 
+
+66
+00:02:06.700 --> 00:02:09.140
+rename this one to not Git 
+
+67
+00:02:09.150 --> 00:02:12.960
+commit message-sample. Take off 
+
+68
+00:02:12.970 --> 00:02:15.150
+the .sample, rename it there, 
+
+69
+00:02:15.160 --> 00:02:16.290
+and then take out whatever we 
+
+70
+00:02:16.300 --> 00:02:18.290
+have in there, and remove it. 
+
+71
+00:02:19.790 --> 00:02:21.620
+Go ahead and copy everything 
+
+72
+00:02:21.630 --> 00:02:22.670
+from this file, make sure you 
+
+73
+00:02:22.680 --> 00:02:24.470
+get it all, not just forget to 
+
+74
+00:02:24.480 --> 00:02:25.890
+copy the last line. That happens 
+
+75
+00:02:25.900 --> 00:02:28.140
+a lot. Paste it in there, then 
+
+76
+00:02:28.150 --> 00:02:29.500
+we're going to go to our Git 
+
+77
+00:02:29.510 --> 00:02:31.890
+repo and say Git status. We have 
+
+78
+00:02:31.900 --> 00:02:33.920
+code.JS. I want to be able to 
+
+79
+00:02:33.930 --> 00:02:35.030
+commit it, so I say add 
+
+80
+00:02:35.040 --> 00:02:36.750
+everything. I'm going to commit 
+
+81
+00:02:36.760 --> 00:02:40.680
+it by saying "added new code." 
+
+82
+00:02:41.500 --> 00:02:42.530
+Then, it's going to check. It's 
+
+83
+00:02:42.540 --> 00:02:44.180
+going to run this code. Why? 
+
+84
+00:02:44.190 --> 00:02:46.060
+This is a pre-commit message. 
+
+85
+00:02:46.310 --> 00:02:47.430
+I'm about to add a commit 
+
+86
+00:02:47.440 --> 00:02:48.870
+message here. It's going to run 
+
+87
+00:02:48.880 --> 00:02:51.490
+our check and say "ESLint failed. 
+
+88
+00:02:51.540 --> 00:02:53.450
+Git commit denied." Why? 
+
+89
+00:02:53.660 --> 00:02:55.200
+Because it did not pass, we got 
+
+90
+00:02:55.310 --> 00:02:57.380
+four errors here. What we have 
+
+91
+00:02:57.390 --> 00:02:58.740
+to do is go back to our code 
+
+92
+00:02:58.750 --> 00:03:00.450
+here, and we look at all the 
+
+93
+00:03:00.460 --> 00:03:01.460
+different errors. First 
+
+94
+00:03:01.470 --> 00:03:03.530
+error, unexpected var. I should 
+
+95
+00:03:03.605 --> 00:03:07.530
+have used const. Then next error, 
+
+96
+00:03:07.540 --> 00:03:09.260
+X is defined but never used, so 
+
+97
+00:03:09.335 --> 00:03:11.340
+I should have said console.log X. 
+
+98
+00:03:11.415 --> 00:03:15.120
+Infix operators must be spaced. 
+
+99
+00:03:15.195 --> 00:03:17.100
+I forgot the space there, and 
+
+100
+00:03:17.110 --> 00:03:19.060
+missing semicolon. I've got to 
+
+101
+00:03:19.135 --> 00:03:20.010
+put a semicolon on the end there. 
+
+102
+00:03:20.100 --> 00:03:21.610
+Great. Now if I add everything 
+
+103
+00:03:21.620 --> 00:03:23.670
+that we changed, if I commit 
+
+104
+00:03:23.740 --> 00:03:28.030
+everything now, it should check 
+
+105
+00:03:28.040 --> 00:03:29.350
+against it, and look. We didn't 
+
+106
+00:03:29.360 --> 00:03:30.640
+have any problems with our 
+
+107
+00:03:30.715 --> 00:03:32.310
+ESLint, so everything went ahead, 
+
+108
+00:03:32.320 --> 00:03:35.190
+and now my maste branch is in a 
+
+109
+00:03:35.200 --> 00:03:36.060
+clean state.
+

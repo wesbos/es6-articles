@@ -1,0 +1,758 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.250 --> 00:00:03.110
+We have a whole new bunch of 
+
+3
+00:00:03.400 --> 00:00:06.100
+array methods added in ES6. I'm 
+
+4
+00:00:06.175 --> 00:00:08.530
+going to talk about from and of 
+
+5
+00:00:08.670 --> 00:00:10.960
+first. The reason I'm going to 
+
+6
+00:00:09.460 --> 00:00:11.180
+talk about these two together is 
+
+7
+00:00:11.190 --> 00:00:13.150
+because they both are not on the 
+
+8
+00:00:13.160 --> 00:00:14.460
+prototype. What I mean by 
+
+9
+00:00:14.470 --> 00:00:17.700
+that is, if I create my new 
+
+10
+00:00:17.710 --> 00:00:20.580
+array, like const ages =, and 
+
+11
+00:00:20.590 --> 00:00:23.380
+then ages does not have .from, 
+
+12
+00:00:23.455 --> 00:00:26.510
+and it does not have .of. Why? 
+
+13
+00:00:26.520 --> 00:00:27.360
+Because they are not on the 
+
+14
+00:00:27.370 --> 00:00:29.310
+prototype, they are on the array 
+
+15
+00:00:29.320 --> 00:00:31.690
+itself, so there is array.of and 
+
+16
+00:00:32.140 --> 00:00:34.470
+array.from. What do these do? 
+
+17
+00:00:34.650 --> 00:00:37.470
+First thing that they do is that 
+
+18
+00:00:37.900 --> 00:00:40.120
+array.from will take something 
+
+19
+00:00:40.130 --> 00:00:42.420
+that is array-ish and turn it 
+
+20
+00:00:42.430 --> 00:00:44.350
+into a true array. There's 
+
+21
+00:00:44.370 --> 00:00:46.710
+couple situations where we often 
+
+22
+00:00:46.720 --> 00:00:49.520
+need that, and that is when we 
+
+23
+00:00:49.530 --> 00:00:51.160
+are working with DOM elements. 
+
+24
+00:00:51.670 --> 00:00:53.500
+Let's go ahead and select all 
+
+25
+00:00:53.510 --> 00:00:54.740
+the people. const people = 
+
+26
+00:00:54.815 --> 00:00:56.340
+document.querySelector, and we 
+
+27
+00:00:56.415 --> 00:01:00.880
+want to select all the Ps inside 
+
+28
+00:01:00.880 --> 00:01:03.290
+of people. Now let's console.log 
+
+29
+00:01:03.300 --> 00:01:05.140
+people and see what we have. 
+
+30
+00:01:05.215 --> 00:01:08.640
+Good. We have all of these 
+
+31
+00:01:08.650 --> 00:01:10.560
+people here. Those are the three. 
+
+32
+00:01:10.635 --> 00:01:12.090
+But what if I wanted just an 
+
+33
+00:01:12.090 --> 00:01:14.120
+array of the people's names? I 
+
+34
+00:01:14.130 --> 00:01:17.020
+could do const names = people.
+
+35
+00:01:17.210 --> 00:01:19.020
+map, and it would take in the 
+
+36
+00:01:19.030 --> 00:01:21.300
+person, and it would return 
+
+37
+00:01:21.375 --> 00:01:24.410
+person.textContent. Give that a 
+
+38
+00:01:24.570 --> 00:01:26.620
+save. Now we get this error 
+
+39
+00:01:26.630 --> 00:01:29.100
+people.map is not a function. 
+
+40
+00:01:30.260 --> 00:01:32.160
+Why is that? Let's do a console.
+
+41
+00:01:32.170 --> 00:01:35.610
+log of people, open that sucker 
+
+42
+00:01:35.660 --> 00:01:38.250
+up. We have a length, but the 
+
+43
+00:01:38.260 --> 00:01:39.810
+prototype is not an array, it's 
+
+44
+00:01:39.820 --> 00:01:41.390
+a NodeList. That's what I 
+
+45
+00:01:41.400 --> 00:01:42.530
+mean. I've been saying a couple 
+
+46
+00:01:42.540 --> 00:01:43.780
+times in this course, where 
+
+47
+00:01:44.000 --> 00:01:45.990
+something is array-ish or array-
+
+48
+00:01:46.000 --> 00:01:48.020
+like, and that means that it has 
+
+49
+00:01:48.030 --> 00:01:49.640
+a length, which means it's array-
+
+50
+00:01:49.640 --> 00:01:52.200
+ish, it has some of the methods, 
+
+51
+00:01:52.210 --> 00:01:53.980
+but doesn't have all of the 
+
+52
+00:01:53.990 --> 00:01:56.120
+methods that a regular array 
+
+53
+00:01:56.130 --> 00:01:57.610
+would have. We looked at that a 
+
+54
+00:01:57.620 --> 00:01:59.820
+couple videos ago. What we 
+
+55
+00:01:59.830 --> 00:02:01.480
+need to do in order to make this 
+
+56
+00:02:01.490 --> 00:02:03.900
+map work? We simply would have 
+
+57
+00:02:03.910 --> 00:02:05.450
+to make another variable, so 
+
+58
+00:02:05.525 --> 00:02:07.450
+const people array = we'll just 
+
+59
+00:02:05.450 --> 00:02:11.550
+call it array.from. Notice how I 
+
+60
+00:02:11.560 --> 00:02:13.540
+call it right off of array, and 
+
+61
+00:02:13.540 --> 00:02:15.220
+then you pass it the thing that 
+
+62
+00:02:15.230 --> 00:02:17.510
+is array-like. In this case, it 
+
+63
+00:02:17.585 --> 00:02:19.700
+is a NodeList that has a length, 
+
+64
+00:02:19.710 --> 00:02:20.650
+so it's going to be able to 
+
+65
+00:02:20.660 --> 00:02:23.340
+convert from that to a real one. 
+
+66
+00:02:23.415 --> 00:02:24.820
+When I console.log people array, 
+
+67
+00:02:24.895 --> 00:02:28.230
+we still get that error. Don't 
+
+68
+00:02:28.240 --> 00:02:29.460
+worry about that, it's because 
+
+69
+00:02:29.535 --> 00:02:30.580
+we hadn't switched it out. Open 
+
+70
+00:02:30.590 --> 00:02:33.330
+it up. Hey, look. The prototype 
+
+71
+00:02:33.340 --> 00:02:34.810
+is array now, and you open that 
+
+72
+00:02:34.820 --> 00:02:35.810
+sucker up, and you see 
+
+73
+00:02:35.950 --> 00:02:37.520
+absolutely all the methods that 
+
+74
+00:02:37.530 --> 00:02:38.980
+you're probably used to. You 
+
+75
+00:02:38.940 --> 00:02:42.250
+can call array.from onto it, and 
+
+76
+00:02:42.250 --> 00:02:43.550
+then I will take this people 
+
+77
+00:02:43.560 --> 00:02:46.710
+array and map over that instead, 
+
+78
+00:02:48.500 --> 00:02:49.920
+and now we should have a names 
+
+79
+00:02:50.010 --> 00:02:51.120
+array, which is actually 
+
+80
+00:02:51.130 --> 00:02:52.420
+everyone's name. Similarly, 
+
+81
+00:02:52.420 --> 00:02:54.100
+we can have also done this array.
+
+82
+00:02:54.800 --> 00:02:56.200
+from. Just wrap our 
+
+83
+00:02:56.275 --> 00:02:58.080
+querySelector right into it, and 
+
+84
+00:02:58.090 --> 00:02:59.290
+then we don't need that second 
+
+85
+00:02:59.300 --> 00:03:01.950
+variable here. We can just map 
+
+86
+00:03:02.850 --> 00:03:07.210
+over the people. I could 
+
+87
+00:03:07.220 --> 00:03:09.000
+have also done this in one 
+
+88
+00:03:09.010 --> 00:03:10.630
+single go, rather than having to 
+
+89
+00:03:10.640 --> 00:03:13.130
+do it in two lines. array.from 
+
+90
+00:03:13.130 --> 00:03:15.020
+takes the second argument, which 
+
+91
+00:03:15.030 --> 00:03:16.910
+is a map function, which allows 
+
+92
+00:03:16.920 --> 00:03:19.450
+us to modify data as we are 
+
+93
+00:03:19.660 --> 00:03:21.970
+creating the array. I'm going 
+
+94
+00:03:21.570 --> 00:03:23.970
+bring this back to a regular 
+
+95
+00:03:23.980 --> 00:03:25.200
+document.querySelector. I'm 
+
+96
+00:03:25.275 --> 00:03:27.200
+going to do on a couple lines so 
+
+97
+00:03:27.210 --> 00:03:29.410
+it's nice and visible, and I'm 
+
+98
+00:03:29.485 --> 00:03:31.810
+going to say const people array = 
+
+99
+00:03:32.250 --> 00:03:36.000
+array.from. Now I am going to 
+
+100
+00:03:36.010 --> 00:03:37.420
+comment out this names array 
+
+101
+00:03:37.430 --> 00:03:39.850
+here, because array.from will 
+
+102
+00:03:39.860 --> 00:03:42.310
+take a second argument, which is 
+
+103
+00:03:42.420 --> 00:03:44.470
+a map function. I'm going to 
+
+104
+00:03:44.470 --> 00:03:47.910
+say person, and from that we are 
+
+105
+00:03:47.920 --> 00:03:50.940
+going to return whatever we want. 
+
+106
+00:03:50.970 --> 00:03:51.610
+Return 
+
+107
+00:03:51.770 --> 00:03:54.400
+Wes. 
+
+108
+00:03:54.640 --> 00:03:57.550
+Console.log people array. Then 
+
+109
+00:03:57.625 --> 00:03:59.310
+you have Wes Wes Wes. Why? 
+
+110
+00:03:59.320 --> 00:04:00.570
+Because it loops over every 
+
+111
+00:04:00.580 --> 00:04:03.410
+single paragraph tag, and then 
+
+112
+00:04:03.420 --> 00:04:06.290
+return to us something. What 
+
+113
+00:04:06.300 --> 00:04:07.550
+is this person here? Let's 
+
+114
+00:04:07.625 --> 00:04:13.920
+console.log it. Each person is 
+
+115
+00:04:13.930 --> 00:04:16.230
+the actual DOM node, so if we 
+
+116
+00:04:16.240 --> 00:04:17.580
+return, instead of returning 
+
+117
+00:04:17.580 --> 00:04:18.790
+obviously just Wes, we're going 
+
+118
+00:04:18.865 --> 00:04:20.390
+to return person.textContent. 
+
+119
+00:04:22.040 --> 00:04:23.510
+That should give us the actual 
+
+120
+00:04:23.520 --> 00:04:26.120
+person's name. There we go. 
+
+121
+00:04:26.130 --> 00:04:28.650
+Look at, now people array = Wes 
+
+122
+00:04:28.810 --> 00:04:30.610
+Kate Snickers. I created that 
+
+123
+00:04:30.620 --> 00:04:33.660
+array in one single go. I don't 
+
+124
+00:04:33.670 --> 00:04:36.030
+need the names array, where I've 
+
+125
+00:04:36.040 --> 00:04:37.750
+mapped it separately, because 
+
+126
+00:04:38.070 --> 00:04:39.570
+array.from will take a second 
+
+127
+00:04:39.580 --> 00:04:41.950
+argument, which is the ability 
+
+128
+00:04:42.100 --> 00:04:44.820
+to map over it. Another use 
+
+129
+00:04:44.830 --> 00:04:47.230
+case is that if we want to 
+
+130
+00:04:45.800 --> 00:04:47.460
+convert the arguments object 
+
+131
+00:04:47.470 --> 00:04:49.480
+into an actual array. I'm going 
+
+132
+00:04:49.555 --> 00:04:51.310
+to comment this stuff on out, 
+
+133
+00:04:51.385 --> 00:04:53.710
+and we're going to create some 
+
+134
+00:04:53.785 --> 00:04:56.380
+function called sumAll. When 
+
+135
+00:04:56.390 --> 00:04:58.340
+we run it, we're going to call 
+
+136
+00:04:58.415 --> 00:05:00.090
+sumAll and pass it a whole bunch 
+
+137
+00:05:00.100 --> 00:05:01.280
+of numbers that all need to be 
+
+138
+00:05:01.290 --> 00:05:02.830
+added up. We just did an example 
+
+139
+00:05:02.840 --> 00:05:04.830
+like this when we looped over it. 
+
+140
+00:05:05.410 --> 00:05:06.940
+However, if you want to use a 
+
+141
+00:05:06.950 --> 00:05:08.070
+reduced one, I am going to show 
+
+142
+00:05:08.080 --> 00:05:09.540
+you how to actually do that. 
+
+143
+00:05:09.850 --> 00:05:11.230
+Inside of this function I'm 
+
+144
+00:05:11.305 --> 00:05:12.060
+going to console.log arguments. 
+
+145
+00:05:15.380 --> 00:05:18.590
+It looks like an array, and that 
+
+146
+00:05:18.600 --> 00:05:20.970
+would be a perfect use case for 
+
+147
+00:05:21.000 --> 00:05:22.130
+reduce. I'm going to take 
+
+148
+00:05:22.140 --> 00:05:24.270
+arguments, and I'm going to 
+
+149
+00:05:24.280 --> 00:05:26.460
+reduce it, which take the 
+
+150
+00:05:26.470 --> 00:05:30.200
+previous and the next, and 
+
+151
+00:05:30.210 --> 00:05:32.440
+return the previous + next. I'm 
+
+152
+00:05:32.515 --> 00:05:35.640
+going to start with 0That should 
+
+153
+00:05:35.650 --> 00:05:38.950
+work, right? Arguments.reduce is 
+
+154
+00:05:38.960 --> 00:05:40.720
+not a function. Why not? If we 
+
+155
+00:05:40.730 --> 00:05:44.810
+console.log arguments, do we see 
+
+156
+00:05:44.820 --> 00:05:46.120
+arguments.reduce? Here's 
+
+157
+00:05:46.130 --> 00:05:48.630
+arguments. Let's look into the 
+
+158
+00:05:48.705 --> 00:05:51.780
+prototype. I don't see .reduce. 
+
+159
+00:05:51.860 --> 00:05:54.300
+Why not? Because this is 
+
+160
+00:05:54.400 --> 00:05:56.260
+arguments. It is not an array, 
+
+161
+00:05:56.440 --> 00:05:58.440
+it's array-ish. All we would 
+
+162
+00:05:58.450 --> 00:06:00.710
+have to do is say const nums = 
+
+163
+00:06:00.785 --> 00:06:05.490
+array.from(arguments), and then 
+
+164
+00:06:05.500 --> 00:06:07.710
+we use that nums one to reduce 
+
+165
+00:06:07.720 --> 00:06:10.380
+on over it, and our sumAll, if 
+
+166
+00:06:10.455 --> 00:06:11.320
+we were going to call this from 
+
+167
+00:06:11.330 --> 00:06:14.220
+console, you see that we got our 
+
+168
+00:06:14.230 --> 00:06:16.580
+numbers added on up for us. 
+
+169
+00:06:16.655 --> 00:06:17.630
+That's pretty common use case 
+
+170
+00:06:17.640 --> 00:06:19.130
+where you actually do want to 
+
+171
+00:06:18.740 --> 00:06:20.540
+convert your arguments object 
+
+172
+00:06:20.550 --> 00:06:22.500
+onto an array. Again, it is 
+
+173
+00:06:22.510 --> 00:06:23.640
+array-ish, because it has a 
+
+174
+00:06:23.650 --> 00:06:25.510
+length, but it doesn't have any 
+
+175
+00:06:25.870 --> 00:06:27.640
+other of methods on it. Next 
+
+176
+00:06:27.650 --> 00:06:28.980
+up, we have array.of. It's 
+
+177
+00:06:29.050 --> 00:06:30.450
+pretty straightforward. Pretty 
+
+178
+00:06:30.460 --> 00:06:32.980
+much how it works is you say 
+
+179
+00:06:33.055 --> 00:06:35.380
+const ages = Array.of, and you 
+
+180
+00:06:35.420 --> 00:06:37.140
+just pass it as many arguments 
+
+181
+00:06:37.150 --> 00:06:39.950
+as you want. That's going to 
+
+182
+00:06:39.950 --> 00:06:41.210
+create an array from every 
+
+183
+00:06:41.220 --> 00:06:43.140
+single that argument you pass it. 
+
+184
+00:06:43.330 --> 00:06:47.040
+That's
+
+185
+00:06:47.050 --> 00:06:48.380
+ it. There is nothing else much 
+
+186
+00:06:48.390 --> 00:06:50.460
+more to array.of. That's one of 
+
+187
+00:06:50.460 --> 00:06:51.310
+those you put in your back 
+
+188
+00:06:51.310 --> 00:06:52.300
+pocket, because you might need 
+
+189
+00:06:52.310 --> 00:06:52.980
+it at some point.
+

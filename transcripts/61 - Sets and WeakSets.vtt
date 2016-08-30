@@ -1,0 +1,498 @@
+WEBVTT
+
+1
+00:00:02.160 --> 00:00:02.790
+ Instructor: A set in 
+
+2
+00:00:02.790 --> 00:00:04.240
+JavaScript is like a unique 
+
+3
+00:00:04.250 --> 00:00:05.630
+array, meaning that you can only 
+
+4
+00:00:05.640 --> 00:00:07.440
+ever add the same item once, 
+
+5
+00:00:07.620 --> 00:00:09.630
+with a nice API for managing the 
+
+6
+00:00:09.640 --> 00:00:11.180
+items inside of it. It's 
+
+7
+00:00:11.190 --> 00:00:13.200
+different than an array, in that 
+
+8
+00:00:13.480 --> 00:00:14.990
+you can't access the items 
+
+9
+00:00:15.000 --> 00:00:17.140
+individually and it's not index 
+
+10
+00:00:17.280 --> 00:00:19.570
+based. You can think of a 
+
+11
+00:00:19.580 --> 00:00:21.880
+set as just a list of items, 
+
+12
+00:00:22.200 --> 00:00:24.290
+which we can add to, remove from, 
+
+13
+00:00:24.500 --> 00:00:26.370
+and loop over. Let's take a look 
+
+14
+00:00:26.380 --> 00:00:27.810
+at how it works, how the API 
+
+15
+00:00:27.820 --> 00:00:29.160
+works, and then we'll talk about 
+
+16
+00:00:29.510 --> 00:00:30.990
+looping over it. I can 
+
+17
+00:00:31.000 --> 00:00:33.620
+create a new set by storing it 
+
+18
+00:00:33.240 --> 00:00:38.070
+in a variable, and then you set .
+
+19
+00:00:38.400 --> 00:00:40.300
+add to be able to add items to 
+
+20
+00:00:40.310 --> 00:00:44.990
+it. Open this up in my 
+
+21
+00:00:45.000 --> 00:00:46.520
+browser and type people. You'll 
+
+22
+00:00:46.600 --> 00:00:48.030
+see that we now have a set. It 
+
+23
+00:00:48.040 --> 00:00:50.560
+looks very similar to an array. 
+
+24
+00:00:51.290 --> 00:00:52.540
+Information about the set, you 
+
+25
+00:00:52.550 --> 00:00:55.000
+can say people.size. It's not .
+
+26
+00:00:55.010 --> 00:00:56.580
+length, and that's because they 
+
+27
+00:00:56.590 --> 00:00:58.760
+can't be accessed by their index, 
+
+28
+00:00:59.080 --> 00:01:00.960
+so it's .size to get it. You 
+
+29
+00:01:00.970 --> 00:01:02.370
+can list the people. You can 
+
+30
+00:01:02.380 --> 00:01:03.810
+open it up and see what we have 
+
+31
+00:01:03.820 --> 00:01:05.000
+in there. If you'd like to 
+
+32
+00:01:05.075 --> 00:01:06.930
+remove someone, you say people.
+
+33
+00:01:07.640 --> 00:01:10.530
+delete("Wes"). You don't have to 
+
+34
+00:01:10.540 --> 00:01:12.390
+figure out where the index of 
+
+35
+00:01:12.400 --> 00:01:14.000
+Wes is. With an array, you'd 
+
+36
+00:01:14.075 --> 00:01:14.770
+always have to figure out where 
+
+37
+00:01:14.780 --> 00:01:16.430
+it is. Here, you just delete it, 
+
+38
+00:01:16.990 --> 00:01:20.130
+and people now has two items in 
+
+39
+00:01:20.140 --> 00:01:22.920
+it. We can clear everyone from 
+
+40
+00:01:23.020 --> 00:01:25.150
+the set entirely with set.clear, 
+
+41
+00:01:25.620 --> 00:01:27.030
+and that gives us an empty set. 
+
+42
+00:01:27.540 --> 00:01:30.080
+If I refresh this page here, and 
+
+43
+00:01:30.080 --> 00:01:31.830
+we call one of the other methods, 
+
+44
+00:01:31.840 --> 00:01:33.960
+which is entries, keys or values -- 
+
+45
+00:01:33.960 --> 00:01:35.050
+I'm going to call values on it 
+
+46
+00:01:35.125 --> 00:01:36.520
+because it makes the most sense -- 
+
+47
+00:01:38.630 --> 00:01:39.980
+what do we get here? We get, in 
+
+48
+00:01:40.130 --> 00:01:42.500
+set iterator it gives us all of 
+
+49
+00:01:42.575 --> 00:01:44.400
+the values, but also, what is a 
+
+50
+00:01:44.410 --> 00:01:45.780
+set iterator? That means that we 
+
+51
+00:01:45.790 --> 00:01:47.660
+can loop over it, or you may 
+
+52
+00:01:47.735 --> 00:01:49.150
+remember from our generators 
+
+53
+00:01:49.160 --> 00:01:51.210
+videos, that this is a generator. 
+
+54
+00:01:51.510 --> 00:01:52.640
+If we stick that thing in a 
+
+55
+00:01:52.650 --> 00:01:56.740
+variable, we can just call next 
+
+56
+00:01:56.750 --> 00:02:00.610
+on it. It.next, it.next, it.next, 
+
+57
+00:02:00.610 --> 00:02:02.140
+it.next, and then we're done. 
+
+58
+00:02:03.690 --> 00:02:05.130
+What that probably means to you 
+
+59
+00:02:05.140 --> 00:02:06.800
+is, "Oh, cool, I can use the 
+
+60
+00:02:06.810 --> 00:02:08.870
+generator API on it with .next 
+
+61
+00:02:09.220 --> 00:02:11.020
+or I could manually feed it 
+
+62
+00:02:11.030 --> 00:02:12.490
+right into a for...of loop." 
+
+63
+00:02:14.930 --> 00:02:17.540
+Refresh and we see Wes Snickers 
+
+64
+00:02:17.640 --> 00:02:21.190
+Kate. The set also has 
+
+65
+00:02:21.200 --> 00:02:22.850
+methods of keys and entries. 
+
+66
+00:02:23.100 --> 00:02:24.200
+I'll show you what that is real 
+
+67
+00:02:24.210 --> 00:02:28.870
+quick. Say people.keys. What's 
+
+68
+00:02:28.870 --> 00:02:29.720
+the difference between keys and 
+
+69
+00:02:29.730 --> 00:02:31.330
+values? Absolutely nothing, 
+
+70
+00:02:31.480 --> 00:02:33.120
+because a set is just values. 
+
+71
+00:02:33.370 --> 00:02:34.660
+Keys and values are mapped to 
+
+72
+00:02:34.670 --> 00:02:36.450
+the exact same thing. Then we 
+
+73
+00:02:36.460 --> 00:02:39.200
+also have .entries, which if you 
+
+74
+00:02:39.210 --> 00:02:40.490
+look at it, Wes, Wes, Snickers, 
+
+75
+00:02:40.500 --> 00:02:42.310
+Snickers, Kate, Kate. These two 
+
+76
+00:02:42.320 --> 00:02:43.820
+ones, keys and entries, those 
+
+77
+00:02:43.830 --> 00:02:45.280
+are really helpful when we 
+
+78
+00:02:45.290 --> 00:02:48.520
+actually get into map. The 
+
+79
+00:02:48.530 --> 00:02:50.220
+reason I think they're there is 
+
+80
+00:02:50.610 --> 00:02:52.660
+that we can have the same API on 
+
+81
+00:02:52.670 --> 00:02:54.380
+map and set, and we don't have 
+
+82
+00:02:54.390 --> 00:02:55.870
+to worry about if it's there or 
+
+83
+00:02:55.880 --> 00:02:57.610
+not. Let's take a look at 
+
+84
+00:02:57.620 --> 00:02:58.590
+another example with some 
+
+85
+00:02:58.600 --> 00:03:01.280
+students. I can say cons.
+
+86
+00:03:01.370 --> 00:03:04.850
+students = new Set(). Now, if 
+
+87
+00:03:04.860 --> 00:03:06.670
+you want to declare the set with 
+
+88
+00:03:06.680 --> 00:03:08.240
+the values in it while you make 
+
+89
+00:03:08.250 --> 00:03:09.350
+it, you can pass it just like 
+
+90
+00:03:09.360 --> 00:03:16.630
+you would array. You can also 
+
+91
+00:03:16.640 --> 00:03:17.960
+create a set when you pass it an 
+
+92
+00:03:17.970 --> 00:03:19.510
+array. Say we actually have an 
+
+93
+00:03:19.520 --> 00:03:22.760
+existing array. We can take that 
+
+94
+00:03:22.770 --> 00:03:24.170
+array and just pass it into our 
+
+95
+00:03:24.180 --> 00:03:28.380
+new set. Take a look here. We've 
+
+96
+00:03:28.380 --> 00:03:30.640
+got dog set is actually a real 
+
+97
+00:03:30.650 --> 00:03:32.320
+set that's been created from an 
+
+98
+00:03:32.330 --> 00:03:33.780
+existing array. One other 
+
+99
+00:03:33.790 --> 00:03:34.510
+thing we can do is we can use .
+
+100
+00:03:35.200 --> 00:03:37.110
+has to see if someone is already 
+
+101
+00:03:37.120 --> 00:03:38.860
+in it. Remember we talked about 
+
+102
+00:03:38.980 --> 00:03:40.650
+the set as being unique? If I 
+
+103
+00:03:40.660 --> 00:03:42.020
+were to take these students here, 
+
+104
+00:03:42.840 --> 00:03:46.060
+and I could call .has("Tony"), 
+
+105
+00:03:47.390 --> 00:03:50.850
+it'll say true, .has("Wess") 
+
+106
+00:03:51.020 --> 00:03:53.020
+spelled wrong, gives me false. 
+
+107
+00:03:53.570 --> 00:03:55.210
+If I add someone twice, it's 
+
+108
+00:03:55.220 --> 00:03:56.890
+still going to -- I could add it 
+
+109
+00:03:56.900 --> 00:03:58.760
+a million times -- and the 
+
+110
+00:03:58.760 --> 00:04:00.950
+property of is that it is unique. 
+
+111
+00:04:01.380 --> 00:04:02.720
+One more thing, as I said, you 
+
+112
+00:04:02.730 --> 00:04:05.700
+cannot reference students 1. It 
+
+113
+00:04:05.710 --> 00:04:07.700
+is not an index-based thing. It 
+
+114
+00:04:07.710 --> 00:04:08.820
+is a list, and if you need to 
+
+115
+00:04:08.960 --> 00:04:11.610
+loop over them, you have to use 
+
+116
+00:04:11.620 --> 00:04:13.960
+a for...of loop. That is the 
+
+117
+00:04:13.970 --> 00:04:15.080
+entire set. It's fairly 
+
+118
+00:04:15.090 --> 00:04:17.480
+straightforward. We've got add, 
+
+119
+00:04:17.640 --> 00:04:19.890
+clear, delete, size property, .
+
+120
+00:04:20.210 --> 00:04:21.970
+has to see if it's in there, and 
+
+121
+00:04:21.910 --> 00:04:24.230
+we can use for...of to loop over 
+
+122
+00:04:24.240 --> 00:04:25.770
+it, or we can manually do it 
+
+123
+00:04:25.780 --> 00:04:27.330
+with the generator by calling .
+
+124
+00:04:27.530 --> 00:04:28.240
+next on it.
+

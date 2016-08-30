@@ -1,0 +1,43 @@
+[00:00] [music]
+
+[00:03] Instructor: In the next couple of videos, we're going to learn all about promises. In order to get the most out of these lessons, you need to know two things. First of all, promises are often used when you're fetching a JSON API and doing some AJAX work.
+
+[00:14] Here I've got my wesbos.com JSON API, and I'm pulling in a list of blog posts. Second, I'm going to be using a thing called Fetch to be able to fetch in this JSON API. That's not a library or anything, it's a thing that's built right into the browser. It also returns a promise.
+
+[00:30] If you haven't heard of Fetch before, it's very similar to dollar.getJSON if you've used jquery before, or dollar.AJAX, or any of these other AJAX libraries. Except, rather than having to load an external library, it's going to be built right into the browser.
+
+[00:45] Knowing that, let's jump into some examples of promises. What is a promise? A promise is something that will happen between now and the end of time. A really nice way to think of that is something that will happen in the future, but probably not immediately.
+
+[01:03] In order to understand this, we need to be reminded that JavaScript is almost entirely asynchronous, which means that if we take some code here...Let's take a look at the example.
+
+[01:13] I'm console.logging, going to fetch the latest posts. I am going to fetch the post from my blog right here. I'm going to attempt to store those posts in a post variable console.log done, and console.log the posts.
+
+[01:25] What happens when we refresh this? We see going to fetch, done immediately. How can we see both of these immediately? Then, if we console.log the posts, we don't actually see the actual data inside of it.
+
+[01:41] That's really important, because this right here, Fetch, it queues up the search. It goes over to wesbos.com and tries to fetch the posts immediately, but it does not just store them in your post variable.
+
+[01:54] That might be different if you're coming from another language like PHP, where you will just stop everything from running. This will just queue it up and put inside of posts, not the post, but it puts what's called a promise. Which means like, "Hey, I don't have the data from it just yet, but here's a little IOU the posts from Wes's blog. When they do come back, I'll be sure to let you know about that."
+
+[02:20] Let me get rid these console.logs here. I'm going to rename this post variable to posts promise. This promise, we can then listen to it. We can say, post promise.then.
+
+[02:39] We're sort of in normal, where we have a link, and we'd say onClick, and only when we click does the code here get run. We'll be able to do like, alert, hey. That's what's called a callback, and that callback will run only when someone clicks it.
+
+[02:57] It's the same thing here, where we have a then function that will only run when the data comes back. The then function will give us the data. We can run a little arrow function here, and I'm just going to console.log the data to see what we've got.
+
+[03:14] Open this up, there we go. It looks like we have a response here. Because when the data comes back...let me save it again already. One, two, and then after two seconds it actually comes back. Then you see here, this looks like some good data that I've got. You've got some headers and the body. That's probably what we want.
+
+[03:31] Where are my posts? Well, it does bring back the actual raw data, but it doesn't yet know that we're expecting JSON, because you could fetch any type of data, not just JSON.
+
+[03:43] What we can do from there is just, we return data.JSON. Or you're probably looking at this, we could probably just do an implicit return like the first videos, which is data.JSON. You can attach another .then onto that. Let's see what that data gives us, .log data. 
+
+[04:06] One, two, OK. That took a second there. Give it another save, and bam. They show up after two seconds. Open it up, and there is the actual data that comes back from our blog. You see there's the content, there's the excerpt, "super excited to announce," etc., etc. 
+
+[04:24] We have the good data here. Now, a couple of things we can do here is, probably you want to format it a little bit, something like this, where you can chain .thens together. Often people will put them on their own line, just for readability's sake.
+
+[04:39] Second of all, there is another thing that we need to listen to, and that is what's called a catch. The then will only fire when the promise successfully comes back, but what if there is an error with the data that comes back? That's where the catch actually runs.
+
+[04:57] Generally, you say .then, .then. That's all of your thens that you need. It might be one, it might be four. Then we have a catch on the end that will just catch any errors that happen anywhere along the way. That's going to give us an error here, console.error. We can console.log that actual error. Let's see what we've got here.
+
+[05:17] Now it's working, but if I were to break this like, doJASON. I don't know how to spell it. There we go. We've got our error here. There's some other errors that happened, but this is the one that actually gets thrown by this catch block here. Type error failed to actually do the fetching.
+
+[05:36] That is Fetch at a very high level. Let's dive into it a little bit deeper, and see how we can create our own.
