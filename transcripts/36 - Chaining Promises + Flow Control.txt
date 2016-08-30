@@ -1,0 +1,57 @@
+[00:00] [music]
+
+[00:02] Another useful case for Promises is when you need some sort of flow control. This is an example where you would probably find out on a back end and maybe something like Node.js, when you are creating a database.
+
+[00:14] We have like a PostId that someone is going to give us like one, two, or three, and each of those is associated with post by myself, Chris Coyier, Addy Osmani.
+
+[00:24] Then there is also another table that contains the authors. It tells you who the authors' name is. If you want more information about the author, like their twitter and their bio, then we have to go to a separate table.
+
+[00:37] Just imagine that these two are raised here, these are like a database. We are going to sort of to simulate ourselves connecting to a database, which won't be accessible immediately, which is why we are going to need to use these Promises.
+
+[00:51] What we're going to do is we're going to create two separate functions that both going to return Promises, and then we are going to chain them together.
+
+[00:59] The first one is going to be a function called GetPostByID. What that will do is going to... It's going to be called GetPostByID, and we're going to pass it something like 2. It's going to look up in our database here for a post that has an ID of 2.
+
+[01:18] We're going here. First thing we need is a Promise, because we cannot access it from our database immediately. It has to do a round trip around back and forth to the database. So we are going to return new Promise, that gives us a 'resolve' and a 'reject'. Now we need to go inside of here and find the post... [pause]
+
+[01:57] So when the PostID... We are gonna loop over every single one of these, and when the ID is matched up to the one that get passed into this function, so when it is 2, we're going to find the Post there, and we're going to say if there is a Post, then Resolve and give the Promise to Post, otherwise we are going to Reject, say, 'Error no post was found'.
+
+[02:29] In order to simulate this, so it takes time, what we can do is as you can see SetTimeOut, just wrap this in a SetTimeOut, which will sort of simulate the taking 200 ms round trip. If you like to run it instantly, you don't have to do this part, but it's totally up to you.
+
+[02:49] OK, so what do we here? Let's have a couple comments here. Create a new promise. We are using a SetTimeOut to mimick a database. We find the POST we want. If there is a POST that is self-explanatory, 'resolve'. So 'send post' back, otherwise we 'reject', and we don't have an error there, that's self-explanatory. That is our GetPostByID. So we should be able to say GetPostByID, then it should give us a Post. Just cancel 'log to post'. So let's see.
+
+[03:37] The browser.. There we go. There is a 'post' immediately. We got PostByID(2). It shows us there's Chris Coyier. So if I'm going to change this to two seconds, in order it doesn't show us immediately, and we see it after two seconds. I'll keep it to 200 ms, nice and fast.
+
+[03:56] We want to do this thing that I like to call 'hydrating', where the author of this Post is just a string of 'Wes Boss', but I want to replace it with the the Author object for a 'Wes Bos' that has my name as well as my twitter, as well as my bio.
+
+[04:16] I'm going to create a new function called hydrateAuthor, which is going to take in the Post. Why we are going to do this is because once the Post comes back in this first one right here, we are going to 'cancel log' it, but we are also going to call another hydrateAuthor and pass it the Post.
+
+[04:41] This hydrateAuthor function is going to return a Promise itself. So if we return a Promise inside of the Then, it's going to allow us to chain '.then' on to the next line.
+
+[04:56] Let's write the actual function first. Return new Promise [pause] and inside of here we gonna say const authorDetails = authors.find(), and we're going to say person, and we're going to find the one, where person.name = post.name. So the post that gets past in is going to be a post that was found in the previous function.
+
+[05:29] We are going to filter through all of these authors, until we find an author name that aligns exactly with the author name of the post that was written.
+
+[05:39] So we should have authorDetails here, and we can say if there's authorDetails resolve, and pass not just authorDetails, because we want to hydrate the author. We're going to say post.author = authorDetails.
+
+[05:54] We gonna override this string of 'Wes Bos' with an object of all the details about me. Then we resolve the entire post once again, otherwise, we will reject and not find the author.
+
+[06:19] Good. Let's step through that once more. We create a function that takes in the Post; we create a new Promise; we find the Author; and if there is an Author, then we hydrate the Post object with the Author object, otherwise we reject it.
+
+[06:45] So we should be able to now say '.then' on here, 'post', 'post the log the post'. Because this hydrateAuthor returns a Promise, and we return that Promise to the 'then', we can then unchain 'then' unto the end of that.
+
+[07:03] Finally, we should catch the error. If there is an error thrown in anytime, we should be able to cancel that error. We'll see when we refresh here.
+
+[07:15] We got a bit of a problem here. We cannot find the author, which is good thing we are catching here. So what is the problem that we have? We got a problem going on...
+
+[07:27] We can just debug through here. Debugger statement in 'go hydrateAuthor'. Our closure has a Post object which is the author is 'Chris Coyier'. person.name equals... Oh, post.name is not 'post.name', it's 'post.author'. It's the 'post.author' is 'Wes Bos'. Debugger takes this out.
+
+[08:02] Back to our console here. Here we go. We should see.. This is the first console log from our first one, which happens right here. We can take this out.
+
+[08:14] The second object that gets logged here is hydrateAuthor version. You can see the Author is now hydrated with bio, name and twitter, as well as ID and title of the actual post.
+
+[08:25] So I did this by passing 2. I can pass 1 I should be able to get something like this. Shows me the 1 from me, but if I pass something like 5, which doesn't exist, hopefully our catch will catch it.
+
+[08:39] Here we go - no post was found. Similarily, if we also go for a post 3 here, but we accidently spelled his name wrong. It's not going to be able to find that author. So we should say 'Post was found, but no author was found'. Here we go - 'Cannot find the author'.
+
+[08:59] It's the nice example of when you're chaining, because this is a little bit complex, there's a lot going on in here. What you can do is you can sort of sweep all this complexity into a nice little function, where you know how that works, you can test how that works. Then you can chain them together, whenever it is you that actually need them. And bring this back, there's money, make sure we're working, and we're good to go.

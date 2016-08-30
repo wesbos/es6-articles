@@ -33,7 +33,7 @@ _example:_
 | 11 | Arrow Functions Exercises | X | |
 | 12 | Template Strings Introduction | X | |
 | 13 | Creating HTML fragments with Template Literals | X | |
-| 14 | Tagged Template Literals |  | |
+| 14 | Tagged Template Literals | X | |
 | 15 | Tagged Templates Exercise | X | |
 | 16 | Santizing User Data with Tagged Templates | X | |
 | 17 | New String Methods |  | |
@@ -42,7 +42,7 @@ _example:_
 | 20 | Swapping Variables with Destructuring | X | X |
 | 21 | Destructuring Functions - Multiple returns and named defaults | X | |
 | 22 | The for of loop | X | |
-| 23 | The for of Loop in Action |  | |
+| 23 | The for of Loop in Action | X | |
 | 24 | Using for of with Objects | X | |
 | 25 | Array.from() and Array.of() | X | |
 | 26 | Array. find() and .findIndex() | X | |
@@ -55,7 +55,7 @@ _example:_
 | 33 | Object Literal Upgrades | X | X |
 | 34 | Promises | X | |
 | 35 | Building your own Promises | X | |
-| 36 | Chaining Promises + Flow Control |  | |
+| 36 | Chaining Promises + Flow Control | X | |
 | 37 | Working with Multiple Promises | X | |
 | 38 | All About Symbols | X | X |
 | 39 | Getting Started with ESLint |  | |

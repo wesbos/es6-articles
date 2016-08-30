@@ -1,0 +1,55 @@
+[00:00] [music]
+
+Instructor: [00:02] Another feature that comes along with template literals, or template strings, is the ability to tag them. What that means is that we can essentially run this through a function, and rather than have the browser put in the variables for us, we can have control over how this actual string is made.
+
+[00:19] I'm going to show you some examples of when that would actually be useful in just a second. For now, let's look at the mechanics of it and how it all comes together.
+
+[00:27] The way the tag template works is you simply make a function. I'm going to call this "highlight," and you take the name of the function that you want to run against the string, and you just put the name right in front of the template.
+
+[00:41] This is tagging it with a function name. What's going to happen is that the browser is going to run this function, it's going to provide it with all the information about the string, all the pieces that the person typed, as well as the variables that get passed in. Whatever we return from this function is what sentence actually is going to be.
+
+[01:02] Sort of like a step in between. Before this function actually gets put into here, we have the ability to modify it in any given way. Let's take a look at "highlight" here. If I just return "cool," that is going to take in this entire string, and then just return the word "cool." Now we see "cool" being console.log.
+
+[01:20] Obviously, that's not what we want to do, just replace the entire string, but this function will take in strings, and it will take in the actual values. In this case, we're passing name and age.
+
+[01:31] Now, we could do this. It passes a name and passes an age, but if you don't know exactly how many values someone is being pulled in, there's no way for you to...you could say, Arg1, Arg2, go through all the way to Arg100, just in case there are a hundred arguments, but that's no way to live your life.
+
+[01:51] We can use ES6 rest operator, which is three dots. We're going to go into that a lot more in a future video, but know for now, if we do dot, dot, dot values, what it's going to do is it's going to take the rest of the values that are passed to that argument, and put them into an array for us.
+
+[02:06] I'm going to pop a debugger in here, and what that will do is it's going to stop my function from running. You see it, it just opened my DevTools here. This shows us a couple of things.
+
+[02:21] First of all, the local scope of this function has -- obviously this, which is a window so it's not important -- it has strings and it has values, strings and values.
+
+[02:31] What is strings? Strings is an array of three things. "My dog's name is," and "he is, years old." What are those? It breaks up the string into the biggest pieces it can until a variable has interrupted it. We've got, "My dog's name is," then it pops in a variable, and "he is," that's the second item in the strings array, and then, "years old."
+
+[02:54] Those are the three strings that don't get changed. The other things we get is an array of values, which we passed in two values here. We get "Snickers," and "100." That's what I passed in, I passed in "Snickers" and "100." Those are the values that get passed in.
+
+[03:11] This array of strings is always going to be one bigger than the actual values array. Even if I were to put in another variable, like transgender, male, dog, if I were to just put the gender right at the end of this template string, even though there is nothing after it, watch this. Look, it gives you an empty string at the end and then three.
+
+[03:37] Again, strings array is always going to be one longer than the actual values. The idea behind this is that, we can use this function to build the string ourself rather than relying on the browser to do it.
+
+[03:48] I'm going to get rid of our gender variable here, get rid of this variable here, and get rid of the debugger.
+
+[03:55] Now, we need to create a string. I'm going to make an empty string. I'm using "let" here, why because we're going to be tacking things on to this actual string. If I used console, I wouldn't be able to tack onto it.
+
+[04:08] Then, we want to loop over this first strings array here, tack on "My dog's name is," and then the first value, and "he is," and the second value, and then "years old," and then third value. In this case, we don't have a third value.
+
+[04:23] You can use whatever loop you prefer to do. You could even use a map and then join it together. I'm going to use the dot for each, so let's say strings dot for each. We got two things here, we get the string and we get the index of the actual element here. We are going to say string, str+=, we're going to concatenate on what we have, strings or string+values [index] .
+
+[04:53] That's going to say, give me the first value from the strings and the first value from our values array and tack them on. We're going to hit a little bit of an arrow, but if we return this string that we've been tacking things onto, we should now see "My dog's name is Snickers and he is 100 years old, undefined."
+
+[05:15] First of all, that's because the strings array is always going to be one larger than the values array. When we hit that last one, it's only going to be a string and there's going to be no value to tack on the end. You could check if values of I is undefined and, if it is, then don't put it on.
+
+[05:31] A little trick you can do here, is you can use your values of I or just a blank string, and that will adjust if there is no values of three, then it will just return a blank string there. There, that's nice.
+
+[05:46] Now, what can we actually do with this? Well, we could change this so any value that gets passed in gets wrapped in a spin and we can use CSS to highlight it. You maybe want to show your user which pieces of the string were variables or which pieces of the string that they passed in, maybe it's their user name or a total for our order. In our case, we just want to highlight the name and the actual age.
+
+[06:05] I'm going to duplicate this, I'm going to use template tags instead of concatenation here, and we want to pop in the string, which is going to be the first part. We want to give ourselves a span with the class of "highlight," or "HL" and inside of that, we'll say "values I," or nothing.
+
+[06:28] We can get rid of all this concatenation here, I think that's a little bit nicer. That's our old one, we don't want that, sayonara. We've got a span. Now, let's see what our sentence looks like here. There we go. We've got a span with a class of HL wrapped around every single possible one.
+
+[06:46] We've got a little bit of a weirdness going on here, because that's the end one, but I don't think that will be an issue. If we go into our head here, and give ourselves a style tag, our HLs are going to be background, yellow, favorite yellow in the world, beautiful. We want to pop this actual sentence onto the body, document.body.enterhtml=sentence.
+
+[07:12] I got, "My name is Snickers, and he is 100 years old," being highlighted. You can go ahead and maybe make those content editable, so that if the user didn't like it, they can change the value they actually wanted, they didn't like "he is a hundred years old," they could change that value as well. It's kind of a fun way to do it.
+
+[07:31] There are much more complicated use cases for that. There are much more in depth use cases for that, but that is the main idea behind these template tag templates, is that you have a string, you pass in the regular string that you want, and then you get all the pieces. It's up to you to craft it together and to return some sort of modified data. In our case, we're wrapping it in a spin, but you may want to format it or do some if statement and conditional work on all the values.

@@ -1,0 +1,882 @@
+WEBVTT
+
+1
+00:00:02.500 --> 00:00:03.540
+ Another useful case for 
+
+2
+00:00:03.540 --> 00:00:04.930
+Promises is when you need some 
+
+3
+00:00:04.940 --> 00:00:07.300
+sort of flow control. This is an 
+
+4
+00:00:07.300 --> 00:00:08.880
+example where you would probably 
+
+5
+00:00:08.890 --> 00:00:10.740
+find out on a back end and maybe 
+
+6
+00:00:10.750 --> 00:00:12.670
+something like Node.js, when you 
+
+7
+00:00:12.720 --> 00:00:14.700
+are creating a database. We 
+
+8
+00:00:14.710 --> 00:00:16.590
+have like a PostId that someone 
+
+9
+00:00:16.600 --> 00:00:17.720
+is going to give us like one, 
+
+10
+00:00:17.730 --> 00:00:19.680
+two, or three, and each of those 
+
+11
+00:00:19.690 --> 00:00:21.600
+is associated with post by 
+
+12
+00:00:21.610 --> 00:00:23.100
+myself, Chris Coyier, Addy 
+
+13
+00:00:23.175 --> 00:00:26.000
+Osmani. Then there is also 
+
+14
+00:00:26.010 --> 00:00:28.220
+another table that contains the 
+
+15
+00:00:28.230 --> 00:00:30.130
+authors. It tells you who the authors'
+
+16
+00:00:30.140 --> 00:00:31.410
+ name is. If you want more 
+
+17
+00:00:31.420 --> 00:00:32.670
+information about the author, 
+
+18
+00:00:32.920 --> 00:00:35.040
+like their twitter and their bio, 
+
+19
+00:00:35.270 --> 00:00:36.790
+then we have to go to a separate 
+
+20
+00:00:36.800 --> 00:00:38.700
+table. Just imagine that these 
+
+21
+00:00:38.710 --> 00:00:40.760
+two are raised here, these are 
+
+22
+00:00:40.770 --> 00:00:43.380
+like a database. We are going to 
+
+23
+00:00:41.630 --> 00:00:43.480
+sort of to simulate ourselves 
+
+24
+00:00:43.490 --> 00:00:45.230
+connecting to a database, which 
+
+25
+00:00:45.300 --> 00:00:47.860
+won't be accessible immediately, 
+
+26
+00:00:48.550 --> 00:00:50.740
+which is why we are going to 
+
+27
+00:00:50.815 --> 00:00:51.210
+need to use these Promises. 
+
+28
+00:00:51.210 --> 00:00:53.280
+What we're going to do is we're 
+
+29
+00:00:53.355 --> 00:00:53.950
+going to create two separate 
+
+30
+00:00:53.960 --> 00:00:55.990
+functions that both going to 
+
+31
+00:00:55.590 --> 00:00:58.030
+return Promises, and then we are 
+
+32
+00:00:58.105 --> 00:00:58.790
+going to chain them together. 
+
+33
+00:00:59.360 --> 00:01:00.680
+The first one is going to be a 
+
+34
+00:01:00.690 --> 00:01:02.650
+function called GetPostByID. 
+
+35
+00:01:05.050 --> 00:01:06.840
+What that will do is going to... 
+
+36
+00:01:06.915 --> 00:01:08.840
+It's going to be called 
+
+37
+00:01:08.915 --> 00:01:10.840
+GetPostByID, and we're going to 
+
+38
+00:01:10.915 --> 00:01:13.240
+pass it something like 2. It's 
+
+39
+00:01:12.260 --> 00:01:15.350
+going to look up in our database 
+
+40
+00:01:15.360 --> 00:01:17.750
+here for a post that has an ID 
+
+41
+00:01:17.950 --> 00:01:20.480
+of 2. We're going here. First 
+
+42
+00:01:20.480 --> 00:01:21.690
+thing we need is a Promise, 
+
+43
+00:01:22.420 --> 00:01:25.230
+because we cannot access it from 
+
+44
+00:01:25.240 --> 00:01:26.770
+our database immediately. It has 
+
+45
+00:01:26.845 --> 00:01:28.160
+to do a round trip around back 
+
+46
+00:01:28.170 --> 00:01:30.270
+and forth to the database. So we 
+
+47
+00:01:30.345 --> 00:01:32.820
+are going to return new Promise, 
+
+48
+00:01:35.310 --> 00:01:37.430
+that gives us a 'resolve' and a 
+
+49
+00:01:37.505 --> 00:01:42.460
+'reject'. Now we need to go 
+
+50
+00:01:42.470 --> 00:01:45.880
+inside of here and find the post... 
+
+51
+00:01:45.880 --> 00:01:58.800
+ So when the PostID... 
+
+52
+00:01:58.875 --> 00:02:00.000
+We are gonna loop over every 
+
+53
+00:02:00.010 --> 00:02:01.220
+single one of these, and when 
+
+54
+00:02:01.230 --> 00:02:03.010
+the ID is matched up to the one 
+
+55
+00:02:03.020 --> 00:02:04.380
+that get passed into this 
+
+56
+00:02:04.430 --> 00:02:07.290
+function, so when it is 2, we're 
+
+57
+00:02:07.290 --> 00:02:09.130
+going to find the Post there, 
+
+58
+00:02:09.205 --> 00:02:11.130
+and we're going to say if there 
+
+59
+00:02:11.140 --> 00:02:15.640
+is a Post, then Resolve and give 
+
+60
+00:02:16.370 --> 00:02:18.750
+the Promise to Post, otherwise 
+
+61
+00:02:18.840 --> 00:02:23.330
+we are going to Reject, say, 
+
+62
+00:02:23.405 --> 00:02:29.350
+'Error no post was found'. In 
+
+63
+00:02:29.360 --> 00:02:31.090
+order to simulate this, so it 
+
+64
+00:02:31.165 --> 00:02:34.290
+takes time, what we can do is as 
+
+65
+00:02:33.300 --> 00:02:34.540
+you can see SetTimeOut, just 
+
+66
+00:02:34.550 --> 00:02:37.110
+wrap this in a SetTimeOut, which 
+
+67
+00:02:37.120 --> 00:02:38.830
+will sort of simulate the taking 
+
+68
+00:02:38.905 --> 00:02:42.300
+200 ms round trip. If you like 
+
+69
+00:02:42.340 --> 00:02:43.580
+to run it instantly, you don't 
+
+70
+00:02:43.620 --> 00:02:45.750
+have to do this part, but it's 
+
+71
+00:02:45.760 --> 00:02:50.200
+totally up to you. OK, so what 
+
+72
+00:02:50.275 --> 00:02:51.590
+do we here? Let's have a couple 
+
+73
+00:02:51.600 --> 00:02:52.890
+comments here. Create a new 
+
+74
+00:02:52.900 --> 00:02:59.570
+promise. We are using a 
+
+75
+00:02:59.645 --> 00:03:04.610
+SetTimeOut to mimick a database. 
+
+76
+00:03:07.770 --> 00:03:11.840
+We find the POST we want. If 
+
+77
+00:03:11.850 --> 00:03:17.500
+there is a POST that is self-
+
+78
+00:03:17.575 --> 00:03:19.100
+explanatory, 'resolve'. So 'send 
+
+79
+00:03:19.175 --> 00:03:19.810
+post' back, otherwise we 'reject'
+
+80
+00:03:19.480 --> 00:03:21.030
+, and we don't have an error 
+
+81
+00:03:21.105 --> 00:03:22.410
+there, that's self-explanatory. 
+
+82
+00:03:22.540 --> 00:03:25.960
+That is our GetPostByID. So we 
+
+83
+00:03:25.970 --> 00:03:28.190
+should be able to say 
+
+84
+00:03:28.265 --> 00:03:30.180
+GetPostByID, then it should give 
+
+85
+00:03:30.300 --> 00:03:35.150
+us a Post. Just cancel 'log to post'
+
+86
+00:03:34.440 --> 00:03:38.470
+. So let's see. The browser.. 
+
+87
+00:03:38.545 --> 00:03:42.450
+There we go. There is a 'post' 
+
+88
+00:03:42.130 --> 00:03:44.650
+immediately. We got PostByID(2). 
+
+89
+00:03:45.010 --> 00:03:46.430
+It shows us there's Chris Coyier. 
+
+90
+00:03:46.505 --> 00:03:47.350
+So if I'm going to change this 
+
+91
+00:03:47.360 --> 00:03:49.220
+to two seconds, in order it 
+
+92
+00:03:49.230 --> 00:03:51.310
+doesn't show us immediately, and 
+
+93
+00:03:51.440 --> 00:03:52.760
+we see it after two seconds. 
+
+94
+00:03:52.810 --> 00:03:54.370
+I'll keep it to 200 ms, nice and 
+
+95
+00:03:56.010 --> 00:03:57.670
+fast. We want to do this thing 
+
+96
+00:03:57.770 --> 00:03:58.970
+that I like to call 'hydrating', 
+
+97
+00:03:59.180 --> 00:04:05.250
+where the author of this Post is 
+
+98
+00:04:05.260 --> 00:04:06.770
+just a string of 'Wes Boss', but 
+
+99
+00:04:06.845 --> 00:04:09.130
+I want to replace it with the 
+
+100
+00:04:09.205 --> 00:04:11.900
+the Author object for a 'Wes Bos'
+
+101
+00:04:11.975 --> 00:04:13.620
+ that has my name as well as my 
+
+102
+00:04:13.650 --> 00:04:16.700
+twitter, as well as my bio. I'm 
+
+103
+00:04:16.710 --> 00:04:18.190
+going to create a new function 
+
+104
+00:04:19.220 --> 00:04:22.910
+called hydrateAuthor, which is 
+
+105
+00:04:22.920 --> 00:04:27.810
+going to take in the Post. Why 
+
+106
+00:04:27.820 --> 00:04:29.430
+we are going to do this is 
+
+107
+00:04:29.440 --> 00:04:32.010
+because once the Post comes back 
+
+108
+00:04:32.130 --> 00:04:34.490
+in this first one right here, we 
+
+109
+00:04:34.490 --> 00:04:36.670
+are going to 'cancel log' it, 
+
+110
+00:04:36.745 --> 00:04:37.580
+but we are also going to call 
+
+111
+00:04:39.780 --> 00:04:40.550
+another hydrateAuthor and pass 
+
+112
+00:04:40.560 --> 00:04:42.100
+it the Post. This hydrateAuthor 
+
+113
+00:04:44.350 --> 00:04:46.300
+function is going to return a 
+
+114
+00:04:46.310 --> 00:04:49.560
+Promise itself. So if we return 
+
+115
+00:04:50.450 --> 00:04:52.310
+a Promise inside of the Then, 
+
+116
+00:04:53.020 --> 00:04:54.820
+it's going to allow us to chain '
+
+117
+00:04:54.895 --> 00:04:55.870
+.then' on to the next line. 
+
+118
+00:04:56.400 --> 00:04:57.710
+Let's write the actual function 
+
+119
+00:04:57.800 --> 00:05:01.470
+first. Return new Promise 
+
+120
+00:05:01.470 --> 00:05:12.730
+ and inside of here we 
+
+121
+00:05:12.730 --> 00:05:14.000
+gonna say const authorDetails = 
+
+122
+00:05:14.075 --> 00:05:15.690
+authors.find(), and we're going 
+
+123
+00:05:15.700 --> 00:05:18.190
+to say person, and we're going 
+
+124
+00:05:18.265 --> 00:05:19.570
+to find the one, where person.
+
+125
+00:05:19.570 --> 00:05:23.090
+name = post.name. So the post 
+
+126
+00:05:23.100 --> 00:05:26.160
+that gets past in is going to be 
+
+127
+00:05:26.235 --> 00:05:27.030
+a post that was found in the 
+
+128
+00:05:27.040 --> 00:05:29.950
+previous function. We are going 
+
+129
+00:05:30.025 --> 00:05:31.870
+to filter through all of these 
+
+130
+00:05:31.880 --> 00:05:34.740
+authors, until we find an author 
+
+131
+00:05:34.750 --> 00:05:36.570
+name that aligns exactly with 
+
+132
+00:05:36.580 --> 00:05:39.110
+the author name of the post that 
+
+133
+00:05:39.120 --> 00:05:44.400
+was written. So we should have 
+
+134
+00:05:44.475 --> 00:05:44.140
+authorDetails here, and we can 
+
+135
+00:05:44.150 --> 00:05:45.820
+say if there's authorDetails 
+
+136
+00:05:45.895 --> 00:05:49.370
+resolve, and pass not just 
+
+137
+00:05:49.445 --> 00:05:51.030
+authorDetails, because we want 
+
+138
+00:05:51.040 --> 00:05:52.590
+to hydrate the author. We're 
+
+139
+00:05:52.665 --> 00:05:53.800
+going to say post.author = 
+
+140
+00:05:53.875 --> 00:05:55.000
+authorDetails. We gonna 
+
+141
+00:05:55.075 --> 00:05:59.390
+override this string of 'Wes Bos'
+
+142
+00:05:58.650 --> 00:06:00.400
+ with an object of all the 
+
+143
+00:06:00.410 --> 00:06:02.300
+details about me. Then we 
+
+144
+00:06:02.300 --> 00:06:04.470
+resolve the entire post once 
+
+145
+00:06:04.480 --> 00:06:08.880
+again, otherwise, we will reject 
+
+146
+00:06:13.810 --> 00:06:19.600
+and not find the author. Good. 
+
+147
+00:06:20.110 --> 00:06:21.190
+Let's step through that once 
+
+148
+00:06:21.200 --> 00:06:23.230
+more. We create a function that 
+
+149
+00:06:22.890 --> 00:06:24.750
+takes in the Post; we create a 
+
+150
+00:06:24.760 --> 00:06:30.700
+new Promise; we find the Author; 
+
+151
+00:06:31.520 --> 00:06:34.190
+and if there is an Author, then 
+
+152
+00:06:34.490 --> 00:06:39.390
+we hydrate the Post object with 
+
+153
+00:06:39.530 --> 00:06:44.280
+the Author object, otherwise we 
+
+154
+00:06:44.290 --> 00:06:46.100
+reject it. So we should be able 
+
+155
+00:06:46.110 --> 00:06:49.080
+to now say '.then' on here, 'post'
+
+156
+00:06:49.155 --> 00:06:49.330
+, 'post the log the post'. 
+
+157
+00:06:49.405 --> 00:06:50.530
+Because this hydrateAuthor 
+
+158
+00:06:55.510 --> 00:06:58.000
+returns a Promise, and we return 
+
+159
+00:06:58.000 --> 00:06:59.810
+that Promise to the 'then', we 
+
+160
+00:06:59.820 --> 00:07:02.390
+can then unchain 'then' unto the 
+
+161
+00:07:02.400 --> 00:07:04.230
+end of that. Finally, we should 
+
+162
+00:07:04.240 --> 00:07:06.990
+catch the error. If there is an 
+
+163
+00:07:07.000 --> 00:07:08.920
+error thrown in anytime, we 
+
+164
+00:07:08.940 --> 00:07:11.480
+should be able to cancel that 
+
+165
+00:07:11.480 --> 00:07:14.730
+error. We'll see when we refresh 
+
+166
+00:07:14.805 --> 00:07:17.990
+here. We got a bit of a problem 
+
+167
+00:07:18.000 --> 00:07:19.990
+here. We cannot find the author, 
+
+168
+00:07:20.000 --> 00:07:20.970
+which is good thing we are 
+
+169
+00:07:20.980 --> 00:07:22.860
+catching here. So what is the 
+
+170
+00:07:22.870 --> 00:07:25.050
+problem that we have? We got a 
+
+171
+00:07:25.060 --> 00:07:28.510
+problem going on... We can just 
+
+172
+00:07:28.510 --> 00:07:30.030
+debug through here. Debugger 
+
+173
+00:07:30.105 --> 00:07:31.630
+statement in 'go hydrateAuthor'. 
+
+174
+00:07:43.820 --> 00:07:46.530
+Our closure has a Post object 
+
+175
+00:07:46.605 --> 00:07:49.200
+which is the author is 'Chris Coyier'
+
+176
+00:07:49.850 --> 00:07:52.310
+. person.name equals... Oh, post.
+
+177
+00:07:52.540 --> 00:07:54.400
+name is not 'post.name', it's 
+
+178
+00:07:54.475 --> 00:07:56.800
+'post.author'. It's the 'post.author'
+
+179
+00:07:56.875 --> 00:07:58.800
+ is 'Wes Bos'. Debugger takes 
+
+180
+00:07:58.875 --> 00:08:04.110
+this out. Back to our console 
+
+181
+00:08:04.120 --> 00:08:08.370
+here. Here we go. We should see.. 
+
+182
+00:08:08.380 --> 00:08:09.800
+This is the first console log 
+
+183
+00:08:09.810 --> 00:08:11.630
+from our first one, which 
+
+184
+00:08:11.640 --> 00:08:13.400
+happens right here. We can take 
+
+185
+00:08:13.475 --> 00:08:15.500
+this out. The second object 
+
+186
+00:08:15.510 --> 00:08:16.690
+that gets logged here is 
+
+187
+00:08:16.765 --> 00:08:17.630
+hydrateAuthor version. You can 
+
+188
+00:08:18.010 --> 00:08:20.060
+see the Author is now hydrated 
+
+189
+00:08:20.070 --> 00:08:23.240
+with bio, name and twitter, as 
+
+190
+00:08:23.250 --> 00:08:24.830
+well as ID and title of the 
+
+191
+00:08:24.840 --> 00:08:27.610
+actual post. So I did this by 
+
+192
+00:08:27.685 --> 00:08:29.160
+passing 2. I can pass 1 I should 
+
+193
+00:08:29.160 --> 00:08:32.040
+be able to get something like 
+
+194
+00:08:32.050 --> 00:08:34.000
+this. Shows me the 1 from me, 
+
+195
+00:08:34.220 --> 00:08:36.030
+but if I pass something like 5, 
+
+196
+00:08:36.040 --> 00:08:37.620
+which doesn't exist, hopefully 
+
+197
+00:08:37.630 --> 00:08:39.590
+our catch will catch it. Here 
+
+198
+00:08:39.665 --> 00:08:41.080
+we go - no post was found. 
+
+199
+00:08:41.155 --> 00:08:44.710
+Similarily, if we also go for a 
+
+200
+00:08:44.820 --> 00:08:47.260
+post 3 here, but we 
+
+201
+00:08:47.270 --> 00:08:50.250
+accidently spelled his name 
+
+202
+00:08:50.260 --> 00:08:52.380
+wrong. It's not going to be able 
+
+203
+00:08:52.390 --> 00:08:53.790
+to find that author. So we 
+
+204
+00:08:53.800 --> 00:08:55.490
+should say 'Post was found, but 
+
+205
+00:08:55.500 --> 00:08:57.950
+no author was found'. Here we go - 
+
+206
+00:08:58.025 --> 00:08:59.950
+'Cannot find the author'. It's 
+
+207
+00:09:00.025 --> 00:09:00.760
+the nice example of when you're 
+
+208
+00:09:00.890 --> 00:09:02.070
+chaining, because this is a 
+
+209
+00:09:02.080 --> 00:09:03.170
+little bit complex, there's a 
+
+210
+00:09:03.180 --> 00:09:05.750
+lot going on in here. What you 
+
+211
+00:09:05.760 --> 00:09:07.380
+can do is you can sort of sweep 
+
+212
+00:09:08.050 --> 00:09:10.640
+all this complexity into a nice 
+
+213
+00:09:10.650 --> 00:09:11.880
+little function, where you know 
+
+214
+00:09:11.890 --> 00:09:14.000
+how that works, you can test how 
+
+215
+00:09:14.010 --> 00:09:16.570
+that works. Then you can chain 
+
+216
+00:09:16.580 --> 00:09:17.970
+them together, whenever it is 
+
+217
+00:09:18.230 --> 00:09:19.930
+you that actually need them. And 
+
+218
+00:09:20.005 --> 00:09:21.800
+bring this back, there's money, 
+
+219
+00:09:21.810 --> 00:09:23.620
+make sure we're working, and 
+
+220
+00:09:23.630 --> 00:09:24.180
+we're good to go.
+

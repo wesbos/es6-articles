@@ -1,0 +1,1178 @@
+WEBVTT
+
+1
+00:00:02.600 --> 00:00:03.370
+Let's take a deeper look into 
+
+2
+00:00:03.380 --> 00:00:05.210
+when an iterable actually is. 
+
+3
+00:00:04.050 --> 00:00:07.320
+Here I've got my array, and I'm 
+
+4
+00:00:07.330 --> 00:00:08.620
+looping over it, and I'm console 
+
+5
+00:00:08.630 --> 00:00:09.850
+logging the cut. No big deal. 
+
+6
+00:00:10.170 --> 00:00:12.460
+But what if I want to get the 
+
+7
+00:00:12.500 --> 00:00:14.290
+index of the actual cut as well 
+
+8
+00:00:14.300 --> 00:00:16.150
+to say Chuck is first, Brisket 
+
+9
+00:00:16.160 --> 00:00:18.110
+is second, etc., etc.? There's 
+
+10
+00:00:18.120 --> 00:00:19.740
+no real good way to do that 
+
+11
+00:00:19.815 --> 00:00:21.960
+right here unless I were to say 
+
+12
+00:00:21.970 --> 00:00:23.610
+cuts to indexOf and find it 
+
+13
+00:00:23.620 --> 00:00:26.370
+every single time. What we 
+
+14
+00:00:26.380 --> 00:00:28.100
+don't know about yet is that 
+
+15
+00:00:28.440 --> 00:00:29.740
+there are these things called 
+
+16
+00:00:29.750 --> 00:00:31.180
+generators - and we're going to 
+
+17
+00:00:31.255 --> 00:00:32.430
+go into a whole bunch of that in 
+
+18
+00:00:32.440 --> 00:00:34.670
+the video - but if you go into 
+
+19
+00:00:34.680 --> 00:00:35.780
+your console here and do this 
+
+20
+00:00:35.790 --> 00:00:39.280
+with me, say cuts.entries, what 
+
+21
+00:00:39.410 --> 00:00:41.180
+that is going to give us is 
+
+22
+00:00:41.270 --> 00:00:43.420
+actually an array iterator. If 
+
+23
+00:00:43.420 --> 00:00:44.770
+you open it up you'd expect to 
+
+24
+00:00:44.780 --> 00:00:46.590
+see all the data, but there's 
+
+25
+00:00:46.600 --> 00:00:49.000
+nothing in there. All you know 
+
+26
+00:00:49.010 --> 00:00:50.800
+that there's a Next function 
+
+27
+00:00:50.810 --> 00:00:53.270
+that we can call on it. So if 
+
+28
+00:00:52.600 --> 00:00:54.840
+we actually store that array 
+
+29
+00:00:54.880 --> 00:00:57.630
+cuts.entries in a variable, so 
+
+30
+00:00:57.705 --> 00:01:01.480
+const, say meat=cuts.entries. 
+
+31
+00:01:02.050 --> 00:01:03.270
+Now what do we have? Meat. Is 
+
+32
+00:01:03.280 --> 00:01:05.150
+that all of the meat? No, it's 
+
+33
+00:01:05.420 --> 00:01:07.040
+the iterator and we can iterate 
+
+34
+00:01:07.260 --> 00:01:09.810
+through each of those ones 
+
+35
+00:01:09.870 --> 00:01:11.550
+manually. This loop was doing it 
+
+36
+00:01:11.560 --> 00:01:13.910
+for us, but if we ever wanted to 
+
+37
+00:01:13.985 --> 00:01:14.310
+do it manually - and we'll look 
+
+38
+00:01:14.320 --> 00:01:15.430
+at more examples when we hit 
+
+39
+00:01:15.440 --> 00:01:20.080
+generators - you call it meat.
+
+40
+00:01:20.080 --> 00:01:21.410
+next, and meat.next, and then 
+
+41
+00:01:21.020 --> 00:01:22.360
+meat.next. Let's see what we 
+
+42
+00:01:22.370 --> 00:01:24.210
+got there, a couple of more 
+
+43
+00:01:24.210 --> 00:01:27.480
+times, there we go. So what do 
+
+44
+00:01:27.555 --> 00:01:28.060
+we get here? Well, the first 
+
+45
+00:01:28.070 --> 00:01:30.300
+time we called it we got done: 
+
+46
+00:01:30.340 --> 00:01:32.090
+false, and that means that the 
+
+47
+00:01:32.100 --> 00:01:33.650
+loop hasn't finished -- more in 
+
+48
+00:01:33.660 --> 00:01:35.220
+the generator video. Then the 
+
+49
+00:01:35.230 --> 00:01:36.890
+value is in array where the 
+
+50
+00:01:36.900 --> 00:01:38.170
+first thing is going to be the 
+
+51
+00:01:38.180 --> 00:01:39.830
+index, and the second thing is 
+
+52
+00:01:39.840 --> 00:01:41.430
+going to be the actual value. 
+
+53
+00:01:41.430 --> 00:01:44.820
+The second one, one is brisket, 
+
+54
+00:01:45.330 --> 00:01:46.860
+third one, fourth one, you 
+
+55
+00:01:46.870 --> 00:01:48.610
+probably get the point. It tells 
+
+56
+00:01:48.620 --> 00:01:50.880
+us what the index does is and 
+
+57
+00:01:50.890 --> 00:01:53.380
+what the short rib is. Why would 
+
+58
+00:01:53.390 --> 00:01:54.900
+this be useful to us in this 
+
+59
+00:01:54.910 --> 00:01:56.010
+video where we're learning about 
+
+60
+00:01:56.085 --> 00:01:58.370
+four of? Because what you can do 
+
+61
+00:01:58.445 --> 00:02:00.870
+is if we iterate over not just 
+
+62
+00:02:00.880 --> 00:02:03.720
+the plain array but we iterate 
+
+63
+00:02:02.530 --> 00:02:04.310
+over the array iterator which is .
+
+64
+00:02:04.470 --> 00:02:07.620
+entries, watch what we'll get 
+
+65
+00:02:07.630 --> 00:02:12.540
+now. OK, so now we get cut is 
+
+66
+00:02:12.550 --> 00:02:15.840
+not chuck brisket, cut is an 
+
+67
+00:02:15.850 --> 00:02:17.950
+array every single time that we 
+
+68
+00:02:17.960 --> 00:02:19.520
+go through it. Now you might be 
+
+69
+00:02:19.520 --> 00:02:20.580
+saying, "That's annoying because 
+
+70
+00:02:20.655 --> 00:02:23.020
+now I have to say cut zero and 
+
+71
+00:02:23.220 --> 00:02:26.780
+cut one to get the index and the 
+
+72
+00:02:27.660 --> 00:02:29.360
+value." But hopefully you're 
+
+73
+00:02:29.370 --> 00:02:31.810
+screaming at me right now and 
+
+74
+00:02:31.810 --> 00:02:33.380
+you're going to say, "Well, Wes 
+
+75
+00:02:33.500 --> 00:02:34.860
+I can use destructuring there, 
+
+76
+00:02:34.990 --> 00:02:37.590
+right?" Because what we can do 
+
+77
+00:02:38.020 --> 00:02:41.000
+is we can say for const, index, 
+
+78
+00:02:41.270 --> 00:02:44.520
+and cut, because each of this is 
+
+79
+00:02:44.530 --> 00:02:46.490
+going to return an array, we can 
+
+80
+00:02:46.490 --> 00:02:48.050
+just immediately destructure 
+
+81
+00:02:48.130 --> 00:02:50.710
+that into their own variables, 
+
+82
+00:02:50.785 --> 00:02:52.930
+so const I and cut. Now, if we 
+
+83
+00:02:52.930 --> 00:02:54.990
+just console.log I. Let's put 
+
+84
+00:02:54.990 --> 00:02:56.880
+this in a tablet string. Cut is 
+
+85
+00:02:56.890 --> 00:03:02.210
+the I item. Now we should have a 
+
+86
+00:03:02.220 --> 00:03:03.460
+variable.cut and a variable 
+
+87
+00:03:03.470 --> 00:03:05.970
+called I, there we go, chuck is 
+
+88
+00:03:05.980 --> 00:03:07.240
+the zero item, brisket is the 
+
+89
+00:03:07.310 --> 00:03:08.910
+first item, second, and third 
+
+90
+00:03:08.910 --> 00:03:09.950
+etc., etc.. If you wanted to 
+
+91
+00:03:09.950 --> 00:03:10.920
+offset that you would just add 
+
+92
+00:03:10.930 --> 00:03:13.790
+one to it in first, second and 
+
+93
+00:03:13.540 --> 00:03:15.770
+third and fourth. Good. What 
+
+94
+00:03:15.770 --> 00:03:17.140
+are we doing here? We're using 
+
+95
+00:03:17.140 --> 00:03:19.270
+cuts.entries to bring us an 
+
+96
+00:03:19.345 --> 00:03:21.920
+iterator. For...of, this is kind 
+
+97
+00:03:21.930 --> 00:03:23.170
+of the nice thing about for...of, 
+
+98
+00:03:23.180 --> 00:03:24.510
+is it can pretty much handle 
+
+99
+00:03:24.560 --> 00:03:25.990
+anything that you throw at it. 
+
+100
+00:03:26.065 --> 00:03:28.010
+You don't have to think, "What 
+
+101
+00:03:28.020 --> 00:03:29.520
+kind of data is this? Which of 
+
+102
+00:03:29.530 --> 00:03:31.140
+mine like four or different 
+
+103
+00:03:31.150 --> 00:03:32.860
+loops that I have available to 
+
+104
+00:03:32.870 --> 00:03:34.790
+me should I use?" In almost all 
+
+105
+00:03:34.800 --> 00:03:36.530
+cases, except for objects, you 
+
+106
+00:03:36.540 --> 00:03:38.090
+can just use your for...of, and 
+
+107
+00:03:38.100 --> 00:03:39.940
+just throw anything at it, and 
+
+108
+00:03:40.015 --> 00:03:41.860
+the for...of loop is going to 
+
+109
+00:03:42.420 --> 00:03:43.820
+just figure out how to handle 
+
+110
+00:03:43.830 --> 00:03:45.520
+that data for you. So here I've 
+
+111
+00:03:45.595 --> 00:03:47.400
+destructured the data as we 
+
+112
+00:03:47.410 --> 00:03:49.520
+actually go on in, and we're off 
+
+113
+00:03:49.770 --> 00:03:51.520
+and running with that. Let's 
+
+114
+00:03:51.530 --> 00:03:52.540
+look at another example where 
+
+115
+00:03:52.550 --> 00:03:54.320
+for...of is useful. That is when 
+
+116
+00:03:54.330 --> 00:03:55.330
+you're trying to iterate over 
+
+117
+00:03:55.340 --> 00:03:57.060
+the arguments objects. I'm just 
+
+118
+00:03:57.135 --> 00:03:58.250
+going to take this out for a 
+
+119
+00:03:58.260 --> 00:04:01.010
+second. Let's say we have a 
+
+120
+00:04:01.020 --> 00:04:03.180
+function called add up numbers. 
+
+121
+00:04:03.430 --> 00:04:04.490
+And that function is going to be 
+
+122
+00:04:04.500 --> 00:04:06.880
+called like this, add up numbers. 
+
+123
+00:04:06.955 --> 00:04:08.090
+You have no idea how many 
+
+124
+00:04:08.100 --> 00:04:09.360
+numbers are going to get passed. 
+
+125
+00:04:09.370 --> 00:04:10.160
+Maybe some of this is going to 
+
+126
+00:04:10.160 --> 00:04:13.960
+pass a whole bunch of them. When 
+
+127
+00:04:13.970 --> 00:04:14.970
+you're declaring the function, 
+
+128
+00:04:14.980 --> 00:04:17.530
+you can't really like put a 
+
+129
+00:04:17.540 --> 00:04:18.330
+whole bunch of placeholders, 
+
+130
+00:04:18.405 --> 00:04:21.180
+like num1, num2, num3, just in 
+
+131
+00:04:21.190 --> 00:04:22.630
+case they past that many, 
+
+132
+00:04:22.860 --> 00:04:24.000
+because you have absolutely no 
+
+133
+00:04:24.075 --> 00:04:25.230
+idea how many arguments are 
+
+134
+00:04:25.240 --> 00:04:26.980
+going to pass. So instead of 
+
+135
+00:04:26.670 --> 00:04:28.170
+putting anything in there, what 
+
+136
+00:04:28.180 --> 00:04:29.320
+we can do inside of this 
+
+137
+00:04:29.330 --> 00:04:30.480
+function is to just console.log 
+
+138
+00:04:30.480 --> 00:04:31.940
+this variable called arguments. 
+
+139
+00:04:32.380 --> 00:04:33.870
+Now that is a special word and 
+
+140
+00:04:33.880 --> 00:04:36.350
+it's going to be in array-ish 
+
+141
+00:04:36.820 --> 00:04:39.440
+type where it will give us all 
+
+142
+00:04:39.450 --> 00:04:40.920
+of the actual arguments. So 
+
+143
+00:04:40.995 --> 00:04:42.250
+let's take a look here. Cool. 
+
+144
+00:04:42.360 --> 00:04:45.430
+That arguments is now what looks 
+
+145
+00:04:45.440 --> 00:04:47.080
+to be an array, it's not exactly 
+
+146
+00:04:47.090 --> 00:04:48.920
+an array of everything that got 
+
+147
+00:04:48.930 --> 00:04:51.520
+passed in. Why I'm so bent up on 
+
+148
+00:04:51.530 --> 00:04:53.120
+saying it's array-ish is because 
+
+149
+00:04:52.890 --> 00:04:54.680
+if you open it up, you'll see a 
+
+150
+00:04:54.690 --> 00:04:55.910
+couple of things right here. 
+
+151
+00:04:55.920 --> 00:04:57.170
+First of all the prototype is 
+
+152
+00:04:57.180 --> 00:04:59.240
+not an array. What happens, let 
+
+153
+00:04:59.050 --> 00:05:00.470
+me just console.log a regular 
+
+154
+00:05:00.480 --> 00:05:03.170
+array just to show you. One, two, 
+
+155
+00:05:03.330 --> 00:05:06.860
+three. This is a regular array. 
+
+156
+00:05:07.040 --> 00:05:08.530
+Open that sucker up. The 
+
+157
+00:05:08.540 --> 00:05:10.240
+prototype of that thing was the 
+
+158
+00:05:10.250 --> 00:05:11.650
+array, and if you open that up 
+
+159
+00:05:11.660 --> 00:05:14.000
+you'll see here's all the crazy 
+
+160
+00:05:14.570 --> 00:05:15.960
+array methods that we're used to 
+
+161
+00:05:16.000 --> 00:05:18.310
+like every entries, and cat, and 
+
+162
+00:05:18.320 --> 00:05:19.420
+map, and push, and pop, and 
+
+163
+00:05:19.420 --> 00:05:20.440
+reduce, and everything we could 
+
+164
+00:05:20.450 --> 00:05:21.720
+possibly want, right? Because 
+
+165
+00:05:21.795 --> 00:05:23.420
+that has built up a proper array. 
+
+166
+00:05:23.430 --> 00:05:27.620
+Now, arguments is simply just a 
+
+167
+00:05:27.620 --> 00:05:30.560
+list with only one thing on it: 
+
+168
+00:05:30.830 --> 00:05:33.520
+length. However, you can iterate 
+
+169
+00:05:33.690 --> 00:05:35.590
+over it with the for...of loop 
+
+170
+00:05:35.760 --> 00:05:37.300
+because it has a symbol iterator. 
+
+171
+00:05:38.910 --> 00:05:40.300
+Normally, in a case like this, I 
+
+172
+00:05:40.310 --> 00:05:41.790
+would probably just convert 
+
+173
+00:05:41.800 --> 00:05:43.440
+arguments to a real array and 
+
+174
+00:05:43.450 --> 00:05:45.690
+use a reduce on it and add them 
+
+175
+00:05:45.700 --> 00:05:47.410
+all up. But for whatever reason, 
+
+176
+00:05:47.420 --> 00:05:48.540
+if you're ever in the use-case 
+
+177
+00:05:48.550 --> 00:05:49.900
+where you cannot convert your 
+
+178
+00:05:49.900 --> 00:05:51.560
+arguments to an object maybe for 
+
+179
+00:05:51.970 --> 00:05:53.300
+some performance reasons, or 
+
+180
+00:05:53.310 --> 00:05:55.850
+whatever you have, then you can 
+
+181
+00:05:55.970 --> 00:05:57.960
+go ahead and loop over arguments 
+
+182
+00:05:57.970 --> 00:05:59.690
+without first converting to an 
+
+183
+00:05:59.700 --> 00:06:00.570
+array. There's no need to 
+
+184
+00:06:00.580 --> 00:06:01.660
+convert it to an array if you 
+
+185
+00:06:01.670 --> 00:06:02.770
+just need to loop over them. 
+
+186
+00:06:02.845 --> 00:06:05.570
+What I'm going to do is I'm 
+
+187
+00:06:05.645 --> 00:06:07.700
+going to say let total=zero, 
+
+188
+00:06:07.790 --> 00:06:09.580
+start with zero and then I'm 
+
+189
+00:06:09.655 --> 00:06:10.650
+going to loop over each of them. 
+
+190
+00:06:10.660 --> 00:06:14.410
+So I'm going to say for num in 
+
+191
+00:06:14.420 --> 00:06:19.610
+arguments total + = num then we 
+
+192
+00:06:19.610 --> 00:06:22.380
+should be able to return the 
+
+193
+00:06:22.690 --> 00:06:24.620
+total here. That should add them 
+
+194
+00:06:24.630 --> 00:06:27.300
+all up, let's see. I'm going to 
+
+195
+00:06:26.440 --> 00:06:28.080
+console.log total as well just 
+
+196
+00:06:28.155 --> 00:06:31.240
+so we can see it. I've got a 
+
+197
+00:06:31.310 --> 00:06:34.970
+bit of an error here. What is my 
+
+198
+00:06:34.580 --> 00:06:36.290
+mistake here, can you spot it? 
+
+199
+00:06:36.330 --> 00:06:38.570
+Why is it saying 00123456? 
+
+200
+00:06:38.645 --> 00:06:40.780
+Because I said for...in, it's 
+
+201
+00:06:40.790 --> 00:06:44.400
+for...of, not for...in. For...in 
+
+202
+00:06:44.410 --> 00:06:46.630
+would give us the index. For...
+
+203
+00:06:46.690 --> 00:06:47.680
+of will give us the actual 
+
+204
+00:06:47.690 --> 00:06:50.030
+argument. Refresh. There we go, 
+
+205
+00:06:50.105 --> 00:06:51.980
+267, because I created a 
+
+206
+00:06:51.990 --> 00:06:53.380
+variable and it looped through 
+
+207
+00:06:53.390 --> 00:06:54.660
+it and it updated every single 
+
+208
+00:06:54.670 --> 00:06:56.510
+one of them. Now, if I ever want 
+
+209
+00:06:56.585 --> 00:06:58.070
+to call add up numbers, what's 
+
+210
+00:06:58.145 --> 00:07:00.520
+10 + 10? 20. What if I want to 
+
+211
+00:07:00.520 --> 00:07:02.170
+do a whole bunch, more of them? 
+
+212
+00:07:02.480 --> 00:07:04.010
+Not a problem, it's going to 
+
+213
+00:07:04.010 --> 00:07:07.550
+give me 256, appropriate. That 
+
+214
+00:07:07.560 --> 00:07:09.030
+is one example of what you could 
+
+215
+00:07:09.040 --> 00:07:10.440
+loop over it. You do not need to 
+
+216
+00:07:10.450 --> 00:07:12.400
+convert to a true array, you can 
+
+217
+00:07:12.410 --> 00:07:14.500
+just use the for...of to iterate 
+
+218
+00:07:14.110 --> 00:07:15.710
+over it. What else can we use to 
+
+219
+00:07:15.720 --> 00:07:17.710
+the for...of to iterate over? 
+
+220
+00:07:17.350 --> 00:07:18.990
+That's for a string, so maybe 
+
+221
+00:07:19.000 --> 00:07:21.330
+you have a name like Wes Bos. 
+
+222
+00:07:21.405 --> 00:07:23.730
+I'm going to say for const 
+
+223
+00:07:24.330 --> 00:07:27.050
+character of name, console.log, 
+
+224
+00:07:27.060 --> 00:07:28.970
+the character, and that will 
+
+225
+00:07:28.980 --> 00:07:31.990
+give us the s-base B-O-S. Notice 
+
+226
+00:07:32.000 --> 00:07:33.860
+how I put a const there? I think 
+
+227
+00:07:33.870 --> 00:07:35.120
+I forgot. Yeah. You make sure 
+
+228
+00:07:35.130 --> 00:07:37.600
+you put a const, a let, or a var 
+
+229
+00:07:37.675 --> 00:07:39.020
+in front of this, otherwise 
+
+230
+00:07:39.020 --> 00:07:40.360
+you're going to be overwriting 
+
+231
+00:07:40.910 --> 00:07:42.240
+the actual variable every single 
+
+232
+00:07:42.250 --> 00:07:43.750
+time instead of creating a let 
+
+233
+00:07:43.760 --> 00:07:45.370
+or a const that is scoped to 
+
+234
+00:07:45.380 --> 00:07:47.510
+that actual block. Finally, you 
+
+235
+00:07:47.520 --> 00:07:49.660
+can also loop over DAM 
+
+236
+00:07:49.660 --> 00:07:50.810
+collections without having to 
+
+237
+00:07:50.820 --> 00:07:52.740
+convert to a true array. Now, 
+
+238
+00:07:53.400 --> 00:07:54.890
+DOM collections, or nodeless or 
+
+239
+00:07:55.100 --> 00:07:57.690
+HTML collections, whatever 
+
+240
+00:07:57.700 --> 00:07:58.850
+you're going to call them, they 
+
+241
+00:07:58.900 --> 00:08:00.760
+are being changed so that you 
+
+242
+00:08:00.770 --> 00:08:02.700
+will have all of your .for each, 
+
+243
+00:08:02.700 --> 00:08:04.350
+and .map, and all of those array 
+
+244
+00:08:04.360 --> 00:08:05.420
+methods that you're used to. 
+
+245
+00:08:05.730 --> 00:08:07.150
+However, in most browsers they 
+
+246
+00:08:07.160 --> 00:08:09.330
+are not a true array, so we 
+
+247
+00:08:09.340 --> 00:08:11.600
+could use the for...of, no 
+
+248
+00:08:11.610 --> 00:08:13.550
+problem there. Maybe we'll give 
+
+249
+00:08:13.810 --> 00:08:15.080
+ourselves a couple of paragraph 
+
+250
+00:08:15.090 --> 00:08:16.900
+tags in the body up here. Let's 
+
+251
+00:08:16.975 --> 00:08:20.070
+just say a paragraph that says 
+
+252
+00:08:20.080 --> 00:08:24.870
+something like IIOP$, let's give 
+
+253
+00:08:24.870 --> 00:08:26.680
+ourselves 10 of them. Cool so 
+
+254
+00:08:26.755 --> 00:08:27.190
+I've got a whole bunch of 
+
+255
+00:08:27.190 --> 00:08:29.320
+paragraphs on the page here, 
+
+256
+00:08:29.890 --> 00:08:31.500
+let's see them all right here. 
+
+257
+00:08:32.930 --> 00:08:35.840
+Then I want to select them, say 
+
+258
+00:08:35.915 --> 00:08:37.040
+const piece = document.
+
+259
+00:08:37.115 --> 00:08:42.980
+querySelector all paragraph. 
+
+260
+00:08:42.980 --> 00:08:45.210
+Then I'm just going to console.
+
+261
+00:08:45.285 --> 00:08:46.580
+log the paragraphs. So this, 
+
+262
+00:08:46.590 --> 00:08:48.800
+open it up. See, it's not a true 
+
+263
+00:08:48.810 --> 00:08:50.560
+array it is a nodeless, but if 
+
+264
+00:08:50.570 --> 00:08:52.000
+you open that up you will see 
+
+265
+00:08:52.010 --> 00:08:54.360
+that we have dot for each as 
+
+266
+00:08:54.360 --> 00:08:55.810
+well as a couple other of the 
+
+267
+00:08:55.820 --> 00:08:57.730
+array methods that we're used to. 
+
+268
+00:08:57.800 --> 00:09:00.230
+If you want to loop over it with 
+
+269
+00:08:59.390 --> 00:09:01.620
+a for...of loop, or const 
+
+270
+00:09:03.220 --> 00:09:07.700
+paragraph of piece, then 
+
+271
+00:09:07.775 --> 00:09:09.570
+we can console.log the paragraph, 
+
+272
+00:09:09.760 --> 00:09:10.740
+you see that we get each 
+
+273
+00:09:10.840 --> 00:09:12.230
+individual one here, and that's 
+
+274
+00:09:12.305 --> 00:09:13.130
+useful if you want to do 
+
+275
+00:09:13.140 --> 00:09:15.360
+something like paragraph at 
+
+276
+00:09:15.360 --> 00:09:18.810
+event listener on click, 
+
+277
+00:09:21.370 --> 00:09:24.190
+function, console.log, .text 
+
+278
+00:09:24.260 --> 00:09:27.140
+content. Anytime someone clicks 
+
+279
+00:09:27.150 --> 00:09:30.090
+on a paragraph go ahead and 
+
+280
+00:09:30.100 --> 00:09:31.520
+console.log whatever is inside 
+
+281
+00:09:31.530 --> 00:09:34.780
+of it. Do three if you want, do 
+
+282
+00:09:34.830 --> 00:09:36.500
+two if you want. Good. Didn't 
+
+283
+00:09:36.510 --> 00:09:37.900
+need to convert it to an array. 
+
+284
+00:09:38.050 --> 00:09:40.130
+Again, you totally can. I'm not 
+
+285
+00:09:40.140 --> 00:09:41.590
+sure of a huge performance 
+
+286
+00:09:41.600 --> 00:09:42.930
+difference between the two. You 
+
+287
+00:09:42.940 --> 00:09:44.300
+can do your own testing on that. 
+
+288
+00:09:44.510 --> 00:09:45.660
+But it's helpful to know that 
+
+289
+00:09:45.860 --> 00:09:47.460
+you can use this for...of with 
+
+290
+00:09:47.470 --> 00:09:49.020
+things that aren't arrays, as 
+
+291
+00:09:49.030 --> 00:09:50.510
+long as they're an iterable. And 
+
+292
+00:09:50.520 --> 00:09:52.020
+what is an iterable, a DOM 
+
+293
+00:09:52.030 --> 00:09:53.920
+collection, argument, a string, 
+
+294
+00:09:53.930 --> 00:09:56.460
+an array, a map, or a set.
+
