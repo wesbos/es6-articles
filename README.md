@@ -21,7 +21,7 @@ _example:_
 |  | Article Name   |      Captions       |  Blog Post |
 |----------|:-------------|:------:|:------:|
 | 1 | [var Scoping Refresher](http://wesbos.com/javascript-scoping/) | X | X |
-| 2 | let VS const | X | X |
+| 2 | [let VS const](http://wesbos.com/let-vs-const/) | X | X |
 | 3 | let and const in the Real World | X | X |
 | 4 | Temporal Dead Zone | X | X |
 | 5 | Is var Dead? What should I use? | X | X |
