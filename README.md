@@ -27,7 +27,7 @@ _example:_
 | 5 | Is var Dead? What should I use? | X | X |
 | 6 | Arrow Functions Introduction | X | X |
 | 7 | More Arrow Function Examples | X | X |
-| 8 | Arrow Functions and `this` | X | |
+| 8 | Arrow Functions and `this` | X | X |
 | 9 | Default Function Arguments | X | |
 | 10 | When NOT to use an Arrow Function | X | |
 | 11 | Arrow Functions Exercises | X | |
