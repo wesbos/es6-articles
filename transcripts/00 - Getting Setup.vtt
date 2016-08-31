@@ -1,0 +1,194 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ Instructor: I hope 
+
+2
+00:00:02.570 --> 00:00:03.620
+you're super excited to learn 
+
+3
+00:00:03.695 --> 00:00:04.880
+ES6. I just wanted to have a 
+
+4
+00:00:04.890 --> 00:00:07.090
+quick video, in order to get you 
+
+5
+00:00:05.960 --> 00:00:07.320
+set up for this. First of all, 
+
+6
+00:00:07.330 --> 00:00:08.820
+you need a browser that can 
+
+7
+00:00:08.830 --> 00:00:10.950
+support ES6. Right now, that's 
+
+8
+00:00:11.000 --> 00:00:12.580
+all of the latest versions of a 
+
+9
+00:00:12.655 --> 00:00:14.130
+browser. I'm going to be using 
+
+10
+00:00:14.140 --> 00:00:15.940
+Chrome in this one, but grab the 
+
+11
+00:00:15.950 --> 00:00:17.660
+latest Internet Explorer Edge, 
+
+12
+00:00:17.670 --> 00:00:19.950
+or Firefox, or latest Safari, 
+
+13
+00:00:19.960 --> 00:00:21.600
+and you'd be good to go. Once 
+
+14
+00:00:21.610 --> 00:00:24.140
+you are signed in, go ahead and 
+
+15
+00:00:24.320 --> 00:00:25.480
+you can stream the course by 
+
+16
+00:00:25.490 --> 00:00:26.480
+clicking it here. You can go 
+
+17
+00:00:26.490 --> 00:00:27.430
+ahead and download all of the 
+
+18
+00:00:27.440 --> 00:00:29.340
+videos if you prefer to watch 
+
+19
+00:00:29.350 --> 00:00:31.870
+them offline. Then, you also 
+
+20
+00:00:31.880 --> 00:00:33.090
+want to make sure that you grab 
+
+21
+00:00:33.100 --> 00:00:35.190
+the starter files. Now, starter 
+
+22
+00:00:35.190 --> 00:00:36.740
+files are hosted up on GitHub 
+
+23
+00:00:36.750 --> 00:00:38.850
+here. It's just a whole bunch of 
+
+24
+00:00:38.860 --> 00:00:40.670
+different HTML and JavaScript 
+
+25
+00:00:40.720 --> 00:00:41.490
+files that we're going to be 
+
+26
+00:00:41.500 --> 00:00:42.710
+using throughout the course. 
+
+27
+00:00:42.970 --> 00:00:44.630
+I recommend that you code all of 
+
+28
+00:00:44.640 --> 00:00:46.260
+this stuff yourself, sort of 
+
+29
+00:00:46.270 --> 00:00:48.580
+from scratch. I think it's going 
+
+30
+00:00:48.655 --> 00:00:50.400
+to set in the best. But if you 
+
+31
+00:00:50.410 --> 00:00:51.620
+prefer to just watch them and 
+
+32
+00:00:51.630 --> 00:00:53.880
+then code them after, you can do 
+
+33
+00:00:53.890 --> 00:00:54.880
+that, or if you will just need 
+
+34
+00:00:54.980 --> 00:00:56.260
+to reference some of the code, 
+
+35
+00:00:56.430 --> 00:00:58.120
+it's also available inside of 
+
+36
+00:00:57.790 --> 00:00:59.380
+here. There is a file called 
+
+37
+00:00:59.390 --> 00:01:01.980
+data.js. If you ever need just 
+
+38
+00:01:01.990 --> 00:01:03.910
+an array of things, or a couple 
+
+39
+00:01:03.920 --> 00:01:06.330
+objects, or just some data to 
+
+40
+00:01:06.340 --> 00:01:08.350
+actually work with, then I 
+
+41
+00:01:08.490 --> 00:01:10.100
+recommend grabbing it from here. 
+
+42
+00:01:10.160 --> 00:01:12.310
+I also use this data throughout 
+
+43
+00:01:12.320 --> 00:01:14.430
+the entire series. That's 
+
+44
+00:01:14.440 --> 00:01:16.090
+pretty much it, so enjoy the 
+
+45
+00:01:16.100 --> 00:01:17.470
+course. Make sure you jump into 
+
+46
+00:01:17.480 --> 00:01:19.410
+the Slack channel and chat with 
+
+47
+00:01:19.410 --> 00:01:20.610
+everyone else who's taking it. 
+
+48
+00:01:20.660 --> 00:01:21.090
+Enjoy.
+
