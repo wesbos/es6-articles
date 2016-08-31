@@ -36,7 +36,7 @@ _example:_
 | 14 | Tagged Template Literals | X | |
 | 15 | Tagged Templates Exercise | X | |
 | 16 | Santizing User Data with Tagged Templates | X | |
-| 17 | New String Methods |  | |
+| 17 | New String Methods | X | |
 | 18 | Destructuring Objects | X | X |
 | 19 | Destructing Arrays | X | X |
 | 20 | Swapping Variables with Destructuring | X | X |
@@ -58,19 +58,19 @@ _example:_
 | 36 | Chaining Promises + Flow Control | X | |
 | 37 | Working with Multiple Promises | X | |
 | 38 | All About Symbols | X | X |
-| 39 | Getting Started with ESLint |  | |
-| 40 | Airbnb ESLint Settings |  | |
+| 39 | Getting Started with ESLint | X | |
+| 40 | Airbnb ESLint Settings | X | |
 | 41 | Line and File Specific Settings | X | |
 | 42 | ESLint Plugins | X | |
 | 43 | ESLint inside Atom and Sublime Text | X | |
 | 44 | Only Allow ESLint Passing Code into your git repos | X | |
 | 45 | JavaScript Modules and WebPack 2 Tooling Setup |  | |
 | 46 | Creating your own Modules | X | |
-| 47 | More ES6 Module Practice |  | |
-| 48 | Tool-Free Modules with SystemJS (+bonus BrowserSync setup) |  | |
+| 47 | More ES6 Module Practice | X | |
+| 48 | Tool-Free Modules with SystemJS (+bonus BrowserSync setup) | X | |
 | 49 | All About Babel + npm scripts | X | |
 | 50 | Polyfilling ES6 for Older Browsers | X | |
-| 51 | Prototypal Inheritance Review |  | |
+| 51 | Prototypal Inheritance Review | X | |
 | 52 | Say Hello to Classes | X | |
 | 53 | Extending Classes and using super() | X | |
 | 54 | Extending Arrays with Classes for Custom Collections | X | |

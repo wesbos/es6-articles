@@ -1,0 +1,794 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+ 
+
+2
+00:00:02.480 --> 00:00:03.850
+isn't the only way to bundle up 
+
+3
+00:00:03.860 --> 00:00:05.330
+your JavaScript. We also have 
+
+4
+00:00:05.405 --> 00:00:06.930
+things like Browserify, Rollup, 
+
+5
+00:00:07.005 --> 00:00:09.270
+and SystemJS. These things all 
+
+6
+00:00:09.280 --> 00:00:11.670
+bundle up your ES6 modulesm and 
+
+7
+00:00:11.850 --> 00:00:13.420
+it doesn't really matter which 
+
+8
+00:00:13.430 --> 00:00:14.840
+one you use. That comes down to 
+
+9
+00:00:14.850 --> 00:00:15.850
+a personal preference. 
+
+10
+00:00:15.925 --> 00:00:17.260
+Webpack seems to be the most 
+
+11
+00:00:17.270 --> 00:00:18.910
+popular, and I'd recommend that 
+
+12
+00:00:18.920 --> 00:00:20.660
+you go with that. However, it's 
+
+13
+00:00:20.670 --> 00:00:21.960
+not like you're writing Webpack 
+
+14
+00:00:22.035 --> 00:00:24.040
+modules or Browserify modules. 
+
+15
+00:00:24.210 --> 00:00:25.660
+You're writing a standard ES6 
+
+16
+00:00:25.820 --> 00:00:27.710
+module, so if you were to switch 
+
+17
+00:00:27.720 --> 00:00:29.380
+out your bundler at any time, 
+
+18
+00:00:29.560 --> 00:00:30.730
+you should be able to do that 
+
+19
+00:00:30.740 --> 00:00:33.160
+with no problem. There's 
+
+20
+00:00:33.180 --> 00:00:34.760
+another one called SystemJS that 
+
+21
+00:00:34.940 --> 00:00:36.350
+works with something called jspm. 
+
+22
+00:00:36.425 --> 00:00:38.840
+Jspm is JavaScript Package 
+
+23
+00:00:38.850 --> 00:00:41.600
+Manager, and it sits on top of 
+
+24
+00:00:41.675 --> 00:00:42.830
+npm. It's not like an 
+
+25
+00:00:42.840 --> 00:00:44.540
+alternative to npm, it just sits 
+
+26
+00:00:44.550 --> 00:00:46.590
+on top of it. Why am I 
+
+27
+00:00:46.600 --> 00:00:48.030
+looking at SystemJS right here? 
+
+28
+00:00:48.190 --> 00:00:50.790
+One really cool feature of 
+
+29
+00:00:50.865 --> 00:00:51.400
+SystemJS is that you can 
+
+30
+00:00:51.410 --> 00:00:53.440
+possibly run it in the browser, 
+
+31
+00:00:53.730 --> 00:00:54.920
+which means that you don't need 
+
+32
+00:00:54.960 --> 00:00:57.280
+any of the overhead of npm 
+
+33
+00:00:57.355 --> 00:00:58.480
+installing Webpack, getting 
+
+34
+00:00:58.555 --> 00:01:00.160
+these bundlers up and running, 
+
+35
+00:01:00.170 --> 00:01:01.790
+getting your Babel and your 
+
+36
+00:01:01.865 --> 00:01:03.790
+transpiler on the right presets, 
+
+37
+00:01:03.865 --> 00:01:05.230
+and all of that hard work that 
+
+38
+00:01:05.240 --> 00:01:06.480
+we just did in the last couple 
+
+39
+00:01:06.590 --> 00:01:08.000
+ones. Sometimes that can be 
+
+40
+00:01:08.010 --> 00:01:09.420
+a bit of a barrier to entry when 
+
+41
+00:01:09.430 --> 00:01:11.020
+you just want to try something 
+
+42
+00:01:11.030 --> 00:01:14.080
+out, or you got a couple of 
+
+43
+00:01:14.155 --> 00:01:12.950
+hours on a Friday night and you 
+
+44
+00:01:12.950 --> 00:01:14.690
+want to hack on something. You 
+
+45
+00:01:14.700 --> 00:01:16.060
+don't want the tooling to get in 
+
+46
+00:01:16.070 --> 00:01:18.300
+your way. SystemJS, really 
+
+47
+00:01:18.310 --> 00:01:19.830
+how you do it is you load in a 
+
+48
+00:01:19.840 --> 00:01:22.600
+script tag to jspm.io/system@19 
+
+49
+00:01:22.675 --> 00:01:25.030
+and that's going to load the 
+
+50
+00:01:25.980 --> 00:01:28.260
+latest 19.x version. Then we 
+
+51
+00:01:28.270 --> 00:01:30.210
+also need to run this HTML 
+
+52
+00:01:30.380 --> 00:01:33.630
+through some sort of server. If 
+
+53
+00:01:33.630 --> 00:01:35.000
+you have a server, if you have a 
+
+54
+00:01:35.010 --> 00:01:36.270
+little Python server, if you 
+
+55
+00:01:36.980 --> 00:01:39.000
+have maybe a PHP server, feel 
+
+56
+00:01:39.150 --> 00:01:40.370
+free to run it through this. It 
+
+57
+00:01:40.380 --> 00:01:42.890
+just needs to not run on a file. 
+
+58
+00:01:42.900 --> 00:01:44.270
+It needs to run on a local host 
+
+59
+00:01:44.280 --> 00:01:45.640
+or something like that. I'm 
+
+60
+00:01:45.715 --> 00:01:47.570
+going to set up a quick little 
+
+61
+00:01:47.580 --> 00:01:49.210
+browser sync server. If you're 
+
+62
+00:01:49.210 --> 00:01:51.050
+interested in how to do that, 
+
+63
+00:01:51.170 --> 00:01:52.030
+I'm going to do that now. 
+
+64
+00:01:52.040 --> 00:01:53.330
+Otherwise, just scrub forward 
+
+65
+00:01:53.900 --> 00:01:56.070
+for a couple minutes and you can 
+
+66
+00:01:56.080 --> 00:01:57.910
+skip this part. What am I 
+
+67
+00:01:57.985 --> 00:01:58.370
+going to do? I'm going to open 
+
+68
+00:01:58.380 --> 00:02:00.420
+up my terminal here. I'm in the 
+
+69
+00:02:00.495 --> 00:02:01.780
+ES6 tooling folder, and I'm 
+
+70
+00:02:01.855 --> 00:02:03.960
+going to go into my SystemJS 
+
+71
+00:02:04.035 --> 00:02:07.570
+folder. I need to do an npm. 
+
+72
+00:02:07.580 --> 00:02:09.460
+Again, this isn't npm because we 
+
+73
+00:02:09.470 --> 00:02:11.280
+need it for the module bundling. 
+
+74
+00:02:11.290 --> 00:02:12.330
+This is just because I need it 
+
+75
+00:02:12.340 --> 00:02:14.870
+for doing the browser sync. I'm 
+
+76
+00:02:14.945 --> 00:02:17.280
+going to set that thing up. Good. 
+
+77
+00:02:17.490 --> 00:02:19.260
+Then I'm going to install 
+
+78
+00:02:19.500 --> 00:02:21.850
+browser-sync--savedev. I'm going 
+
+79
+00:02:21.925 --> 00:02:25.430
+to go to my package.json and 
+
+80
+00:02:26.690 --> 00:02:28.170
+delete that test one that we had 
+
+81
+00:02:28.180 --> 00:02:30.540
+there, and create a server 
+
+82
+00:02:31.100 --> 00:02:33.820
+script, and paste in browser-
+
+83
+00:02:33.820 --> 00:02:37.370
+sync, start sever. These need to 
+
+84
+00:02:37.380 --> 00:02:40.240
+be single quotes. Start 
+
+85
+00:02:40.250 --> 00:02:42.190
+directory, server, files, and 
+
+86
+00:02:42.265 --> 00:02:43.240
+then we're going to watch all of 
+
+87
+00:02:43.315 --> 00:02:46.170
+our JavaScript HTML and our CSS 
+
+88
+00:02:46.245 --> 00:02:47.620
+files. If we've done that 
+
+89
+00:02:47.640 --> 00:02:49.380
+correctly, we should be able to 
+
+90
+00:02:49.480 --> 00:02:52.350
+head back to where we installed 
+
+91
+00:02:52.570 --> 00:02:55.000
+browser sync, which you see in 
+
+92
+00:02:55.010 --> 00:02:56.510
+our package.json. We have a dev 
+
+93
+00:02:56.520 --> 00:02:58.400
+dependency of browser sync, and 
+
+94
+00:02:58.390 --> 00:03:00.070
+we should be able to npm run 
+
+95
+00:03:00.145 --> 00:03:05.820
+server. That will then open 
+
+96
+00:03:05.850 --> 00:03:08.570
+up a little server for you. You 
+
+97
+00:03:08.580 --> 00:03:11.510
+should see index.html, which I 
+
+98
+00:03:11.520 --> 00:03:13.020
+have there for you, and then any 
+
+99
+00:03:13.030 --> 00:03:14.450
+other files that you have in 
+
+100
+00:03:14.525 --> 00:03:15.660
+there. That's just a quick and 
+
+101
+00:03:15.670 --> 00:03:17.100
+dirty little server if you ever 
+
+102
+00:03:17.110 --> 00:03:19.440
+need one. I prefer browser sync, 
+
+103
+00:03:19.515 --> 00:03:20.820
+because any time I make a save 
+
+104
+00:03:20.970 --> 00:03:22.270
+it's going to refresh it for me 
+
+105
+00:03:22.280 --> 00:03:24.270
+without any extra work. Cool. 
+
+106
+00:03:24.280 --> 00:03:25.730
+Let's head back to our index.
+
+107
+00:03:25.910 --> 00:03:28.370
+html here. We've loaded up jspm, 
+
+108
+00:03:28.445 --> 00:03:30.770
+and then we're going to give 
+
+109
+00:03:29.300 --> 00:03:31.050
+ourselves a script tag. The 
+
+110
+00:03:31.060 --> 00:03:33.120
+script tag is just going to do 
+
+111
+00:03:33.130 --> 00:03:34.700
+two things. First, it's going to 
+
+112
+00:03:34.775 --> 00:03:36.950
+configure SystemJS, and then 
+
+113
+00:03:36.960 --> 00:03:39.390
+it's going to enter our entry 
+
+114
+00:03:39.400 --> 00:03:40.620
+point, which we'll create in a 
+
+115
+00:03:40.630 --> 00:03:41.930
+second. We'll say system.
+
+116
+00:03:42.005 --> 00:03:45.120
+config, and then system.config 
+
+117
+00:03:45.100 --> 00:03:48.070
+takes an object, which is just a 
+
+118
+00:03:48.145 --> 00:03:50.970
+transpiler We are using Babel,so 
+
+119
+00:03:50.970 --> 00:03:53.540
+you just pass it Babel. Then we 
+
+120
+00:03:53.550 --> 00:03:55.290
+also need a place, where should 
+
+121
+00:03:55.300 --> 00:03:57.030
+it grab the entire application 
+
+122
+00:03:57.180 --> 00:03:59.860
+from? Last time we had app.js. 
+
+123
+00:03:59.540 --> 00:04:01.860
+Let's go into our SystemJS 
+
+124
+00:04:01.550 --> 00:04:03.450
+folder, and we'll call this main.
+
+125
+00:04:03.525 --> 00:04:05.420
+js, just as a different name. 
+
+126
+00:04:06.960 --> 00:04:08.300
+In here let's just say console.
+
+127
+00:04:08.500 --> 00:04:13.290
+log Hey it works. Then back to 
+
+128
+00:04:13.300 --> 00:04:15.700
+our index.html, we'll say system.
+
+129
+00:04:17.520 --> 00:04:20.260
+import, and then you import the 
+
+130
+00:04:20.270 --> 00:04:23.400
+actual application that you want. 
+
+131
+00:04:24.730 --> 00:04:26.250
+After we're done all of that, we 
+
+132
+00:04:26.260 --> 00:04:28.380
+can go back to our main.js and 
+
+133
+00:04:28.240 --> 00:04:30.600
+just write our modules as we had 
+
+134
+00:04:30.610 --> 00:04:32.690
+in the other tutorials. I think 
+
+135
+00:04:32.700 --> 00:04:35.720
+if I go index.html and open up 
+
+136
+00:04:35.795 --> 00:04:37.300
+my DevTools here we should see, 
+
+137
+00:04:37.310 --> 00:04:39.870
+Hey, it works. The really 
+
+138
+00:04:39.880 --> 00:04:42.460
+cool part about using SystemJS 
+
+139
+00:04:43.000 --> 00:04:44.520
+is that I don't need to npm 
+
+140
+00:04:44.420 --> 00:04:46.370
+install, or do any of the stuff 
+
+141
+00:04:46.380 --> 00:04:47.560
+that we've previously done. 
+
+142
+00:04:48.070 --> 00:04:50.490
+Let's say I wanted to get some 
+
+143
+00:04:50.760 --> 00:04:52.930
+methods from lodash, so we'll 
+
+144
+00:04:52.940 --> 00:04:54.380
+say import, and this time let's 
+
+145
+00:04:54.430 --> 00:04:59.100
+get some and kebabCase. We'll 
+
+146
+00:04:59.110 --> 00:05:00.740
+get that from lodash. That's how 
+
+147
+00:05:00.750 --> 00:05:01.990
+you normally would do it. 
+
+148
+00:05:02.240 --> 00:05:03.590
+However, we need to say npm 
+
+149
+00:05:03.665 --> 00:05:06.120
+lodash. What that's going to do 
+
+150
+00:05:06.130 --> 00:05:09.290
+is go to npm's registry and 
+
+151
+00:05:09.340 --> 00:05:12.880
+import lodash for us. If I say 
+
+152
+00:05:12.955 --> 00:05:14.480
+kebabCase, console.log kebabCase 
+
+153
+00:05:19.650 --> 00:05:23.630
+Wes is so cool. Put a 
+
+154
+00:05:23.705 --> 00:05:24.990
+couple emojis in there just for 
+
+155
+00:05:25.650 --> 00:05:29.470
+some metal. Then we should be 
+
+156
+00:05:29.480 --> 00:05:31.260
+able to refresh this page. It 
+
+157
+00:05:31.270 --> 00:05:32.550
+takes a second now. See, it's 
+
+158
+00:05:32.560 --> 00:05:34.460
+not immediately showing up, but 
+
+159
+00:05:34.470 --> 00:05:36.630
+after a second or two Wes is so 
+
+160
+00:05:36.640 --> 00:05:38.920
+cool is running. I didn't npm 
+
+161
+00:05:38.520 --> 00:05:40.010
+install anything. I'm just able 
+
+162
+00:05:40.020 --> 00:05:41.960
+to go ahead and import things. 
+
+163
+00:05:42.140 --> 00:05:43.550
+Same thing if I had my own 
+
+164
+00:05:43.560 --> 00:05:46.290
+module, go to SystemJS, new file, 
+
+165
+00:05:46.590 --> 00:05:48.580
+let's call it checkout.js, and 
+
+166
+00:05:50.960 --> 00:05:52.220
+we have a function in here 
+
+167
+00:05:52.230 --> 00:05:54.070
+called addTax, takes in an 
+
+168
+00:05:54.080 --> 00:05:57.290
+amount and a tax rate, and then 
+
+169
+00:05:57.300 --> 00:05:59.360
+it's going to return to us the 
+
+170
+00:05:59.370 --> 00:06:04.660
+amount plus the amount times tax 
+
+171
+00:06:04.660 --> 00:06:07.260
+rate. If I want to make that 
+
+172
+00:06:07.270 --> 00:06:10.500
+available, I would export it, 
+
+173
+00:06:10.500 --> 00:06:12.400
+then we just go back to our main.
+
+174
+00:06:12.475 --> 00:06:15.760
+js, import, call it addTax from, 
+
+175
+00:06:15.835 --> 00:06:18.420
+then you just give it a relative 
+
+176
+00:06:18.430 --> 00:06:21.160
+path, checkout. We should be 
+
+177
+00:06:21.235 --> 00:06:23.560
+able to console.log, addTax, a $
+
+178
+00:06:23.635 --> 00:06:28.910
+100 bill at 015 percent tax rate. 
+
+179
+00:06:29.440 --> 00:06:31.120
+Give it a second and it gives us $
+
+180
+00:06:31.195 --> 00:06:34.370
+115. That is so much better 
+
+181
+00:06:34.380 --> 00:06:36.680
+than having to set up all of 
+
+182
+00:06:36.755 --> 00:06:38.250
+those tools that we did for 20 
+
+183
+00:06:37.950 --> 00:06:39.480
+minutes in the last video, where 
+
+184
+00:06:39.740 --> 00:06:41.590
+you just need to import this. 
+
+185
+00:06:42.010 --> 00:06:43.570
+I think that is a great way to 
+
+186
+00:06:43.580 --> 00:06:45.480
+show someone how modules work. I 
+
+187
+00:06:45.490 --> 00:06:46.960
+think that's a great way, if you 
+
+188
+00:06:46.970 --> 00:06:47.830
+just need to get something 
+
+189
+00:06:47.840 --> 00:06:49.500
+working, or if you're trying to 
+
+190
+00:06:50.100 --> 00:06:51.470
+explain something and you need 
+
+191
+00:06:51.480 --> 00:06:53.260
+to set up a test case, and you 
+
+192
+00:06:53.030 --> 00:06:54.600
+don't have to make anyone else 
+
+193
+00:06:54.675 --> 00:06:56.980
+npm install all of your stuff. 
+
+194
+00:06:56.980 --> 00:06:58.950
+You just use it all client side. 
+
+195
+00:06:59.180 --> 00:06:59.980
+Obviously, it's not something 
+
+196
+00:07:00.040 --> 00:07:01.880
+you do for production as it is 
+
+197
+00:07:01.980 --> 00:07:03.970
+quite slow, but it's great for 
+
+198
+00:07:03.980 --> 00:07:04.980
+just testing things out.
+

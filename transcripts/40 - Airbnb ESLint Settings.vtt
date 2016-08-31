@@ -1,0 +1,1346 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:00.000
+Man: Engineers at Airbnb, 
+
+2
+00:00:03.300 --> 00:00:05.330
+particularly this really nice 
+
+3
+00:00:05.340 --> 00:00:06.900
+JavaScript style guide, that 
+
+4
+00:00:07.030 --> 00:00:09.490
+shows you how to write ES6 in a 
+
+5
+00:00:09.500 --> 00:00:11.130
+way that is consistent across 
+
+6
+00:00:11.140 --> 00:00:13.200
+all of your projects. It does 
+
+7
+00:00:13.210 --> 00:00:14.380
+things like it tells you to use 
+
+8
+00:00:14.455 --> 00:00:16.260
+const and when to use let and 
+
+9
+00:00:16.520 --> 00:00:17.810
+how to write your if statements 
+
+10
+00:00:17.820 --> 00:00:19.370
+and where do you semicolons and 
+
+11
+00:00:19.600 --> 00:00:22.090
+etc., all that information, and 
+
+12
+00:00:22.165 --> 00:00:25.070
+the ESLint file is sort of the 
+
+13
+00:00:25.080 --> 00:00:27.210
+enforcement of this actual style 
+
+14
+00:00:27.220 --> 00:00:29.350
+guide. What a lot of people 
+
+15
+00:00:28.750 --> 00:00:30.990
+do, is they adapt the Airbnb 
+
+16
+00:00:30.890 --> 00:00:32.550
+style of coding and then they'll 
+
+17
+00:00:32.560 --> 00:00:33.770
+sort of just use their own 
+
+18
+00:00:33.780 --> 00:00:35.420
+settings on top of it, and 
+
+19
+00:00:35.495 --> 00:00:36.040
+that's exactly what we're going 
+
+20
+00:00:36.115 --> 00:00:37.450
+to do here today. We're going to 
+
+21
+00:00:37.450 --> 00:00:38.990
+implement the Airbnb style guide 
+
+22
+00:00:39.120 --> 00:00:40.260
+and then we're going to sort of 
+
+23
+00:00:40.270 --> 00:00:41.620
+go through in and pick off 
+
+24
+00:00:41.630 --> 00:00:43.360
+little things where we believe 
+
+25
+00:00:43.370 --> 00:00:45.060
+that our style differs a little 
+
+26
+00:00:45.070 --> 00:00:48.070
+bit. Go to github.com/airbnb/
+
+27
+00:00:49.260 --> 00:00:51.400
+JavaScript click on packages, 
+
+28
+00:00:51.690 --> 00:00:53.340
+click on eslint-config-airbnb 
+
+29
+00:00:53.415 --> 00:00:54.970
+and it's going to show us 
+
+30
+00:00:55.600 --> 00:00:57.890
+how it actually works. To 
+
+31
+00:00:57.900 --> 00:00:59.340
+install someone else's style 
+
+32
+00:01:00.200 --> 00:01:02.100
+guide you can go to your 
+
+33
+00:01:02.175 --> 00:01:04.050
+eslintrc and instead of 
+
+34
+00:01:04.060 --> 00:01:05.890
+extending the ESLint recommended 
+
+35
+00:01:06.180 --> 00:01:08.100
+we're going to extend the Airbnb, 
+
+36
+00:01:08.175 --> 00:01:09.280
+and I'm going to show you what 
+
+37
+00:01:09.290 --> 00:01:10.590
+happens if we just change that. 
+
+38
+00:01:11.310 --> 00:01:13.040
+Go back to our console here and 
+
+39
+00:01:13.050 --> 00:01:14.310
+run ESLint against it, it's 
+
+40
+00:01:14.920 --> 00:01:16.200
+going to give us an error here 
+
+41
+00:01:16.210 --> 00:01:18.040
+cannot find module eslint-config-
+
+42
+00:01:18.115 --> 00:01:20.370
+airbnb, why can't we do that? 
+
+43
+00:01:20.380 --> 00:01:23.080
+Because we haven't yet actually 
+
+44
+00:01:23.090 --> 00:01:24.840
+installed it. Now, you can 
+
+45
+00:01:24.850 --> 00:01:26.230
+install this locally to your 
+
+46
+00:01:26.240 --> 00:01:27.530
+project if you only need it on 
+
+47
+00:01:27.540 --> 00:01:29.390
+one project. But since, I like 
+
+48
+00:01:29.400 --> 00:01:30.720
+to use it on every single 
+
+49
+00:01:30.730 --> 00:01:32.560
+project that I'm working on I 
+
+50
+00:01:32.570 --> 00:01:34.270
+like to install it globally. 
+
+51
+00:01:34.310 --> 00:01:35.500
+Now, there's some install 
+
+52
+00:01:35.670 --> 00:01:37.210
+instructions right here and what 
+
+53
+00:01:37.220 --> 00:01:38.350
+I like to tell people do is just 
+
+54
+00:01:38.360 --> 00:01:40.200
+go ahead and copy those install 
+
+55
+00:01:40.210 --> 00:01:41.430
+instructions and paste them into 
+
+56
+00:01:41.510 --> 00:01:43.890
+here. Then there's a few things 
+
+57
+00:01:43.900 --> 00:01:45.470
+that's going to install ESLint 
+
+58
+00:01:45.545 --> 00:01:47.220
+for us, we already have that, we 
+
+59
+00:01:46.830 --> 00:01:49.030
+don't need it. We need the 
+
+60
+00:01:49.160 --> 00:01:51.190
+accessibility JSX plugin. If you 
+
+61
+00:01:51.230 --> 00:01:52.690
+aren't writing React you still 
+
+62
+00:01:52.700 --> 00:01:53.700
+need to install that just 
+
+63
+00:01:53.710 --> 00:01:54.940
+because all of these things here 
+
+64
+00:01:54.950 --> 00:01:56.450
+were called pure dependencies 
+
+65
+00:01:56.580 --> 00:01:58.160
+for ESLint and it needs to have 
+
+66
+00:01:58.170 --> 00:02:00.050
+them all installed for us. We 
+
+67
+00:02:00.125 --> 00:02:00.840
+get eslint-airbnb-config, we get 
+
+68
+00:02:02.960 --> 00:02:05.080
+the import plugin, we get the 
+
+69
+00:02:05.090 --> 00:02:07.400
+React in the JSX accessibility 
+
+70
+00:02:07.410 --> 00:02:09.320
+one. Next, we want to install 
+
+71
+00:02:09.330 --> 00:02:11.290
+this globally so change --save-
+
+72
+00:02:11.300 --> 00:02:14.390
+dev to -g and go ahead and just 
+
+73
+00:02:14.460 --> 00:02:16.680
+copy and paste that right into 
+
+74
+00:02:16.760 --> 00:02:18.760
+your terminal here. Again, if 
+
+75
+00:02:18.770 --> 00:02:20.320
+you are running the computer 
+
+76
+00:02:20.320 --> 00:02:21.610
+where you've not yet fixed your 
+
+77
+00:02:21.685 --> 00:02:22.820
+npm you might have to type 
+
+78
+00:02:22.830 --> 00:02:24.850
+pseudo and then paste in npm-
+
+79
+00:02:24.925 --> 00:02:27.160
+install. It's going to ask for 
+
+80
+00:02:27.170 --> 00:02:28.300
+your password. You can type it 
+
+81
+00:02:28.310 --> 00:02:29.470
+in, you won't see anything but 
+
+82
+00:02:29.480 --> 00:02:31.080
+it will work and then just give 
+
+83
+00:02:31.090 --> 00:02:32.310
+it a second while it goes ahead 
+
+84
+00:02:32.320 --> 00:02:33.910
+and installs all of these 
+
+85
+00:02:34.440 --> 00:02:36.090
+elements. If that has worked 
+
+86
+00:02:36.100 --> 00:02:37.440
+properly we should now be able 
+
+87
+00:02:37.750 --> 00:02:39.850
+to ESLint bad code and it's 
+
+88
+00:02:39.850 --> 00:02:41.040
+going to tell us all kinds of 
+
+89
+00:02:41.050 --> 00:02:42.730
+new errors that have been 
+
+90
+00:02:42.810 --> 00:02:45.100
+happening with our actual code 
+
+91
+00:02:45.110 --> 00:02:47.300
+right here. Let's go through a 
+
+92
+00:02:47.300 --> 00:02:49.700
+couple. First of all there are a 
+
+93
+00:02:49.710 --> 00:02:51.340
+whole bunch of errors that have 
+
+94
+00:02:51.350 --> 00:02:54.080
+to do with spacing, a space is 
+
+95
+00:02:54.090 --> 00:02:56.650
+required. Those are just such 
+
+96
+00:02:56.700 --> 00:02:58.850
+minor little things that ESLint 
+
+97
+00:02:58.925 --> 00:03:00.220
+will actually fix them 
+
+98
+00:03:00.500 --> 00:03:02.160
+immediately for you. Right 
+
+99
+00:03:02.170 --> 00:03:04.390
+here I have this space where I 
+
+100
+00:03:04.400 --> 00:03:05.820
+shouldn't have done it and I 
+
+101
+00:03:05.830 --> 00:03:08.140
+could go one by one and fix them 
+
+102
+00:03:08.150 --> 00:03:10.300
+all. However, ESLint provides a --
+
+103
+00:03:10.375 --> 00:03:12.700
+fix option. You can say ESLint 
+
+104
+00:03:12.775 --> 00:03:10.720
+bad code--fix and what it does…
+
+105
+00:03:11.370 --> 00:03:20.720
+See? It went from 12 problems 
+
+106
+00:03:20.730 --> 00:03:23.010
+down to 2 problems, I go back to 
+
+107
+00:03:23.020 --> 00:03:24.150
+this code and you see that it 
+
+108
+00:03:24.160 --> 00:03:25.320
+just refreshed itself there. 
+
+109
+00:03:25.760 --> 00:03:28.100
+It's going to fix almost all of 
+
+110
+00:03:28.110 --> 00:03:30.460
+those little spacing issues for 
+
+111
+00:03:30.470 --> 00:03:32.340
+us. Now we've got two other 
+
+112
+00:03:32.350 --> 00:03:34.890
+problems here that are actually 
+
+113
+00:03:34.900 --> 00:03:35.790
+running. First of all 
+
+114
+00:03:35.880 --> 00:03:39.420
+unexpected var use let or const 
+
+115
+00:03:39.330 --> 00:03:41.280
+instead, that's on line one, 
+
+116
+00:03:41.355 --> 00:03:43.950
+let's go back up here. I'm 
+
+117
+00:03:43.960 --> 00:03:45.300
+looking at this, I said var 
+
+118
+00:03:45.150 --> 00:03:47.040
+whether = new Promise, so I'm 
+
+119
+00:03:47.050 --> 00:03:48.200
+not going to be using var, 
+
+120
+00:03:48.060 --> 00:03:50.020
+should I use let or should I use 
+
+121
+00:03:50.095 --> 00:03:50.820
+const? Now the question here is 
+
+122
+00:03:51.680 --> 00:03:53.870
+will I ever reassign whether, 
+
+123
+00:03:53.880 --> 00:03:55.580
+does it need to update itself or 
+
+124
+00:03:55.590 --> 00:03:56.780
+is it always going to hold this 
+
+125
+00:03:56.820 --> 00:03:58.920
+whether promise? In the case 
+
+126
+00:03:58.930 --> 00:04:00.130
+of us we're always going to be 
+
+127
+00:04:00.140 --> 00:04:01.700
+holding the whether promise so 
+
+128
+00:04:01.710 --> 00:04:03.720
+we use const, good, and we give 
+
+129
+00:04:03.730 --> 00:04:07.950
+that a save and rerun it. One 
+
+130
+00:04:07.960 --> 00:04:09.650
+more error, unaccepted block 
+
+131
+00:04:09.660 --> 00:04:11.300
+statement surrounding arrow body 
+
+132
+00:04:11.930 --> 00:04:13.790
+and this is the arrow-body-style. 
+
+133
+00:04:14.010 --> 00:04:15.240
+It may not actually know like 
+
+134
+00:04:15.590 --> 00:04:16.720
+what is the problem here, let's 
+
+135
+00:04:16.730 --> 00:04:19.360
+go check it out. Line 25 it's 
+
+136
+00:04:19.370 --> 00:04:22.430
+telling us unexpected block, 
+
+137
+00:04:22.570 --> 00:04:24.110
+that's this thing right here 
+
+138
+00:04:25.530 --> 00:04:27.480
+surrounding arrow-body-style, it 
+
+139
+00:04:27.490 --> 00:04:28.800
+actually doesn't tell us what 
+
+140
+00:04:28.810 --> 00:04:29.980
+the issue is. The issue with 
+
+141
+00:04:29.990 --> 00:04:32.430
+here is that we have a block 
+
+142
+00:04:32.440 --> 00:04:33.910
+statement and then all that 
+
+143
+00:04:33.920 --> 00:04:35.510
+block is doing is returning. 
+
+144
+00:04:36.120 --> 00:04:37.350
+What it actually should be 
+
+145
+00:04:37.360 --> 00:04:39.150
+telling is that you should use 
+
+146
+00:04:39.160 --> 00:04:41.290
+the implicit return if all that 
+
+147
+00:04:41.300 --> 00:04:42.710
+you're going to be doing is 
+
+148
+00:04:42.720 --> 00:04:44.350
+opening up a block and returning 
+
+149
+00:04:44.390 --> 00:04:46.350
+one thing from it. Let's go 
+
+150
+00:04:46.360 --> 00:04:50.060
+look at arrow-body-style -- read 
+
+151
+00:04:50.070 --> 00:04:52.170
+the docs here. Arrow functions 
+
+152
+00:04:52.180 --> 00:04:54.080
+have two formats. They may be 
+
+153
+00:04:54.090 --> 00:04:55.770
+defined with a block or it's a 
+
+154
+00:04:55.780 --> 00:04:58.040
+single expression, so it shows 
+
+155
+00:04:58.050 --> 00:05:00.240
+us some examples of when you 
+
+156
+00:05:00.315 --> 00:05:03.040
+wouldn't want to do it and when 
+
+157
+00:04:59.850 --> 00:05:04.380
+you would want to use it. OK, 
+
+158
+00:05:04.380 --> 00:05:06.630
+interesting. I like that error, 
+
+159
+00:05:06.640 --> 00:05:09.100
+so I'm going to not turn it off 
+
+160
+00:05:09.110 --> 00:05:10.060
+in here but I'm going to 
+
+161
+00:05:10.070 --> 00:05:12.060
+actually go ahead and fix that 
+
+162
+00:05:12.120 --> 00:05:14.190
+myself. We don't need a block 
+
+163
+00:05:14.200 --> 00:05:17.390
+here, we don't need this return, 
+
+164
+00:05:17.465 --> 00:05:19.760
+we don't need the opening block. 
+
+165
+00:05:19.830 --> 00:05:21.600
+Now, this is going to 
+
+166
+00:05:21.610 --> 00:05:24.310
+immediately return promises.all, 
+
+167
+00:05:24.560 --> 00:05:26.460
+give that a save, now we'll run 
+
+168
+00:05:26.470 --> 00:05:28.090
+back to our terminal and rerun 
+
+169
+00:05:28.165 --> 00:05:30.580
+ESLint, and it should like 
+
+170
+00:05:30.660 --> 00:05:31.850
+celebrate or something and tell 
+
+171
+00:05:31.860 --> 00:05:33.080
+you that you did a good job but 
+
+172
+00:05:33.090 --> 00:05:35.250
+it's simply just like "Yeah, of 
+
+173
+00:05:34.440 --> 00:05:35.350
+course, you did a good job." 
+
+174
+00:05:36.260 --> 00:05:38.420
+It's working for us, there we go. 
+
+175
+00:05:38.620 --> 00:05:39.640
+So far we've been working with 
+
+176
+00:05:39.650 --> 00:05:42.140
+the local.eslintrc file and that 
+
+177
+00:05:42.820 --> 00:05:44.490
+means that we have an ESLint 
+
+178
+00:05:44.430 --> 00:05:46.070
+file for every single project 
+
+179
+00:05:46.080 --> 00:05:47.520
+that we work on. That can be 
+
+180
+00:05:47.530 --> 00:05:48.420
+really handy when you have 
+
+181
+00:05:48.430 --> 00:05:50.030
+different coding styles amongst 
+
+182
+00:05:50.040 --> 00:05:51.170
+different projects or different 
+
+183
+00:05:51.210 --> 00:05:52.240
+teams that you work with. 
+
+184
+00:05:52.670 --> 00:05:53.680
+However, it's also helpful to 
+
+185
+00:05:53.690 --> 00:05:55.610
+have a global eslintrc file, 
+
+186
+00:05:55.820 --> 00:05:57.530
+which if you do not have an 
+
+187
+00:05:57.605 --> 00:05:59.740
+ESLint file present anywhere 
+
+188
+00:05:59.750 --> 00:06:01.110
+inside of your project, it's 
+
+189
+00:06:01.120 --> 00:06:02.570
+going to use your global one as 
+
+190
+00:06:02.580 --> 00:06:04.180
+sort of a default. I really 
+
+191
+00:06:04.190 --> 00:06:05.430
+like to do that so I don't have 
+
+192
+00:06:05.440 --> 00:06:07.030
+to create an ESLint file for 
+
+193
+00:06:07.030 --> 00:06:08.530
+every single project or I have 
+
+194
+00:06:08.540 --> 00:06:10.080
+one that I can copy/paste into 
+
+195
+00:06:10.090 --> 00:06:11.500
+new projects that I'm going to 
+
+196
+00:06:11.575 --> 00:06:13.220
+put up to GitHub and expect 
+
+197
+00:06:13.230 --> 00:06:14.770
+others to follow that coding 
+
+198
+00:06:14.780 --> 00:06:17.080
+style. I'm going to open up my 
+
+199
+00:06:17.870 --> 00:06:19.820
+global one and it lives in your 
+
+200
+00:06:19.830 --> 00:06:20.940
+home directory. What's your 
+
+201
+00:06:20.950 --> 00:06:22.410
+home directory? Your home 
+
+202
+00:06:22.420 --> 00:06:25.200
+directory is tilde, and that is 
+
+203
+00:06:25.210 --> 00:06:27.470
+your folder by your username on 
+
+204
+00:06:27.480 --> 00:06:29.330
+your computer, and in Windows is 
+
+205
+00:06:29.340 --> 00:06:30.950
+going to be under C, users and 
+
+206
+00:06:30.960 --> 00:06:32.940
+then your username. If you do 
+
+207
+00:06:32.950 --> 00:06:34.120
+not have one you can do 
+
+208
+00:06:34.195 --> 00:06:38.920
+touchtilde/.eslintrc, if you 
+
+209
+00:06:38.930 --> 00:06:40.270
+already do have one you can just 
+
+210
+00:06:40.320 --> 00:06:43.240
+open it up in your editor and…
+
+211
+00:06:43.270 --> 00:06:44.350
+I'm going to show you exactly 
+
+212
+00:06:44.360 --> 00:06:46.210
+what is inside of mine. I've 
+
+213
+00:06:46.220 --> 00:06:47.850
+been extending Airbnb just like 
+
+214
+00:06:47.850 --> 00:06:49.860
+we have in here, I've work in 
+
+215
+00:06:49.870 --> 00:06:51.520
+the browser node and sometimes I 
+
+216
+00:06:52.080 --> 00:06:53.230
+use jQuery so I've turned all of 
+
+217
+00:06:53.240 --> 00:06:55.590
+those on then I have all of 
+
+218
+00:06:55.600 --> 00:06:57.300
+these rules that I have been 
+
+219
+00:06:57.310 --> 00:06:59.480
+working with. Now, I take all 
+
+220
+00:06:59.490 --> 00:07:01.220
+the rules from Airbnb and then 
+
+221
+00:07:01.230 --> 00:07:02.450
+these are the ones where I don't 
+
+222
+00:07:02.460 --> 00:07:04.600
+necessarily agree a hundred 
+
+223
+00:07:04.610 --> 00:07:06.610
+percent with Airbnb's 
+
+224
+00:07:06.685 --> 00:07:07.380
+implementation so these are just 
+
+225
+00:07:07.390 --> 00:07:09.230
+the once that I've sort of taken 
+
+226
+00:07:09.240 --> 00:07:11.480
+over. Let's take a look at 
+
+227
+00:07:11.490 --> 00:07:13.280
+one comma- dangle. I've turned 
+
+228
+00:07:13.290 --> 00:07:14.820
+that off, if I write some code 
+
+229
+00:07:14.820 --> 00:07:16.730
+right here and I'd say like 
+
+230
+00:07:16.805 --> 00:07:19.790
+const west=open up an object and 
+
+231
+00:07:19.800 --> 00:07:23.050
+I say age is 100, and cool, is 
+
+232
+00:07:23.060 --> 00:07:26.580
+true, and I give that a save and 
+
+233
+00:07:26.590 --> 00:07:29.080
+let's try the ESLint, our bad 
+
+234
+00:07:29.090 --> 00:07:30.640
+code again. It's going to yell 
+
+235
+00:07:30.650 --> 00:07:31.760
+us. A whole bunch of stuff, 
+
+236
+00:07:31.830 --> 00:07:34.400
+first of all, no-unused-vars, 
+
+237
+00:07:34.570 --> 00:07:35.980
+that's good because I've created 
+
+238
+00:07:35.990 --> 00:07:37.620
+a variable and haven't yet used 
+
+239
+00:07:37.630 --> 00:07:39.410
+that. That's actually one 
+
+240
+00:07:39.420 --> 00:07:41.850
+that I have turned to a warning 
+
+241
+00:07:42.120 --> 00:07:44.510
+in my regular ESLint right here, 
+
+242
+00:07:44.900 --> 00:07:49.160
+no-unused-vars because I say, "
+
+243
+00:07:49.360 --> 00:07:50.770
+Yeah, I should know when I don't 
+
+244
+00:07:50.780 --> 00:07:53.090
+use a var but often I'm coding 
+
+245
+00:07:53.100 --> 00:07:54.530
+and like I'm not done my 
+
+246
+00:07:54.540 --> 00:07:55.970
+application yet and it's already 
+
+247
+00:07:55.980 --> 00:07:57.790
+yelling at me for my errors." 
+
+248
+00:07:58.030 --> 00:07:59.370
+What I would do is I turn that 
+
+249
+00:07:59.380 --> 00:08:01.100
+to an actual warning. Let me 
+
+250
+00:08:01.110 --> 00:08:02.720
+head to my local ESLint here, 
+
+251
+00:08:02.720 --> 00:08:06.570
+and I'll say no-unused-vars, 
+
+252
+00:08:06.660 --> 00:08:08.140
+that's going to be a 1, which is 
+
+253
+00:08:08.150 --> 00:08:12.430
+a warning, and I'll rerun this 
+
+254
+00:08:12.505 --> 00:08:12.210
+and now it's just warning me 
+
+255
+00:08:12.220 --> 00:08:13.530
+instead of actually making an 
+
+256
+00:08:13.540 --> 00:08:15.380
+error. Back to this comma- 
+
+257
+00:08:15.390 --> 00:08:17.080
+dangle here, what is the actual 
+
+258
+00:08:17.090 --> 00:08:18.590
+error? Sometimes people will say 
+
+259
+00:08:18.600 --> 00:08:20.010
+that you should absolutely 
+
+260
+00:08:20.020 --> 00:08:21.330
+always put a comma even if you 
+
+261
+00:08:21.340 --> 00:08:22.890
+don't have another line. That's 
+
+262
+00:08:22.900 --> 00:08:24.100
+because if you have checked 
+
+263
+00:08:24.110 --> 00:08:25.490
+something into Git, let's say 
+
+264
+00:08:25.500 --> 00:08:27.830
+that was my Git status right now 
+
+265
+00:08:28.150 --> 00:08:30.390
+and then I add a new line like 
+
+266
+00:08:30.820 --> 00:08:33.010
+dog is "Snickers," you know that 
+
+267
+00:08:33.020 --> 00:08:34.740
+I just modified that line and 
+
+268
+00:08:34.750 --> 00:08:35.840
+this line when I really just 
+
+269
+00:08:35.850 --> 00:08:37.090
+wanted to add this one line. 
+
+270
+00:08:37.580 --> 00:08:38.970
+People always put that dangling 
+
+271
+00:08:38.980 --> 00:08:40.670
+comma on the end and I actually 
+
+272
+00:08:40.810 --> 00:08:42.490
+generally agree with that but I 
+
+273
+00:08:42.330 --> 00:08:43.600
+don't use it every single time 
+
+274
+00:08:43.610 --> 00:08:45.060
+and I find it to be a bit of a 
+
+275
+00:08:45.070 --> 00:08:46.570
+pain that it errors out on me, 
+
+276
+00:08:46.830 --> 00:08:49.390
+so I've turned it off in my 
+
+277
+00:08:49.465 --> 00:08:50.910
+ESLint with the comma-dangle 
+
+278
+00:08:50.920 --> 00:08:52.650
+here. You might see this where 
+
+279
+00:08:52.660 --> 00:08:54.710
+people pass in array instead of 
+
+280
+00:08:54.720 --> 00:08:57.760
+just a 01 or 2, and this is 
+
+281
+00:08:57.770 --> 00:08:59.810
+where you can pass options. 
+
+282
+00:08:59.970 --> 00:09:01.270
+Some of these options here have 
+
+283
+00:09:01.280 --> 00:09:03.630
+the ability to pass things as 
+
+284
+00:09:03.640 --> 00:09:06.410
+needed props. In this case I 
+
+285
+00:09:06.420 --> 00:09:10.030
+said no-unused-vars except when 
+
+286
+00:09:10.030 --> 00:09:13.650
+the variable name is res, next 
+
+287
+00:09:13.940 --> 00:09:15.440
+or error. And where is that 
+
+288
+00:09:15.450 --> 00:09:18.510
+helpful? For me I write a lot of 
+
+289
+00:09:18.860 --> 00:09:20.910
+node JS where I'll do something 
+
+290
+00:09:20.920 --> 00:09:25.650
+like this, apdocget/accounts and 
+
+291
+00:09:25.660 --> 00:09:27.160
+then I'll run a function here, 
+
+292
+00:09:27.235 --> 00:09:29.070
+so it was like request and 
+
+293
+00:09:29.080 --> 00:09:33.780
+response. I might be doing 
+
+294
+00:09:33.790 --> 00:09:35.960
+something, and also it maybe 
+
+295
+00:09:35.550 --> 00:09:39.130
+pass, next, I like to set up all 
+
+296
+00:09:39.140 --> 00:09:40.540
+my routes like that and I might 
+
+297
+00:09:40.550 --> 00:09:43.170
+not necessarily use res or next 
+
+298
+00:09:43.370 --> 00:09:44.350
+but I like to have them there in 
+
+299
+00:09:44.360 --> 00:09:46.430
+case I need to use them again. 
+
+300
+00:09:47.000 --> 00:09:48.140
+In this case it's going to yell 
+
+301
+00:09:48.150 --> 00:09:49.910
+at me that I haven't yet used 
+
+302
+00:09:50.050 --> 00:09:52.320
+res or next. What I've done is 
+
+303
+00:09:52.330 --> 00:09:55.200
+I've set them to simply just 
+
+304
+00:09:55.290 --> 00:09:57.890
+give me a warning when I haven't 
+
+305
+00:09:57.900 --> 00:09:59.460
+use a variable. However, if I 
+
+306
+00:09:59.470 --> 00:10:01.060
+use res, next or anything that 
+
+307
+00:10:01.070 --> 00:10:03.150
+starts with error then don't 
+
+308
+00:10:03.160 --> 00:10:05.420
+worry about that at all. Now, 
+
+309
+00:10:05.495 --> 00:10:05.810
+I'm not going to sit here and go 
+
+310
+00:10:05.820 --> 00:10:07.290
+through every single rule in all 
+
+311
+00:10:07.365 --> 00:10:08.690
+of ESLint and sort of explaining 
+
+312
+00:10:08.700 --> 00:10:09.700
+what you should and shouldn't 
+
+313
+00:10:09.710 --> 00:10:11.270
+use. What I honestly think that 
+
+314
+00:10:11.280 --> 00:10:12.380
+you should do is start with 
+
+315
+00:10:12.455 --> 00:10:14.340
+Airbnb and just start writing 
+
+316
+00:10:14.350 --> 00:10:15.750
+code and over the next like 
+
+317
+00:10:15.930 --> 00:10:17.580
+couple of days what's going to 
+
+318
+00:10:17.240 --> 00:10:19.010
+happen is you're going to come 
+
+319
+00:10:19.085 --> 00:10:19.290
+out, you're going to trip over 
+
+320
+00:10:19.300 --> 00:10:21.200
+errors, you're going to say, "
+
+321
+00:10:20.270 --> 00:10:21.860
+Why is that error there?" Go 
+
+322
+00:10:21.870 --> 00:10:23.660
+ahead and go to the ESLint docs, 
+
+323
+00:10:23.950 --> 00:10:25.220
+research it, see if it's 
+
+324
+00:10:25.230 --> 00:10:26.500
+actually a rule that makes sense 
+
+325
+00:10:26.510 --> 00:10:28.340
+for you and your team. If it is, 
+
+326
+00:10:28.510 --> 00:10:30.020
+make sure you keep it in your 
+
+327
+00:10:30.030 --> 00:10:31.500
+rules. If it doesn't, take it 
+
+328
+00:10:31.510 --> 00:10:33.070
+out of your rules or sent it to 
+
+329
+00:10:33.360 --> 00:10:35.090
+warn instead of actual error. 
+
+330
+00:10:35.340 --> 00:10:36.790
+A lot of times people ask me, "
+
+331
+00:10:36.800 --> 00:10:38.090
+Hey, Wes can I just take your 
+
+332
+00:10:38.165 --> 00:10:41.070
+ESLint?" I think that is OK, 
+
+333
+00:10:41.080 --> 00:10:43.370
+however I maybe even prefer that 
+
+334
+00:10:43.380 --> 00:10:44.980
+you just start with nothing and 
+
+335
+00:10:44.990 --> 00:10:47.070
+just learn and build your own as 
+
+336
+00:10:47.080 --> 00:10:48.760
+you start to go through this.
+

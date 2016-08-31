@@ -1,0 +1,43 @@
+[00:00] [music]
+
+Instructor: [00:02] isn't the only way to bundle up your JavaScript. We also have things like Browserify, Rollup, and SystemJS. These things all bundle up your ES6 modulesm and it doesn't really matter which one you use. That comes down to a personal preference. 
+
+[00:15] Webpack seems to be the most popular, and I'd recommend that you go with that. However, it's not like you're writing Webpack modules or Browserify modules. You're writing a standard ES6 module, so if you were to switch out your bundler at any time, you should be able to do that with no problem.
+
+[00:32] There's another one called SystemJS that works with something called jspm. Jspm is JavaScript Package Manager, and it sits on top of npm. It's not like an alternative to npm, it just sits on top of it. 
+
+[00:45] Why am I looking at SystemJS right here? One really cool feature of SystemJS is that you can possibly run it in the browser, which means that you don't need any of the overhead of npm installing Webpack, getting these bundlers up and running, getting your Babel and your transpiler on the right presets, and all of that hard work that we just did in the last couple ones. 
+
+[01:07] Sometimes that can be a bit of a barrier to entry when you just want to try something out, or you got a couple of hours on a Friday night and you want to hack on something. You don't want the tooling to get in your way.
+
+[01:16] SystemJS, really how you do it is you load in a script tag to jspm.io/system@19 and that's going to load the latest 19.x version. Then we also need to run this HTML through some sort of server. If you have a server, if you have a little Python server, if you have maybe a PHP server, feel free to run it through this. It just needs to not run on a file. It needs to run on a local host or something like that.
+
+[01:45] I'm going to set up a quick little browser sync server. If you're interested in how to do that, I'm going to do that now. Otherwise, just scrub forward for a couple minutes and you can skip this part. 
+
+[01:56] What am I going to do? I'm going to open up my terminal here. I'm in the ES6 tooling folder, and I'm going to go into my SystemJS folder. I need to do an npm. Again, this isn't npm because we need it for the module bundling. This is just because I need it for doing the browser sync. I'm going to set that thing up. Good. 
+
+[02:17] Then I'm going to install browser-sync--savedev. I'm going to go to my package.json and delete that test one that we had there, and create a server script, and paste in browser-sync, start sever. These need to be single quotes. Start directory, server, files, and then we're going to watch all of our JavaScript HTML and our CSS files.
+
+[02:46] If we've done that correctly, we should be able to head back to where we installed browser sync, which you see in our package.json. We have a dev dependency of browser sync, and we should be able to npm run server. 
+
+[03:04] That will then open up a little server for you. You should see index.html, which I have there for you, and then any other files that you have in there. That's just a quick and dirty little server if you ever need one. I prefer browser sync, because any time I make a save it's going to refresh it for me without any extra work.
+
+[03:24] Cool. Let's head back to our index.html here. We've loaded up jspm, and then we're going to give ourselves a script tag. The script tag is just going to do two things. First, it's going to configure SystemJS, and then it's going to enter our entry point, which we'll create in a second. 
+
+[03:41] We'll say system.config, and then system.config takes an object, which is just a transpiler We are using Babel,so you just pass it Babel. Then we also need a place, where should it grab the entire application from? Last time we had app.js. Let's go into our SystemJS folder, and we'll call this main.js, just as a different name.
+
+[04:06] In here let's just say console.log Hey it works. Then back to our index.html, we'll say system.import, and then you import the actual application that you want. After we're done all of that, we can go back to our main.js and just write our modules as we had in the other tutorials. I think if I go index.html and open up my DevTools here we should see, Hey, it works.
+
+[04:39] The really cool part about using SystemJS is that I don't need to npm install, or do any of the stuff that we've previously done. Let's say I wanted to get some methods from lodash, so we'll say import, and this time let's get some and kebabCase. We'll get that from lodash. That's how you normally would do it. 
+
+[05:02] However, we need to say npm lodash. What that's going to do is go to npm's registry and import lodash for us. If I say kebabCase, console.log kebabCase Wes is so cool. Put a couple emojis in there just for some metal. Then we should be able to refresh this page. It takes a second now. See, it's not immediately showing up, but after a second or two Wes is so cool is running. I didn't npm install anything. I'm just able to go ahead and import things.
+
+[05:42] Same thing if I had my own module, go to SystemJS, new file, let's call it checkout.js, and we have a function in here called addTax, takes in an amount and a tax rate, and then it's going to return to us the amount plus the amount times tax rate. 
+
+[06:06] If I want to make that available, I would export it, then we just go back to our main.js, import, call it addTax from, then you just give it a relative path, checkout. We should be able to console.log, addTax, a $100 bill at 015 percent tax rate. Give it a second and it gives us $115.
+
+[06:32] That is so much better than having to set up all of those tools that we did for 20 minutes in the last video, where you just need to import this. 
+
+[06:42] I think that is a great way to show someone how modules work. I think that's a great way, if you just need to get something working, or if you're trying to explain something and you need to set up a test case, and you don't have to make anyone else npm install all of your stuff. You just use it all client side. 
+
+[06:59] Obviously, it's not something you do for production as it is quite slow, but it's great for just testing things out.

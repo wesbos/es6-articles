@@ -1,0 +1,41 @@
+[00:00] [music]
+
+Wes: [00:02] Let's take a look at another simple use case where we create a file that is going to have both a named and a default export. We're going to create a user, where this module will allow us to create a new user, but then it will also have some utility methods to get the URL for that user's profile and generate a base64 encoded Gravatar URL.
+
+[00:23] Let's go and make a new file, and we will call that user.js. Inside of that, we have a function called user. That will take in a name, an email, and a website for the person. Then we're simply going to return an object that has their name, has their email, and has their website.
+
+[00:47] Wes, Wes, Wes, what are you doing? Hopefully by now you're yelling at me and saying, "Wes, if the property name and the variable that it's being sent to are the same thing, we do not need to do that." This is an improvement on object literals. We can just put them all on a single line and return it there. Cool.
+
+[01:09] Now we have that function for the user. Then let's create a function called createURL. That is going to take in someone's name, and it's going to return to us something like site.com/wes-bos, assuming my name was Wes Bos. That is a function, and we need that slugify plugin that we installed earlier. 
+
+[01:33] Let's look at our package.json. We installed this slug plugin. Now I'm not inside of app here, but if a module has a dependency on it own, you just import it. Import slug from slug. This one doesn't need quotes around it. Here what we are going to do is return. 
+
+[01:59] Now we need that base URL. Where's that base URL? It's in our config. There it is, so we can import that as well. Import URL from config, don't need the js. You see how we're just deciding what we need? We go into the file that we need and just pluck the one item that we need. 
+
+[02:20] Even though we imported it into our main file right here, API key and URL, doesn't mean that it's available in every other single module. If you need something twice, you need to import it twice. Don't worry, Webpack won't duplicate the code, it's smart enough to just import it once.
+
+[02:36] We have this import right here, with our return in here. We have our URL, which is going to return the URL. Then we want to do /users/ and someone's actual name. We can use the slug function, and pass the name that we get passed in. You see how we have a function here that pulls in a variable from another file, and a function from an existing package? We use that right inside of there.
+
+[03:11] Finally, let's use a Gravatar, so function gravatar. A Gravatar is a globally recognized avatar. You can get anyone's avatar if you know their email. You just have to base64 encode it. 
+
+[03:24] How is this going to work? Well, the way that a Gravatar URL looks like is something like this, photoURL = and it looks like that avatar, but on the end we have a base64 hash of their actual name, so we need a base64 library. No problem, we'll go grab one from npm and put this, npm install base64--save.
+
+[03:53] Npm install base64--save installs that module for us, and then I can import it here. Import base64 from base64. 
+
+[04:29] Now let's take a second. Why can I just do that? Well, the creator of base64 package, sorry it's base-64, has created it for us, so that they have exported it as a default. Then I can go ahead and import it as anything I like. In this case I'm using base64, what we can do here is we'll say hash = base64 email. We can make this a template string and pop in the actual hash. Cool, so we have two utility functions, as well as the ability to create user name. 
+
+[05:07] Now we've made this module that does a bunch of stuff for us. If we want to be able to use it in other files, we simply stick exports in front of them. This is the main one, so I want that to be default. I'm going to say export default function user, good. Then these ones are just export and export. These ones are named exports, and this one is the default.
+
+[05:37] Now if I go back to app.js we can go ahead and start using it. I am just going to get rid of this console.log, get rid of this say hi, get rid of everything in here. 
+
+[05:45] We've got our imports and we are going to import. Now how do we do a default? We could say import user from source/user. Good, but what if I want to do named exports as well? You could simply do this. Comma, then do your curly brackets, and we want to import createURL and Gravatar from those, and we're able to go ahead and start to use them just as we want.
+
+[06:17] Let's try it out. Let's first create a user object. Const user = new user, and you pass it Wes Bos first thing, and the second thing we would need to pass would be the email and then the website, wesbos@gmail.com and the website is wesbos.com. 
+
+[06:39] Let's console.log the user...Actually, let's not call it user. Let's call it Wes, for simplicity's sake. Now, you may notice that this takes a little bit longer this time, and that is because this slug library is fairly large because it does all of the languages. You may want to find a slimmer slug library if you don't need all of the features for it.
+
+[06:59] If I open up my index.html now, we should see an object which has email, name, and website. Good, I'm happy with that. Now back here, let's try the createURL function. We say const profile = createURL, and we are going to pass it wes.name. Make sure you console.log profile as well. Refresh, now we have the actual URL. That base is pulling from our config file, and this slug is pulling from the slug package that we used.
+
+[07:36] Let's try the other one. Gravatar const image = gravatar wes.email. We actually get an error her on line 14 of user.js, and it's base64.encode. The method is encode, and then we have to return the photo URL from our actual function. Console.log the image, and there we see a Gravatar URL.
+
+[08:02] Hopefully that shows you how you can use modules to make nice and tidy code bases. Put your functions inside of their own files. Then if you ever want to use these functions in other files, you can put them on npm yourself, or you could share them amongst your coworkers, and they are much more easily testable.
