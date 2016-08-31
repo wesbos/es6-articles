@@ -64,7 +64,7 @@ _example:_
 | 42 | ESLint Plugins | X | |
 | 43 | ESLint inside Atom and Sublime Text | X | |
 | 44 | Only Allow ESLint Passing Code into your git repos | X | |
-| 45 | JavaScript Modules and WebPack 2 Tooling Setup |  | |
+| 45 | JavaScript Modules and WebPack 2 Tooling Setup | X | |
 | 46 | Creating your own Modules | X | |
 | 47 | More ES6 Module Practice | X | |
 | 48 | Tool-Free Modules with SystemJS (+bonus BrowserSync setup) | X | |
