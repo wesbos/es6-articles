@@ -28,10 +28,10 @@ _example:_
 | 6 | Arrow Functions Introduction | X | X |
 | 7 | More Arrow Function Examples | X | X |
 | 8 | Arrow Functions and `this` | X | X |
-| 9 | Default Function Arguments | X | |
-| 10 | When NOT to use an Arrow Function | X | |
+| 9 | Default Function Arguments | X | X |
+| 10 | When NOT to use an Arrow Function | X | X |
 | 11 | Arrow Functions Exercises | X | |
-| 12 | Template Strings Introduction | X | |
+| 12 | Template Strings Introduction | X | X |
 | 13 | Creating HTML fragments with Template Literals | X | |
 | 14 | Tagged Template Literals | X | |
 | 15 | Tagged Templates Exercise | X | |

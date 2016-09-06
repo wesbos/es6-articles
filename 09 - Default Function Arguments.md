@@ -6,11 +6,9 @@ Let's say we have a function called `calculateBill` which is going to take in th
 function calculateBill(total, tax, tip) {
     return total + (total * tax) + (total * tip);
 }
- 
 ```
-From that, we can return the total, the tax, and the tip rate.
 
-By the way, if you think I'm going to cheap out on you for not tipping on the tax amount, get out of here, I don't want to talk to you.
+From that, we can return the total amount of hte bill. 
 
 Then we'll make a new variable called `totalBill`, and we'll use our new function, to figure out how much all of that costs. 
 
@@ -27,7 +25,7 @@ On a $100 meal, with 13% tax and a 15% tip, the console will tells us `128`, or 
 
 What happens if we want to automatically assume 13% tax rate, and we want to assume a 15% tip rate?
 
-What we could do is just pass in our $100 meal and get our result. If we take those things off our function, `console.log` get tell us `NaN`, or "not a number". That's because we're trying to do math against things that aren't passed in.
+What we could do is just pass in our $100 meal and get our result. If we omit `tax` and `tip` — `calculateBill(100)` our function returns us `NaN`, or "not a number". That's because we're trying to do math against things that aren't passed in.
 
 ```js
 function calculateBill(total, tax, tip) {
@@ -73,7 +71,10 @@ function calculateBill(total, tax, tip) {
 const totalBill = calculateBill(100);
 console.log(totalBill);
 ```
+
 I don't mind that, but it can be a little bit hard on your team to have to read it. If you've got four or five different arguments coming in, then you've got to do all this crazy code at the top.
+
+Another thing to note is the `||` trick will fallback to the default if you pass in `0`, `null`, `false` or any other falsy value. Not exactly what you want when you are trying to tip $0!
 
 So let's just do without that entirely. What we can do now in ES6 is just simply set it when we define our function, and those things will be assumed. 
 

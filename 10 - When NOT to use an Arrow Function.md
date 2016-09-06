@@ -1,4 +1,8 @@
-Before you start going bananas on using arrow functions, let's go through a couple examples of when you probably don't want an arrow function. All of these are just going to boil down to not having the keyword `this`, but they are also different use cases that you'd run into. 
+Before you start going absolutely bananas on using arrow functions everywhere, we need to chat. **Arrow functions don't replace regular functions**. Just like Flexbox and floats, pixels and rems and anything else new that comes along, the older thing still retains lots of utility because it works differently than the new thing. 
+
+We talked about the benefits of ES6 Arrow Functions in earlier videos and blog posts but let's go through a couple examples of when you probably _don't want an arrow function_. All of these are just going to boil down to not having the keyword `this`, but they are also different use cases that you'd run into. 
+
+### #1 — click handlers
 
 First of all, I've got this big button that says 'Push me':
 
@@ -22,17 +26,17 @@ button.addEventListener('click', () => {
 
 But if we click it, we get an error in the console: `TypeError, cannot read property 'toggle' of undefined`
 
-What does that mean? Well, if we remember from earlier, it's the browser window, right? We can use `console.log` to confirm it:
+What does that mean? Well, if we remember from earlier, it's the browser's `window` attribute, right? We can use `console.log` to confirm it:
 
 ```js
 const button = document.querySelector('#pushy');
 button.addEventListener('click', () => {
-    console.log(this);
+    console.log(this); // Window!
     this.classList.toggle('on');
 });
 ```
 
-Remember, we talked about if you use an arrow function, the keyword `this` is not bound to that actual function.
+Remember: we talked about that if you use an arrow function, the keyword `this` is not bound to that element. If we use a regular function, the keyword `this` will be bound to the element we clicked!
 
 ```js
 const button = document.querySelector('#pushy');
@@ -42,9 +46,9 @@ button.addEventListener('click', function() {
 });
 ```
 
-In the console, `this` is now our button, and our big yellow button is actually working.
+In the console, `this` is now our button, and our big yellow button is actually working. The sames rules apply with jQuery, Google Maps or any other DOM Library you are using.
 
-
+### #2: Object Methods
 
 Now, let's take a look at this next one, when you need a method to bind to an object. 
 
@@ -63,9 +67,9 @@ If we run `person.score();` a few times, we should be at 26 or something.
 
 But if I call `person`, `points` is still at 23. Why?
 
-Because it's trying to add points to the window!
+Because it's trying to add points to the window! Remember, when using an arrow function `this` is not bound to anything and it just inherits it from the parent scope which in this case is the window.
 
-So let's do the same thing:
+So let's do the same thing with an OG function:
 
 ```js
 const person = {
@@ -77,6 +81,8 @@ const person = {
 ```
 
 There we go. That will actually work, because that's a full on function, and not an arrow function.
+
+### 3: Prototype Methods
 
 As our third example, we'll talk about when you need to add a prototype method. 
 
@@ -132,6 +138,7 @@ Now, if we call `subie.summarize`, it says it's a white Subaru, and `beemer.summ
 
 Again, you must use a regular function for that. 
 
+### 4: When you need an arguments Object
 
 For our last example, this is a little bit different:
 
@@ -166,5 +173,7 @@ const orderChildren = function() {
     console.log(arguments);
 }
 ```
+
+**Note:** Another fix for this is to use a `...rest` param to collect all the arguments into an array. We will learn all about that in the rest videos and blog posts!
 
 Again, to go through all those really quickly. Make sure that you aren't just using arrow functions willy-nilly. In general, if you do not need the `arguments` object or you do not need `this`, or you know that you will not need it in the future, then you can feel free to go ahead and use an arrow function on everything else.
