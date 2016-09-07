@@ -1,6 +1,6 @@
-We've learned about `let` and `const` and what they do, and how they're scoped. We also know when they can be reassigned and when they cannot, but there's a question: What Should I actually use? 
+We've learned about `let` and `const` — what they do, and how they're scoped. We also know when they can be reassigned and when they cannot, but there's a question: What Should I actually use? 
 
-That's a bit of a hot topic in the community right now, because some people prefer to still use `var`. Some people are saying, "var is dead!." Some people say, "Use `let`." Some people always use `const`. 
+That's a bit of a hot topic in the community right now, because some people prefer to still use `var`. Some people are saying, "var is dead!" Some say, "Use `let`." while others always use `const`. 
 
 `var` isn't dead - it still does what it always has done — it's [function scoped](http://wesbos.com/javascript-scoping/) and [you can reassign or re-bind it](http://wesbos.com/let-vs-const/). You may very well continue to choose it. There isn't a _right_ answer here, just opinions. Check them out and make your own decisions.
 
