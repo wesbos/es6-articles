@@ -1,93 +1,123 @@
-ES6 has introduced arrow functions which, in my opinion, they have three main benefits. First, they are much concise than regular functions. Secondly, they have implicit returns, which allows us to write these nifty one-liners.
+ES6 has introduced arrow functions which have three main benefits. First, they have a _concise_ syntax. Secondly, they have _implicit returns_, which allows us to write these nifty one-liners.
 
-Thirdly, they don't rebind the values when you use a arrow function inside of another function, which is really helpful for when you're doing things like click handlers and whatnot.
+Thirdly, _they don't rebind the value of **this**_ when you use a arrow function inside of another function, which is really helpful for when you're doing things like click handlers and whatnot.
  
-We're going to take a look at a whole bunch of examples as well as, we're going to be using arrow functions all over the place in this course.
+We're going to take a look at a whole bunch of examples as well as we're going to be using arrow functions all over the place in the [ES6.io course](https://ES6.io).
 
 I've got an array of names:
 
 ```js
-const names = ['wes', 'kait', 'lux'];
+const names = ['Wes', 'Kait', 'Lux'];
 ```
 
-I want to add Bos to the end of all three of these. 
+I want to add `'Bos'` to the end of all three of these. 
 
 Normally, you'd do something like this:
  
- 
+
 ```js
 const fullNames = names.map(function(name){
-  return `${name} bos`;
+  return `${name} Bos`;
 });
 
-console.log(fullNames);
+console.log(fullNames); // Wes Bos, Kait Bos, Lux Bos
 ```
 
 We're going to use **backticks** here, which is our template strings. Don't worry exactly about what that is, if you're not sure just yet. We have a whole chapter on that coming up.
 
-
-Anyway, It's going to give me Wes Bos, Kate Bos, Lux Bos in the entire array. It took this array, transformed it into whatever it was plus the name "Bos" on the end.
+Anyway, It's going to give me Wes Bos, Kait Bos, Lux Bos in the entire array. It took this array, transformed it into whatever the item was, plus the name "Bos" on the end.
 
 That makes sense to me, but this isn't an arrow function. Let's take a look at how we could rewrite that. 
 
+### Turn it into an Arrow Function
 
-The first thing you do with an arrow function is, you simply delete the word function and you put in what's called a fat arrow.
-
+The first thing you do with an arrow function is, you simply delete the keyword `function` and add in what's called a fat arrow. It looks like this: `=>`
 
 ```js
 const fullNames2 = names.map((name) => {
- return `${name} bos`;
+ return `${name} Bos`;
 });
 
-console.log(fullNames2);
+console.log(fullNames2); // Wes Bos, Kait Bos, Lux Bos
 ```
-If you've come from other programming languages, you might have seen that before, but in JavaScript it's the first time we're seeing a fat arrow. It's an equals sign with an angle bracket beside it. 
 
-It looks like this: `=>`
+If you've come from other programming languages, you might have seen that before, but in JavaScript it's the first time we're seeing a fat arrow.
 
 It'll do exactly the same thing as `function`. If you `console.log` it, there should be no surprises there. We get the exact same thing. 
 
-That's the first thing that you can do, but we can go even further with it where, if you only have one or two parameters you can take out the parentheses:
+### Removing Parens With Single Params
+
+We can go even further with it where, if you only have _one parameter_ you can take out the parentheses:
 
 ```js
 const fullNames3 = names.map(name => {
- return `${name} bos`;
+ return `${name} Bos`;
 });
 
-console.log(fullNames3);
+console.log(fullNames3); // Wes Bos, Kait Bos, Lux Bos
 ```
 
-That's a bit of a stylistic choice. Some people say put the parenthesis on regardless if you have one or two. In my case, if I have one, I could do something like this. It's still working great.
+That's a bit of a stylistic choice. Some prefer the parenthesis regardless if you have one or more. In many callback fucntions (like our map function) it's nice to leave them out for a very clean syntax.
  
-What else could I do with this? I can use what's called an implicit return.
+### Arrow Function Implicit Return
 
-But what's a explicit `return`? 
+What else could I do with this? I can use what's called an **implicit return**.
 
-That's when you explicitly write `return` for what you want to `return`. But a lot of these callback functions that we write in JavaScript are just one-liners, where we just return something immediately in one line. We don't need a whole bunch of lines. 
+Hold on — what's a _explicit_ `return`? 
 
-Why do we have to do this return? Well, what we could do is something like this:
+That's when you explicitly write `return` for what you want to `return`. But a lot of these callback functions that we write in JavaScript are just one-liners, where we _just return something immediately_ in one line. We don't need a whole bunch of lines. 
+
+**So - if the only purpose of your arrow function is to return something, there is no need for the `return` keyword. **
+
+Our three line function with an explicit return is now a single line function with an **implicit return**.
 
 ```js
 const fullNames4 = names.map(name => `${name} bos`);
 
-console.log(fullNames4);
+console.log(fullNames4);  // Wes Bos, Kait Bos, Lux Bos
 ```
 
+We did three things here:
 
-What we've done is delete the return, put it up on all of one line, and then delete your curly brackets. When you delete your curly brackets, it's going to be an implicit return, which means we do not need to specify that we are returning `${name} bos`. 
+
+1. delete the return
+2. put it up on all of one line
+3. delete the curly brackets
+
+When you delete your curly brackets, it's going to be an implicit return, which means we do not need to specify that we are returning `${name} bos`. 
 
 It will just assume that we're doing so, and you can `console.log` it to see the same thing again.
 
+### No Arguments with Arrow Functions
+
 Then finally, if you have no arguments at all -- in our above examples obviously we need an argument -- but if no arguments at all, you need to pass some empty parenthesis there. 
 
-Maybe we'll just say Cool Bos, and they'll all be Cool Bos at the end. 
+Maybe we'll just return `Cool Bos`, and they'll all be Cool Bos at the end. 
 
 ```js
-const fullNames5 = names.map(() => `cool bos`);
+const fullNames5 = names.map(() => `Cool Bos`);
 
-console.log(fullNames5);
+console.log(fullNames5); // Cool Bos, Cool Bos, Cool Bos
 ```
 
+Another patter you may see is developers using an underscore `_` in place of `()`:
+
+```js
+names.map(_ => `Cool Bos`);
+```
+
+We call this a _throwaway variable_ because we're acutally creating a variable called `_` but not using it. It's important to note that the `_` **does not have any significance at all**. I could use any variable name here, we just throw it away. 
+
+```js
+names.map(x => `Cool Bos`);
+names.map(WESBOS => `Cool Bos`);
+names.map(_ya___Yayayayay => `Cool Bos`);
+names.map(do_yaget_the_point => `Cool Bos`);
+```
+
+Personally I prefer to use `() =>` over `_ =>` when there are no params but I'll let you make that decision on your own. 
+
+### Arrow Functions are Always Anonymous Functions
 
 Another thing we need to know about arrow functions, at least right now, they may change this in future versions of JavaScript, is that arrow functions are always anonymous functions. 
 

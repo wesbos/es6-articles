@@ -1,6 +1,8 @@
 We've learned about the concise syntax of arrow functions. We've learned about the implicit return of arrow functions. The last thing we're going to learn about and probably the most important is that the fact that `this` keyword **does not get rebound**.
  
-What does that mean? Let's show an example as to when you might run into this.
+What does that mean? Let's show an example as to when you might run into this. This is a pretty visual one so you might be better off watching the corresponding [ES6.io](https://ES6.io) video. We will be creating this:
+
+[codepen_embed height="265" theme_id="dark" slug_hash="KgpNjJ" default_tab="css,result" user="wesbos" data-editable="true"]See the Pen <a href='http://codepen.io/wesbos/pen/KgpNjJ/'>Arrow Functions and `this`. — ES6.io</a> by Wes Bos (<a href='http://codepen.io/wesbos'>@wesbos</a>) on <a href='http://codepen.io'>CodePen</a>.[/codepen_embed]
  
 What I have here is I've got this `div` with the class of `box` right here.
 
@@ -236,9 +238,9 @@ Let's add an `if` statement to switch our variables around. This is going to loo
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
     let first = 'opening';
-    let second ='open';
+    let second = 'open';
     
-    if(this.classList.contains(first)) {
+    if (this.classList.contains(first)) {
         [first, second] = [second, first];
     }
     this.classList.toggle(first);

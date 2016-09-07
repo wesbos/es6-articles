@@ -14,22 +14,22 @@ We can fix all of that with what's called **template strings**, or **template li
 
 We're going to take this code right here, and first of all I'm going to make all those `const`, as they do not change, so there's no need to have those as a `var` or a `let`:
  
- ```js
- const name = 'Snickers';
- const age = 2;
- const sentence = 'My dog ' + name + ' is ' + age * 7 + ' years old.';
- ```
+```js
+const name = 'Snickers';
+const age = 2;
+const sentence = 'My dog ' + name + ' is ' + age * 7 + ' years old.';
+```
 
 Now we have a `name` variable, we're setting that to `'Snickers'`, we have an `age` variable that's set to `2`, and we have the `sentence` variable that puts it all together.
 
 How do we change this now?  I'm going to actually use back-ticks here:
 
-  ```js
-  const name = 'Snickers';
-  const age = 2;
-  const sentence = `My dog ${name} is ${age * 7} years old.'`;
-  console.log(sentence);
-  ```
+```js
+const name = 'Snickers';
+const age = 2;
+const sentence = `My dog ${name} is ${age * 7} years old.'`;
+console.log(sentence);
+```
  
 That is going to pop in, or _interpolate_, the `name` and `age` variables that we previously had set there by using curly brackets and the variable name. You can also run JavaScript straight away inside of these curly brackets, too. You can add in a variable, you can run a function, you can run any JavaScript inside of the curlys — including more template strings, but we will talk more about that later. 
 
