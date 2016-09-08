@@ -100,7 +100,7 @@ const fullNames5 = names.map(() => `Cool Bos`);
 console.log(fullNames5); // Cool Bos, Cool Bos, Cool Bos
 ```
 
-Another patter you may see is developers using an underscore `_` in place of `()`:
+Another pattern you may see is developers using an underscore `_` in place of `()`:
 
 ```js
 names.map(_ => `Cool Bos`);
