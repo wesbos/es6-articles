@@ -106,7 +106,7 @@ Another pattern you may see is developers using an underscore `_` in place of `(
 names.map(_ => `Cool Bos`);
 ```
 
-We call this a _throwaway variable_ because we're acutally creating a variable called `_` but not using it. It's important to note that the `_` **does not have any significance at all**. I could use any variable name here, we just throw it away. 
+We call this a _throwaway variable_ because we're actually creating a variable called `_` but not using it. It's important to note that the `_` **does not have any significance at all**. I could use any variable name here, we just throw it away. 
 
 ```js
 names.map(x => `Cool Bos`);
