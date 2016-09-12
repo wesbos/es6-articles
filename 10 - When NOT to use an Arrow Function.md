@@ -12,7 +12,7 @@ button {font-size: 100px; }
 .on {background: #ffc600;}
 </style>
 
-<button id="pushy">Push me</button>
+<button type="button" id="pushy">Push me</button>
 ```
 
 When someone pushes or clicks that button, I want to toggle the class of `on` which should turn it yellow. When someone clicks that button, I'm going to run this following function:
