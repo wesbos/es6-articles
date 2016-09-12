@@ -39,7 +39,7 @@ console.log(totalBill);
 
 If you use `console.log` to show the value of `tax` or `tip`, you'll see that they show up as `undefined`.
 
-What we would normally do is we would add an `if` loop:
+What we would normally do is we would add a number of conditional checks with `if` statements:
 
 ```js
 function calculateBill(total, tax, tip) {
@@ -48,7 +48,7 @@ function calculateBill(total, tax, tip) {
     }
     if(tip === undefined) {
         tip = 0.15;
-        }
+    }
     return total + (total * tax) + (total * tip);
 }
 
