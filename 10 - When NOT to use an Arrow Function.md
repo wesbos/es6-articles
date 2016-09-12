@@ -144,11 +144,11 @@ For our last example, this is a little bit different:
 
 ```js
 const orderChildren = () => {
+    console.log(arguments);
     const children = Array.from(arguments);
     return children.map((child, i) => {
         return `${child} was child #${i + 1}`;
     })
-    console.log(arguments);
 }
 ```
 
@@ -166,11 +166,11 @@ However, you do not get the `arguments` object if you use an arrow function. Whe
 
 ```js
 const orderChildren = function() {
+    console.log(arguments);
     const children = Array.from(arguments);
     return children.map((child, i) => {
         return `${child} was child #${i + 1}`;
     })
-    console.log(arguments);
 }
 ```
 
