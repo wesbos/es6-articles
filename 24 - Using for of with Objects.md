@@ -2,16 +2,15 @@ Now there is one thing that we have not been able to iterate over, and that is t
 
 ```js
 const apple = {
-    color: 'Red',
-    size: 'Medium',
-    weight: 50,
-    sugar: 10,
-    };
-    
-    for (const prop of apple){
-        console.log(prop);
-    }
+	color: 'Red',
+	size: 'Medium',
+	weight: 50,
+	sugar: 10,
+};
 
+for (const prop of apple){
+	console.log(prop);
+}
 ```
 
 When we try to run that that, it will error out and that `apple[symbol.iterator] is not a function`. We'll talk a lot more about what symbols are in those videos. For now, what we need to know is that you cannot iterate over an object.
@@ -31,14 +30,16 @@ If you cannot use a polyfill, let's take a look at some of our other options her
 We could use `Object.keys`:
  
 ```js
-for (const prop of Object.keys(apple){
+for (const prop of Object.keys(apple)) {
     console.log(prop);
 }
 ```
+
+
 `Object.keys` will take in an object, like an apple, and it will return to us an array of all of the keys. We don't have values yet, and we don't have entries yet, but we can get the keys, and we can use that to get the values:
  
 ```js
-for (const prop of Object.keys(apple){
+for (const prop of Object.keys(apple)) {
     const value = apple[prop];
     console.log(value, prop);
 }

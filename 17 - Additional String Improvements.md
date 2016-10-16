@@ -1,26 +1,31 @@
-Strings in ES6 come with four new methods that are really handy, help us write a little bit more readable code, as well as reduce our reliance on using regular expressions, or RegExp, for certain things. 
+The String type in ES6 have come with **four new methods** that are really handy, help us write a little bit more readable code, as well as reduce our reliance on using regular expressions, or RegExp, for certain things.
+
+
+### .startsWith() and .endsWith() 
 
 ```js
 const course = 'RFB1';
 ```
 
-So I have a `const` called `course`, which has the value of `RFB1`, this stands for React for Beginners. 
+So I have a `const` variable named `course`, which has the value of `RFB1`, this stands for React for Beginners. 
 
 Sometimes I have `RFB1` which is the starter package, `RFB2` which is the master package, `RFB3` which is the team package. I don't really care too much about that in certain cases, I just want to know if `course` starts with `RFB`, and not something like `STPU`, which is Sublime Text Power User or `ES6`, which is this series.
 
 Here, `RFB` means React for Beginners, I need to know if the string starts with it. We can use the console to check this out by typing `course.startsWith('RFB')`, it will return `true`, because obviously it does start with it. 
 
-If I did `rfb`, in lowercase letters, it says, `false`, because there is no way to make this case insensitive. If you do need case sensitivity you do need to still use RegExp. One other thing that `.startsWith()`  will do is it'll allow you to skip a certain number of characters and start looking at a set point.
+If I did `rfb`, in lowercase letters, it says, `false`, because there is no way to make this case insensitive. If you do need case sensitivity you must still use a Regular Expression.
+
+One other thing that `.startsWith()`  will do is it'll allow you to skip a certain number of characters and start looking at a set point.
 
 ```js
-const flightnumber = '20-AC2018-jz';
+const flightNumber = '20-AC2018-jz';
 ```
 
 This flight number here, I want to see if it starts with `AC`. Over in the console, I'm going to type `flightNumber.startsWith('AC')`. It's false, because the variable starts with `20-`. This also happens if we have SKU numbers, and they start with a bunch of junk and then it gets to actually what we want. 
 
-What you can do is you can use `flightnumber.startsWith('AC', 3);`, which says start after three characters. That is returning `true`, because it ignores the first three and then starts at AC and checks against that.
+What you can do is you can use `flightNumber.startsWith('AC', 3);`, which says start after three characters. That is returning `true`, because it ignores the first three and then starts at AC and checks against that.
 
-`EndsWith` works fairly similar. Here is an example where we have `jz` at the end of the `flightNumber`, and I want to know if it's an Air Canada Jazz flight. We can say `flightnumber.endsWith(jz)`, which will be `true`, obviously, because it ends with it. 
+`EndsWith` works fairly similar. Here is an example where we have `jz` at the end of the `flightNumber`, and I want to know if it's an Air Canada Jazz flight. We can say `flightNumber.endsWith(jz)`, which will be `true`, obviously, because it ends with it. 
 
 There's another option that we can pass `.endsWith()`, and I'm going to use an account number variable as an example here:
 
@@ -37,11 +42,16 @@ Just like with our `flightNumber`, we can use the console to put in `accountNumb
  
  Essentially you're just going to take the first 11 numbers of `accountNumber`, ignore the rest, and then see if it ends in RT or whatever else it might be.
 
+### .includes()
+
 Then next up we have `.includes()` which will just check if that string is anywhere in it. If I wanted to see if my flight number includesthe letters AC, then I could use `flightNumber.includes('AC'), which is `true`. 
 
-Again, it is not case sensitive so you cannot use lower case letters here. You have to know that. 
+Again, it is not case sensitive so you cannot use lower case letters here.
 
 Includes checks to see if your string has something in it. As a bit of an aside, it was originally supposed to be called `.contains()`, but it got changed to includes because of some conflicts with the MooTool libraries and the way that they modified the prototype.
+
+
+### .repeat() and String Padding
 
 Next up we have make, model and colour here:
 
@@ -82,6 +92,8 @@ I can take make, model, and color, put them in here. It's going to console.log e
 
 There we go. See how all these are perfectly left aligned? BMW X5 in royal blue, whereas all of this is however much padding we actually need. That's a nice little use for repeat. 
 
+### Very Important
+
 Another little funny one that you can do is, we can take an ES6 template string, and inside of that let's do a statement where we take a string and multiply it:
 
 ```js
@@ -94,7 +106,4 @@ What happens when you take a string and multiply it by a number? You get `NaN`. 
 `${'woof' * 5}`.repeat(10) + " Batman!";
 ```
 
-
-Go ahead and run that in your console, and I you [should get the joke](https://www.youtube.com/watch?v=VSaDPc1Cs5U). I saw it online somewhere, but I thought it was pretty cool because what's happening here, you're giving yourself essentially a string of NaN, repeat it 10 times, and then you're tacking on Batman on to the end to make a silly joke. 
-
-Those are some four new functions. Put them in your back pocket, and hopefully enjoy them.
+Those are some four new functions. Put them in your back pocket, and hopefully you'll get to use them soon!

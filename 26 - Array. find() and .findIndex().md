@@ -3,38 +3,38 @@ Arrays now have a `.find` and a `.findIndex`, which are really helpful. Some of 
 Here I've got some data that comes back from an API. It's a posts array, where each item inside of the post is an object. Often we want to find an entire object inside of this array from an API:
  
 ```js
-const posts=[
-{
-"code":"DFKJdodfi",
-"caption":"Dunno Dog'",
-"likes":42,
-"id":"328943249723",
-"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
-},
-{
-"code":"BAIDfidslkaf",
-"caption":"Doggin' Around",
-"likes":40,
-"id":"2190828475324",
-"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
-},
-{
-"code":"BAAJqdslkaf",
-"caption":"Strait Doggin'",
-"likes":50,
-"id":"2190823079324",
-"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
-}]
+const posts = [
+	{
+		"code":"DFKJdodfi",
+		"caption":"Dunno Dog'",
+		"likes":42,
+		"id":"328943249723",
+		"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
+	},
+	{
+		"code":"BAIDfidslkaf",
+		"caption":"Doggin' Around",
+		"likes":40,
+		"id":"2190828475324",
+		"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
+	},
+	{
+		"code":"BAAJqdslkaf",
+		"caption":"Strait Doggin'",
+		"likes":50,
+		"id":"2190823079324",
+		"display_src":"https://i.ytimg.com/vi/uFTcXaTezyA/hqdefault.jpg"
+	}
+]
 ```
-
 
 Now, because it's an object, we can't simply say:
 
 ```js
-posts[BAAJqdslkaf]
+posts['BAAJqdslkaf']
 ```
 
-We can't say anything like posts or something like that, because we don't have any keys to grab things from an array because an array is always indexed based. 
+Since it's an object. we don't have any keys to grab things from an array because an array is always indexed based. 
 
 What we actually need to do is use `.find`, which is a callback where you return `true` or `false` until you actually find what you're looking for. It's going to loop over every single post that we have, and I'm going to look for the specific one that I want.
 
@@ -59,14 +59,14 @@ Then we can look for our specific post:
 ```js
 const post = posts.find(post => {
     console.log(post.code)
-    if(post.code==='BAAJqdslkaf') {
+    if(post.code === 'BAAJqdslkaf') {
         return true
     }
     return false;
 });
 ```
 
-What that should do to us is, we should now have a variable called `post`, and that is the actual one from our object, so now we have the entire post and we can go ahead and grab the `caption`, or the `source`, or the `ID` or the number of likes from that post. 
+We should now have a variable called `post`, and that is the actual post from our object, so now we have the entire post and we can go ahead and grab the `caption`, or the `source`, or the `id` or the number of likes from that post. 
 
 This can be done a lot easier. This is just explicit, so you can see what's going on, but we can actually just use this:
  
@@ -81,12 +81,12 @@ One other improvement we can do is that it probably isn't hard coded like that. 
 const code = 'BAAJqdslkaf';
 const post = posts.find(post => post.code === code);
 console.log(post);
-``` 
- 
-Stick it like that, and then it should be able to still find the post, depending on our code. 
-
+```
 
 That is good for finding the actual thing inside of the array. If you want to find multiple things, how would you do that? You can use `.filter`, and that would give you an array of objects instead.
+
+
+### .findIndex() 
 
 Next up, we have .findIndex. That's really helpful when you actually have the item you want, but you want to know where in the array it is actually. 
 
@@ -95,22 +95,21 @@ Let's say we want to delete one of our posts, and all that we know is that we ha
 
 ```js
 const code = 'BAAJqdslkaf';
-const post = posts.find(post => post.code === code);
 const postIndex = posts.findIndex((post) => {
-    if(post.code === code) {
-        return true;
-        }
-        return false;
-    })
+	if(post.code === code) {
+		return true;
+	}
+	return false;
+});
 console.log(postIndex); 
 ```
+
 Now we should be able to find what the `index` is of that post: It's the 3rd post in there. 
 
 We can refactor this right down:
+
 ```js
 const code = 'BAAJqdslkaf';
-const post = posts.find(post => post.code === code);
-
 const postIndex = posts.findIndex(post => post.code === code);
 console.log(postIndex); 
 ```

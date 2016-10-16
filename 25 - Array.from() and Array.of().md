@@ -1,8 +1,9 @@
 We have a whole new bunch of new array methods added in ES6. I'm going to talk about `.from` and `.of` first. The reason I'm going to talk about these two together is because they are not on the prototype. 
 
-If we look at an array like `const ages=[23,34,234]`, you can't call `ages.from()` or `ages.of()`. Why? Because they are not on the prototype, they are on the array itself, so you can call `Array.of()` and `Array.from()`.
+If we look at an array like `const ages=[23,34,234];`, you can't call `ages.from()` or `ages.of()`. Why? Because they are not on the prototype, they are static methods on the array itself, so you can call `Array.of()` and `Array.from()`.
 
 What do these do? `Array.from` will take something that is array-ish and turn it into a true array. There's couple situations where we often need that, and that is when we are working with DOM elements.
+
 ```html
 <div class="people">
     <p>Wes</p>
@@ -11,8 +12,8 @@ What do these do? `Array.from` will take something that is array-ish and turn it
 </div>
 ```
 
-
 Let's go ahead and select and `console.log` all the people:
+
 ```js
 const people = document.querySelector('.people p');
 console.log(people);
@@ -27,7 +28,7 @@ const names = people.map(person => person.textContent);
 
 Using that, we get an error: `people.map is not a function`. 
 
-Why is that? Let's do a `console.log` of people, open it up in the inspector, and you can see we have a length, but the prototype is not an `Array`, it's a `NodeList`.
+Why is that? Let's do a `console.log` of `people`, open it up in the inspector, and you can see we have a length, but the prototype is not an `Array`, it's a `NodeList`.
 
 That's what I mean. I've been saying a couple times in this series, where something is array-ish or array-like, and that means that it has a length, which means it's array-ish, it has some of the methods, but doesn't have all of the methods that a regular array would have. We looked at that a couple posts ago.
 
@@ -63,43 +64,18 @@ I could have also done this in one single go, rather than having to do it in two
 
 ```js
 const people = document.querySelectorAll('.people p');
-const peopleArray = Array.from(people, person => {
-    return 'wes';
-});
+const peopleArray = Array.from(people, person => person.textContent);
 console.log(peopleArray);
 ```
-That will log `["wes", "wes", "wes"]`. Why? Because it loops over every single paragraph tag, and then will `return` us something.
 
-What is this person here? Let's `console.log` it:
-
-```js
-const people = document.querySelectorAll('.people p');
-const peopleArray = Array.from(people, person => {
-    console.log(person);
-    return 'wes';
-});
-console.log(peopleArray);
-``` 
- 
-Each `person` is the actual DOM node. If we `return`, instead of returning obviously just Wes, we're going to `return person.textContent`. That should give us the actual `person`'s name:
-
-```js
-const people = document.querySelectorAll('.people p');
-const peopleArray = Array.from(people, person => {
-    console.log(person);
-    return person.textContent;
-});
-console.log(peopleArray);
-``` 
-
-Now `peopleArray` is `"Wes"` `"Kate"` `"Snickers"`, and we created that array in one single go. We don't need the `names` array, where I've mapped it separately, because `Array.from()` will take a second argument, which is the ability to map over it.
+### Converting Arguments Object to an Array
 
 Another use case is that if we want to convert the arguments object into an actual array.
 
 ```js
 function sumAll() {
     console.log(arguments)
-    }
+}
 
 sumAll(2,34,23,234,234,234234,234234,2342);
 ```
@@ -134,7 +110,9 @@ If you look at it in the console, you see that we got our numbers added on up fo
 
 That's pretty common use case where you actually do want to convert your `arguments` object onto an array. Again, it is array-ish, because it has a `length`, but it doesn't have any other of methods on it.
 
-Next up, we have `Array.of`. It's pretty straight forward. Pretty much how it works is you say something like: 
+### Array.of()
+
+Next up, we have `Array.of`. It's pretty straight forward. Pretty much how it works is you pass it as many arguments as you wish:
 
 ```js
 const ages =  Array.of(12,4,23,62,34);

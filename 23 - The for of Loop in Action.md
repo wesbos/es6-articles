@@ -3,7 +3,6 @@ Let's take a deeper look into when an iterable actually is.
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
     
-
 for (const cut of cuts) {
     console.log(cut);
 }
@@ -19,19 +18,19 @@ Over in your console, type:
 
 ```js
 cuts.entries();
- 
-``` 
+```
+
 What that is going to give us is actually an `arrayIterator`. If you open it up you'd expect to see all the data, but there's actually nothing in there. All you know that there's a `next` function that we can call on it.
 
 So if we actually store that array cuts.entries in a variable:
 
 ```js
 const meat = cuts.entries();
- 
 ```
+
 This will also give us the `arrayIterator` and we can iterate through each of those ones manually. This loop was doing it for us, but if we ever wanted to do it manually - and we'll look at more examples when we hit generators - you call it by using `meat.next()`. Do that a few times, and let's see what we get in the console.
 
-Click into it, and you'll see whe getalled it we got `done: false`, and that means that the loop hasn't finished -- more on that later in the generator post. 
+Click into it, and you'll see when we called it we got `done: false`, and that means that the loop hasn't finished -- more on that later in the generator post. 
 
 Then `value: Array[2]`, and the first thing is going to be the index, `0`, and the next thing is going to be an actual value, `"Chuck"`.
 
@@ -39,11 +38,12 @@ If you click into another one, you'll find `Brisket`, `Shank`, and `Short Rib`, 
 
 It tells us what the `index` does is and what the `Short Rib` is. Why would this be useful to us with `for of`? Because what you can do is iterate over not just the plain array, but we can also iterate over the `arrayIterator` which is `cuts.entries`, which will return our cuts with their index, `0`, `1`, `2`, and so on with their value as an array.
  
+### A Dash of Destructuring 
+
 Now you might be saying, "That's annoying because now I have to say `cut[0]` and `cut[1]` to get the index and the value." But hopefully you're screaming at me right now and you're going to say, "Well, Wes I can use destructuring there, right?" 
 
 Absolutely, and what we can do is we can say:
  
-
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
     
@@ -54,11 +54,15 @@ for (const [i, cut] of cuts.entries()) {
 ```
 Go ahead and run that, and you'll see `Chuck is the 1 item`, `Brisket is the 2 item` and so on.
 
-What are we doing here? We're using `cuts.entries()` to bring us an iterator. What's great about `for of` is that it can handle anything that you throw at it. 
+## Iterator Review
+
+What are we doing here? We're using `cuts.entries()` to bring us an iterator. What's great about `for of` is that it can handle almost anything that you throw at it. 
 
 You don't have to think, "What kind of data is this? Which of mine like `for in` or different loops that I have available to me should I use?" 
 
 In almost all cases, except for objects, you can just use your `for of`, and just throw anything at it, and the `for of` loop is going to just figure out how to handle that data for you. So here I've destructured the data as we actually go on in, and we're off and running with that.
+
+## `for of` with `arguments
 
 Let's look at another example where `for of` is useful, and that is when you're trying to iterate over the `argument` objects. 
 
@@ -85,7 +89,6 @@ const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 
 function addUpNumbers() {
     console.log(arguments);
-    
 }
 
 
@@ -123,12 +126,13 @@ addUpNumbers(10,20,42,62,598);
 
 ```
 
-What I'm going to do is I'm going to say let total=zero, start with zero and then I'm going to loop over each of them. So I'm going to say for num in arguments total + = num then we should be able to return the total here. That should add them all up, let's see. I'm going to console.log total as well just so we can see it.
-
+What I'm going to do is I'm going to say `let total=0`, start with zero and then I'm going to loop over each of them. So I'm going to say for num in arguments total + = num then we should be able to return the total here. That should add them all up, let's see. I'm going to console.log total as well just so we can see it.
 
 And we get our total, `267`, because I created a variable and it looped through it and it updated every single one of them. Now, if I ever want to call add up numbers, we can just pass in any numbers we like by calling `addUpNumbers(10,10)` or `addUpNumbers(20,20)` or whatever we want. That is one example of what you could loop over it.
 
 You do not need to convert to a true array, you can just use the `for of` to iterate over it. 
+
+### `for of` with Strings
 
 What else can we use to the `for of` to iterate over? How about a string?
 
@@ -140,6 +144,8 @@ for (const char of name){
 ```
 
 As a note, you have make sure you put a `const`, `let`, or `var` in front of your variable in the `for of` loop, otherwise you're going to be overwriting the actual variable every single time instead of creating a `let` or a `const` that is scoped to that actual block.
+
+### `for of` with NodeLists and HTMLCollections
 
 Finally, you can also loop over DOM collections without having to convert to a true array. DOM collections, or `NodeList` collections, or HTML collections, whatever you're going to call them, they are being changed so that you will have all of your `.forEach`, and `.map`, and all of those array methods that you're used to. However, in most browsers they are not a true array, so we could use the `for of`, no problem there.
 

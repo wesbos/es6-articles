@@ -6,8 +6,7 @@ For the first one, we've got a survey right here, which is just a regular array 
  
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
- ```
- 
+```
  
 We're going to look at the regular for loop. You've probably have written this one over and over:
   
@@ -25,10 +24,9 @@ What is the downside to something like this? The downside is that it uses kind o
 
 It does make sense when you break it down into the three parts, but people look at it and get anxious when you see it because there's a whole bunch going on here. Also, it doesn't read that well. 
 
-You don't have a variable called `cut` as a singular of `cut`, you just have `cuts[i]`, and you have a problem here where if you use a `var` you don't have a closure, and so on. It's good in some cases, but not great because of the syntax that we have here.
+You don't have a variable called `cut` as a singular of `cuts`, you just have `cuts[i]`, and you have a problem here where if you use a `var` you don't have a closure, and so on. It's good in some cases, but not great because of the syntax that we have here.
 
 What other kinds of loops do we have? We have the `.forEach` array method, which we can use in an arrow function:
-
 
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
@@ -45,7 +43,7 @@ const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 
 cuts.forEach((cut) => {
     console.log(cut);
-    if cut (=== `Brisket`) {
+    if (cut === `Brisket`) {
         break;
     }
 })
@@ -61,7 +59,7 @@ So far we've got these two loops and you have to decide what you want. We also h
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
     
 
-for ( const cut in cuts){  
+for (const cut in cuts) {  
     console.log(cut);
 }
 
@@ -73,7 +71,7 @@ That doesn't work because it actually gives us the index, so you could say, mayb
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
     
 
-for ( const i in cuts){  
+for (const i in cuts){  
     console.log(cut);
 }
 
@@ -83,12 +81,11 @@ No, that doesn't work. It doesn't let us do that.
 
 There's no way for us to actually do that either, but what we can do is this:
 
-
 ```js
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
     
 
-for ( const index in cuts){  
+for (const index in cuts){  
     console.log(cuts[index]);
 }
 
@@ -100,16 +97,16 @@ That might be OK, but one thing is if you have ever worked with an array, or som
 You may know that there are many methods on the prototype, like `.forEach` and `.filter` and `.map`. However, some people believe that you can just add things to the prototype of the array. Let's take a look at this example:
 
 ```js
-    Array.prototype.shuffle = function() {
-        var i = this.length, j, temp;
-         if (i == 0 ) return this;
-         while ( --i ) {
-         j = Math.floor( Math.random() * (i + 1) ); 
-         temp = this[i];
-         this[i] = this[j];
-         this[j] = temp;
-         }
-        return this;         
+Array.prototype.shuffle = function() {
+	var i = this.length, j, temp;
+	if (i == 0 ) return this;
+	while ( --i ) {
+		j = Math.floor( Math.random() * (i + 1) ); 
+		temp = this[i];
+		this[i] = this[j];
+		this[j] = temp;
+	}
+	return this;         
 };
 
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
@@ -125,29 +122,28 @@ That's cool, but now what happens when I `console.log` the `index` of `cuts`?
 
 We'll get everything in the array, sure, but we'll also return our `shuffle` function, because it iterates over absolutely everything in the array, including things that have been added to the prototype.
 
-
 It doesn't just iterate over the items in `cuts`, because what are the `cuts`? The `cuts` are `Chuck`, `Brisket`, `Shank`, and `Short Rib`, but it also iterates over additional things that have been added, including our function.
 
 ```js
-    Array.prototype.shuffle = function() {
-        var i = this.length, j, temp;
-         if (i == 0 ) return this;
-         while ( --i ) {
-         j = Math.floor( Math.random() * (i + 1) ); 
-         temp = this[i];
-         this[i] = this[j];
-         this[j] = temp;
-         }
-        return this;         
+Array.prototype.shuffle = function() {
+	var i = this.length, j, temp;
+	if (i == 0 ) return this;
+	while ( --i ) {
+		j = Math.floor( Math.random() * (i + 1) ); 
+		temp = this[i];
+		this[i] = this[j];
+		this[j] = temp;
+	}
+	return this;         
 };
 
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 
+cuts.shop = 'MM Meats';
+
 for ( const index in cuts){  
     console.log(cuts[index]);
 }
-
-cuts.shop = 'MM Meats';
 
 ```
 
@@ -162,30 +158,33 @@ If I am on a website; I'm not even going to use MooTools here, but I'm going to 
 ```js
 var names = ['wes', 'lux']
 for (name in names) { console.log(name);
-
+	console.log(name);
 }
 
 ```
  
 We'll get our index. That's going to be the `name` we're looking for, actually, but then you get a lot of other stuff because the prototype has been modified, and that's what shows up when you use a `for in` loop.
 
-Those three examble aside, we now have the `for of` loop, which gives us the best of all three worlds. You're able to use the `for of` loop for absolutely any type of data except objects. We can't use it with objects. We'll look at that in a second.
+### Say Hello to the `for of` loop
+
+Those three examples aside, we now have the `for of` loop, which gives us the best of all three worlds. You're able to use the `for of` loop for absolutely any type of data except objects. We can't use it with objects. We'll look at that in a second.
 
 
 ```js
-    Array.prototype.shuffle = function() {
-        var i = this.length, j, temp;
-         if (i == 0 ) return this;
-         while ( --i ) {
-         j = Math.floor( Math.random() * (i + 1) ); 
-         temp = this[i];
-         this[i] = this[j];
-         this[j] = temp;
-         }
-        return this;         
+Array.prototype.shuffle = function() {
+	var i = this.length, j, temp;
+	if (i == 0 ) return this;
+	while ( --i ) {
+		j = Math.floor( Math.random() * (i + 1) ); 
+		temp = this[i];
+		this[i] = this[j];
+		this[j] = temp;
+	}
+	return this;         
 };
 
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
+cuts.shop = 'MM Meats';
 
 for ( const index of cuts){  
     console.log(cuts);
@@ -196,46 +195,31 @@ for ( const index of cuts){
 
 Even though I've monkeyed with the prototype and added a weird property on to the array, we still only get actual items in it with the `for of` loop. You're able to use `break` and `continue`, too. 
 
-If cut = brisket, I want to break. I want to stop the entire loop from going. We only stop. We get chuck, brisket, and then the rest should not show because we broke the loop. Here we go, chuck and brisket.
+If cut is brisket, I want to break. I want to stop the entire loop from going. We only stop. We get chuck, brisket, and then the rest should not show because we broke the loop. Here we go, chuck and brisket.
 
 ```js
-    Array.prototype.shuffle = function() {
-        var i = this.length, j, temp;
-         if (i == 0 ) return this;
-         while ( --i ) {
-         j = Math.floor( Math.random() * (i + 1) ); 
-         temp = this[i];
-         this[i] = this[j];
-         this[j] = temp;
-         }
-        return this;         
-};
-
-const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
-
-for ( const index of cuts){
+for (const index of cuts){
     console.log(cuts);
     if(cut === 'Brisket') {
         break;
     }
 }
-
 ```
 
 Similarly, if we wanted to just skip a whole bunch of stuff, if we wanted to skip `console.log` `Brisket`, we could just simply say `continue`. That's not going to `break` the entire loop, but it's going to skip over this one iteration, so we should see `Chuck`, `Shank`, and Short Rib:
  
- ```js
-     Array.prototype.shuffle = function() {
-         var i = this.length, j, temp;
-          if (i == 0 ) return this;
-          while ( --i ) {
-          j = Math.floor( Math.random() * (i + 1) ); 
-          temp = this[i];
-          this[i] = this[j];
-          this[j] = temp;
-          }
-         return this;         
- };
+```js
+Array.prototype.shuffle = function() {
+	var i = this.length, j, temp;
+	if (i == 0 ) return this;
+	while ( --i ) {
+		j = Math.floor( Math.random() * (i + 1) ); 
+		temp = this[i];
+		this[i] = this[j];
+		this[j] = temp;
+	}
+	return this;         
+};
  
  const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
  
@@ -245,9 +229,10 @@ Similarly, if we wanted to just skip a whole bunch of stuff, if we wanted to ski
          continue;
      }
  }
- 
- ```
+ // Chuck, 'Brisket'
+
+```
 
 Why? Because when it was brisket, we hit `continue`, which is like having a `return` from a function. It just ignores everything underneath it, and goes on to the next iteration of our item. 
 
-That's introduction to the `for of` loop. Let's dive in a little bit deeper and see where else we can use it.
+That's introduction to the `for of` loop. Let's dive in a little bit deeper and see where else we can use it. See you in the next one!

@@ -2,7 +2,7 @@
 
 Did you know Destructuring also works with arrays? 
 
-Sometimes you have some data where it's based on its index - or it's place in the array. Let's say you want to get the first, the second and the third thing out of that array.
+Sometimes we have data where it's based on its index - or it's place in the array. Let's say you want to get the first, the second and the third thing out of that array.
 
 Traditionally we might be able to do something like this:
 
@@ -42,6 +42,7 @@ That's the item name, the item category, the item SKU, and the item inventory le
 ```js
 const [itemName, category, sku, inventory] = data.split(',');
 ```
+
 Why? `data.split(',')` is going to return in array, and then immediately we're going to destructure that array into its own four variables.
 
 If I console log those variable, we should see **"Basketball Sports 90210 23"**. Good. I'm really happy with that. One question, though, is what happens if the data is not great, and you have some extra stuff on the end of the string?
@@ -52,7 +53,7 @@ const data = 'Basketball,Sports,90210,23,wes,bos,cool';
 
 What happens to them when you destructure something that is not the same length as the actual array? Well, nothing happens, because it will just throw those extra ones out! So `[wes, bos, cool]` are not stored in any variables and are garbage collected.
 
-### A Look Ahead to  ES6 ...rest 
+### A Look Ahead to ES6 Destrucuring with ...rest 
 
 We're going to learn a more about the JavaScript ...rest in a future videos and blog posts, but There is a helpful use case in destructuring with using the rest. Let's say I have a team, and I want to know who's the **captain**, who's he **assisting captain**, and who is **the rest of the actual team**? I'm going to make myself a quick array here:
 
