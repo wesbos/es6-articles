@@ -19,9 +19,7 @@ const person = {
     bio: 'Wes is a really cool guy that loves to teach web development!'
 }
 
-
 // And then create our markup:
-
 const markup = `
  <div class="person">
     <h2>
@@ -66,22 +64,22 @@ If you `console.log` the markup just to show you that the new lines are there. Y
 
 Another amazing feature of template strings is that you can nest them inside of each other. What if I have an array of `dogs` and I want to loop over and get myself a list item for each one?
  
- ```js
+```js
 const dogs = [
     { name: 'Snickers', age: 2 },
     { name: 'Hugo', age: 8 },
     { name: 'Sunny', age: 1 }
 ];
- ```
+```
 
 Let's use a template string, and create an unordered list with the class of `dogs`, and inside of that I want a list item for each one. But I can't, I can't just do something like `${dogs[0].name}` because that would be cheating and that's not really scalable. So how would I loop over every single one? 
 
 We can nest template strings right inside of it. How do we do that? Let's take a look here:
 
-```
+```js
 const markup = `
 <ul class="dogs">
-	$dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`)}
+	$dogs.map(dog => \`<li>${dog.name} is ${dog.age * 7}</li>\`)}
 </ul>
 `;
 ```
@@ -101,7 +99,7 @@ But we have that comma in there, so how do you get rid of that? We know that `ma
 ```js
 const markup = `
 <ul class="dogs">
-	$dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`).join('')}
+	$dogs.map(dog => \`<li>${dog.name} is ${dog.age * 7}</li>\`).join('')}
 </ul>
 `;
 ```
@@ -114,10 +112,10 @@ Again, you could do this on their own lines if you prefer to do each on their ow
 const markup = `
 <ul class="dogs">
 	$dogs.map(dog => 
-    	`<li>${dog.name}
+    	\`<li>${dog.name}
     	is 
     	${dog.age * 7}
-    	</li>`
+    	</li>\`
     ).join('')}
  </ul>
 `;
