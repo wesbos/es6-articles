@@ -1,4 +1,4 @@
-Another feature of _template literals_ or template strings is the ability have multi-line strings:
+Another feature of _template literals_ or template strings is the ability have multi-line strings without any funny business. 
 
 Previously with regular string we would have escape the new lines like so:
 
