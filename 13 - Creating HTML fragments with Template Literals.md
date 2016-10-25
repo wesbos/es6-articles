@@ -3,8 +3,8 @@ Another feature of template literals or template strings is the ability have mul
 Previously with regular string we would have escape the new lines like so:
 
 ```js
-var text = "hello there, \
- how are you + \
+var text = "hello there, \\
+ how are you + \\
   ";
 ```
 
