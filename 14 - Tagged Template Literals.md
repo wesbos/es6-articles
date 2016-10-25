@@ -1,4 +1,4 @@
-test Another feature that comes along with template literals, or template strings, is the ability to **tag** them.
+One feature that comes along with template literals, or template strings, is the ability to **tag** them.
 
 That means is that we can run a template string through a function, and rather than have the browser immediately assign that value to a variable, we can have control over how this actual string is made. 
 
