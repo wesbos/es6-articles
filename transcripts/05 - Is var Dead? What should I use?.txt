@@ -2,7 +2,7 @@
 
 [00:02] Instructor: We've learned about lat and const and what they do, and how they're scoped, and when they can be reassigned and when they cannot, but there's a question as to what I should actually use myself. 
 
-[00:11] That's a bit of a hot topic in the community right now, because some people prefer to still use var. Some people are saying, "Var is dead, entirely." Some people say, "Use lat." Some people always use const.
+[00:11] That's a bit of a hot topic in the community right now, because some people prefer to still use var. Some people are saying, "Var is dead, entirely." Some people say, "Use let." Some people always use const.
 
 [00:24] I'm just going to go over two of the leading opinions here. These are both done by some very, very smart people in the JavaScript scene, so I'll let you pick your own.
 

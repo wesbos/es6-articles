@@ -1,10 +1,10 @@
-Another feature of template literals or template strings is the ability have multi-line strings. 
+Another feature of _template literals_ or template strings is the ability have multi-line strings without any funny business. 
 
 Previously with regular string we would have escape the new lines like so:
 
 ```js
-var text = "hello there, \
- how are you + \
+var text = "hello there, \\
+ how are you + \\
   ";
 ```
 
@@ -79,7 +79,7 @@ We can nest template strings right inside of it. How do we do that? Let's take a
 ```js
 const markup = `
 <ul class="dogs">
-	$dogs.map(dog => \`<li>${dog.name} is ${dog.age * 7}</li>\`)}
+	${dogs.map(dog => `<li>${dog.name} is ${dog.age * 7}</li>`)}
 </ul>
 `;
 ```
@@ -99,7 +99,7 @@ But we have that comma in there, so how do you get rid of that? We know that `ma
 ```js
 const markup = `
 <ul class="dogs">
-	$dogs.map(dog => \`<li>${dog.name} is ${dog.age * 7}</li>\`).join('')}
+	${dogs.map(dog => <li>${dog.name} is ${dog.age * 7}</li>`).join('')}
 </ul>
 `;
 ```
@@ -111,12 +111,12 @@ Again, you could do this on their own lines if you prefer to do each on their ow
 ```js
 const markup = `
 <ul class="dogs">
-	$dogs.map(dog => 
-    	\`<li>${dog.name}
-    	is 
-    	${dog.age * 7}
-    	</li>\`
-    ).join('')}
+	${dogs.map(dog => 
+    		`<li>${dog.name}
+	    	is 
+    		${dog.age * 7}
+	    	</li>`
+	 ).join('')}
  </ul>
 `;
 ```
