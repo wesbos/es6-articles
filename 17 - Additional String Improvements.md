@@ -3,11 +3,11 @@ The String type in ES6 have come with **four new methods** that are really handy
 
 ### .startsWith() and .endsWith() 
 
+So I have a `const` variable named `course`, which has the value of `RFB1`, this stands for React for Beginners. 
+
 ```js
 const course = 'RFB1';
 ```
-
-So I have a `const` variable named `course`, which has the value of `RFB1`, this stands for React for Beginners. 
 
 Sometimes I have `RFB1` which is the starter package, `RFB2` which is the master package, `RFB3` which is the team package. I don't really care too much about that in certain cases, I just want to know if `course` starts with `RFB`, and not something like `STPU`, which is Sublime Text Power User or `ES6`, which is this series.
 
@@ -44,7 +44,7 @@ Just like with our `flightNumber`, we can use the console to put in `accountNumb
 
 ### .includes()
 
-Then next up we have `.includes()` which will just check if that string is anywhere in it. If I wanted to see if my flight number includesthe letters AC, then I could use `flightNumber.includes('AC'), which is `true`. 
+Then next up we have `.includes()` which will just check if that string is anywhere in it. If I wanted to see if my flight number includes the letters AC, then I could use `flightNumber.includes('AC'), which is `true`. 
 
 Again, it is not case sensitive so you cannot use lower case letters here.
 
