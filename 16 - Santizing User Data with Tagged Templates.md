@@ -1,8 +1,8 @@
-These last couple examples we've been creating HTML and inserting it right into the DOM. If you have any sort of security background and you're probably screaming, "Wes, you must sanitize that data before you put it into the DOM!!!"
+These last [few](https://wesbos.com/template-strings-html/) [examples](http://wesbos.com/tagged-template-literals/) we've been creating HTML and inserting it right into the DOM. If you have any sort of security background and you're probably screaming, _**"Wes, you must sanitize that data before you put it into the DOM!!!"**_
 
 ### A Quick primer on XSS
 
-If you don't know what that means, essentially when you get data from a user, or whenever you're displaying data from an external (or even internal) source, you must make sure that the user isn't doing any Sneaky Pete stuff on you, and trying to maybe insert an iFrame, or an image, or to do an XSS attack. 
+If you don't know what that means, essentially when you get data from a user, or whenever you're displaying data from an untrusted (or even what you think is trusted) source, you must make sure that the user isn't doing any _Sneaky Pete_ stuff on you, and trying to maybe insert an iFrame, or an image, or to do an XSS attack. 
 
 Here I've got an example:
 
@@ -19,9 +19,9 @@ const bio = document.querySelector('.bio');
 bio.innerHTML = html;
 ```
 
-Let's assume I took this first name in the about me. I got that from a database, or an API or something like that, and the user had this saved in their database. 
+Let's assume I took this first name in the about me. I got that from a database, an API or something sort of data source where the user had this saved in their database. 
 
-They said, "I love to do evil," and they inserted an image from Unsplash, which is allowed. You can insert an image into your bio, no problem, but they do the **Sneaky Pete** thing here where they inserted an `onload=alert('you got hacked');`, so when this image loads, run some JavaScript. 
+They set their bio to be, "I love to do evil," and they inserted an image from Unsplash, which is allowed. You can insert an image into your bio, no problem, but they do the **Sneaky Pete** thing here by inserting an `onload=alert('you got hacked');`, so when this image loads, it runs some JavaScript. 
 
 That is a huge problem. You cannot let your users run JavaScript on your page because then they could drain your bank account, or delete your app, or post spam, or really anything! Imagine if you let someone run JavaScript on Facebook. You could have people unfriending everyone, or you could look at all of their messages, or send nasty messages on their behalf. 
 
@@ -69,7 +69,7 @@ You could make a sanitized tag template and use this library inside of it. I'm g
 
 ```js
 function sanitize(strings, ...values) {
-    return strings.reduce((prev, next, i) => `${prev}${next}${values[i]} || ''}`, '');
+    return strings.reduce((prev, next, i) => `${prev}${next}${values[i]} || ''}`);
 }
 const first = 'Wes';
 const aboutMe = sanitize`I love to do evil <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked');" />`;
@@ -90,7 +90,7 @@ We still have, "you got hacked" because we're not finished yet.
 
 ```js
 function sanitize(strings, ...values) {
-    const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i]} || ''}`, '');
+    const dirty = strings.reduce((prev, next, i) => `${prev}${next}${values[i]} || ''}`);
 }
 const first = 'Wes';
 const aboutMe = sanitize`I love to do evil <img src="http://unsplash.it/100/100?random" onload="alert('you got hacked');" />`;
