@@ -73,5 +73,3 @@ console.log(twitter, facebook); // logs the 2 variables
 ```
 
 Notice how we destrucure `wes.links.social` and not just `wes`? That is important because we are destructuring a few levels deep. 
-
-[Link to the next post](...)
