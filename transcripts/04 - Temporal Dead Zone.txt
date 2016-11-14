@@ -1,6 +1,6 @@
 [00:00] [music]
 
-Wes: [00:02] Let's talk real quick about the temporal dead zone. This is a bit of a boring topic, so I'm going to try and make it really fun for you. This is something that you probably won't come across too often, but it's helpful to know in case someone ever slings it out in an interview. You'd be able to talk them about it. First of all, I call it the temporal dad zone, which is kind of fun.
+Wes: [00:02] Let's talk real quick about the temporal dead zone. This is a bit of a boring topic, so I'm going to try and make it really fun for you. This is something that you probably won't come across too often, but it's helpful to know in case someone ever slings it out in an interview. You'd be able to talk them about it. First of all, I call it the temporal dead zone, which is kind of fun.
 
 [00:19] Let's make a var variable called pizza and set it to deep dish, and we'll put a pizza emoji in there. What happens when you try and console log pizza after it's been created. You'll see that we actually get to see deep dish, right? No big issue there.
 
