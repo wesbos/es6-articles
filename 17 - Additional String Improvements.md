@@ -1,4 +1,4 @@
-The String type in ES6 have come with **four new methods** that are really handy, help us write a little bit more readable code, as well as reduce our reliance on using regular expressions, or RegExp, for certain things.
+The String type in ES6 has come with **four new methods** that are really handy, help us write a little bit more readable code, as well as reduce our reliance on using regular expressions, or RegExp, for certain things.
 
 
 ### .startsWith() and .endsWith() 
