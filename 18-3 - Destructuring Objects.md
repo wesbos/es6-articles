@@ -1,5 +1,3 @@
-## JavaScript Destrucuring Default Values
-
 There's one last thing we need to know about destructuring objects, and that is the ability to set defaults. This one's a little bit confusing, so bear with me here and we're going to circle back for another example later on in a couple of videos over at [ES6.io](https://ES6.io).
 
 When you destrucure an object, what happens if that value isn't there? 
@@ -12,9 +10,9 @@ const { speed, width } = settings;
 console.log(width);
 ```
 
-What is width? It's `undefined` because we create the varaible, but it's not able to be set to anything. 
+What is width? It's `undefined` because we create the variable, but it's not able to be set to anything. 
 
-With destrucuring we can set defaults, or _fallback values_ so that if an item is not in the object (or Array, Map, or Set) it will fall back to what you have set at the default.
+With destructuring we can set defaults, or _fallback values_ so that if an item is not in the object (or Array, Map, or Set) it will fall back to what you have set at the default.
 
 This syntax is a little hard to read:
 
@@ -39,7 +37,7 @@ const speed = mySpeed || 760;
 console.log(speed); // 760!
 ```
 
-Why? Because ES6 destrucuring default values only kick in if the value is not present. undefined, null, false and 0 are all still values!
+Why? Because ES6 destructuring default values only kick in if the value is not present. undefined, null, false and 0 are all still values!
 
 ```js
 const { dogName = 'snickers' } = { dogName: undefined }
@@ -56,7 +54,7 @@ console.log(dog) // what will it be? 0!
 ```
 
 
-### Combining with Destrucuring Renaming
+### Combining with Destructuring Renaming
 
 In my last post we learned that we can destrucutre and rename varaibles at the same time with something like this:
 
