@@ -1,12 +1,13 @@
-## How to use Destrucutring with Objects in JavaScript
+## How to use Destructuring with Objects in JavaScript
 
 Destructuring is a huge part of ES6. If you want to learn all about destructuring check out my [ES6.io](https://ES6.io) video tutorials.
 
-Along with arrow functions, let, and const, **destrucuring** is probably something you're going to be using every single day. I find it to be extremely useful whether I'm writing client side or Node. 
+Along with arrow functions, let, and const, **destructuring** is probably something you're going to be using every single day. I find it to be extremely useful whether I'm writing client side or Node. 
 
 What does destructuring mean? It's a JavaScript expression that allows us to extract data from arrays, objects, maps and sets — which we're going to learn more about in a future [ES6.io](https://ES6.io) video —into their own variable. It allows us to extract properties from an object or items from an array, multiple at a time.
 
-Let's take a look at what problem JavaScipt destrucuring really solves. Sometimes you need top level variables like so:
+Let's take a look at what problem JavaScipt destructuring really solves. Sometimes you need top level variables like so:
+
 
 ```js
 const person = {
