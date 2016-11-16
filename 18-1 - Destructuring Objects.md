@@ -1,5 +1,3 @@
-## How to use Destructuring with Objects in JavaScript
-
 Destructuring is a huge part of ES6. If you want to learn all about destructuring check out my [ES6.io](https://ES6.io) video tutorials.
 
 Along with arrow functions, let, and const, **destructuring** is probably something you're going to be using every single day. I find it to be extremely useful whether I'm writing client side or Node. 
