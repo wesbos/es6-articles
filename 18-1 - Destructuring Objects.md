@@ -21,7 +21,7 @@ const first = person.first;
 const last = person.last;
 ```
 
-You get the point. You've got this pretty much repetitive code over and over again, where you need to make a variable from something that is inside of an object or inside of an array. What we could do instead of creating multiple variables, we destructyre them in a single line like so:
+You get the point. You've got this pretty much repetitive code over and over again, where you need to make a variable from something that is inside of an object or inside of an array. What we could do instead of creating multiple variables, we destructure them in a single line like so:
 
 ```js
 const { first, last } = person;
@@ -73,4 +73,4 @@ const { twitter, facebook } = wes.links.social;
 console.log(twitter, facebook); // logs the 2 variables 
 ```
 
-Notice how we destructyre `wes.links.social` and not just `wes`? That is important because we are destructuring a few levels deep. 
+Notice how we destructure `wes.links.social` and not just `wes`? That is important because we are destructuring a few levels deep. 

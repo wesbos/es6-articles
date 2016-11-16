@@ -1,6 +1,6 @@
 There's one last thing we need to know about destructuring objects, and that is the ability to set defaults. This one's a little bit confusing, so bear with me here and we're going to circle back for another example later on in a couple of videos over at [ES6.io](https://ES6.io).
 
-When you destructyre an object, what happens if that value isn't there? 
+When you destructure an object, what happens if that value isn't there? 
 
 ```js
 const settings = {
