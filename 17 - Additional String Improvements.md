@@ -25,12 +25,12 @@ This flight number here, I want to see if it starts with `AC`. Over in the conso
 
 What you can do is you can use `flightNumber.startsWith('AC', 3);`, which says start after three characters. That is returning `true`, because it ignores the first three and then starts at AC and checks against that.
 
-`EndsWith` works fairly similar. Here is an example where we have `jz` at the end of the `flightNumber`, and I want to know if it's an Air Canada Jazz flight. We can say `flightNumber.endsWith(jz)`, which will be `true`, obviously, because it ends with it. 
+`EndsWith` works fairly similar. Here is an example where we have `jz` at the end of the `flightNumber`, and I want to know if it's an Air Canada Jazz flight. We can say `flightNumber.endsWith('jz')`, which will be `true`, obviously, because it ends with it. 
 
 There's another option that we can pass `.endsWith()`, and I'm going to use an account number variable as an example here:
 
 ```js 
-const accountnumber = '825242631RT0001';
+const accountNumber = '825242631RT0001';
 ```
 In Canada we have business numbers that are nine digits long. They're always nine digits long, and that is your actual business number. 
 
@@ -56,10 +56,10 @@ Includes checks to see if your string has something in it. As a bit of an aside,
 Next up we have make, model and colour here:
 
 ```js
- const make = 'BMW';
- const model = 'x5'
- const colour = 'Royal Blue';
-``` 
+const make = 'BMW';
+const model = 'x5';
+const colour = 'Royal Blue';
+```
 
 I'm going to show you where that would be useful for using `.repeat()`, which allows you to take a string, and repeat it. You can just call `.repeat()` and it's going to repeat that string over and over and over again.
 
