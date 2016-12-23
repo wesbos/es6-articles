@@ -44,11 +44,11 @@ Just like with our `flightNumber`, we can use the console to put in `accountNumb
 
 ### .includes()
 
-Then next up we have `.includes()` which will just check if that string is anywhere in it. If I wanted to see if my flight number includes the letters AC, then I could use `flightNumber.includes('AC'), which is `true`. 
+Then next up we have `.includes()` which will just check if that string is anywhere in it. If I wanted to see if my flight number includes the letters AC, then I could use `flightNumber.includes('AC')`, which is `true`. 
 
 Again, it is not case sensitive so you cannot use lower case letters here.
 
-Includes checks to see if your string has something in it. As a bit of an aside, it was originally supposed to be called `.contains()`, but it got changed to includes because of some conflicts with the MooTool libraries and the way that they modified the prototype.
+`.includes()` checks to see if your string has something in it. As a bit of an aside, it was originally supposed to be called `.contains()`, but it got changed to includes because of some conflicts with the MooTool libraries and the way that they modified the prototype.
 
 
 ### .repeat() and String Padding
@@ -63,11 +63,11 @@ const colour = 'Royal Blue';
 
 I'm going to show you where that would be useful for using `.repeat()`, which allows you to take a string, and repeat it. You can just call `.repeat()` and it's going to repeat that string over and over and over again.
 
-Where is that useful? Sometimes we have some words here. I'm going to take my `BMW` `x5` and `royal blue`, and if I wanted to display the variables in a terminal or something, but I want to right align them. How would that work? I'd have to just put a whole bunch of padding in, depending on how long this was and how much space will be used, kind of like this:
+Where is that useful? Sometimes we have some words here. I'm going to take my `BMW`, `x5` and `royal blue`, and if I wanted to display the variables in a terminal or something, but I want to right align them. How would that work? I'd have to just put a whole bunch of padding in, depending on how long this was and how much space will be used, kind of like this:
 
 ```js
-          BMW
-          x5
+                 BMW
+                  x5
           Royal Blue
 ```
 
@@ -76,21 +76,32 @@ What we can do, instead of hitting the space bar each time, we can use a left pa
 Here we can `return` a string, and we need to then pad it with however many characters we need. We'll take a space and repeat it 10 times. 
 
 ```js
-leftPad.repeat(str, length = 10){
-    return `${' '.repeat(length - str.length)}${str}`;
+leftPad = function(str, length = 10){
+    return `${' '.repeat(length)}${str}`;
 }
 
-console.log(leftPad(make));
-console.log(leftPad(model));
-console.log(leftPad(colour));
+console.log(leftPad(make));   // '          BMW'
+console.log(leftPad(model));  // '          x5'
+console.log(leftPad(colour)); // '          Royal Blue'
 ```
 
 However, if we want it right aligned, we'll need to subtract however many characters are in the string, so we subtract `str.length` here before we return the actual string itself in `${str}`;
 
+```js
+leftPad = function(str, length = 20){
+    return `${' '.repeat(Math.max(length - str.length,0))}${str}`;
+}
+```
 
-I can take make, model, and color, put them in here. It's going to console.log each one of them out. Console.log leftPad model. I'm going to leave out the length because we're going to default it to 20, and it should just pass in the make, model, and color.
+I can take make, model, and color, put them in here. It's going to console.log each one of them out. I'm going to leave out the length because we're going to default it to 20, and it should just pass in the make, model, and color.
 
-There we go. See how all these are perfectly left aligned? BMW X5 in royal blue, whereas all of this is however much padding we actually need. That's a nice little use for repeat. 
+```js
+console.log(leftPad(make));   // '                 BMW'
+console.log(leftPad(model));  // '                  x5'
+console.log(leftPad(colour)); // '          Royal Blue'
+```
+
+There we go. See how all these are perfectly right aligned? BMW X5 in royal blue, whereas all of this is however much padding we actually need. That's a nice little use for repeat. 
 
 ### Very Important
 
