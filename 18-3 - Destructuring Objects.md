@@ -41,16 +41,16 @@ Why? Because ES6 destructuring default values only kick in if the value is not p
 
 ```js
 const { dogName = 'snickers' } = { dogName: undefined }
-console.log(dog) // what will it be? undefined!
+console.log(dogName) // what will it be? 'snickers'!
 
 const { dogName = 'snickers' } = { dogName: null }
-console.log(dog) // what will it be? null!
+console.log(dogName) // what will it be? null!
 
 const { dogName = 'snickers' } = { dogName: false }
-console.log(dog) // what will it be? false!
+console.log(dogName) // what will it be? false!
 
 const { dogName = 'snickers' } = { dogName: 0 }
-console.log(dog) // what will it be? 0!
+console.log(dogName) // what will it be? 0!
 ```
 
 
