@@ -1,3 +1,5 @@
+![](http://wesbos.com/wp-content/uploads/2017/02/breakout.jpg)
+
 # The Breakout Email Management System
 
 An email management system for overwhelmed creatives who want to get back to work. 
@@ -131,7 +133,7 @@ Try and implement this stuff - you'll have to work at it but I bet it will help 
 
 Comment below if you have thoughts or ideas on your own workflow. 
 
-If you found a spelling mistake you can correct it [here](). 
+If you found a spelling mistake you can correct it [here](https://github.com/wesbos/es6-articles/blob/master/breakout-email.md). 
 
 
 
