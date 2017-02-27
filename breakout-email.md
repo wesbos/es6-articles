@@ -47,11 +47,11 @@ Newsletters and transactional email add visual clutter to your inbox. Trim down 
 
 Here is an example of a filter and tag I use so I can delete everything at once.
 
-> Matches: from:(notifications@basecamp.com OR no-reply@slack.com OR notifications@github.com OR noreply@github.com OR do-not-reply@trello.com OR member@paypal.ca OR service@intl.paypal.com OR *@asana.com OR noreply@md.getsentry.com OR calendar-notification@google.com OR emailnotification@interealty.net OR noreply@youtube.com)
+Matches: from:(notifications@basecamp.com OR no-reply@slack.com OR notifications@github.com OR noreply@github.com OR do-not-reply@trello.com OR member@paypal.ca OR service@intl.paypal.com OR *@asana.com OR noreply@md.getsentry.com OR calendar-notification@google.com OR emailnotification@interealty.net OR noreply@youtube.com)
 
 Another one to filter out of office replies from long chains or email blasts in every single language. This is pretty specific to my own use case, but you get the idea. Figure out what works for you and implement it. 
 
-> Matches: ("Automatische Antwort" OR "Automatic reply" OR "AutoReply" OR "Out of Office" OR "Xesc Duran" OR "Abwesend" OR "Absence" OR "Absence du bureau" OR "À l'extérieur du bureau" OR "Réponse automatique" OR "Abwesenheitsnotiz" OR "Resposta automática" OR "Automaattinen vastaus" OR "Automatisch antwoord" OR "Afwezig" OR "Afwezigheid" OR "Niet aanwezig" OR "Poza zasięgiem" OR "Na wakacjach" OR "Poza biurem" OR "Automatyczna odpowiedź" OR "Z dala od komputera" OR "Αυτόματη απάντηση" OR "Εκτός γραφείου" OR "na dovolenké" OR "mimo kancelárie" OR "automatická odpověď" OR "Autosvar" OR "Fora do escritório" OR "na dovolené" OR "mimo kancelář")
+Matches: ("Automatische Antwort" OR "Automatic reply" OR "AutoReply" OR "Out of Office" OR "Xesc Duran" OR "Abwesend" OR "Absence" OR "Absence du bureau" OR "À l'extérieur du bureau" OR "Réponse automatique" OR "Abwesenheitsnotiz" OR "Resposta automática" OR "Automaattinen vastaus" OR "Automatisch antwoord" OR "Afwezig" OR "Afwezigheid" OR "Niet aanwezig" OR "Poza zasięgiem" OR "Na wakacjach" OR "Poza biurem" OR "Automatyczna odpowiedź" OR "Z dala od komputera" OR "Αυτόματη απάντηση" OR "Εκτός γραφείου" OR "na dovolenké" OR "mimo kancelárie" OR "automatická odpověď" OR "Autosvar" OR "Fora do escritório" OR "na dovolené" OR "mimo kancelář")
 
 
 **co-workers and clients** who email with problems and questions can be trained.  Email likely isn't the best spot - tickets can be created in bug trackers, responses and file uploads can be logged in project management software. 
