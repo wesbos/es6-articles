@@ -54,9 +54,11 @@ Another one to filter out of office replies from long chains or email blasts in 
 Matches: ("Automatische Antwort" OR "Automatic reply" OR "AutoReply" OR "Out of Office" OR "Xesc Duran" OR "Abwesend" OR "Absence" OR "Absence du bureau" OR "À l'extérieur du bureau" OR "Réponse automatique" OR "Abwesenheitsnotiz" OR "Resposta automática" OR "Automaattinen vastaus" OR "Automatisch antwoord" OR "Afwezig" OR "Afwezigheid" OR "Niet aanwezig" OR "Poza zasięgiem" OR "Na wakacjach" OR "Poza biurem" OR "Automatyczna odpowiedź" OR "Z dala od komputera" OR "Αυτόματη απάντηση" OR "Εκτός γραφείου" OR "na dovolenké" OR "mimo kancelárie" OR "automatická odpověď" OR "Autosvar" OR "Fora do escritório" OR "na dovolené" OR "mimo kancelář")
 
 
-**co-workers and clients** who email with problems and questions can be trained.  Email likely isn't the best spot - tickets can be created in bug trackers, responses and file uploads can be logged in project management software. 
+## co-workers, clients and newsletters
 
-Aggressively unsubscribe from newsletters that mean very little to you. These are just adding noise to your inbox. If something worthwhile is happening, you'll hear about. 
+co-workers and clients who email with problems and questions can be trained.  Email likely isn't the best spot - tickets can be created in bug trackers, responses and file uploads can be logged in project management software. 
+
+Aggressively unsubscribe from newsletters that mean very little to you. These are just adding noise to your inbox. If something worthwhile is happening, you'll hear about. Gmail tabs does a great job at filtering things into their own tabs.
 
 ## Automate & Expand
 
