@@ -86,7 +86,7 @@ I'm at the spot where I can think and speak much faster than I can type. Recentl
 
 ![](http://wes.io/jKS5/content)
 
-For an email that is an easy response but requires 3 or 4 paragraphs — "What do you think of ____" - I'll usually turn on dictation and speak my response. Every few sentences I'll pause and fix any errors and keep going. An added benefit to this is that your emails come off more causal and conversational.
+For an email that is an easy response but requires 3 or 4 paragraphs — "What do you think of ____" - I'll usually turn on dictation and speak my response. Every few sentences I'll pause and fix any errors and keep going. An added benefit to this is that your emails come off more casual and conversational.
 
 The biggest barrier to this is that it's uncomfortable or weird to do when people around. I don't have a solution for you other than that you should get over that, because if you were talking into a phone it would be totally normal for you.
 
