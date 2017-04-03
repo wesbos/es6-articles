@@ -1,4 +1,4 @@
-Last post we took a look at [an intro to destrucuring](TODO). Let's take a look at another use case which would be renaming your variables. Sometimes data comes back in some odd names, and you might not necessarily want to use a property key as the end variable name. Maybe you don't like that variable name or it's already taken in your scope.
+Last post we took a look at [an intro to destructuring](http://wesbos.com/destructuring-objects/). Let's take a look at another use case which would be renaming your variables. Sometimes data comes back in some odd names, and you might not necessarily want to use a property key as the end variable name. Maybe you don't like that variable name or it's already taken in your scope.
 
 
 ```js
