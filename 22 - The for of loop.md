@@ -157,8 +157,8 @@ If I am on a website; I'm not even going to use MooTools here, but I'm going to 
 
 ```js
 var names = ['wes', 'lux']
-for (name in names) { console.log(name);
-	console.log(name);
+for (name in names) {
+    console.log(name);
 }
 
 ```
@@ -186,8 +186,8 @@ Array.prototype.shuffle = function() {
 const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
 cuts.shop = 'MM Meats';
 
-for ( const index of cuts){  
-    console.log(cuts);
+for ( const cut of cuts){  
+    console.log(cut);
 }
 
 ```
@@ -198,8 +198,8 @@ Even though I've monkeyed with the prototype and added a weird property on to th
 If cut is brisket, I want to break. I want to stop the entire loop from going. We only stop. We get chuck, brisket, and then the rest should not show because we broke the loop. Here we go, chuck and brisket.
 
 ```js
-for (const index of cuts){
-    console.log(cuts);
+for (const cut of cuts){
+    console.log(cut);
     if(cut === 'Brisket') {
         break;
     }
@@ -223,8 +223,8 @@ Array.prototype.shuffle = function() {
  
  const cuts = ['Chuck', 'Brisket', 'Shank', 'Short Rib'];
  
- for ( const index of cuts){
-     console.log(cuts);
+ for ( const cut of cuts){
+     console.log(cut);
      if(cut === 'Brisket') {
          continue;
      }
