@@ -32,7 +32,7 @@ What if you wanted to put a veg pizza right in the middle of that? How would do 
 ```js
 let pizzas =  [];
 pizzas = pizzas.concat(featured);
-pizzas = push('veg');
+pizzas.push('veg');
 pizzas = pizzas.concat(specialty);
 console.log(pizzas);
 ```
