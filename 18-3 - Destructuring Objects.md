@@ -37,7 +37,7 @@ const speed = mySpeed || 760;
 console.log(speed); // 760!
 ```
 
-Why? Because ES6 destructuring default values only kick in if the value is not present. undefined, null, false and 0 are all still values!
+Why? Because ES6 destructuring default values only kick in if the value is undefined. null, false and 0 are all still values!
 
 ```js
 const { dogName = 'snickers' } = { dogName: undefined }
