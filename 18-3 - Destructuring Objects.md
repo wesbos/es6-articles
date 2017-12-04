@@ -79,7 +79,7 @@ console.log(middleName); // 'Super Rad'
 Woah - let's step through that one! 
 
 1. First we create a new const var called `middleName`.
-2. Next we look for `person.middle`. If there was a `person.middle` property, it would be put into the `middleName` varaible.
+2. Next we look for `person.middle`. If there was a `person.middle` property, it would be put into the `middleName` variable.
 3. There isn't a `middle` property on our `person` object, so we fall back to the default of `Super Rad`. 
 
 Cool! Make sure to check out [ES6.io](https://ES6.io) for more like this!
