@@ -37,7 +37,7 @@ const data = 'Basketball,Sports,90210,23';
 ```
 
 
-That's the item name, the item category, the item SKU, and the item inventory left on hand. Problem is is that it's just a string. That's not really helping us out. We do know that one thing that we can do if the data is perfectly separated by some sort of separator is we could use `data.split()` to split it up based on the comma. 
+That's the item name, the item category, the item SKU, and the item inventory left on hand. Problem is that it's just a string. That's not really helping us out. We do know that one thing that we can do if the data is perfectly separated by some sort of separator is we could use `data.split()` to split it up based on the comma. 
 
 ```js
 const [itemName, category, sku, inventory] = data.split(',');
@@ -53,7 +53,7 @@ const data = 'Basketball,Sports,90210,23,wes,bos,cool';
 
 What happens to them when you destructure something that is not the same length as the actual array? Well, nothing happens, because it will just throw those extra ones out! So `[wes, bos, cool]` are not stored in any variables and are garbage collected.
 
-### A Look Ahead to ES6 Destrucuring with ...rest 
+### A Look Ahead to ES6 Destructuring with ...rest 
 
 We're going to learn a more about the JavaScript ...rest in a future videos and blog posts, but There is a helpful use case in destructuring with using the rest. Let's say I have a team, and I want to know who's the **captain**, who's he **assisting captain**, and who is **the rest of the actual team**? I'm going to make myself a quick array here:
 
