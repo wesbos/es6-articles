@@ -8,7 +8,7 @@ function calculateBill(total, tax, tip) {
 }
 ```
 
-From that, we can return the total amount of hte bill. 
+From that, we can return the total amount of the bill. 
 
 Then we'll make a new variable called `totalBill`, and we'll use our new function, to figure out how much all of that costs. 
 
