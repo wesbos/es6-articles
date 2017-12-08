@@ -34,14 +34,14 @@ That's a little bit funky, and I've seen a lot of people scratch their heads loo
 
 Rather than that, what we can do is you just simply call `push`, and we only pass it the `newInventors`, we'll get the problem we have before, with the fourth item in our `inventors` array being an array.
 
-However, if you were to spread into it, what will that do? Spread is going to take `'Musk`' and `'Jobs'` to pass it as individual argument into `push`.:
+However, if you were to spread into it, what will that do? Spread is going to take `'Musk`' and `'Jobs'` to pass it as individual argument into `push`.
 ```js
 const inventors = ['Einstein', 'Newton', 'Galileo'];
 const newInventors = ['Musk', 'Jobs'];
 inventors.push(...newInventors);
 ```
  
-Now we don't have to worry about any of that ply, or this, or any of these things. 
+Now we don't have to worry about any of that apply, or this, or any of these things. 
 
 We simply just spread right into the functions. We've been spreading into arrays, but you can also spread into a function where every single item of the array is going to be used as an argument. 
 
@@ -69,4 +69,4 @@ sayHi(...name);
  
 And that will pass `'Wes'` as the first argument and `'Bos'` as the second argument. So it will say, "Hey there, Wes Bos," without having to do any of that weird square bracket stuff. 
 
-Spreading into a function, very, very handy.
+Spreading into a function is very, very handy.
