@@ -10,7 +10,7 @@ Let's say we want to select all of these people right here:
 </div>
 <script>
 const people = document.querySelectorAll('.people p');
-console.log()
+console.log(people)
 </script>
 ```
 
@@ -29,7 +29,7 @@ You could use `Array.from` to convert the NodeList to a true array:
 
 ```js
 const people = Array.from(document.querySelectorAll('.people p'));
-console.log()
+console.log(people)
 const names = people.map();
 ```
 
@@ -39,7 +39,7 @@ However, another way you could do it is you could immediately take every single 
  
 ```js
 const people = [...document.querySelectorAll('.people p')];
-console.log()
+console.log(people)
 const names = people.map((person) => person.textContent);
 ```
 
@@ -84,7 +84,7 @@ Because it's a mean comment, I want to delete, "You are so dumb."
 
 All you're given is an `id` variable with that post id inside of it. How do you actually take it away? First of all, we need to figure out where in this array the comment is, because `id` doesn't tell us anything about its location inside the array.
 
-How would we do that? We would use the .find index method of the array.
+How would we do that? We would use the `.findIndex` method of the array.
 
 ```js
 const id = 234567;
