@@ -1,4 +1,5 @@
-A `promise` is built into a lot of things in the browser like, `fetch` and `getUserMedia`. We're starting to see libraries implement their own `promise`s, and it's probably a good idea for you to implement `promises` into your own code base.
+A `promise` is built into a lot of things in the browser like, `fetch` and `getUserMedia`. We're starting to see libraries implement their own `promise`s, and it's probably a good idea for you to implement `promises
+`s into your own code base.
 
 To create your own `promise`, you create a variable, and you store a new `promise` inside of it. A `promise` constructor takes one function here, which passes you `resolve` and `reject`...
  
