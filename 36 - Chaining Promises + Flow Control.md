@@ -64,14 +64,14 @@ function getPostById(id) {
        // using a settimeout to mimic a database
        setTimeout(() => {
        //find the post we want
-     const post = posts.find(post => post.id === id);
+            const post = posts.find(post => post.id === id);
             if(post) {
                 resolve(post); // send the post back
                 
             } else {
                 reject(Error('No Post Was Found!'));
             }
-            }, 200);
+        }, 200);
    });
 }
 
@@ -94,14 +94,14 @@ function getPostById(id) {
        // using a settimeout to mimic a database
        setTimeout(() => {
        //find the post we want
-     const post = posts.find(post => post.id === id);
+            const post = posts.find(post => post.id === id);
             if(post) {
                 resolve(post); // send the post back
                 
             } else {
                 reject(Error('No Post Was Found!'));
             }
-            }, 200);
+        }, 200);
    });
 }
 
