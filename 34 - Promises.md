@@ -1,6 +1,6 @@
 In the next couple of posts, we're going to learn all about `promise`. In order to get the most out of these lessons, you need to know two things. 
 
-First of all, `promises` are often used when you're fetching a JSON API and doing some AJAX work. As an example, take a look at my [blog API](http://wesbos.com/wp-json/wp/v2/posts). You can see that it lists my blog posts as JSON.
+First of all, `promise`s are often used when you're fetching a JSON API and doing some AJAX work. As an example, take a look at my [blog API](http://wesbos.com/wp-json/wp/v2/posts). You can see that it lists my blog posts as JSON.
  
 Secondly, I'm going to be using a thing called `fetch` to be able to `fetch` in this JSON API. It's not a library, it's actually something built right into the browser. It returns a `promise`.
 
