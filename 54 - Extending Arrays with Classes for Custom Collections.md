@@ -73,7 +73,7 @@ How do we do that?
 ```js
 class MovieCollection extends Array {
  constructor(name, ...items) {
-     super(items);
+    super(items);
     this.name = name;     
  }
 }
@@ -95,10 +95,10 @@ That's not exactly what we want. We want to be able to put each item in one arra
 
 ```js
 class MovieCollection extends Array {
- constructor(name, ...items) {
-     super(...items);
-    this.name = name;     
- }
+    constructor(name, ...items) {
+        super(...items);
+        this.name = name;     
+    }
 }
 
 const moview = new MovieCollection('Wes\'s Fav Movies',
@@ -122,13 +122,13 @@ Now what we can do is add methods to this movie collection. Let's add a movie us
 
 ```js
 class MovieCollection extends Array {
- constructor(name, ...items) {
-     super(...items);
-    this.name = name;     
- }
- add(movie) {
-     this.push(movie);
- }
+    constructor(name, ...items) {
+        super(...items);
+        this.name = name;     
+    }
+    add(movie) {
+        this.push(movie);
+    }
 }
 
 const moview = new MovieCollection('Wes\'s Fav Movies',
@@ -167,16 +167,16 @@ Let's add one more method to this, where I want to be able to sort this array of
 
 ```js
 class MovieCollection extends Array {
- constructor(name, ...items) {
-     super(...items);
-    this.name = name;     
- }
- add(movie) {
-     this.push(movie);
- }
- topRated(limit = 10){
-     return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
- }
+    constructor(name, ...items) {
+        super(...items);
+        this.name = name;     
+    }
+    add(movie) {
+        this.push(movie);
+    }
+    topRated(limit = 10){
+        return this.sort((a, b) => (a.stars > b.stars ? -1 : 1)).slice(0, limit);
+    }
 }
 
 const moview = new MovieCollection('Wes\'s Fav Movies',
@@ -191,10 +191,10 @@ So we've called our method `topRated`, which is taking in a `limit` as its argum
 
 On the next line we can make a quick and dirty sort, and `this` in this case is `MovieCollection`, which is an array, which we can use `sort()`, which is a method available to arrays. With that, we can sort through each object in our array, and  see if `a.stars` is greater than `b.stars` then we'll have a -1 and 1. Then we can call `.slice` on it, and slice from index 0 to the limit, which is 10 by default.
 
-Now we should be able to call `movies.top_rated()` and it will bring back our movies, but they'll just show as `Object, Object, Object, Object, Object`.
+Now we should be able to call `movies.topRated()` and it will bring back our movies, but they'll just show as `Object, Object, Object, Object, Object`.
 
 That's not very good, but let's try using `console.table(movies.topRated())` instead.
 
-If you run that in your console, that will give us all of the movies, sorted by the number of stars, in a nice table. You can also pass in `console.table(movies.topRated(2)), the top two rated movies, and that will bring me a table of the top two rated.
+If you run that in your console, that will give us all of the movies, sorted by the number of stars, in a nice table. You can also pass in `console.table(movies.topRated(2))`, the top two rated movies, and that will bring me a table of the top two rated.
 
 That's really handy if you're able to have an array, but also have methods on front of it. Extending arrays, you can extend any of the native stuff that are built into JavaScript to create your own collections.
