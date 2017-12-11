@@ -5,10 +5,10 @@ What I wanted to do in this video is do a quick review of how prototypal inherit
 What I want to do here is let's make a dog function that will create puppies or create many dogs:
 
 ```js
-    function Dog(name, breed) {
-        this.name = name;
-        this.breed = breed;
-    }
+function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+}
 ```
 Notice we're using a capital D on `Dog` because this is what's called a constructor function. The function itself will pass in whatever we get for name and breed are assigned as `name`, and `breed`.
 
@@ -41,14 +41,14 @@ Where did they come from? Well, we have the "Mama array", which is capital A, `A
 We're going to take a look at how they don't just take their own, they actually share the same one. Let's add a prototype method to our `Dog`:
 
 ```js
-    function Dog(name, breed) {
-        this.name = name;
-        this.breed = breed;
-    }
-    Dog.prototype.bark = function() {
-        console.log(`Bark Bark! My name is ${this.name}`);
-    }
-    const snickers = new Dog('Snickers', 'King Charles');
+function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+}
+Dog.prototype.bark = function() {
+    console.log(`Bark Bark! My name is ${this.name}`);
+}
+const snickers = new Dog('Snickers', 'King Charles');
 ```
 
 Remember, we're using template strings to call `this.name`, because we want to reference the name of the actual dog. If you run `snickers.bark()` in your console, it says, "Bark, bark. My name is Snickers." Makes sense.
@@ -63,26 +63,26 @@ If we run `sunny.bark()`, It returns "Bark, bark. My name is Sunny." You see how
 What's really cool about that is you can still change it after the fact:
 
 ```js
-    function Dog(name, breed) {
-        this.name = name;
-        this.breed = breed;
-    }
-    Dog.prototype.bark = function() {
-        console.log(`Bark Bark! My name is ${this.name}`);
-    }
-    const snickers = new Dog('Snickers', 'King Charles');
-    const sunny = new Dog('Sunny', 'Golden Doodle');
-    
-    Dog.prototype.bark = function() {
-    console.log(`Bark bark! my name is ${this.name} and I'm a ${this.breed}!`);
-    }
+function Dog(name, breed) {
+    this.name = name;
+    this.breed = breed;
+}
+Dog.prototype.bark = function() {
+    console.log(`Bark Bark! My name is ${this.name}`);
+}
+const snickers = new Dog('Snickers', 'King Charles');
+const sunny = new Dog('Sunny', 'Golden Doodle');
+
+Dog.prototype.bark = function() {
+console.log(`Bark bark! my name is ${this.name} and I'm a ${this.breed}!`);
+}
 ```
 
 Even though I've created `snickers` before I've added this method should it still do this? Absolutely. What if I added a second method onto it after the fact? 
 
 ```js
-    Dog.prototype.cuddle = function() {
-        console.log(`I love you owner!`);
+Dog.prototype.cuddle = function() {
+    console.log(`I love you owner!`);
 }
 ```
 
