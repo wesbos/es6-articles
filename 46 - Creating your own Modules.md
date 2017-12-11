@@ -1,6 +1,6 @@
-Let's make our own JavaScript modules which we can import and export into each other. We could make another JavaScript file alongside `app.js` but instead let's make a new folder called `src`. That's not anything special but it allows you to keep my modules in their own folder. We're going to start with very simple module where we `impor`t and `export` one function and two strings. We'll create a new file and let's call it `config.js`.
+Let's make our own JavaScript modules which we can import and export into each other. We could make another JavaScript file alongside `app.js` but instead let's make a new folder called `src`. That's not anything special but it allows you to keep my modules in their own folder. We're going to start with very simple module where we `import` and `export` one function and two strings. We'll create a new file and let's call it `config.js`.
 
-`Config.js` is a place where I like to put all of my API keys and REST endpoints. Rather than scattering them through the entire application, we can put them in one single file so that if you ever have to reference any of the configuration for the application, you can just go to `config.js`.
+`config.js` is a place where I like to put all of my API keys and REST endpoints. Rather than scattering them through the entire application, we can put them in one single file so that if you ever have to reference any of the configuration for the application, you can just go to `config.js`.
 
 Inside of that let's set up an API key:
 
@@ -18,7 +18,7 @@ There's no global variables that sit on window for you to be able to access ever
 So how do we actually get API key from `config.js` into `app.js`? We need to first of all import it to `app.js`, and log it to the console. Because we're importing a local file and not a node module, you need to tell `import` where to find the file, and we can do that with `./src/config`:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import apiKey from './src/config';
@@ -46,7 +46,7 @@ Now that we've exported it, we can refresh `app.js` in the browser and see our `
 The important part is because we exported it as a `default`, we can name it any possible thing that we want right here. We've called it apiKey because it's the same thing, but I could name it anything else, and still works exactly the same way:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import wesIsCool from './src/config';
@@ -67,7 +67,7 @@ It says, `export 'default' (imported as 'wesIsCool') was not found`. This is bec
 
 You have to import it as whatever it was exported as, so let's switch it back over to `apiKey` in our `app.js` We have to use API key:
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import apiKey from './src/config';
@@ -81,7 +81,7 @@ Our syntax in `app.js` imports a thing from somewhere that is used for when that
 Basically, if you want to import a named export, you need to stick some curly brackets around it:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import { apiKey } from './src/config';
@@ -105,7 +105,7 @@ export const url = 'wesbos.com';
 Then we have that URL variable available to be imported in `app.js`:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import { apiKey, url } from './src/config';
@@ -130,7 +130,7 @@ function sayHi(name) {
 That could very well just be an internal function that I use inside of this module. They don't all have to be exported, but if for whatever reason I wanted it available in another module. I would have to stick an `export` on it. That would be exported as `sayHi`, which we can then import, and pass in a name, `'wes'`:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import { apiKey, url, sayHi } from './src/config';
@@ -167,7 +167,7 @@ There's also a couple of other things where you can rename them using the `as` k
 What you can do is you can use `as` to change the variable name. Let's change `apikey` over to `key` using the `as` keyword and then use the new variable name in our `console.log`:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import { apiKey as key, url, sayHi } from './src/config';
@@ -188,14 +188,14 @@ Then when you import `age` it's no longer able to be imported. You have to impor
 You have some flexibility there. If you'd like to rename them you can also put this on their own lines just for readability sake:
 
 ```js
-import {uniq, shuffle } from 'lodash';
+import { uniq, shuffle } from 'lodash';
 import insane from 'insane';
 import jsonp from 'jsonp';
 import { apiKey as key, 
 url, 
 sayHi, 
 old,
-dog} 
+dog } 
 from './src/config';
 ```
 
