@@ -1,4 +1,4 @@
-A `promise` is built into a lot of things in the browser like, `fetch` and `getUserMedia`. We're starting to see libraries implement their own `promise`es, and it's probably a good idea for you to implement `promise`es into your own code base.
+A `promise` is built into a lot of things in the browser like, `fetch` and `getUserMedia`. We're starting to see libraries implement their own `promise`s, and it's probably a good idea for you to implement `promise`s into your own code base.
 
 To create your own `promise`, you create a variable, and you store a new `promise` inside of it. A `promise` constructor takes one function here, which passes you `resolve` and `reject`...
  
@@ -42,7 +42,7 @@ Let's see what happens when we put a setTimeout on here for one second.
 ```js
 const p = new Promise((resolve, reject) => {
     setTimeout(() => {
-   resolve('Wes is cool')
+      resolve('Wes is cool')
     }, 1000); 
 });
 
@@ -59,7 +59,7 @@ Similarly, we could also call `reject` on it:
 ```js
 const p = new Promise((resolve, reject) => {
     setTimeout(() => {
-   reject('Err Wes isn\'t cool');
+       reject('Err Wes isn\'t cool');
     }, 1000); 
 });
 
@@ -76,7 +76,7 @@ Why is that uncaught in promise? Because we didn't `catch` it, right? We should 
 ```js
 const p = new Promise((resolve, reject) => {
     setTimeout(() => {
-   reject('Err Wes isn\'t cool');
+       reject('Err Wes isn\'t cool');
     }, 1000); 
 });
 
@@ -97,7 +97,7 @@ Ideally what you do is you throw in an error object, not just a string, like thi
 ```js
 const p = new Promise((resolve, reject) => {
     setTimeout(() => {
-   reject(Error('Err Wes isn\'t cool'));
+       reject(Error('Err Wes isn\'t cool'));
     }, 1000); 
 });
 
