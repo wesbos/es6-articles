@@ -206,7 +206,7 @@ for (const cut of cuts){
 }
 ```
 
-Similarly, if we wanted to just skip a whole bunch of stuff, if we wanted to skip `console.log` `Brisket`, we could just simply say `continue`. That's not going to `break` the entire loop, but it's going to skip over this one iteration, so we should see `Chuck`, `Shank`, and Short Rib:
+Similarly, if we wanted to just skip a whole bunch of stuff, if we wanted to skip `console.log` `Brisket`, we could just simply say `continue`. That's not going to `break` the entire loop, but it's going to skip over this one iteration, so we should see `Chuck`, `Shank`, and `Short Rib`:
  
 ```js
 Array.prototype.shuffle = function() {
