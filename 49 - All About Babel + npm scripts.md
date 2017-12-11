@@ -8,13 +8,13 @@ First up, Babel, what is it? I've been talking about it a couple of videos and I
 
 It initially started with just ES6 stuff, however it's really expanded to future JavaScript stuff. Stuff like experimental JavaScript, a lot of React stuff is also in it. Let's take a quick look at how it works, and then we'll step back. I'm just going to go to [babeljs.io](https://babeljs.io) and I'm going to go to **Try It Out**.
 
-This is really nice, because if you're ever trying to understand how something works you can just go to the babeljs website and try ir out. 
+This is really nice, because if you're ever trying to understand how something works you can just go to the babeljs website and try it out. 
 
-Right here, I've got this function called log pet. It takes in a `petName` and it takes in a `petType`:
+Right here, I've got this function called `logPet`. It takes in a `petName` and it takes in a `petType`:
  
 ```js
 function logPet(petName, petType = 'dog') {
-console.log('`${petName}` is a `${petType}`');
+  console.log('`${petName}` is a `${petType}`');
 }
 logPet('snickers');
 ```
@@ -211,12 +211,10 @@ Now that we've installed this right here we can go to our `package.json`, and in
 
 ```json
 {
-
-"babel": {
-  "presets": ["es2015"],
-  "plugins": ["transorm-object-rest-spread"]
-
-}
+  "babel": {
+    "presets": ["es2015"],
+    "plugins": ["transorm-object-rest-spread"]
+  }
 }
 ```
 
