@@ -58,9 +58,8 @@ What is it going to take? It's going to take `name`, because we pass it the name
 ```js
 class Dog {
     constructor (name, breed) {
-    this.name = name;
-    this.breed = breed;
-    
+        this.name = name;
+        this.breed = breed; 
     }
     
 }
@@ -73,9 +72,8 @@ Now for our prototype methods, `bark` and `cuddle`, we can basically move them i
 ```js
 class Dog {
     constructor (name, breed) {
-    this.name = name;
-    this.breed = breed;
-    
+        this.name = name;
+        this.breed = breed;  
     }
     
     bark() {
@@ -83,7 +81,7 @@ class Dog {
     }
     
     cuddle() {
-    console.log(`I love you owner!`)
+        console.log(`I love you owner!`)
     }
     
 }
@@ -123,14 +121,14 @@ You don't have `names.of`, because it's not a method. It's not inherited by all 
 If we also wanted something similar to that for our `dog` example, maybe like `info`:
 
 ```js
-   class Dog {
+class Dog {
    
     ... 
     static info() {
         console.log('A dog is better than a cat by 10 times');
     }
     
-    }
+}
 ```
 
 Now, if I say Sunny and I say `sunny.info`, it doesn't work. Why not? Because `sunny` is an instance of dog. How do I get this info? Because it is a static method, we can only call it on dog directly. Then we get the information. That's a static method that lives inside of it. 
