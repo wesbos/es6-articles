@@ -52,7 +52,7 @@ So we have `System.config({transpiler: 'babel'});` `System.config` takes an obje
 
 Next we call `System.import`, and then you import the actual application file, `main.js`, and so on, and keep writing our modules as we have been.
 
-The really cool part about using SystemJS is that I don't need to do `npm install`, or do any of the stuff that we've previously done. Let's say I wanted to get some methods from `lodash`, so we'll say import, and this time let's get some and `kebabCase` and import them into our `main.js`:
+The really cool part about using SystemJS is that I don't need to do `npm install`, or do any of the stuff that we've previously done. Let's say I wanted to get some methods from `lodash`, so we'll say import, and this time let's get `sum` and `kebabCase` and import them into our `main.js`:
 
 ```js
 import {sum, kebabCase} from 'npm:lodash';
@@ -60,7 +60,7 @@ import {sum, kebabCase} from 'npm:lodash';
 console.log(kebabCase('Wes is soooo cool'))
 ```
 
-What that's going to do is go to npm's registry and import `lodash` for us, and I've added in a console.log there to show what I mean, Once yourefresh this page after a second or two you'll see the kebabCase version of our string. We didn't have to run `npm install`, you're just able to go ahead and import things.
+What that's going to do is go to npm's registry and import `lodash` for us, and I've added in a console.log there to show what I mean, Once you refresh this page after a second or two you'll see the kebabCase version of our string. We didn't have to run `npm install`, you're just able to go ahead and import things.
 
 If you had your own module, for example, let's call it `checkout.js`:
  
