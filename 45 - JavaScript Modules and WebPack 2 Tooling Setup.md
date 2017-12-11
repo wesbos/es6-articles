@@ -291,7 +291,7 @@ module.exports = {
   },
 ```
 
-Then we set the `output`m which is where do you want it to go, the name is going to be, let's make a folder called `_build` in our project, and point the output at `_build/bundle.js`:
+Then we set the `output` which is where do you want it to go, the name is going to be, let's make a folder called `_build` in our project, and point the output at `_build/bundle.js`:
 
 ```js
 output: {
