@@ -19,11 +19,11 @@ You can list the people by typing `people` and seeing what you have in there. If
 
 You can also remove everyone from the set using `set.clear`, making it an empty set.
 
-We can callother methods, which cab be `entries`, `keys` or `values`. Call `people.values` and you can that the set's properties create a  `set iterator` which gives you all of the values. Because it's a set iterator you can loop over it, or you may remember from the generators videos, that this is a kind of generator.
+We can call other methods, which cab be `entries`, `keys` or `values`. Call `people.values()` and you can that the set's properties create a  `set iterator` which gives you all of the values. Because it's a set iterator you can loop over it, or you may remember from the generators videos, that this is a kind of generator.
 
-If we stick `people` in a variable, we can just call `.next` on it to view the items in hte set.
+If we stick `people` in a variable, we can just call `.next()` on it to view the items in hte set.
  
-What that probably means to you is, "Oh, cool, I can use the generator API on it with `.next` or I could feed it right into a `for...of` loop." 
+What that probably means to you is, "Oh, cool, I can use the generator API on it with `.next()` or I could feed it right into a `for...of` loop." 
 
 ```js
 const people = new Set();
@@ -44,21 +44,22 @@ You'll find that `.keys` and `.entries`, are really helpful when you start using
 
 The reason I think they're there is that we can have the same API on map and set, and we don't have to worry about if it's there or not.
 
-Let's take a look at another example with some students. If you want to declare the set with the values in it while you make it, you can pass it just like you would array.
+Let's take a look at another example with some students. If you want to initialize the set with some values, you *can't* just pass a list of values to it like you would to an array. You have to wrap those suckers in an iterable (array, array-ish objects, another set, or any other iterable)
 
 ```js
-const students = new Set('Wes', 'Kara', 'Tony');
+const students = new Set(['Wes', 'Kara', 'Tony']);
 ```
 
-You can also create a set when you pass it an array. We can take an array and just pass it into a new set. 
+One common mistake here is to pass a list of values instead of an iterable. So what happens when you do something like `const students = new Set(['Wes', 'Kara', 'Tony']);`? It will coerce the first argument to an array and use it to initialize the set, and the remaining arguments are ignored. This will result in `students = {"W", "e", "s"}`, which is not you want. Go ahead and try it in your console.
+
+The simplest way to initialize a set with some values is to take an array and just pass it into a new set. 
 
 ```js
 const dogs = ['Snickers', 'Sunny'];
 const dogSet = new Set(dogs);
 ```
 
-
-One other thing we can do is we can use `.has` to see if someone is already in it. 
+One other thing we can do is we can use `.has()` to see if someone is already in it. 
 
 Remember we talked about the set as being unique? If I were to take the students set and call `.has('Tony')`, it'll say true.
  
