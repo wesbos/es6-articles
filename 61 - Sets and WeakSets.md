@@ -70,3 +70,19 @@ Again, sets are unique. If you add someone twice, it's still only going to show 
 One more thing, you cannot reference it like `students [1]`. It is not an index-based thing. It is a list, and if you need to loop over them, you have to use a `for...of` loop.
 
 That is the entire set. It's fairly straightforward. We've got `.add`, `.clear`, `.delete`, `.size` properties, `.has` to see if it's in there, and we can use a `for...of` to loop over it, or we can manually do it with the generator by calling `.next` on it.
+
+One application of `Set` is to remove duplicates from an array. You can do it using `uniq` of `lodash`, but you can also do it using `Set`.
+
+```js
+ // an array with duplicate items 
+ const duplicateArray = [1, 1, 2, 2, true, true, 'Wes', 'Wes'];
+ 
+ // make a set using duplicateArray. Remember that Set can contain only unique items. It removes all duplicate items for you
+ const set = new Set(duplicateArray); // Set(4) {1, 2, true, "Wes"}
+ 
+ // Get an array with uniq items using spread operator or Array.from()
+ const uniqueArray = Array.from(set); // [1, 2, true, "Wes"]
+ 
+ // You can do it all in just one line
+ const array_name = Array.from(new Set(array_name)); // or const array_name = [...new Set(array_name)];
+ ```
