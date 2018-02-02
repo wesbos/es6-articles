@@ -14,7 +14,7 @@ Right here, I've got this function called `logPet`. It takes in a `petName` and 
  
 ```js
 function logPet(petName, petType = 'dog') {
-  console.log('`${petName}` is a `${petType}`');
+  console.log(`${petName} is a ${petType}`);
 }
 logPet('snickers');
 ```
@@ -29,7 +29,7 @@ Now, that might work great if you're using a modern browser, but what if everyon
 function logPet(petName) {
   var petType = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'dog';
 
-  console.log('`${petName}` is a `${petType}`');
+  console.log(petName + ' is a ' + petType);
 }
 logPet('snickers');
 ```
