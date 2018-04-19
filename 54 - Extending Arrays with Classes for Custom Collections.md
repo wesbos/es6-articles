@@ -2,7 +2,7 @@ Another neat thing about ES6 is that you can extend the built-ins. I don't mean 
 
 
 ```js
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -19,7 +19,7 @@ class MovieCollection extends Array {
  
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -39,7 +39,7 @@ class MovieCollection extends Array {
  }
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -56,7 +56,7 @@ class MovieCollection extends Array {
  }
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -78,7 +78,7 @@ class MovieCollection extends Array {
  }
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -101,7 +101,7 @@ class MovieCollection extends Array {
     }
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -131,7 +131,7 @@ class MovieCollection extends Array {
     }
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
@@ -179,7 +179,7 @@ class MovieCollection extends Array {
     }
 }
 
-const moview = new MovieCollection('Wes\'s Fav Movies',
+const movies = new MovieCollection('Wes\'s Fav Movies',
     {name: 'Bee Movie', stars: 10},
     {name: 'Star Wars Trek', stars: 1},
     {name: 'Virgin Suicides', stars: 7},
