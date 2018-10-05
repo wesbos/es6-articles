@@ -1,4 +1,4 @@
-Another feature of _template literals_ or template strings is the ability have multi-line strings without any funny business. 
+Another feature of _template literals_ or template strings is the ability to have multi-line strings without any funny business. 
 
 Previously with regular string we would have escape the new lines like so:
 
@@ -229,4 +229,4 @@ You can see that our function an unordered list, and then uses the map function 
 
 Now this function should just be able to pass it off. It's only one line, and it should be able to create the unordered list, and the list item, any other HTML that we need to have created inside of this. 
 
-If you take a look at our HTML you've got your unordered list with all of the list items inside, and you can see that any time you need to render out a unordered list of keywords, whether it's tied to this particular beer or not, it can simply just use `renderKeywords` to get the markup it needs.
+If you take a look at our HTML you've got your unordered list with all of the list items inside, and you can see that any time you need to render out an unordered list of keywords, whether it's tied to this particular beer or not, it can simply just use `renderKeywords` to get the markup it needs.
