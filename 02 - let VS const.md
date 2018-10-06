@@ -20,7 +20,7 @@ The browser says **points has already been declared**.
 
 However, with `var`, it will just go ahead and declare the variable, which can cause a lot of bugs, because you might accidentally use the same variable twice.
 
-You _can_ **update** a `let` variable, and we'll take a look more at `let` and `const` but you _cannot_ redeclare it twice in the same scope.
+You _can_ **update** a `let` variable, and we'll take a look more at `let` and `const` but you _cannot_ re-declare it twice in the same scope.
 
 Now, what if I had this?
 
@@ -30,11 +30,11 @@ let points = 50;
 let winner = false;
 
 if(points > 40) {
-   let winner = true
+   let winner = true;
 }
 ```
 
-If we type in the console, `winner` will come back as `false`. We can add a `Console.log` line to prove that it runs, but why is `winner` still `false`, if we set `winner` to be `true`?
+If we type in the console, `winner` will come back as `false`. We can add a `console.log` line to prove that it runs, but why is `winner` still `false`, if we set `winner` to be `true`?
 
 
 The important thing here is that these two `winner` variables are actually **two separate variables**. They have the same name, but they are both **scoped** differently:
@@ -58,7 +58,7 @@ let winner = false;
 points = 60;
 ```
 
-..and that will work just fine.
+...and that will work just fine.
 
 However, I've got that `key` variable, maybe something that you do not want to ever change, we can use a `const`, which stands for **constant**.
 
@@ -91,7 +91,7 @@ const person = {
 
 ...and if I try to update something in the `const` object by typing `person = { name: 'Wesley' }` it won't allow me to do that.
 
-However, the properties of a `const` variable *can* change. That's because the entire object is not immutable. It just can't be reassigned entirely.
+However, the properties of a `const` variable *can* change. That's because the entire object is not immutable. It just can't be re-assigned entirely.
 
 The way I like to think about it with an object is that the person is me. I'm not going to ever change, my entire life, but attributes about me are going to change.
 
@@ -116,4 +116,4 @@ So we can use it on our object:
 const wes = Object.freeze(person);
 ```
 
-If I try to update `Wes.age = 30`, it will still say `28` 👌
+If I try to update `wes.age = 30`, it will still say `28` 👌
