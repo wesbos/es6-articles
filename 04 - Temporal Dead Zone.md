@@ -26,7 +26,7 @@ Are we going to get:
 
 We get `undefined`.  Why? 
 
-With `var` variables, you can only access them after they are defined. Before they are defined, you cannot access the actual value of them, but **you can access the fact that the variable has been created before**.
+With `var` variables, you can only access them after they are defined. Before they are defined, you cannot access their actual value, but you can access the fact that the variable has been created **before its eventual declaration**.
 
 However, if I change that to `const` or `let`, you'll now see that `pizza` is not defined at all. That's an actual error, and that will **break your code**. 
 
