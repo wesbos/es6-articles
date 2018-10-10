@@ -13,7 +13,6 @@ const names = ['Wes', 'Kait', 'Lux'];
 I want to add `'Bos'` to the end of all three of these. 
 
 Normally, you'd do something like this:
- 
 
 ```js
 const fullNames = names.map(function(name){
@@ -25,13 +24,13 @@ console.log(fullNames); // Wes Bos, Kait Bos, Lux Bos
 
 We're going to use **backticks** here, which is our template strings. Don't worry exactly about what that is, if you're not sure just yet. We have a whole chapter on that coming up.
 
-Anyway, It's going to give me Wes Bos, Kait Bos, Lux Bos in the entire array. It took this array, transformed it into whatever the item was, plus the name "Bos" on the end.
+Anyway, It's going to give me Wes Bos, Kait Bos, Lux Bos in the entire array. It took this array, transformed it into whatever the item was, and added the name "Bos" on the end.
 
 That makes sense to me, but this isn't an arrow function. Let's take a look at how we could rewrite that. 
 
 ### Turn it into an Arrow Function
 
-The first thing you do with an arrow function is, you simply delete the keyword `function` and add in what's called a fat arrow. It looks like this: `=>`
+The first thing you do with an arrow function is, simply delete the keyword `function` and add in what's called a fat arrow. It looks like this: `=>`
 
 ```js
 const fullNames2 = names.map((name) => {
@@ -57,7 +56,7 @@ const fullNames3 = names.map(name => {
 console.log(fullNames3); // Wes Bos, Kait Bos, Lux Bos
 ```
 
-That's a bit of a stylistic choice. Some prefer the parenthesis regardless if you have one or more. In many callback fucntions (like our map function) it's nice to leave them out for a very clean syntax.
+That's a bit of a stylistic choice. Some prefer the parenthesis regardless if you have one or more. In many callback functions (like our map function) it's nice to leave them out for a very clean syntax.
  
 ### Arrow Function Implicit Return
 
@@ -72,19 +71,18 @@ That's when you explicitly write `return` for what you want to `return`. But a l
 Our three line function with an explicit return is now a single line function with an **implicit return**.
 
 ```js
-const fullNames4 = names.map(name => `${name} bos`);
+const fullNames4 = names.map(name => `${name} Bos`);
 
 console.log(fullNames4);  // Wes Bos, Kait Bos, Lux Bos
 ```
 
 We did three things here:
 
-
 1. delete the return
 2. put it up on all of one line
 3. delete the curly brackets
 
-When you delete your curly brackets, it's going to be an implicit return, which means we do not need to specify that we are returning `${name} bos`. 
+When you delete your curly brackets, it's going to be an implicit return, which means we do not need to specify that we are returning `${name} Bos`. 
 
 It will just assume that we're doing so, and you can `console.log` it to see the same thing again.
 
@@ -124,7 +122,6 @@ Another thing we need to know about arrow functions, at least right now, they ma
 What is an anonymous function? Actually what's a named function?
 
 A named function is something like this: 
-
 
 ```js
 function sayMyName(name) {
