@@ -1,8 +1,8 @@
-ES6 has introduced arrow functions which have three main benefits. First, they have a _concise_ syntax. Secondly, they have _implicit returns_, which allows us to write these nifty one-liners.
+ES6 has introduced arrow functions which have three main benefits. First, they have a _concise syntax_. Secondly, they have _implicit returns_, which allows us to write nifty one-liners.
 
 Thirdly, _they don't rebind the value of **this**_ when you use a arrow function inside of another function, which is really helpful for when you're doing things like click handlers and whatnot.
  
-We're going to take a look at a whole bunch of examples as well as we're going to be using arrow functions all over the place in the [ES6.io course](https://ES6.io).
+We're going to take a look at a whole bunch of examples, and we're going to be using arrow functions all over the place in the [ES6.io course](https://ES6.io).
 
 I've got an array of names:
 
@@ -30,7 +30,7 @@ That makes sense to me, but this isn't an arrow function. Let's take a look at h
 
 ### Turn it into an Arrow Function
 
-The first thing you do with an arrow function is, simply delete the keyword `function` and add in what's called a fat arrow. It looks like this: `=>`
+The first thing you do to create an arrow function is simply deleting the keyword `function` and add in its place what's called a _fat arrow_. It looks like this: `=>`
 
 ```js
 const fullNames2 = names.map((name) => {
@@ -64,9 +64,9 @@ What else could I do with this? I can use what's called an **implicit return**.
 
 Hold on — what's a _explicit_ `return`? 
 
-That's when you explicitly write `return` for what you want to `return`. But a lot of these callback functions that we write in JavaScript are just one-liners, where we _just return something immediately_ in one line. We don't need a whole bunch of lines. 
+That's when you explicitly write `return` for what you want to `return`. But a lot of these callback functions that we write in JavaScript are just one-liners, where we just return something _immediately_ in one line. We don't need a whole bunch of lines. 
 
-**So - if the only purpose of your arrow function is to return something, there is no need for the `return` keyword. **
+So, **if the only purpose of your arrow function is to return something**, there is no need for the `return` keyword.
 
 Our three line function with an explicit return is now a single line function with an **implicit return**.
 
@@ -79,7 +79,7 @@ console.log(fullNames4);  // Wes Bos, Kait Bos, Lux Bos
 We did three things here:
 
 1. delete the return
-2. put it up on all of one line
+2. put it all up on one line
 3. delete the curly brackets
 
 When you delete your curly brackets, it's going to be an implicit return, which means we do not need to specify that we are returning `${name} Bos`. 
@@ -88,7 +88,7 @@ It will just assume that we're doing so, and you can `console.log` it to see the
 
 ### No Arguments with Arrow Functions
 
-Then finally, if you have no arguments at all -- in our above examples obviously we need an argument -- but if no arguments at all, you need to pass some empty parenthesis there. 
+Then finally, if you have no arguments at all, you need to pass some empty parenthesis there. This was not the case in our above examples, where we needed an argument for the map function.
 
 Maybe we'll just return `Cool Bos`, and they'll all be Cool Bos at the end. 
 
@@ -117,7 +117,7 @@ Personally I prefer to use `() =>` over `_ =>` when there are no params but I'll
 
 ### Arrow Functions are Always Anonymous Functions
 
-Another thing we need to know about arrow functions, at least right now, they may change this in future versions of JavaScript, is that arrow functions are always anonymous functions. 
+Another thing we need to know about arrow functions, at least right now, is that arrow functions are always anonymous functions. 
 
 What is an anonymous function? Actually what's a named function?
 
@@ -133,7 +133,7 @@ The benefit to using a named function is that if you have a stack trace, which m
 
 If you use an arrow function, **you cannot name them**. None of our arrow functions have a name. 
 
-You can, however, put them in a variable. If I were to say something like this, and pass it a name, and create a function declaration that way.
+You can, however, put them in a variable, storing the arrow function in a variable which can be then called including arguments.
  
 ```js
 const sayMyName = (name) => {alert(`Hello ${name}!`)}
@@ -141,4 +141,4 @@ const sayMyName = (name) => {alert(`Hello ${name}!`)}
 sayMyName('Wes');
 ```
 
-The thing we need to know about that is it is an anonymous function and it will not give us very good stack traces. However, if you're not too concerned with that, then you can absolutely go ahead.
+The thing we need to know about that is that it is an anonymous function and it will not give us very good stack traces. However, if you're not too concerned with that, then you can absolutely go ahead.
