@@ -1,4 +1,4 @@
-These last [few](https://wesbos.com/template-strings-html/) [examples](http://wesbos.com/tagged-template-literals/) we've been creating HTML and inserting it right into the DOM. If you have any sort of security background and you're probably screaming, _**"Wes, you must sanitize that data before you put it into the DOM!!!"**_
+These last [few](https://wesbos.com/template-strings-html/) [examples](http://wesbos.com/tagged-template-literals/) we've been creating HTML and inserting it right into the DOM. If you have any sort of security background then you're probably screaming, _**"Wes, you must sanitize that data before you put it into the DOM!!!"**_
 
 ### A Quick primer on XSS
 
@@ -19,7 +19,7 @@ const bio = document.querySelector('.bio');
 bio.innerHTML = html;
 ```
 
-Let's assume I took this first name in the about me. I got that from a database, an API or something sort of data source where the user had this saved in their database. 
+Let's assume I took this first name in the about me. I got that from a database, an API or some sort of data source where the user had this saved in their database. 
 
 They set their bio to be, "I love to do evil," and they inserted an image from Unsplash, which is allowed. You can insert an image into your bio, no problem, but they do the **Sneaky Pete** thing here by inserting an `onload=alert('you got hacked');`, so when this image loads, it runs some JavaScript. 
 

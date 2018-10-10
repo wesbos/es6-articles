@@ -1,6 +1,6 @@
 In the last post we learned all about how scoping works with [JavaScript let, const and var variables](http://wesbos.com/javascript-scoping/).
 
-We now know that `var` is **function scope**, and now we know that `let` and `const` are **block scope**, which means any time you've got a set of curly brackets you have block scope.
+We now know that `var` is **function scope**, and now we know that `let` and `const` are **block scope**. Any time you've got a set of curly brackets, `{ }`, you've got block scope.
 
 Now, we need to know **you can only declare a variable inside of its scope once**.
 
@@ -16,7 +16,7 @@ If I try to update points by re-declaring the let variable:
 let points = 60;
 ```
 
-The browser says **points has already been declared**.
+The browser says **`points` has already been declared**.
 
 However, with `var`, it will just go ahead and declare the variable, which can cause a lot of bugs, because you might accidentally use the same variable twice.
 
@@ -29,27 +29,26 @@ const key = 'abc123';
 let points = 50;
 let winner = false;
 
-if(points > 40) {
-   let winner = true;
+if (points > 40) {
+   let winner = true
 }
 ```
 
 If we type in the console, `winner` will come back as `false`. We can add a `console.log` line to prove that it runs, but why is `winner` still `false`, if we set `winner` to be `true`?
 
-
 The important thing here is that these two `winner` variables are actually **two separate variables**. They have the same name, but they are both **scoped** differently:
 
-* `let winner = false` outside of the if loop is scoped to the window.
-* `let winner = true` inside the if loop is scoped to the block.
+-   `let winner = false` outside of the if loop is scoped to the window.
+    
+-   `let winner = true` inside the if loop is scoped to the block.
+    
 
 If I change our `let winner` to be `var winner`, they'll come back as `true`, because it's not inside of a function, it's not scoped to it, whereas a `let` variable is.
-
-
 
 The other thing we need to know about it is that the difference between `let` and `const` is that `const` variables **cannot be updated**.
 
 `let` variables are made to be updated. I may say:
-  
+
 ```js
 const key = 'abc123';
 let points = 50;
@@ -58,7 +57,7 @@ let winner = false;
 points = 60;
 ```
 
-...and that will work just fine.
+... and that will work just fine.
 
 However, I've got that `key` variable, maybe something that you do not want to ever change, we can use a `const`, which stands for **constant**.
 
