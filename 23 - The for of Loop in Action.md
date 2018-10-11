@@ -36,7 +36,7 @@ Then `value: Array[2]`, and the first thing is going to be the index, `0`, and t
 
 If you click into another one, you'll find `Brisket`, `Shank`, and `Short Rib`, as well. 
 
-It tells us what the `index` does is and what the `Short Rib` is. Why would this be useful to us with `for of`? Because what you can do is iterate over not just the plain array, but we can also iterate over the `arrayIterator` which is `cuts.entries`, which will return our cuts with their index, `0`, `1`, `2`, and so on with their value as an array.
+It tells us what the `index` is and what the `Short Rib` is. Why would this be useful to us with `for of`? Because what you can do is iterate over not just the plain array, but we can also iterate over the `arrayIterator` which is `cuts.entries`, which will return our cuts with their index, `0`, `1`, `2`, and so on with their value as an array.
  
 ### A Dash of Destructuring 
 
@@ -58,11 +58,11 @@ Go ahead and run that, and you'll see `Chuck is the 1 item`, `Brisket is the 2 i
 
 What are we doing here? We're using `cuts.entries()` to bring us an iterator. What's great about `for of` is that it can handle almost anything that you throw at it. 
 
-You don't have to think, "What kind of data is this? Which of mine like `for in` or different loops that I have available to me should I use?" 
+You don't have to think, "What kind of data is this? Which syntax of mine like `for in` or different loops that I have available to me should I use?" 
 
 In almost all cases, except for objects, you can just use your `for of`, and just throw anything at it, and the `for of` loop is going to just figure out how to handle that data for you. So here I've destructured the data as we actually go on in, and we're off and running with that.
 
-## `for of` with `arguments
+## `for of` with `arguments`
 
 Let's look at another example where `for of` is useful, and that is when you're trying to iterate over the `argument` objects. 
 
@@ -98,7 +98,7 @@ addUpNumbers(10,20,42,62,598);
 
 Now that is a special word and it's going to be in kind of an array-ish format where it will give us all of the actual arguments. 
 
-That arguments is now what looks to be an array, it's not exactly an array of everything that got passed in. Why I'm so bent up on saying it's array-ish is because if you open it up in your console, you'll see a couple of things right here. First of all, the `prototype` is not `array`.
+That arguments is now what looks to be an array, it's not exactly an array of everything that got passed in. The reason I'm so bent up on saying it's array-ish is because if you open it up in your console, you'll see a couple of things right here. First of all, the `prototype` is not `array`.
 
 If you `console.log` a regular array and open it up in the console, you'll see that the `prototype` is `array`, and all the crazy array methods that we're used to, like `map` and `push` and everything we could possibly want, right? Because that has built up a proper array.
 
@@ -126,11 +126,11 @@ addUpNumbers(10,20,42,62,598);
 
 ```
 
-What I'm going to do is I'm going to say `let total=0`, start with zero and then I'm going to loop over each of them. So I'm going to say for num in arguments total + = num then we should be able to return the total here. That should add them all up, let's see. I'm going to console.log total as well just so we can see it.
+What I'm going to do is I'm going to say `let total = 0`, start with zero and then I'm going to loop over each of them. So I'm going to say for every `num` in `arguments` `total += num`, and then we should be able to return the total here. That should add them all up, let's see. I'm going to console.log total as well just so we can see it.
 
-And we get our total, `267`, because I created a variable and it looped through it and it updated every single one of them. Now, if I ever want to call add up numbers, we can just pass in any numbers we like by calling `addUpNumbers(10,10)` or `addUpNumbers(20,20)` or whatever we want. That is one example of what you could loop over it.
+And we get our total, `267`, because I created a variable and it looped through it and updated every single one of them. Now, if I ever want to call add up numbers, we can just pass in any numbers we like by calling `addUpNumbers(10,10)` or `addUpNumbers(20,20)` or whatever we want. That is one example of what you could loop over it.
 
-You do not need to convert to a true array, you can just use the `for of` to iterate over it. 
+You do not need to convert `arguments` to a true array, you can just use the `for of` to iterate over it. 
 
 ### `for of` with Strings
 
@@ -147,7 +147,7 @@ As a note, you have make sure you put a `const`, `let`, or `var` in front of you
 
 ### `for of` with NodeLists and HTMLCollections
 
-Finally, you can also loop over DOM collections without having to convert to a true array. DOM collections, or `NodeList` collections, or HTML collections, whatever you're going to call them, they are being changed so that you will have all of your `.forEach`, and `.map`, and all of those array methods that you're used to. However, in most browsers they are not a true array, so we could use the `for of`, no problem there.
+Finally, you can also loop over DOM collections without having to convert them to a true array. DOM collections, or `NodeList` collections, or HTML collections, whatever you're going to call them, they are being changed so that you will have all of your `.forEach`, and `.map`, and all of those array methods that you're used to. However, in most browsers they are not a true array, so we could use the `for of`, no problem there.
 
 ```html
  <p>Hi I'm p 01</p>
@@ -160,7 +160,7 @@ Finally, you can also loop over DOM collections without having to convert to a t
 We've now got a whole bunch of paragraphs on the page here, and we want to select them:
 
 ```js
-const ps = document.querySelector('p');
+const ps = document.querySelectorAll('p');
 console.log(ps);
 ```
 
@@ -169,7 +169,7 @@ If you open pen it up in the console, you can see that it's not a true array, it
 Let's loop over them:
 
 ```js
-const ps = document.querySelector('p');
+const ps = document.querySelectorAll('p');
 for (const paragraph of ps) {
     console.log(paragraph);
 }
@@ -178,7 +178,7 @@ for (const paragraph of ps) {
 You see that you'll get each one here, and that's useful if you want to do something like an `addEventListener` to show the contents of your `<p>` tag:
 
 ```js
-const ps = document.querySelector('p');
+const ps = document.querySelectorAll('p');
 for (const paragraph of ps) {
     paragraph.addEventListener('click', function() {
         console.log(this.textContent);
