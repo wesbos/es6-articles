@@ -23,7 +23,7 @@ for (const prop of apple.entries()){
 }
 ```
 
-We don't have this quite yet, but if you take a look at the [TC39 proposal on GitHub](https://github.com/tc39/proposal-object-values-entries), we'll see that `Object.values` and `Object.entries` and will be included in ES2017, and you can already [polyfill it](https://github.com/es-shims/Object.entries). We'll talk a lot more about polyfilling, but if you would like to use that simple solution, you can go ahead and you can use `.entries`.
+We don't have this quite yet, but if you take a look at the [TC39 proposal on GitHub](https://github.com/tc39/proposal-object-values-entries), we'll see that `Object.values` and `Object.entries` and will be included in ES2017, and you can already [polyfill `Object.entries`](https://github.com/es-shims/Object.entries). We'll talk a lot more about polyfilling, but if you would like to use that simple solution, you can go ahead and you can use `.entries`.
 
 If you cannot use a polyfill, let's take a look at some of our other options here. 
 
