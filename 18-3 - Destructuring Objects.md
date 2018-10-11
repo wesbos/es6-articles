@@ -56,7 +56,7 @@ console.log(dogName) // what will it be? 0!
 
 ### Combining with Destructuring Renaming
 
-In my last post we learned that we can destrucutre and rename varaibles at the same time with something like this:
+[In my last post](http://wesbos.com/destructuring-renaming/) we learned that we can destrucutre and rename varaibles at the same time with something like this:
 
 ```js
 const person = {
