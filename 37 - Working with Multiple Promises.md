@@ -1,4 +1,4 @@
-The last example we 'stepped', which is to say that we waited for the post to come back before we actually found the author because we needed to know who the author of the post was before we could hydrate the author. The first thing needed to happen before the second thing could happen. It's sort of a waterfall approach. 
+In the last example we 'stepped', which is to say that we waited for the post to come back before we actually found the author. This because we needed to know who the author of the post was before we could hydrate the author's object. The first thing needed to happen before the second thing could happen. It's sort of a waterfall approach. 
 
 In some cases, you just want to fire them all off at the exact same time, because they're not dependent on each other, and you want to get two things back, or four things back, as soon as possible.
 
@@ -43,7 +43,6 @@ Promise
         console.log(responses);
     });
 ```
-[2:04]
 
 In the console, you should notice that it takes two seconds to come back. This is because every `Promise` in the function has to finish before we can run the `.then` to get a result. In this case, our longest `promise` takes two seconds. So for example, if a `promise` takes takes 10 seconds, your `Promise.all` is going to take 10 seconds to resolve. If one takes 15 seconds, it's going to take 15 seconds. The slowest response decides how long these things should actually take.
 
@@ -66,7 +65,7 @@ Now, we have two separate variables, one with our `weather`, one with our `tweet
 However, it's probably not a good idea to name this `weather` and `tweets`. Why? Because our `promises` are named `weather` and `tweets`, so maybe call it `weatherInfo` and `tweetsInfo`. 
 
 
-Let's actually do some with some real data here.
+Let's actually do something with some real data here.
 
 We need two APIs. If you work with an API during the day, I encourage you to go grab that API. Otherwise, you can use the ones I've got right here:
 
@@ -75,7 +74,7 @@ const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
 const streetCarsPromise = fetch('http://data.ratp.fr/api/datasets/1.0/search/?q=paris');
 ```
 
-I've got `postPromise` here, which is going to go to my blog and grab all of my latest posts, which I've used before. We also have the `streetCarsPromise`, which is going to go and fetch some data from the Paris transit system.
+I've got `postPromise` here, which is going to go to my blog and grab all of my latest posts, which we've used before. We also have the `streetCarsPromise`, which is going to go and fetch some data from the Paris transit system.
 
 We need to resolve each `promise`, or rather, they will resolve themselves, but we need to listen to when they are both resolved.
  
@@ -115,9 +114,9 @@ Promise.all([postsPromise, streetCarsPromise])
 ``` 
 
 
-What we can do is we can return a promise.all again, and then we will take each of these things, which is the responses, and we can just map over them and call .json on each one. 
+What we can do is we can return a `Promise.all` again, and then we will take each of these things, which is the responses, and we can just map over them and call .json on each one. 
 
-We'll say response, and we will return response.json. Why do we have to call this res.json? Why can't we just say json.parse around, res.body or something like that? 
+We'll say response, and we will return response.json. Why do we have to call this `res.jso`n? Why can't we just say `json.parse` around, `res.body` or something like that? 
 
 We actually use `res` instead of `responses` here, because there are many different types of data that could come back. If you [check out the documentation on MDN](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch), you can see that the data can come back as an `.arrayBuffer()`, `.blob()`, `.json()`, `.text()`, or `.formData()`. 
 
@@ -125,7 +124,7 @@ Don't just assume that your APIs or your AJAX requests are always going to be js
 
 What are we doing?  Our response is, in this case, in an array, and `.map` takes every item out of an array, does something to it, and then returns a new array. 
 
-What we're doing here, is we're taking the array of `responses` and taking each one and calling `.json()` on it. This returns a second promise, which we can call `.then` on, and that should then, responses, that should give us some real data:
+What we're doing here, is we're taking the array of `responses` and taking each one and calling `.json()` on it. This returns a second promise, which we can call `.then` on, and that should then, through `responses`, give us some real data:
  
  ```js
 const postsPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
