@@ -4,7 +4,7 @@ First of all, `promise`s are often used when you're fetching a JSON API and doin
  
 Secondly, I'm going to be using a thing called `fetch` to be able to `fetch` in this JSON API. It's not a library, it's actually something built right into the browser. It returns a `promise`.
 
-If you haven't heard of `fetch` before, it's very similar to `$.getJSON', if you've used jquery before, or '$.ajax', or any of these other AJAX libraries. Except, rather than having to load an external library, it's going to be built right into the browser.
+If you haven't heard of `fetch` before, it's very similar to `$.getJSON`, if you've used jquery before, or `$.ajax`, or any of these other AJAX libraries. Except, rather than having to load an external library, it's going to be built right into the browser.
 
 Knowing that, let's jump into some examples of what a `promise` is. 
 
@@ -34,7 +34,6 @@ Let's take a look at a different example, but first a quick refresher about call
 ```js
 $('a').on('click',function() {
     alert('hey');
-    
 })
 ```
 
@@ -68,9 +67,7 @@ So let's fix that. We could probably just do an implicit return like the first p
 ```js
 const postPromise = fetch('http://wesbos.com/wp-json/wp/v2/posts');
 
-postPromise.then(data => data.json()).then(data => {console.log(data)}
-    
-)
+postPromise.then(data => data.json()).then(data => {console.log(data)})
 ```
 
 If we open it up in the console, we have the actual data that comes back from our blog. You see there's the content, excerpt, id, Wordpress slug, and all that stuff. 
@@ -90,7 +87,7 @@ postPromise
 
 Often people will put a `then` on its own line, just for readability's sake, but I've also added a `catch` function. 
 
-Remember, our `then` will only fire when the promise successfully comes back. If there is an error with the data that comes back, `catch` runs. Generally in your function, you'll have all of the `thens` that we need, it might be one, it might be four, but if we have a `catch` on the end, that will just catch any errors that happen anywhere along the way. 
+Remember, our `then` will only fire when the promise successfully comes back. If there is an error with the data that comes back, `catch` runs. In your function, you'll generally have all of the `then`s that we need, it might be one, it might be four, but if we have a `catch` on the end, that will just catch any errors that happen anywhere along the way. 
 
 So let's pass some broken code, like a typo:
 
