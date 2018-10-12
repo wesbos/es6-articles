@@ -1,10 +1,10 @@
-We've learned about the concise syntax of arrow functions. We've learned about the implicit return of arrow functions. The last thing we're going to learn about and probably the most important is that the fact that `this` keyword **does not get rebound**.
+We've learned about the concise syntax of arrow functions. We've learned about the implicit return of arrow functions. The last thing we're going to learn about and probably the most important is the fact that `this` keyword **does not get rebound**.
  
 What does that mean? Let's show an example as to when you might run into this. This is a pretty visual one so you might be better off watching the corresponding [ES6.io](https://ES6.io) video. We will be creating this:
 
-[codepen_embed height="265" theme_id="dark" slug_hash="KgpNjJ" default_tab="css,result" user="wesbos" data-editable="true"]See the Pen <a href='http://codepen.io/wesbos/pen/KgpNjJ/'>Arrow Functions and `this`. — ES6.io</a> by Wes Bos (<a href='http://codepen.io/wesbos'>@wesbos</a>) on <a href='http://codepen.io'>CodePen</a>.[/codepen_embed]
- 
-What I have here is I've got this `div` with the class of `box` right here.
+> See the Pen <a href='http://codepen.io/wesbos/pen/KgpNjJ/' target="_blank">Arrow Functions and `this`. — ES6.io</a> by Wes Bos (<a href='http://codepen.io/wesbos'>@wesbos</a>) on <a href='http://codepen.io'>CodePen</a>.
+
+What I have here is this `div` with the class of `box`.
 
 ```html
 <div class="wrap">
@@ -15,7 +15,7 @@ What I have here is I've got this `div` with the class of `box` right here.
 </div>
 ```
 
-When you click that box what's going to happen is a two-stage animation. You click it, and it grows. Then it animates in the `h2`, and the `social` paragraph, from the left and from the right. 
+When you click that box what's going to happen is a two-stage animation. You click it and it grows. Then it animates in the `h2` and the `social` paragraph, from the left and from the right. 
 
 With the source files, you can try this out in your browser's element inspector. First add a class of `opening` to the `div`:
 
@@ -30,7 +30,7 @@ With the source files, you can try this out in your browser's element inspector.
 
 What that does it actually grows it.
 
-Then if you add a class of `open()` to it, that will bring in the text. 
+Then, if you add a class of `open` to it, that will bring in the text. 
 
 ```html
 <div class="wrap">
@@ -41,12 +41,11 @@ Then if you add a class of `open()` to it, that will bring in the text.
 </div>
 ```
 
-
 It's always on the `<div class="box">`, adding `opening`, and then after a couple of seconds I have a class of `open` being added to it. 
 
-I've given you all of the CSS that comes along with it. Nothing too exciting here, and that's a whole another course together.
+I've given you all of the CSS that comes along with it. Nothing too exciting here, and that's a another course altogether.
 
-Essentially the way it works is when it has a class of `opening` I just change the width and the height. Then, when it has a class of `open`, I bring all of the text in. Then I've got transitions on everything so it goes has some funky effects.
+Essentially the way it works is when it has a class of `opening` I just change the width and the height. Then, when it has a class of `open`, I bring all of the text in. Then I've got transitions on everything so it has some funky effects.
  
 If you open it in the browser and click it, though, you'll see that nothing works.
 
@@ -59,7 +58,6 @@ console.log(box);
 
 If you run that, you can see that the `box` is logged to the console.
 
-
 Here we are going to type a regular function, and include a `console.log` so we can take a look at what's happening:
 
 ```js
@@ -69,7 +67,7 @@ box.addEventListener('click', function() {
 });
 ```
 
-It logs `this` as the same as `box`. The way you can think about this is you look at what got called `addEventListener`, and you look at the thing to the left of it, `box`. What's `box`? That's the `div` with the class of `box` that we have. 
+It logs `this` the same as `box`. The way you can think about this is you look at what got called at `addEventListener`, and you look at the thing to the left of it, `box`. What's `box`? That's the `div` with the class of `box` that we have. 
 
 That's good. But, if you swap this out with an arrow function here, watch what happens:
  
@@ -84,11 +82,11 @@ We get `Window`. Why do we get `Window` here?
 
 That's because when you use an arrow function, the value of `this` is **not rebound** inside of that function. It is just inherited form whatever the parent scope is. 
 
-What's the parent scope of this? It's `Window`, as in the browser window. 
+What's the parent scope of `this`? It's `Window`, as in the browser window. 
 
-If you use your console here and type `this`, you'll see that `this` is equal to `Window`, because it's not being bound to anything. It ends up by the window.
+If you use your console here and type `this`, you'll see that `this` is equal to `Window`, because it's not being bound to anything. It ends up at the window.
 
-You don't just want to go willy-nilly using arrow functions everywhere, because it's just less to type. You need to know what the benefits and the drawbacks of them are. In this case I don't want an arrow function, because I need the keyword to reference the actual box that got clicked. That would be even more important if I had a whole bunch of them.
+You don't just want to go willy-nilly using arrow functions everywhere, because it's just less to type. You need to know their benefits and drawbacks. In this case I don't want an arrow function, because I need the keyword `this` to reference the actual box that got clicked. That would be even more important if I had a whole bunch of them.
 
 We can't use an arrow function there. I'm going to bring that back to regular function.
 
@@ -109,8 +107,7 @@ box.addEventListener('click', function() {
 ```
 Let's see how that works. The box should animate itself in and out, in and out. If it does that, good.
 
-
-After maybe 500 milliseconds or so, I want to also toggle `open`, because that's the final stage. Remember, it's a two-stage animation here. 
+After maybe 500 milliseconds or so, I want to also toggle the class `open`, because that's the final stage. Remember, it's a two-stage animation here. 
 
 I think we'll use a timeout for that:
 
@@ -159,14 +156,14 @@ We'll see that it's targeting `Window`. Why's that?
 
 If `this` inside the `opening` toggle function here was equal to `box`, why the heck is it not equal to `box` for the open function?
 
-That's because we've entered a new function, and `this` inside the function has **not been bound** to anything, which means that, if it's not bound to anything, it's going to be equal to the window. That's a pain in the ass.
+That's because we've entered a new function, and `this` inside the function has **not been bound** to anything. This means that, if it's not bound to anything, it's going to be equal to the window. That's a pain in the ass.
 
 A lot of people would solve this by adding a `self` variable and use it to trigger the class `open` like this:
 
 ```js
 const box = document.querySelector('.box');
 box.addEventListener('click', function() {
-    var self = this;
+    const self = this;
     this.classList.toggle('opening');
     setTimeout(function() {
        console.log(this);
@@ -175,9 +172,9 @@ box.addEventListener('click', function() {
 });
 ```
 
-That's works, but not the greatest, because we have this weird or some of you like to say `var that = this;` and etc.
+That works, but not the greatest solution, because we have this weird or some of you like to say `const that = this;` and etc.
 
-Fortunately, we don't need to do that anymore if I bring that back to this. What we need to do is just simply make it an arrow function:
+Fortunately, we don't need to do that anymore if I bring `that` back to `this`. What we need to do is just simply make it an arrow function:
  
 ```js
 const box = document.querySelector('.box');
@@ -192,9 +189,7 @@ box.addEventListener('click', function() {
  
 Why? Because when you have an arrow function, **it does not change the value** of `this`. It inherits the value of this from the **parent**. We don't have to worry about the scope changing or anything like that.
 
-
-We can just go ahead and keep working using this as if it was scoped to this actual function here, just great. 
-
+We can just go ahead and keep working using `this` as if it was scoped to this actual function here. Just great. 
  
 ```js
 const box = document.querySelector('.box');
@@ -209,13 +204,13 @@ box.addEventListener('click', function() {
 
 We should probably put 500 milliseconds in here. 
  
-So let's run that, and click it again and it closes. That's a little bit funky. I'm going to fix this to be a little bit nicer.
+So let's run that. Click it again and it closes. That's a little bit funky. I'm going to fix this to be a little bit nicer.
 
 None of this has anything to do with arrow functions. If you're interested in seeing how I might figure this out, you can stay on with me. 
 
 The problem with this right here is that when you toggle an `open`, it adds a class of `opening`, then after 500 milliseconds it adds a class of `open`. When you close it down, you want it to be the opposite.
 
-The way I would probably solve this is to first make two variables. 
+The way I would probably solve this is to first make two variables. I am going to use `let` and explain you why in just a second.
 
 ```js
 const box = document.querySelector('.box');
@@ -230,9 +225,9 @@ box.addEventListener('click', function() {
 });
 ```
 
-I'm just using variables so we still have this problem.
+I'm just using variables so we still have this problem where it animates in the wrong way. 
 
-Let's add an `if` statement to switch our variables around. This is going to look forward into our destructuring exercise, but as little hot tip. If we want to switch two variables with ES6 you can simply put them in an array:
+Let's add an `if` statement to switch our `first` and `second`' variables around. This is going to look forward into our destructuring exercise, but little hot tip: if we want to switch two variables with ES6 you can simply put them in an array:
 
 ```js
 const box = document.querySelector('.box');
