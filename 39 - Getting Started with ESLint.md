@@ -7,20 +7,20 @@ ESLint essentially, it hurts your feelings. It looks at your code and tells you 
 At first it seems a little bit overwhelming because it tells you everything is wrong with your code, but it's all a matter of:
 
 - Getting it configured properly for your coding style 
-- Actually understanding why are these errors happening. 
 
+- Actually understanding why are these errors happening. 
 
 In the long run, it's going to make you a much better developer. It includes a [demo](http://eslint.org/demo/) that you can try out and see what comes back. For example, "Strings must use doublequote" is a habit I have that it doesn't like, or it finds extra spaces and stuff like that.
 
-ESLint finds all kinds of different stuff and catch code quality problems before they actually cause an issue.
+ESLint finds all kinds of different stuff and catches code quality problems before they actually cause an issue.
 
 I'm going to go through setting it up, getting it installed, and then I'm going to show you how do you configure it and what is your process for actually understanding how it works. 
 
 In my experience, the first time someone uses it takes maybe an hour or two to get it really where they like it, but you're going to be writing better code and you're going to earn that time back after no time.
 
-There's a few things we need to in order to get started. 
+There are a few things we need to in order to get started. 
 
-First of all, you need nodejs and npm installed. Chances are, most of you already have this installed. If you don't know, head on over to your terminal and check your versions of node and npm:
+First of all, you need Node.js and npm installed. Chances are, most of you already have this installed. If you don't know, head on over to your terminal and check your versions of node and npm:
  
 ```bash
 $ node -v
@@ -28,7 +28,7 @@ $ npm -v
 ```
 In order to continue, you'll need to make sure that you have version 4.0 or higher. If you have an old version or you get an error, like `node is not a command`, go to [nodejs.org](http://nodejs.org) and download the latest version. 
 
- Once you have that installed, we need to install ESLint. The way that ESLint is going to work is we're going to type `eslint` at the command line and point it at a file and give us our errors and problems in the file.
+Once you have that installed, we need to install ESLint. The way that ESLint is going to work is we're going to type `eslint` at the command line and point it at a file and give us our errors and problems in the file.
 
 To install that, use your terminal:
 
@@ -56,7 +56,7 @@ $ eslint bad-code.js
 
 What that's going to do is it's going to scan our file and tell us what is actually wrong with it. One of the things you might want to do is configure ESLint to account for arrow functions, because it doesn't do that right away. This is where the settings for ESLint actually start to come in handy.
 
-ESLint settings can be doneglobally on your computer and or you can do it project by project. 
+ESLint settings can be done globally on your computer and or you can set them project by project. 
 
 A lot of people prefer to do it project by project because there's different coding styles depending on which project or team you are working with. We are going to go ahead and create what's called a `.eslintrc` file in the folder right here, and that's going to hold all of our actual settings.
 
@@ -64,11 +64,11 @@ A lot of people prefer to do it project by project because there's different cod
 $ touch .eslintrc
 ```
 
-That will have created a new file called `.eslintrc`. Sometimes some computers hide files that start with a dot, so you might not immediately see it in your Finder or Windows Explorer. However, if you go to your editor and open that folder you should see the `.eslintrc` file.
+That will create a new file called `.eslintrc`. Sometimes some computers hide files that start with a dot, so you might not immediately see it in your Finder or Windows Explorer. However, if you go to your editor and open that folder you should see the `.eslintrc` file.
 
 Inside of the empty `.eslintrc` file we are going to write json, which is full of all of our settings. To write json, you open up an object and we now need to specify a whole bunch of options that we need. What are the possible options? Well, ESLint is full of options, and it can be a little bit overwhelming.
  
-If we head back over to the [ESLint demo page](http://eslint.org/demo/) and scroll down a bit, you can see some of the options, like Environments. Are you writing node, Mocha, Jasmine, PhantomJS, QUnit, or whatever. There's also all these different rules that you can have. We'll look at a shortcut way, because there's no way you have time to make a decision about every single one of the possible rules.
+If we head back over to the [ESLint demo page](http://eslint.org/demo/) and scroll down a bit, you can see some of the options, like Environments. Are you writing node, Mocha, Jasmine, PhantomJS, QUnit, or whatever?. There's also all these different rules that you can have. We'll look at a shortcut, because there's no way you have time to make a decision about every single one of the possible rules.
 
 So let's set up some rules in our `.eslintrc` file.
 
@@ -83,9 +83,9 @@ So let's set up some rules in our `.eslintrc` file.
 }
 ```
 
-Since we're writing json here, you must use double quotes for your keys For the sake of this example, we're only going to use ES6 and browser. 
+Since we're writing json here, you must use double quotes for your keys. For the sake of this example, we're only going to use ES6 and browser. 
 
-However, you can always go to the [ESLint.org's documentation and check out the possible rules](http://eslint.org/docs/rules),as well as if you check out [Configuring ESLint](http://eslint.org/docs/user-guide/configuring), you're going to see a list of all of the possible environments.
+However, you can always go to the [ESLint.org's documentation and check out the possible rules](http://eslint.org/docs/rules). If you check out [Configuring ESLint](http://eslint.org/docs/user-guide/configuring), you're also going to see a list of all of the possible environments.
 
 Now, I've set the environment ES6 to be true, and now we should be able to run ESLint on our file.
  
@@ -108,12 +108,11 @@ Now if we go back to our terminal and re-run that that on your code file, you'll
 
 As you go back through your code, you'll be able to resolve each error reported by ESLint and make decisions on how to refactor your code. After each resolution, you'll be able to reduce your errors.
 
-By default, ESLint recommends against using stuff like `console.log`, which makes sense. However, we're saying, "It's fine that I'm using console, I know what I'm doing. I'll make sure that it take them out, or maybe I'll have another ESLint that that role will be set on development and not in production." 
+By default, ESLint recommends against using stuff like `console.log`, which makes sense. However, we're saying, "It's fine that I'm using console, I know what I'm doing. I'll make sure that to take them out, or maybe I'll have another ESLint rule that will be set on development and not in production." 
 
 But to turn it off, we can add custom rules to our `.eslintrc` file.
 
 Before we do that, how do you actually work with these rules? For `console.log`, the rule is `no-console`, which ESLint will tell us.
- 
  
 So if we [check out the rule](http://eslint.org/docs/rules/no-console), spend some time reading why this rule is set. Don't just turn it off immediately because it's annoying and you think you're right. Maybe just spend some time and say, "Maybe I shouldn't be using this rule, or maybe I shouldn't be writing my code in this way. Why is this possibly bad?" 
 
