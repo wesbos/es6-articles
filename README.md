@@ -40,7 +40,7 @@ _example:_
 | 18 | [Destructuring Objects](https://wesbos.com/destructuring-objects/) | X | X |
 | 19 | Destructing Arrays | X | X |
 | 20 | [Swapping Variables with Destructuring](https://wesbos.com/destructuring-renaming/) | X | X |
-| 21 | [Destructuring Functions - Multiple returns and named defaults[(https://wesbos.com/destructuring-default-values/)] | X | |
+| 21 | [Destructuring Functions - Multiple returns and named defaults](https://wesbos.com/destructuring-default-values/) | X | |
 | 22 | The for of loop | X | |
 | 23 | The for of Loop in Action | X | |
 | 24 | Using for of with Objects | X | |
