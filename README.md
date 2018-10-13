@@ -22,25 +22,25 @@ _example:_
 |----------|:-------------|:------:|:------:|
 | 1 | [var Scoping Refresher](http://wesbos.com/javascript-scoping/) | X | X |
 | 2 | [let VS const](http://wesbos.com/let-vs-const/) | X | X |
-| 3 | let and const in the Real World | X | X |
-| 4 | Temporal Dead Zone | X | X |
-| 5 | Is var Dead? What should I use? | X | X |
-| 6 | Arrow Functions Introduction | X | X |
-| 7 | More Arrow Function Examples | X | X |
-| 8 | Arrow Functions and `this` | X | X |
-| 9 | Default Function Arguments | X | X |
-| 10 | When NOT to use an Arrow Function | X | X |
+| 3 | [let and const in the Real World](https://wesbos.com/let-vs-const/) | X | X |
+| 4 | [Temporal Dead Zone](https://wesbos.com/temporal-dead-zone/) | X | X |
+| 5 | [Is var Dead? What should I use?](https://wesbos.com/is-var-dead/) | X | X |
+| 6 | [Arrow Functions Introduction](https://wesbos.com/arrow-functions/) | X | X |
+| 7 | [More Arrow Function Examples](https://wesbos.com/arrow-function-examples/) | X | X |
+| 8 | [Arrow Functions and `this`](https://wesbos.com/arrow-functions-this-javascript/) | X | X |
+| 9 | [Default Function Arguments](https://wesbos.com/javascript-default-function-arguments/) | X | X |
+| 10 | [When NOT to use an Arrow Function](https://wesbos.com/arrow-function-no-no/) | X | X |
 | 11 | Arrow Functions Exercises | X | |
-| 12 | Template Strings Introduction | X | X |
+| 12 | [Template Strings Introduction](https://wesbos.com/javascript-template-strings/) | X | X |
 | 13 | Creating HTML fragments with Template Literals | X | |
-| 14 | Tagged Template Literals | X | |
+| 14 | [Tagged Template Literals](https://wesbos.com/tagged-template-literals/) | X | |
 | 15 | Tagged Templates Exercise | X | |
-| 16 | Santizing User Data with Tagged Templates | X | |
-| 17 | New String Methods | X | |
-| 18 | Destructuring Objects | X | X |
+| 16 | [Santizing User Data with Tagged Templates](https://wesbos.com/sanitize-html-es6-template-strings/) | X | |
+| 17 | [New String Methods](https://wesbos.com/new-es6-string-methods/) | X | |
+| 18 | [Destructuring Objects](https://wesbos.com/destructuring-objects/) | X | X |
 | 19 | Destructing Arrays | X | X |
-| 20 | Swapping Variables with Destructuring | X | X |
-| 21 | Destructuring Functions - Multiple returns and named defaults | X | |
+| 20 | [Swapping Variables with Destructuring](https://wesbos.com/destructuring-renaming/) | X | X |
+| 21 | [Destructuring Functions - Multiple returns and named defaults[(https://wesbos.com/destructuring-default-values/)] | X | |
 | 22 | The for of loop | X | |
 | 23 | The for of Loop in Action | X | |
 | 24 | Using for of with Objects | X | |
