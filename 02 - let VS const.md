@@ -1,6 +1,6 @@
 In the last post we learned all about how scoping works with [JavaScript let, const and var variables](http://wesbos.com/javascript-scoping/).
 
-We now know that `var` is **function scope**, and now we know that `let` and `const` are **block scope**. Any time you've got a set of curly brackets, `{ }`, you've got block scope.
+We now know that `var` is **function scoped**, and that `let` and `const` are **block scoped**. Any time you've got a set of curly brackets, `{ }`, you've got a block scope.
 
 Now, we need to know **you can only declare a variable inside of its scope once**.
 
