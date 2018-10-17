@@ -21,7 +21,7 @@ const totalBill = calculateBill(100, 0.13, 0.15);
 console.log(totalBill);
 ```
 
-On a $100 meal, with 13% tax and a 15% tip, the console will tells us `128`, or $128.
+On a $100 meal, with 13% tax and a 15% tip, the console will tell us `128`, or $128.
 
 What happens if we want to automatically assume 13% tax rate, and we want to assume a 15% tip rate?
 
@@ -72,7 +72,7 @@ const totalBill = calculateBill(100);
 console.log(totalBill);
 ```
 
-I don't mind that, but it can be a little bit hard on your team to have to read it. If you've got four or five different arguments coming in, then you've got to do all this crazy code at the top.
+I don't mind extra conditional checks, but it can be a little bit hard on your team to have to read it. If you've got four or five different arguments coming in, then you've got to do all this crazy code at the top.
 
 Another thing to note is the `||` trick will fallback to the default if you pass in `0`, `null`, `false` or any other falsy value. Not exactly what you want when you are trying to tip $0!
 
@@ -119,7 +119,7 @@ console.log(totalBill);
 ```
 
 
-The function is going to say, "Oh, no one passed any tax." our default 13% and then the big tip is going to kick in here, and we get `138`, or $138.
+The function is going to say, "Oh, no one passed any tax." Then, our default 13%. Next, the big tip is going to kick in here, and we get `138`, or $138.
 
 
-I've got another example similar to this one where this is order dependent, and when we hit destructuring, I'm going to show you how do you use an object in destructuring, so that you could pass this in any order, as well as have default arguments. But more on that later.
+I've got another example similar to this one where this is order dependent. When we hit destructuring, I'm going to show you how do you use an object in destructuring. That's so you can pass this in any order, as well as have default arguments. But more on that later.
