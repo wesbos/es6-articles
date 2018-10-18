@@ -15,14 +15,14 @@ What do these do? `Array.from` will take something that is array-ish and turn it
 Let's go ahead and select and `console.log` all the people:
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 console.log(people);
 ```
 
 But what if I wanted just an array of the people's names? I could use `.map`:
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 const names = people.map(person => person.textContent);
 ```
 
@@ -30,37 +30,37 @@ Using that, we get an error: `people.map is not a function`.
 
 Why is that? Let's do a `console.log` of `people`, open it up in the inspector, and you can see we have a length, but the prototype is not an `Array`, it's a `NodeList`.
 
-That's what I mean. I've been saying a couple times in this series, where something is array-ish or array-like, and that means that it has a length, which means it's array-ish, it has some of the methods, but doesn't have all of the methods that a regular array would have. We looked at that a couple posts ago.
+That's what I mean. I've been saying a couple times in this series that something is array-ish or array-like, and that means that it has a length, which means it's array-ish. It has some of the methods that a regular array would have, but it doesn't have all of them. We looked at that a couple posts ago.
 
 What do we need to do in order to make this map work? We simply would have to make another variable:
 
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 const peopleArray = Array.from(people);
 console.log(peopleArray);
 ```
 
-If we open `peopleArray` in the inspector, its prototype is now `Array`, and you open that sucker up, and you see absolutely all the methods that you're probably used to. 
+If we open `peopleArray` in the inspector, its prototype is now `Array`, and when you open that sucker up you see absolutely all the methods that you're probably used to. 
 
 You can call `Array.from` onto it:
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 const peopleArray = Array.from(people);
 console.log(peopleArray);
 const names = peopleArray.map(person => person.textContent);
 ```
 We'll get our `names` array, which is actually everyone's name.
 
-Similarly, we can have also wrapped our querySelector right into it, and then we don't need that second variable, we can just map over the people:
+Similarly, we can also wrap our querySelector right into it, and then we don't need that second variable, we can just map over the people:
 
 ```js
 const people = Array.from(document.querySelectorAll('.people p'));
 const names = people.map(person => person.textContent);
 ```
 
-I could have also done this in one single go, rather than having to do it in two lines. `Array.from()` takes a second argument, which is a `.map` function, which allows us to modify data as we are creating an array. Let's look at it on two lines so it's nice and visible:
+I could also do this in one single go, rather than having to do it in two lines. `Array.from()` takes a second argument, which is a `.map` function, which allows us to modify data as we are creating an array. Let's look at it on two lines so it's nice and visible:
 
 ```js
 const people = document.querySelectorAll('.people p');
@@ -70,7 +70,7 @@ console.log(peopleArray);
 
 ### Converting Arguments Object to an Array
 
-Another use case is that if we want to convert the arguments object into an actual array.
+Another use case is if we want to convert the arguments object into an actual array.
 
 ```js
 function sumAll() {
@@ -106,9 +106,9 @@ function sumAll() {
 sumAll(2,34,23,234,234,234234,234234,2342);
 ```
 
-If you look at it in the console, you see that we got our numbers added on up for us, too.
+If you look at it in the console, you see that we got our numbers added up for us, too.
 
-That's pretty common use case where you actually do want to convert your `arguments` object onto an array. Again, it is array-ish, because it has a `length`, but it doesn't have any other of methods on it.
+That's a pretty common use case where you actually do want to convert your `arguments` object into an array. Again, it is array-ish, because it has a `length`, but it doesn't have any of the other methods on it.
 
 ### Array.of()
 
@@ -118,6 +118,6 @@ Next up, we have `Array.of`. It's pretty straight forward. Pretty much how it wo
 const ages =  Array.of(12,4,23,62,34);
 ```
 
-That's going to create an array from every single that argument you pass it. 
+That's going to create an array from every single argument you pass it. 
 
 That's it. There is nothing else much more to `Array.of`. That's one of those you put in your back pocket, because you might need it at some point.
