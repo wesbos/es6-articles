@@ -14,9 +14,9 @@ console.log(width); // 200
 
 If you run this in your browser, you'll see we get 100, 200, which isn't a big deal. We're able to update them. You can also put a `var` in front of line 3 if you were to accidentally redeclare the variable. If you do, it won't do anything. It will work as you'd expect, but it won't yell at you for creating the same variable name twice in the same scope because `var` variables can be **updated** or **redefined**.
 
-We also need to remember how `var` variables are scoped. **Scoping** essentially means, "Where are these variables available to me?" In the case of `var` variables, they're **function scope**, which means that they are only available inside the function that they are created in. However, if they are not declared in a function, then they are **globally scoped**, and they're available in the whole window.
+We also need to remember how `var` variables are scoped. **Scoping** essentially means, "Where are these variables available to me?" In the case of `var` variables, they're **function scope**, which means that they are only available inside the function  they are created in. However, if they are not declared in a function, then they are **globally scoped**, and they're available in the whole window.
 
-If I created a function and put my var width inside of it, and console logged the width, and then I were to run it? Is that going to work?
+If I created a function and put my var width inside it, and console logged the width, and then I were to run it? Is that going to work?
 
 ```js
 function setWidth() {
@@ -27,7 +27,7 @@ setWidth();
 ```
 
 
-Of course, it's going to work because this width is available inside of this function.
+Of course, it's going to work because this width is available inside this function.
 
 But if I also tried to console log the width after I've set the width like this?
 
@@ -54,7 +54,7 @@ setWidth();
 console.log(width);
 ```
 
-Generally, it's probably not what you want to do. You want to keep your variables inside of your function. If you need something outside of a function, you want to return it and store that in a variable. That's something that we need to know about function scoping. But I'm going to show you a use case where function scoping sort of comes back and bites us.
+Generally, it's probably not what you want to do. You want to keep your variables inside your function. If you need something outside a function, you want to return it and store that in a variable. That's something that we need to know about function scoping. But I'm going to show you a use case where function scoping sort of comes back and bites us.
 
 Let's say we have an age variable and we have an if statement. We want to create a number of dog years. If they are greater than 12, let's calculate their ages in dog years and show "You are (however many) dog years old" in the console if they're older than 12.
 
