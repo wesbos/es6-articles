@@ -2,9 +2,9 @@
 
 Blog posts and articles about ES6. These posts are derived from the video course available at [ES6.io](https://ES6.io).
 
-Professional transcripts of the videos are being made available. From those we are creating easy to reference blog posts that will live on Wesbos.com. 
+Professional transcripts of the videos are being made available. From those, we are creating easy to reference blog posts that will live on Wesbos.com.
 
-Anyone is welcome to convert transcripts to blog posts as a means of solidifying their ES6 knowledge. Reviews, spelling corrections and re-wording is also welcome.
+Anyone is welcome to convert transcripts to blog posts as a means of solidifying their ES6 knowledge. Reviews, spelling corrections and re-wording are also welcome.
 
 ## Naming Conventions
 
@@ -12,8 +12,8 @@ Prefix each article with the video number. Use a single leading zero for article
 
 _example:_
 
-- 12 - Article Name.md 
-- 02 - I sure love Pizza.md 
+- 12 - Article Name.md
+- 02 - I sure love Pizza.md
 
 
 # WIP Status
