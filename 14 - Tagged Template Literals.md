@@ -37,7 +37,7 @@ console.log(sentence); // 'cool'
 
 Obviously, that's not what we want to do,but this function will take in a few arguments so we can create the string ourselves:
 
-First, we get an array of all the string peices:
+First, we get an array of all the string pieces:
 
 1. My dog's name is
 2. and he is
