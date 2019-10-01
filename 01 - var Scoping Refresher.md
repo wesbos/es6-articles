@@ -3,7 +3,7 @@ to declare variables too.
 
 These two have some attributes about them which are going to be helpful for us in creating variables but let's do a quick review to show you  how `var`, `let`, and `const` are different.
 
-Firstly, `var` variables can be **redefined** or **updated**. Let's use console.log to show the width which we can update the width to be 200, and then we'll console log the width again.
+Firstly, `var` variables can be **redefined** or **updated**. Let's use console.log to show how we can update the width to be 200, and then we'll console.log it again.
 
 ```js
 var width = 100;
