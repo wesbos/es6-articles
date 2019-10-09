@@ -20,15 +20,22 @@ var pizza = 'Deep Dish 🍕🍕🍕';
 
 Are we going to get: 
 
--  `Undefined` 
+-  `undefined`
+
 -  An error saying `pizza` is not defined yet
--  Are we actually going to see `'Deep Dish 🍕🍕🍕'` 
+
+-  The actual value `'Deep Dish 🍕🍕🍕'` 
 
 We get `undefined`.  Why? 
 
-With `var` variables, you can only access them after they are defined. Before they are defined, you cannot access their actual value, but you can access the fact that the variable has been created **before its eventual declaration**.
+With `var` variables, you can only access them after they are defined. Before they are defined, you cannot access their actual value, but you can access the fact that the variable has been created. This **before its eventual declaration**.
 
 However, if I change that to `const` or `let`, you'll now see that `pizza` is not defined at all. That's an actual error, and that will **break your code**. 
+
+```js
+console.log(pizza);
+let pizza = 'Deep Dish 🍕🍕🍕'; // Cannot access 'pizza' before initialization
+```
 
 That is called the **temporal dead zone**, where you cannot access a variable before it is defined. 
 
