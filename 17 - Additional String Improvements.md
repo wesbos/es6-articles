@@ -11,7 +11,12 @@ const course = 'RFB1';
 
 Sometimes I have `RFB1` which is the starter package, `RFB2` which is the master package, `RFB3` which is the team package. I don't really care too much about that in certain cases, I just want to know if `course` starts with `RFB`, and not something like `STPU`, which is Sublime Text Power User or `ES6`, which is this series.
 
-Here, `RFB` means React for Beginners, I need to know if the string starts with it. We can use the console to check this out by typing `course.startsWith('RFB')`, it will return `true`, because obviously it does start with it. 
+Here, `RFB` means React for Beginners, I need to know if the string starts with it. We can use the `startsWith()` function passing as argument the string which needs to be matched.
+
+```js
+const course = 'RFB1';
+console.log(course.startsWith('RFB')); // true
+```
 
 If I did `rfb`, in lowercase letters, it says, `false`, because there is no way to make this case insensitive. If you do need case sensitivity you must still use a Regular Expression.
 
@@ -25,7 +30,18 @@ This flight number here, I want to see if it starts with `AC`. Over in the conso
 
 What you can do is you can use `flightNumber.startsWith('AC', 3);`, which says start after three characters. That is returning `true`, because it ignores the first three and then starts at AC and checks against that.
 
-`EndsWith` works fairly similar. Here is an example where we have `jz` at the end of the `flightNumber`, and I want to know if it's an Air Canada Jazz flight. We can say `flightNumber.endsWith('jz')`, which will be `true`, obviously, because it ends with it. 
+```js
+const flightNumber = '20-AC2018-jz';
+console.log(flightNumber.startsWith('AC')); // false
+console.log(flightNumber.startsWith('AC', 3)); // true
+```
+
+`.endsWith()` works fairly similar. Here is an example where we have `jz` at the end of the `flightNumber`, and I want to know if it's an Air Canada Jazz flight. We can say `flightNumber.endsWith('jz')`, which will be `true`, obviously, because it ends with it. 
+
+```js
+const flightNumber = '20-AC2018-jz';
+console.log(flightNumber.endsWith('jz')); // true
+```
 
 There's another option that we can pass `.endsWith()`, and I'm going to use an account number variable as an example here:
 
@@ -39,12 +55,23 @@ Then you have a tax number, which is RT0001, or RT0002. You also might have RP00
 I need to check if this number, which ends with RT, and I want to ignore this right here. What you can do is you can tell the account number to just take a certain number of characters, and ignore the rest. 
 
 Just like with our `flightNumber`, we can use the console to put in `accountNumber.endsWith('RT')`, which will be false. What I can tell it, though, is only take the first 11 numbers, by using `accountNumber.endsWith('RT', 11);` which will be `true`.
+
+```js
+const accountNumber = '825242631RT0001';
+console.log(accountNumber.endsWith('RT')); // false
+console.log(accountNumber.endsWith('RT', 11)); // true
+```
  
  Essentially you're just going to take the first 11 numbers of `accountNumber`, ignore the rest, and then see if it ends in RT or whatever else it might be.
 
 ### .includes()
 
 Then next up we have `.includes()` which will just check if that string is anywhere in it. If I wanted to see if my flight number includes the letters AC, then I could use `flightNumber.includes('AC')`, which is `true`. 
+
+```js
+const flightNumber = '20-AC2018-jz';
+console.log(flightNumber.includes('AC')); // true
+```
 
 Again, it is not case sensitive so you cannot use lower case letters here.
 
@@ -73,10 +100,10 @@ Where is that useful? Sometimes we have some words here. I'm going to take my `B
 
 What we can do, instead of hitting the space bar each time, we can use a left pad function, and you can use `.repeat()`to code a nice little left padding function. 
 
-Here we can `return` a string, and we need to then pad it with however many characters we need. We'll take a space and repeat it 10 times. 
+Here we `return` a string, and we need to then pad it with however many characters we need. We'll take a space and repeat it 10 times. 
 
 ```js
-leftPad = function(str, length = 10){
+const leftPad = function(str, length = 10){
     return `${' '.repeat(length)}${str}`;
 }
 
@@ -88,7 +115,7 @@ console.log(leftPad(colour)); // '          Royal Blue'
 However, if we want it right aligned, we'll need to subtract however many characters are in the string, so we subtract `str.length` here before we return the actual string itself in `${str}`;
 
 ```js
-leftPad = function(str, length = 20){
+const leftPad = function(str, length = 20){
     return `${' '.repeat(Math.max(length - str.length,0))}${str}`;
 }
 ```
@@ -101,7 +128,7 @@ console.log(leftPad(model));  // '                  x5'
 console.log(leftPad(colour)); // '          Royal Blue'
 ```
 
-There we go. See how all these are perfectly right aligned? BMW X5 in royal blue, whereas all of this is however much padding we actually need. That's a nice little use for repeat. 
+There we go. See how all these are perfectly right aligned? That's a nice little use for repeat. 
 
 ### Very Important
 
