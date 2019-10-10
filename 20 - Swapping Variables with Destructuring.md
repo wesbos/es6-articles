@@ -39,6 +39,6 @@ console.log(inRing, onSide); // Rock, Hulk
 
 What!? The above code creates an array of `[onSide, inRing]` and immediately destructures them into the opposite variables.
 
-Now you see why I use let instead of const here, because we're actually updating the values of these variables.
+Now you see why I use `let` instead of `const` here, because we're actually updating the values of these variables.
 
 Handy! Put that in your JavaScript tool belt because you'll need to sooner than later! 
