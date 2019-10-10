@@ -126,7 +126,7 @@ const person = {
  age: 28
 }
 const person = {
- name: 'Kate',
+ name: 'Kait',
  age: 28,
 } // 'person' has already been declared
 ```
