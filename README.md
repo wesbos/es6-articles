@@ -45,7 +45,7 @@ _example:_
 | 23 | The for of Loop in Action | X | |
 | 24 | Using for of with Objects | X | |
 | 25 | Array.from() and Array.of() | X | |
-| 26 | Array. find() and .findIndex() | X | |
+| 26 | Array.prototype.find() and Array.prototype.findIndex() | X | |
 | 27 | Array .some() and .every() | X | |
 | 28 | Spread Operator Introduction | X | |
 | 29 | Spread Exercise | X | |
