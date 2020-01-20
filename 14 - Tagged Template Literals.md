@@ -79,7 +79,7 @@ The other things we get is an array of `values`, which we passed in two values h
 So - the whole point of the tagged template is so that we can create the string ourselves. Let's move along to creating it!
 
 ```js
-function highlight() {
+function highlight(strings, ...values) {
    let str = ''; 
 }
 
@@ -96,7 +96,7 @@ Then, we want to loop over this first strings array here, tack on `My dog's name
 You can use whatever loop or logic you prefer inside of this function. You could even use a `map` and then `join` it together. I'm going to use `forEach` in my example:
 
 ```js
-function highlight() {
+function highlight(strings, ...values) {
    let str = '';
    strings.forEach((string, i) => {
        str += string + values[i];
@@ -119,7 +119,7 @@ First of all, remember, that's because the `strings` array is always going to be
 A little trick you can do here, is you can use your values of I or just a blank string:
 
 ```js
-function highlight() {
+function highlight(strings, ...values) {
    let str = '';
    strings.forEach((string, i) => {
        str += string + (values[i] || '');
@@ -137,7 +137,7 @@ What can we actually do with this? Well, we could change this so any value that 
 You maybe want to show your user which pieces of the string were variables or which pieces of the string that they passed in, maybe it's their user name or a total for an order. In our case, we just want to highlight the name and the actual age.
 
 ```js
-function highlight() {
+function highlight(strings, ...values) {
    let str = '';
    strings.forEach((string, i) => {
        str += `${string} <span class='hl'>${values[i] || ''}</span>`;
