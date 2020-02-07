@@ -209,7 +209,7 @@ const beer = {
 function renderKeywords(keywords) {
     return `
     <ul>
-    	${keywords.map(keyword => `<li>${keyword}</li>`)}
+    	${keywords.map(keyword => `<li>${keyword}</li>`).join('')}
     </ul>
     `;
 }
@@ -218,7 +218,7 @@ const markup = `
 <div class="beer">
     <h2>${beer.name}</h2>
     <p class="brewery">${beer.brewery}</p>
-    ${renderKeywords(beer.keywords).join('')}
+    ${renderKeywords(beer.keywords)}
 </div>
 `;
 

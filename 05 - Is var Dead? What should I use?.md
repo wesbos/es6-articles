@@ -1,4 +1,4 @@
-We've learned about `let` and `const` — what they do, and how they're scoped. We also know when they can be reassigned and when they cannot, but there's a question: What Should I actually use? 
+We've learned about `let` and `const` — what they do, and how they're scoped. We also know when they can be reassigned and when they cannot, but here's a question: What should I actually use? 
 
 That's a bit of a hot topic in the community right now, because some people prefer to still use `var`. Some people are saying, "var is dead!" Some say, "Use `let`." while others always use `const`. 
 
@@ -14,7 +14,7 @@ Later on in the article he talks about `let` vs. `const`...
 > * Use `let` only if rebinding is needed. 
 > * `var` should not be ever used in ES6.
  
-Whenever you make a variable, assume it's `const`. Only use `let` if you need to update the value of the variable. You can use `const` to keep it the same value, but be warned that const is not about immutability. It is possible to modify the properties of an object declared through const .
+Whenever you make a variable, assume it's `const`. Only use `let` if you need to update the value of the variable. You can use `const` to keep it the same value, but be warned that const is not about immutability. It is possible to modify the properties of an object declared through `const`.
 
 [Another popular opinion here is from Kyle Simpson](http://blog.getify.com/constantly-confusing-const/), who also writes a whole bunch of awesome JavaScript books.
 

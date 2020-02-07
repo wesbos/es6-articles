@@ -15,7 +15,7 @@ What I have here is a `div` with the class of `box`.
 </div>
 ```
 
-When you click that box what's going to happen is a two-stage animation. You click it, and it grows. Then it animates in the `h2`, and the `social` paragraph, from the left and from the right. 
+When you click that box what's going to happen is a two-stage animation. You click it, and it grows. Then it animates the `h2` and the `social` paragraph in, from the left and from the right. 
 
 With the source files, you can try this out in your browser's element inspector. First add a class of `opening` to the `div`:
 
@@ -28,9 +28,9 @@ With the source files, you can try this out in your browser's element inspector.
 </div>
 ```
 
-What that does it actually growing the size of the `div`.
+What that does is actually growing the size of the `div`.
 
-Then if you add a class of `open` to it, that will bring in the text. 
+Then, if you add a class of `open`, that will bring in the text. 
 
 ```html
 <div class="wrap">
@@ -49,7 +49,7 @@ Essentially the way it works is when it has a class of `opening` I just change t
  
 If you open it in the browser and click it, though, you'll see that nothing works.
 
-We need to first select that element. So in the `<script>` tags, we're going to use `const`, just because we won't want the reference to the box to change.
+We need to first select that element. In the `<script>` tags we're going to use `const`, just because we don't want the reference to the box to change.
 
 ```js
 const box = document.querySelector('.box');
@@ -67,7 +67,7 @@ box.addEventListener('click', function() {
 });
 ```
 
-It logs `this` as the same as `box`. The way you can think about this is you look at what got called `addEventListener`, and you look at the thing to the left of it, `box`. What's `box`? That's the `div` with the class of `box` that we have. 
+It logs `this` as the same as `box`. The way you can think about this is you look at what got called, `addEventListener`, and you look at the thing to the left of it, `box`. What's `box`? That's the `div` with the class of `box` that we have. 
 
 That's good. But, if you swap this out with an arrow function here, watch what happens:
  
@@ -84,9 +84,9 @@ That's because when you use an arrow function, the value of `this` is **not rebo
 
 What's the parent scope of this? It's `Window`, as in the browser window. 
 
-If you use your console here and type `this`, you'll see that `this` is equal to `Window`, because it's not being bound to anything. It ends up by the window.
+If you use your console here and type `this`, you'll see that `this` is equal to `Window`. Because it's not being bound to anything, `this` ends up referring to the window.
 
-You don't just want to go willy-nilly using arrow functions everywhere, because it's just less to type. You need to know what the benefits and the drawbacks of them are. In this case I don't want an arrow function, because I need the keyword to reference the actual box that got clicked. That would be even more important if I had a whole bunch of them.
+You don't just want to go willy-nilly using arrow functions everywhere, because it's just less to type. You need to know what the benefits and the drawbacks are. In this case I don't want an arrow function, because I need the keyword to reference the actual box that got clicked. That would be even more important if I had a whole bunch of them.
 
 We can't use an arrow function there, so i'm going to bring back the regular function.
 
@@ -174,7 +174,7 @@ box.addEventListener('click', function() {
 });
 ```
 
-That's works, but not the greatest, because we have this weird `self`, or some of you would like to say `var that = this;`, cluttering the code with variables.
+That's works, but not the greatest solution, because we have this weird `self`, or some of you would like to say `var that = this;`, cluttering the code with variables.
 
 Fortunately, we don't need to do that anymore if I bring that back to `this`. What we need to do is just simply make the nested function it an arrow function:
  
@@ -229,7 +229,7 @@ box.addEventListener('click', function() {
 
 I'm just using variables so we still have this problem.
 
-Let's add an `if` statement to switch our variables around. This is going to look forward into our destructuring exercise, but as little hot tip. If we want to switch two variables with ES6 you can simply put them in an array:
+Let's add an `if` statement to switch our variables around. This is going to look forward into our destructuring exercise, but works as a little hot tip. If we want to switch two variables with ES6 you can simply put them in an array:
 
 ```js
 const box = document.querySelector('.box');

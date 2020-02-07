@@ -1,4 +1,4 @@
-Before you start going absolutely bananas on using arrow functions everywhere, we need to chat. **Arrow functions don't replace regular functions**. Just like Flexbox and floats, pixels and rems, and anything else new that comes along, the older thing still retains lots of utility because it works differently than the new thing. 
+Before you start going absolutely bananas using arrow functions everywhere, we need to chat. **Arrow functions don't replace regular functions**. Just like Flexbox and floats, pixels and rems, and anything else new that comes along, the older thing still retains lots of utility because it works differently than the new thing. 
 
 We talked about the benefits of ES6 Arrow Functions in earlier videos and blog posts but let's go through a couple examples of when you probably _don't want an arrow function_. All of these are just going to boil down to not having the keyword `this`, but there are also different use cases that you'd run into. 
 
@@ -108,8 +108,6 @@ const subie = new Car('Subaru', 'white');
 
 Let's go ahead and look at them by calling them in the console. You'll see that `subie` comes back as `Car {make: "Subaru", colour: "white"}`, and `beemer` will come back as `Car {make: "BMW", colour: "blue"}`, which is what we'd expect.
 
-
-
 Now, after the fact, I added on this prototype method:
 
 ```js
@@ -120,13 +118,13 @@ Car.prototype.summarize = () => {
 
 What that allows us to do is that, even after these cars have been created, we can add methods onto all of them. With our `Car.prototype.summarize` method set, let's type into the console: `subie.summarize`.
 
-If you're using Chrome's console, you'll see that it auto-completes the method, because it's available to you. Even though we added it after we created the `Car`, because I added it to the `prototype`, it's available in every object that has been created from there.
+If you're using Chrome's console, you'll see that it auto-completes the method, because it's available to you. Even though we added it after we created the `Car`. Because I added it to the `prototype`, it's available in every object that has been created from there.
 
-What this `prototype` does is it returns `this.make`, which is the make that we passed in, and `this.color` in a sentence.
+What this `prototype` does is it returns `this.make`, which is the make that we've passed in, and `this.color` in a sentence.
 
-However, with our example, `this.car` is `undefined` and the `colour` is `undefined`. Why is that? 
+However, with our example, `this.car` is `undefined` and `colour` is `undefined`. Why is that? 
 
-It's because we tried to be cool. We tried to be a bit of a hot shot here by using an arrow function. Again, why don't we use an arrow function here? Because we explicitly need the keyword `this`, we have to use a regular function:
+It's because we tried to be cool. We tried to be a bit of a hot shot by using an arrow function. Again, why shoulnd't we use an arrow function here? Because we explicitly need the keyword `this`. We have to use a regular function instead:
 
 ```js
 Car.prototype.summarize = function() {
@@ -136,9 +134,9 @@ Car.prototype.summarize = function() {
 
 Now, if we call `subie.summarize`, it says it's a white Subaru, and by calling `beemer.summarize`, we get BMW in blue. 
 
-Again, we must use a regular function for that. 
+Again, we must use a regular function for that.
 
-### 4: When we need an arguments Object
+### 4: The `arguments` Object
 
 For our last example, this is a little bit different:
 
@@ -154,7 +152,7 @@ const orderChildren = () => {
 
 This example doesn't have to do with the keyword `this`, but instead shows that we don't have access to the `arguments` object when we use an arrow function.
 
-This is helpful for when we want to run a function like `orderChildren` here, which can take unlimited arguments.
+This is helpful for when we want to run a function like `orderChildren`, which can take unlimited arguments.
 
 It might take one, it might take 100. It's going to just say "This child was born #1", or whichever.
 
@@ -174,6 +172,6 @@ const orderChildren = function() {
 }
 ```
 
-**Note:** Another fix for this is to use a `...rest` param to collect all the arguments into an array. We will learn all about that in the rest videos and blog posts!
+**Note:** Another fix for this is to use a `...rest` param to collect all the arguments into an array. We will learn all about this in the videos and blog posts on rest!
 
-Again, to go through all those really quickly. Make sure that you aren't just using arrow functions willy-nilly. In general, if you do not need the `arguments` object or you do not need `this`, or you know that you will not need it in the future, then you can feel free to go ahead and use an arrow function on everything else.
+Again, to go through all those really quickly, make sure that you aren't just using arrow functions willy-nilly. In general, if you do not need the `arguments` object or you do not need `this`, or you know that you will not need it in the future, then feel free to go ahead and use an arrow function.
