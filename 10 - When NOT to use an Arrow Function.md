@@ -1,6 +1,6 @@
 Before you start going absolutely bananas on using arrow functions everywhere, we need to chat. **Arrow functions don't replace regular functions**. Just like Flexbox and floats, pixels and rems, and anything else new that comes along, the older thing still retains lots of utility because it works differently than the new thing. 
 
-We talked about the benefits of ES6 Arrow Functions in earlier videos and blog posts but let's go through a couple examples of when you probably _don't want an arrow function_. All of these are just going to boil down to not having the keyword `this`, but there are also different use cases that you'd run into. 
+We talked about the benefits of ES6 Arrow Functions in earlier videos and blog posts, but let's go through a couple examples of when you probably _don't want an arrow function_. All of these are just going to boil down to not having the keyword `this`, but there are also different use cases that you'd run into. 
 
 ### #1: Click Handlers
 
@@ -36,7 +36,7 @@ button.addEventListener('click', () => {
 });
 ```
 
-Remember: as we discussed with arrow functions, the keyword `this` is not bound to that element. If we use a regular function, the keyword `this` will be bound to the element we clicked!
+Remember: as we discussed with arrow functions, the keyword `this` is not bound to that element. If we use a regular function, the keyword `this` will be bound to the element we clicked:
 
 ```js
 const button = document.querySelector('#pushy');
@@ -46,11 +46,11 @@ button.addEventListener('click', function() {
 });
 ```
 
-In the console, `this` is now referring to our button, and our big yellow button is actually working. The sames rules apply with jQuery, Google Maps or any other DOM library you are using.
+In the console, `this` is now referring to our button, and our big yellow button is actually working. The same rules apply with jQuery, Google Maps, or any other DOM library you are using.
 
 ### #2: Object Methods
 
-Now, let's take a look at this next one, when we need a method to bind to an object. 
+Now, let's take a look at this next one, when we need a method to bind to an object: 
 
 ```js
 const person = {
@@ -80,11 +80,11 @@ const person = {
 }
 ```
 
-There we go. That will actually work, because that's a full on function, and not an arrow function.
+There we go. That will actually work, because that's a full on function and not an arrow function.
 
 ### 3: Prototype Methods
 
-As our third example, we'll talk about when we need to add a prototype method. 
+As our third example, we'll talk about when we need to add a prototype method: 
 
 ```js
 class Car {
@@ -118,9 +118,9 @@ Car.prototype.summarize = () => {
 };
 ```
 
-What that allows us to do is that, even after these cars have been created, we can add methods onto all of them. With our `Car.prototype.summarize` method set, let's type into the console: `subie.summarize`.
+What that allows us to do is, even after these cars have been created, we can add methods onto all of them. With our `Car.prototype.summarize` method set, let's type into the console: `subie.summarize`.
 
-If you're using Chrome's console, you'll see that it auto-completes the method, because it's available to you. Even though we added it after we created the `Car`, because I added it to the `prototype`, it's available in every object that has been created from there.
+If you're using Chrome's console, you'll see that it auto-completes the method because it's available to you. Even though we added it after we created the `Car`, because I added it to the `prototype`, it's available in every object that has been created from there.
 
 What this `prototype` does is it returns `this.make`, which is the make that we passed in, and `this.color` in a sentence.
 
@@ -138,7 +138,7 @@ Now, if we call `subie.summarize`, it says it's a white Subaru, and by calling `
 
 Again, we must use a regular function for that. 
 
-### 4: When we need an arguments Object
+### 4: When We Need an Arguments Object
 
 For our last example, this is a little bit different:
 
@@ -162,7 +162,7 @@ As an example, let's type into the console `orderChildren('jill', 'wes', 'jenna'
 
 This is because `arguments` is a keyword that we have in our `orderChildren`. That's going to give us an `Array` or array-ish value of everything that was passed in. 
 
-However, we do not get the `arguments` object if we use an arrow function. However, when we use a regular function, it is going to give us the actual content that we need.
+However, we do not get the `arguments` object if we use an arrow function. However, when we use a regular function, it is going to give us the actual content that we need:
 
 ```js
 const orderChildren = function() {
