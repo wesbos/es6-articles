@@ -1,4 +1,4 @@
-The last example we 'stepped', which is to say that we waited for the post to come back before we actually found the author because we needed to know who the author of the post was before we could hydrate the author. The first thing needed to happen before the second thing could happen. It's sort of a waterfall approach. 
+The last example we 'stepped', which is to say that we waited for the post to come back before we actually found the author because we needed to know who the author of the post was before we could hydrate the author. The first thing needed to happen before the second thing could happen. It's sort of waterfall approach. 
 
 In some cases, you just want to fire them all off at the exact same time, because they're not dependent on each other, and you want to get two things back, or four things back, as soon as possible.
 
@@ -45,7 +45,7 @@ Promise
 ```
 [2:04]
 
-In the console, you should notice that it takes two seconds to come back. This is because every `Promise` in the function has to finish before we can run the `.then` to get a result. In this case, our longest `promise` takes two seconds. So for example, if a `promise` takes takes 10 seconds, your `Promise.all` is going to take 10 seconds to resolve. If one takes 15 seconds, it's going to take 15 seconds. The slowest response decides how long these things should actually take.
+In the console, you should notice that it takes two seconds to come back. This is because every `Promise` in the function has to finish before we can run the `.then` to get a result. In this case, our longest `promise` takes two seconds. So for example, if a `promise` takes 10 seconds, your `Promise.all` is going to take 10 seconds to resolve. If one takes 15 seconds, it's going to take 15 seconds. The slowest response decides how long these things should actually take.
 
 In our case, the console should return an array of `[Object, Array[2]]`, where the first item in the array is our `weather` object, `"Sunny with Clouds"` and `temp: 29`, and our second item is our array of `tweets`.
 
@@ -100,7 +100,7 @@ You can get `browser-sync` if you don't already have a way of spinning up a serv
 
 So once you get that all going, let's go ahead and take a look at our console for `responses`, which we'll find is an array of two things. 
 
-We got the first response that comes back from Wesbos.com, and we got the second response that comes back from the Paris transit system but we don't see the data in our `body`... we actually have a problem where we have to convert a readable stream into json, right? This is the problem we had on the first example. 
+We got the first response that comes back from Wesbos.com, and we got the second response that comes back from the Paris transit system, but we don't see the data in our `body`... we actually have a problem where we have to convert a readable stream into json, right? This is the problem we had on the first example. 
 
 Here's how to do that with two things: 
 
@@ -123,7 +123,7 @@ We actually use `res` instead of `responses` here, because there are many differ
 
 Don't just assume that your APIs or your AJAX requests are always going to be json, because it could be any of those data types.
 
-What are we doing?  Our response is, in this case, in an array, and `.map` takes every item out of an array, does something to it, and then returns a new array. 
+What are we doing? Our response is, in this case, in an array, and `.map` takes every item out of an array, does something to it, and then returns a new array. 
 
 What we're doing here, is we're taking the array of `responses` and taking each one and calling `.json()` on it. This returns a second promise, which we can call `.then` on, and that should then, responses, that should give us some real data:
  
@@ -141,4 +141,4 @@ Promise.all([postsPromise, streetCarsPromise])
 ``` 
 So if we open this up, we'll see our API data in an array. In this case, we got about 10 posts, and an object containing some information about the Paris transit system.
 
-So what we've done overall here is using a `Promise.all` on our initial promises, `postsPromise` and `streetCarsPromise`. Then when both of those promises come back, we run `.json()` on all of them. Then, when both of those come back from being turned from just regular data into json, which is instant, then this final `promise` then is called and we can do whatever it is that we want with that data.
+So what we've done overall here is using a `Promise.all` on our initial promises, `postsPromise` and `streetCarsPromise`. Then when both of those promises come back, we run `.json()` on all of them. Then, when both of those come back from being turned from just regular data into json, which is instant, then this final `promise` is called, then we can do whatever we want with that data.
