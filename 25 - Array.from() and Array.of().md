@@ -1,8 +1,8 @@
-We have a whole new bunch of new array methods added in ES6. I'm going to talk about `.from` and `.of` first. The reason I'm going to talk about these two together is because they are not on the prototype. 
+We have a whole new bunch of new array methods added in ES6. I'm going to talk about `.from` and `.of` first. The reason I'm going to talk about these two together is because they are not on the prototype.
 
 If we look at an array like `const ages=[23,34,234];`, you can't call `ages.from()` or `ages.of()`. Why? Because they are not on the prototype, they are static methods on the array itself, so you can call `Array.of()` and `Array.from()`.
 
-What do these do? `Array.from` will take something that is array-ish and turn it into a true array. There's couple situations where we often need that, and that is when we are working with DOM elements.
+What do these do? `Array.from` will take something that is array-ish and turn it into a true array. There are a couple of situations where we often need that, and that is when we are working with DOM elements.
 
 ```html
 <div class="people">
@@ -26,7 +26,7 @@ const people = document.querySelector('.people p');
 const names = people.map(person => person.textContent);
 ```
 
-Using that, we get an error: `people.map is not a function`. 
+Using that, we get an error: `people.map is not a function`.
 
 Why is that? Let's do a `console.log` of `people`, open it up in the inspector, and you can see we have a length, but the prototype is not an `Array`, it's a `NodeList`.
 
@@ -41,7 +41,7 @@ const peopleArray = Array.from(people);
 console.log(peopleArray);
 ```
 
-If we open `peopleArray` in the inspector, its prototype is now `Array`, and you open that sucker up, and you see absolutely all the methods that you're probably used to. 
+If we open `peopleArray` in the inspector, its prototype is now `Array`, and you open that sucker up, and you see absolutely all the methods that you're probably used to.
 
 You can call `Array.from` onto it:
 
@@ -53,7 +53,7 @@ const names = peopleArray.map(person => person.textContent);
 ```
 We'll get our `names` array, which is actually everyone's name.
 
-Similarly, we can have also wrapped our querySelector right into it, and then we don't need that second variable, we can just map over the people:
+Similarly, we could have also wrapped our `querySelector` right into it, and then we don't need that second variable and can just map over the people:
 
 ```js
 const people = Array.from(document.querySelectorAll('.people p'));
@@ -74,24 +74,24 @@ Another use case is that if we want to convert the arguments object into an actu
 
 ```js
 function sumAll() {
-    console.log(arguments)
+    console.log(arguments);
 }
 
 sumAll(2,34,23,234,234,234234,234234,2342);
 ```
 
-We just did an example like this when we looped over it. However, if you want to use `reduce`, here's how to actually do that. In the inspector, `arguments` looks like an array, and that would be a perfect use case for `reduce`:
- 
+We just did an example like this when we looped over it. However; if you want to use `reduce`, here's how to actually do that. In the inspector, `arguments` looks like an array, and that would be a perfect use case for `reduce`:
+
 ```js
 function sumAll() {
-    console.log(arguments)
+    console.log(arguments);
     return arguments.reduce((prev,next) => prev + next, 0);
 }
 
 sumAll(2,34,23,234,234,234234,234234,2342);
 ```
 
-That should return `arguments.reduce`, right? But it doesn't, with the error: `arguments.reduce is not a function`. 
+That should return `arguments.reduce`, right? But it doesn't, with the error: `arguments.reduce is not a function`.
 
 Why not? Looking into our `console.log(arguments)`, do we see `arguments.reduce`? Looking into its prototype, you don't see `.reduce`. Why not? Because this is `arguments`. It is not an array, it's array-ish.
 
@@ -118,6 +118,6 @@ Next up, we have `Array.of`. It's pretty straight forward. Pretty much how it wo
 const ages =  Array.of(12,4,23,62,34);
 ```
 
-That's going to create an array from every single that argument you pass it. 
+That's going to create an array from every single argument you pass it.
 
 That's it. There is nothing else much more to `Array.of`. That's one of those you put in your back pocket, because you might need it at some point.
