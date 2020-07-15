@@ -1,4 +1,4 @@
-If you work on a team or an open source project with other people, it's helpful to have an ESLint file right in your Git repo, and then you can have what's called a Git hook, which will not allow anyone to commit any code, unless it first passes the ESLint rule. That's really important because than you're going to keep up code quality for everyone that touched that project.
+If you work on a team or an open source project with other people, it's helpful to have an ESLint file right in your Git repo, and then you can have what's called a Git hook, which will not allow anyone to commit any code, unless it first passes the ESLint rule. That's really important because then you're going to keep up code quality for everyone that touched that project.
 
 Starting from scratch, let's say there's no predefined folder you're going to get. Go ahead and use the folder you've been testing out ESLint so far in, because we'll need that as a base. Open the folder in your terminal and type `git init ES6git`. It should make a folder called `ES6git`
 
@@ -28,9 +28,7 @@ But as soon as I hit enter or return, we get our error message and our commit is
 
 So with our check, you get the same four errors here that we got in our manual lint earlier. What we have to do is go back to our code here, and we look at all the different errors. 
 
-First error, unexpected var. I should have used const. Then next error, X is defined but never used, so I should have said console.log X. Infix operators must be spaced. I forgot the space there, and missing semicolon. I've got to put a semicolon on the end there.
-
-So we get `Unexpected varm use let or const instead`, `'x' is defined but never used`, `Infix operators must be spaced`, and of course, our `Missing semicolon`.
+First error, `unexpected var`. I should have used `const`. Then next error, `x is defined but never used`, so I should have said `console.log(x)`. `Infix operators` must be spaced. I forgot the space there, and missing semicolon. I've got to put a semicolon on the end there.
 
 So let's fix it up:
 

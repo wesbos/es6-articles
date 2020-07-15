@@ -1,4 +1,4 @@
-A really great use case for spreads is when you spread into a function. Now, let's take a look at this example. I've got my inventors array right here, and I want to take the items from newInventors and put them into Inventors. I don't want a third array. I don't want to overwrite the entire array. I just want to tack them onto the end.
+A really great use case for spreads is when you spread arguments into a function. Now, let's take a look at this example. I've got my `inventors` array right here, and I want to take the items from `newInventors` and put them into `inventors`. I don't want a third array. I don't want to overwrite the entire array. I just want to tack them onto the end.
 
 ```js
 const inventors = ['Einstein', 'Newton', 'Galileo'];
@@ -45,7 +45,7 @@ Now we don't have to worry about any of that apply, or this, or any of these thi
 
 We simply just spread right into the functions. We've been spreading into arrays, but you can also spread into a function where every single item of the array is going to be used as an argument. 
 
-Let's build another example ourselves where we have a function that says in an alert "Hey there first last." 
+Let's build another example ourselves where we have a function that says in an alert "Hey there " followed by two variables labeled `first` and `last`. 
 
 ```js
 const name = ['Wes', 'Bos'];

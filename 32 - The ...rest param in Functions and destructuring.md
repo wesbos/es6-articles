@@ -1,15 +1,14 @@
-Whenever you see three little dots, it's not just a spread. It could also be what's called a rest param. Even though it looks to be the exact same thing, it's actually the exact opposite thing. Let's think about that for a second.
+Whenever you see three little dots, it's not just a spread. It could also be what's called a **rest param**. Even though it looks to be the exact same thing, it's actually the exact opposite thing. Let's think about that for a second.
 
 If the **spread** param takes one thing, which is an array, and **unpacks it into multiple items**, or takes a string and unpacks it into multiple items of an array, the **rest** param does the exact opposite. It takes multiple things and **packs it into a single array**.
 
-There's two places where you'll use a rest param. That is first in a function, and second in a destructuring situation. 
-
+There are two places where you'll use a rest param. That is first in a function, and second in a destructuring situation. 
 
 Let's say we have a function called `convertCurrency`, and it takes two things: a `rate` which is known, but it's also going to take a unknown amount of currency. Here we don't really know how many the person is going to pass. 
 
 Now you might be saying, "That's fine, don't pass any arguments there, and use the arguments object." The problem here is that we actually want the first thing to be the `rate`, and then the rest of them to be the amounts that the person would like to convert. 
  
-Let's say we're going to convert currency, and we want to convert at $1.54 per dollar. Then we want to pass a whole bunch of dollar values that we have. Before now, there wasn't really a great way to do that, but now we have the rest param, which can pack the rest of them into an array:
+Let's say we're going to convert currency, and we want to convert at $1.56 per dollar. Then we want to pass a whole bunch of dollar values that we have. Before now, there wasn't really a great way to do that, but now we have the rest param, which can pack the rest of them into an array:
 
 ```js
 function convertCurrecnty(rate, ...amounts){
@@ -47,11 +46,11 @@ We should be able to get an array of all of those converted currency values.
 You can use as many arguments as you need. If you had `rate`, and `tax`, and `tip`, and then amounts, what that would give us is three things. Let's take a look here:
  
 ```js
-  function convertCurrecnty(rate, tax, tip, ...amounts){
+  function convertCurrency(rate, tax, tip, ...amounts){
      console.log(rate, tax, tip, amounts); 
-     return amounts.map(amount => amount * rate);
+     return amounts.map(amount => (amount + amount * tax + amount * tip) * rate);
   }
-const amounts = convertCurrecnty(1.56, 10, 23, 52, 1, 56);
+const amounts = convertCurrecnty(1.56, 0.13, 0.15 10, 23, 52, 1, 56);
 ``` 
 In the console we can see that we get our `rate`, `tax`, and `tip`, and if you open it in your inspector you'll see that it's a true array, not an arguments object, or anything weird and array-ish. It's a true array.
   
@@ -96,4 +95,4 @@ We looked at another example earlier, where we had a team array. The first perso
 ```
 So if we run that, we'll get `Wes`, and `Kait`, and because we used the rest param, we get an array of players, with `Lux`, `Sheena` and `Kelly`.
 
-The rest param might not something you're going to use all the time, but it really helps you when you don't have to do any splicing or counting on indexes. You can just say, "Just give me the rest," for either a function definition, or for when you're destructuring an array.
+The rest param might not be something you're going to use all the time, but it really helps you when you don't have to do any splicing or counting on indexes. You can just say, "Just give me the rest," for either a function definition, or for when you're destructuring an array.
