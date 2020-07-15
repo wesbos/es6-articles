@@ -15,14 +15,14 @@ What do these do? `Array.from` will take something that is array-ish and turn it
 Let's go ahead and select and `console.log` all the people:
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 console.log(people);
 ```
 
 But what if I wanted just an array of the people's names? I could use `.map`:
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 const names = people.map(person => person.textContent);
 ```
 
@@ -36,7 +36,7 @@ What do we need to do in order to make this map work? We simply would have to ma
 
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 const peopleArray = Array.from(people);
 console.log(peopleArray);
 ```
@@ -46,7 +46,7 @@ If we open `peopleArray` in the inspector, its prototype is now `Array`, and you
 You can call `Array.from` onto it:
 
 ```js
-const people = document.querySelector('.people p');
+const people = document.querySelectorAll('.people p');
 const peopleArray = Array.from(people);
 console.log(peopleArray);
 const names = peopleArray.map(person => person.textContent);
@@ -68,9 +68,9 @@ const peopleArray = Array.from(people, person => person.textContent);
 console.log(peopleArray);
 ```
 
-### Converting Arguments Object to an Array
+### Converting the `arguments` Object to an Array
 
-Another use case is that if we want to convert the arguments object into an actual array.
+Another use case is that if we want to convert the `arguments` object into an actual array.
 
 ```js
 function sumAll() {

@@ -2,7 +2,7 @@
 
 Did you know Destructuring also works with arrays? 
 
-Sometimes we have data where it's based on its index - or it's place in the array. Let's say you want to get the first, the second and the third thing out of that array.
+Sometimes we have data which is based on its index - or it's place in the array. Let's say you want to get the first, the second and the third thing out of that array.
 
 Traditionally we might be able to do something like this:
 
@@ -37,7 +37,7 @@ const data = 'Basketball,Sports,90210,23';
 ```
 
 
-That's the item name, the item category, the item SKU, and the item inventory left on hand. Problem is that it's just a string. That's not really helping us out. We do know that one thing that we can do if the data is perfectly separated by some sort of separator is we could use `data.split()` to split it up based on the comma. 
+That's the item name, the item category, the item SKU, and the item inventory left on hand. Problem is that it's just a string. That's not really helping us out. We do know that one thing we can do if the data is perfectly separated by some sort of separator is using `data.split()` to split it up based on the comma. 
 
 ```js
 const [itemName, category, sku, inventory] = data.split(',');
@@ -55,7 +55,7 @@ What happens to them when you destructure something that is not the same length 
 
 ### A Look Ahead to ES6 Destructuring with ...rest 
 
-We're going to learn a more about the JavaScript ...rest in a future videos and blog posts, but There is a helpful use case in destructuring with using the rest. Let's say I have a team, and I want to know who's the **captain**, who's he **assisting captain**, and who is **the rest of the actual team**? I'm going to make myself a quick array here:
+We're going to learn more about the JavaScript ...rest in a future videos and blog posts, but there is a helpful use case in destructuring with using the rest. Let's say I have a team, and I want to know who's the **captain**, who's the **assisting captain**, and who is in **the rest of the actual team**? I'm going to make myself a quick array here:
 
 ```js
 const team = ['Wes', 'Harry', 'Sarah', 'Keegan', 'Riker'];

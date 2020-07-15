@@ -1,6 +1,8 @@
-We have a new type of loop in JavaScript, and that is the `for of loop` which is used to loop over any type of data that is an iterable. We're going to learn all about different types of iterables, and we're going to learn why this `for of` loop is so useful when we hit things like generators and maps and sets and so on. For now we want to get an idea as to how this loop actually works.
+We have a new type of loop in JavaScript, and that is the `for of loop` which is used to loop over any type of data that is an iterable.
 
-What is an iterable? An iterable is anything that can be looped over. If you have an array, you can loop over an array, or a string, or a map, or a set, or a generator. We're going to look at all kinds of different examples as to when you can do it, but let's get going with looking at some of the existing loops first, and see what are the shortcomings of our existing loops, and why does `for of` shine above all of them in a couple of use cases.
+We're going to learn all about different types of iterables, and we're going to learn why this `for of` loop is so useful when we hit things like generators and maps and sets and so on. For now we want to get an idea as to how this loop actually works.
+
+What is an iterable? An iterable is anything that can be looped over. If you have an array, you can loop over an array, or a string, or a map, or a set, or a generator. We're going to look at all kinds of different examples as to when you can do it, but let's get going  looking at some of the existing loops first, see what are their shortcomings, and why does `for of` shine above all of them in a couple of use cases.
 
 For the first one, we've got a survey right here, which is just a regular array with four items in it.
  
@@ -153,7 +155,7 @@ You may say, "That's fine but I never do that," but there are a lot of libraries
 
 For example, MooTools is known for modifying the prototype here. 
 
-If I am on a website; I'm not even going to use MooTools here, but I'm going to make an array with `var` names, and I want to iterate over them. I would say:
+If I am on a website, I'm not even going to use MooTools here, but I'm going to make an array with `var` names, and I want to iterate over them. I would say:
 
 ```js
 var names = ['wes', 'lux']
