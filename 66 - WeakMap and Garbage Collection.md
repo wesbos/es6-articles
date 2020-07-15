@@ -13,7 +13,7 @@ const weak = new WeakMap();
 
 
 strong.set(dog1, 'Snickers is the best!');
-strong.set(dog2, 'Sunny is the 2nd best!');
+weak.set(dog2, 'Sunny is the 2nd best!');
 ```
 
 Notice how we're using the keys here, which are objects.
@@ -37,7 +37,7 @@ const weak = new WeakMap();
 
 
 strong.set(dog1, 'Snickers is the best!');
-strong.set(dog2, 'Sunny is the 2nd best!');
+weak.set(dog2, 'Sunny is the 2nd best!');
 
 dog1 = null;
 dog2 = null;
